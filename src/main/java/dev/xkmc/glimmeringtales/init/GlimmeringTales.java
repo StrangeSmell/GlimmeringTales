@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.init;
 
+import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import dev.xkmc.l2core.init.reg.simple.Reg;
 import dev.xkmc.l2core.serial.config.PacketHandlerWithConfig;
@@ -28,6 +29,7 @@ public class GlimmeringTales {
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
 
 	public GlimmeringTales() {
+		GTRecipes.register();
 	}
 
 	@SubscribeEvent
