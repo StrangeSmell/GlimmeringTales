@@ -11,6 +11,7 @@ public enum GTLang {
 
 	JEI_STRIKE_ITEM("jei.strike_item", "Lightning Strikes Item", 0),
 	JEI_STRIKE_BLOCK("jei.strike_block", "Lightning Strikes Block", 0),
+	JEI_TRANSFORM("jei.transform", "Item Special Transformation", 0),
 	;
 
 	final String id, def;

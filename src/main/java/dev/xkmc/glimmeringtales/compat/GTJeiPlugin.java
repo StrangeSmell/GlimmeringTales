@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.compat;
 
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -13,6 +14,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.block.Blocks;
 
+import java.util.List;
+
 @JeiPlugin
 public class GTJeiPlugin implements IModPlugin {
 
@@ -22,6 +25,7 @@ public class GTJeiPlugin implements IModPlugin {
 
 	public final StrikeBlockRecipeCategory STRIKE_BLOCK = new StrikeBlockRecipeCategory();
 	public final StrikeItemRecipeCategory STRIKE_ITEM = new StrikeItemRecipeCategory();
+	public final ItemTransformationRecipeCategory TRANSFORM = new ItemTransformationRecipeCategory();
 
 	public IGuiHelper GUI_HELPER;
 
@@ -44,6 +48,7 @@ public class GTJeiPlugin implements IModPlugin {
 		GUI_HELPER = helper;
 		registration.addRecipeCategories(STRIKE_BLOCK.init(helper));
 		registration.addRecipeCategories(STRIKE_ITEM.init(helper));
+		registration.addRecipeCategories(TRANSFORM.init(helper));
 	}
 
 	@Override
@@ -58,6 +63,10 @@ public class GTJeiPlugin implements IModPlugin {
 				.getAllRecipesFor(GTRecipes.RT_STRIKE_BLOCK.get()).stream().map(RecipeHolder::value).toList());
 		registration.addRecipes(STRIKE_ITEM.getRecipeType(), level.getRecipeManager()
 				.getAllRecipesFor(GTRecipes.RT_STRIKE_ITEM.get()).stream().map(RecipeHolder::value).toList());
+		registration.addRecipes(TRANSFORM.getRecipeType(), List.of(
+				new ItemTransformation(GTItems.DEPLETED_FLAME.asStack(), GTItems.CRYSTAL_FLAME.asStack()),
+				new ItemTransformation(GTItems.DEPLETED_WINTERSTORM.asStack(), GTItems.DEPLETED_WINTERSTORM.asStack())
+		));
 	}
 
 	@Override

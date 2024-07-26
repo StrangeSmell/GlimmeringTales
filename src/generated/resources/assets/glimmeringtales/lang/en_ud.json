@@ -9,6 +9,7 @@
   "glimmeringtales.configuration.title": "uoıʇɐɹnbıɟuoƆ sǝןɐ⟘ buıɹǝɯɯıן⅁",
   "glimmeringtales.jei.strike_block": "ʞɔoןᗺ sǝʞıɹʇS buıuʇɥbıꞀ",
   "glimmeringtales.jei.strike_item": "ɯǝʇI sǝʞıɹʇS buıuʇɥbıꞀ",
+  "glimmeringtales.jei.transform": "uoıʇɐɯɹoɟsuɐɹ⟘ ןɐıɔǝdS ɯǝʇI",
   "glimmeringtales.title": "sǝןɐ⟘ buıɹǝɯɯıן⅁",
   "glimmeringtales.tooltip.consume_block": "ǝɔuǝssǝ qɹosqɐ oʇ %s ʞɔıןɔ ʇɥbıᴚ",
   "glimmeringtales.tooltip.fill_crystal": "%s / %s :ssǝɹboɹԀ",
@@ -18,5 +19,6 @@
   "item.glimmeringtales.crystal_of_nature": "ǝɹnʇɐN ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.crystal_of_winterstorm": "ɯɹoʇsɹǝʇuıM ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.depleted_crystal_of_flame": "ǝɯɐןℲ ɟO ןɐʇsʎɹƆ pǝʇǝןdǝᗡ",
-  "item.glimmeringtales.depleted_crystal_of_winterstorm": "ɯɹoʇsɹǝʇuıM ɟO ןɐʇsʎɹƆ pǝʇǝןdǝᗡ"
+  "item.glimmeringtales.depleted_crystal_of_winterstorm": "ɯɹoʇsɹǝʇuıM ɟO ןɐʇsʎɹƆ pǝʇǝןdǝᗡ",
+  "itemGroup.l2core.glimmeringtales": "sǝןɐ⟘ buıɹǝɯɯıן⅁"
 }

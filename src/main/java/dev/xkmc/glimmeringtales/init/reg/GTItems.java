@@ -5,12 +5,18 @@ import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
 import dev.xkmc.glimmeringtales.content.item.materials.LightningImmuneItem;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTConfigs;
+import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Blocks;
 
 public class GTItems {
+
+	public static final SimpleEntry<CreativeModeTab> TAB = GlimmeringTales.REGISTRATE
+			.buildL2CreativeTab("glimmeringtales", "Glimmering Tales", e ->
+					e.icon(GTItems.CRYSTAL_NATURE::asStack));
 
 	public static final ItemEntry<LightningImmuneItem> CRYSTAL_NATURE;
 	public static final ItemEntry<LightningImmuneItem> CRYSTAL_LIFE, CRYSTAL_FLAME, CRYSTAL_EARTH, CRYSTAL_WINTERSTORM;

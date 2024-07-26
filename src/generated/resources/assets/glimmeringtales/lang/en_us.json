@@ -9,6 +9,7 @@
   "glimmeringtales.configuration.title": "Glimmering Tales Configuration",
   "glimmeringtales.jei.strike_block": "Lightning Strikes Block",
   "glimmeringtales.jei.strike_item": "Lightning Strikes Item",
+  "glimmeringtales.jei.transform": "Item Special Transformation",
   "glimmeringtales.title": "Glimmering Tales",
   "glimmeringtales.tooltip.consume_block": "Right click %s to absorb essence",
   "glimmeringtales.tooltip.fill_crystal": "Progress: %s / %s",
@@ -18,5 +19,6 @@
   "item.glimmeringtales.crystal_of_nature": "Crystal Of Nature",
   "item.glimmeringtales.crystal_of_winterstorm": "Crystal Of Winterstorm",
   "item.glimmeringtales.depleted_crystal_of_flame": "Depleted Crystal Of Flame",
-  "item.glimmeringtales.depleted_crystal_of_winterstorm": "Depleted Crystal Of Winterstorm"
+  "item.glimmeringtales.depleted_crystal_of_winterstorm": "Depleted Crystal Of Winterstorm",
+  "itemGroup.l2core.glimmeringtales": "Glimmering Tales"
 }

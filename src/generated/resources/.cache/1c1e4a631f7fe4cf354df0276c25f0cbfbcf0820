@@ -1,6 +1,6 @@
-// 1.21	2024-07-26T10:20:39.21668	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type)]
-7771cce9b3c2a89ff15f2540f5562e485f5601d7 assets/glimmeringtales/lang/en_ud.json
-14c7c385e19e0c8fbbbbccafb0af7f7ad672e065 assets/glimmeringtales/lang/en_us.json
+// 1.21	2024-07-26T10:51:19.537235	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type)]
+121eb71b41bee69e4e967c2d77013ed3e4307ad6 assets/glimmeringtales/lang/en_ud.json
+1860cb7dd2ac9434f74deccb35bd41439638ce90 assets/glimmeringtales/lang/en_us.json
 55ec0f991ddac9dc3a3e67dee7a5edcf3f04ab78 assets/glimmeringtales/models/item/crystal_of_earth.json
 6db01bec2f244dbeb96e75589364d9dc6d4ad125 assets/glimmeringtales/models/item/crystal_of_flame.json
 66e899543d89febbb7237e5dab51dd2a4a993873 assets/glimmeringtales/models/item/crystal_of_life.json
