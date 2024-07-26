@@ -21,6 +21,7 @@ public class GTJeiPlugin implements IModPlugin {
 	public final ResourceLocation UID = GlimmeringTales.loc("main");
 
 	public final StrikeBlockRecipeCategory STRIKE_BLOCK = new StrikeBlockRecipeCategory();
+	public final StrikeItemRecipeCategory STRIKE_ITEM = new StrikeItemRecipeCategory();
 
 	public IGuiHelper GUI_HELPER;
 
@@ -40,8 +41,9 @@ public class GTJeiPlugin implements IModPlugin {
 	@Override
 	public void registerCategories(IRecipeCategoryRegistration registration) {
 		IGuiHelper helper = registration.getJeiHelpers().getGuiHelper();
-		registration.addRecipeCategories(STRIKE_BLOCK.init(helper));
 		GUI_HELPER = helper;
+		registration.addRecipeCategories(STRIKE_BLOCK.init(helper));
+		registration.addRecipeCategories(STRIKE_ITEM.init(helper));
 	}
 
 	@Override
@@ -52,7 +54,10 @@ public class GTJeiPlugin implements IModPlugin {
 	public void registerRecipes(IRecipeRegistration registration) {
 		var level = Minecraft.getInstance().level;
 		assert level != null;
-		registration.addRecipes(STRIKE_BLOCK.getRecipeType(), level.getRecipeManager().getAllRecipesFor(GTRecipes.RT_STRIKE_BLOCK.get()).stream().map(RecipeHolder::value).toList());
+		registration.addRecipes(STRIKE_BLOCK.getRecipeType(), level.getRecipeManager()
+				.getAllRecipesFor(GTRecipes.RT_STRIKE_BLOCK.get()).stream().map(RecipeHolder::value).toList());
+		registration.addRecipes(STRIKE_ITEM.getRecipeType(), level.getRecipeManager()
+				.getAllRecipesFor(GTRecipes.RT_STRIKE_ITEM.get()).stream().map(RecipeHolder::value).toList());
 	}
 
 	@Override
@@ -63,6 +68,8 @@ public class GTJeiPlugin implements IModPlugin {
 	public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
 		registration.addRecipeCatalyst(Items.TRIDENT.getDefaultInstance(), STRIKE_BLOCK.getRecipeType());
 		registration.addRecipeCatalyst(Blocks.LIGHTNING_ROD.asItem().getDefaultInstance(), STRIKE_BLOCK.getRecipeType());
+		registration.addRecipeCatalyst(Items.TRIDENT.getDefaultInstance(), STRIKE_ITEM.getRecipeType());
+		registration.addRecipeCatalyst(Blocks.LIGHTNING_ROD.asItem().getDefaultInstance(), STRIKE_ITEM.getRecipeType());
 	}
 
 	@Override

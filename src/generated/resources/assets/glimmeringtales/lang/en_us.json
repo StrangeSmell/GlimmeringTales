@@ -1,3 +1,22 @@
 {
-  "glimmeringtales.title": "Glimmering Tales"
+  "glimmeringtales.configuration.crystalOfFlameRequirement": "Crystal of Flame: Lava consumption",
+  "glimmeringtales.configuration.crystalOfFlameRequirement.tooltip": "Range: 1 ~ 1000",
+  "glimmeringtales.configuration.crystalOfWinterstormRequirement": "Crystal of Winterstorm: Powder Snow consumption",
+  "glimmeringtales.configuration.crystalOfWinterstormRequirement.tooltip": "Range: 1 ~ 1000",
+  "glimmeringtales.configuration.materials": "Material properties",
+  "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml": "Glimmering Tales Server Configuration",
+  "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml.title": "Glimmering Tales Server Configuration",
+  "glimmeringtales.configuration.title": "Glimmering Tales Configuration",
+  "glimmeringtales.jei.strike_block": "Lightning Strikes Block",
+  "glimmeringtales.jei.strike_item": "Lightning Strikes Item",
+  "glimmeringtales.title": "Glimmering Tales",
+  "glimmeringtales.tooltip.consume_block": "Right click %s to absorb essence",
+  "glimmeringtales.tooltip.fill_crystal": "Progress: %s / %s",
+  "item.glimmeringtales.crystal_of_earth": "Crystal Of Earth",
+  "item.glimmeringtales.crystal_of_flame": "Crystal Of Flame",
+  "item.glimmeringtales.crystal_of_life": "Crystal Of Life",
+  "item.glimmeringtales.crystal_of_nature": "Crystal Of Nature",
+  "item.glimmeringtales.crystal_of_winterstorm": "Crystal Of Winterstorm",
+  "item.glimmeringtales.depleted_crystal_of_flame": "Depleted Crystal Of Flame",
+  "item.glimmeringtales.depleted_crystal_of_winterstorm": "Depleted Crystal Of Winterstorm"
 }

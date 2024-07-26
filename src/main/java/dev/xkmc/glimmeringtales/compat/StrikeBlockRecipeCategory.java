@@ -2,6 +2,7 @@ package dev.xkmc.glimmeringtales.compat;
 
 import dev.xkmc.glimmeringtales.content.recipe.StrikeBlockRecipe;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.l2complements.content.recipe.DiffusionRecipe;
 import dev.xkmc.l2complements.init.L2Complements;
 import dev.xkmc.l2complements.init.data.LangData;
@@ -32,7 +33,7 @@ public class StrikeBlockRecipeCategory extends BaseRecipeCategory<StrikeBlockRec
 
 	@Override
 	public Component getTitle() {
-		return LangData.IDS.DIFFUSE_TITLE.get();
+		return GTLang.JEI_STRIKE_BLOCK.get();
 	}
 
 	@Override

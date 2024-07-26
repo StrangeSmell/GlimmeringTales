@@ -1,0 +1,10 @@
+{
+  "type": "glimmeringtales:strike_item",
+  "ingredient": {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "result": {
+    "count": 1,
+    "id": "glimmeringtales:crystal_of_nature"
+  }
+}

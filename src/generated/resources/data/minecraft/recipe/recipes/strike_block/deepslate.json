@@ -1,0 +1,9 @@
+{
+  "type": "glimmeringtales:strike_block",
+  "ingredient": "minecraft:deepslate_lapis_ore",
+  "result": {
+    "count": 1,
+    "id": "glimmeringtales:crystal_of_earth"
+  },
+  "transformTo": "minecraft:deepslate"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:magma_block"
+    },
+    "B": {
+      "item": "glimmeringtales:crystal_of_nature"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "glimmeringtales:depleted_crystal_of_flame"
+  }
+}

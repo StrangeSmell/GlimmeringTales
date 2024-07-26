@@ -1,12 +1,13 @@
 package dev.xkmc.glimmeringtales.events;
 
-import dev.xkmc.glimmeringtales.content.item.materials.LightningSensitiveItem;
 import dev.xkmc.glimmeringtales.content.recipe.StrikeBlockRecipe;
+import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
 import dev.xkmc.l2library.init.L2Library;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LightningRodBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,15 +17,17 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.EntityStruckByLightningEvent;
 
-@EventBusSubscriber(modid = L2Library.MODID, bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber(modid = GlimmeringTales.MODID, bus = EventBusSubscriber.Bus.GAME)
 public class MiscServerEventHandler {
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void onEntityStruck(EntityStruckByLightningEvent event) {
 		if (event.getEntity() instanceof ItemEntity ie) {
-			if (ie.getItem().getItem() instanceof LightningSensitiveItem lsi) {
-				ie.setItem(lsi.convertTo(ie.getItem()));
-			}
+			var level = ie.level();
+			var cont = new SingleRecipeInput(ie.getItem());
+			var ans = level.getRecipeManager()
+					.getRecipeFor(GTRecipes.RT_STRIKE_ITEM.get(), cont, level);
+			ans.ifPresent(holder -> ie.setItem(holder.value().assemble(cont, level.registryAccess())));
 		}
 	}
 

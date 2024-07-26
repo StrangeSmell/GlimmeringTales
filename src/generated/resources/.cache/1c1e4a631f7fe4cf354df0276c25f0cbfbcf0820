@@ -1,0 +1,18 @@
+// 1.21	2024-07-26T10:20:39.21668	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type)]
+7771cce9b3c2a89ff15f2540f5562e485f5601d7 assets/glimmeringtales/lang/en_ud.json
+14c7c385e19e0c8fbbbbccafb0af7f7ad672e065 assets/glimmeringtales/lang/en_us.json
+55ec0f991ddac9dc3a3e67dee7a5edcf3f04ab78 assets/glimmeringtales/models/item/crystal_of_earth.json
+6db01bec2f244dbeb96e75589364d9dc6d4ad125 assets/glimmeringtales/models/item/crystal_of_flame.json
+66e899543d89febbb7237e5dab51dd2a4a993873 assets/glimmeringtales/models/item/crystal_of_life.json
+aa8494ac8cc09638452f62a45da6757a73b286eb assets/glimmeringtales/models/item/crystal_of_nature.json
+4e441dcd5e88a1a82b1b6f9cd907a3dfba576fa4 assets/glimmeringtales/models/item/crystal_of_winterstorm.json
+05fa82385b81c3897c470ff0784eb938c1a86083 assets/glimmeringtales/models/item/depleted_crystal_of_flame.json
+6d1734f3814ff6292be31800563f9f3e34af78ad assets/glimmeringtales/models/item/depleted_crystal_of_winterstorm.json
+c428489b9830ffdbfb7499ac57e465f307533924 data/glimmeringtales/advancement/recipes/misc/depleted_crystal_of_flame.json
+aa675587bf109ef0a0dcba62c8c4c9b2f77457b2 data/glimmeringtales/advancement/recipes/misc/depleted_crystal_of_winterstorm.json
+6063ac52cd3d4de4ca3d50844b4d54749da3a86d data/glimmeringtales/advancement/recipes/strike_item/crystal_of_nature.json
+769408493d16e190195564ad76e28e2d15655c2c data/glimmeringtales/recipe/depleted_crystal_of_flame.json
+d615ba2a80eb386198594c59465ab30918aa3404 data/glimmeringtales/recipe/depleted_crystal_of_winterstorm.json
+aa68edff554424efcc5baccef2840a0d8c155fe6 data/glimmeringtales/recipe/recipes/strike_item/crystal_of_nature.json
+be0b5bedea14d169e15cb1d1190e02e88fcfd449 data/minecraft/advancement/recipes/strike_block/deepslate.json
+bccbb10d9a325a275883a0cda947923ae9e9d2d4 data/minecraft/recipe/recipes/strike_block/deepslate.json

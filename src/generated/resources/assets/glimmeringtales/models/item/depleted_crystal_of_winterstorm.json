@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "glimmeringtales:item/depleted_crystal_of_winterstorm"
+  }
+}

@@ -49,6 +49,11 @@ public class StrikeBlockRecipe extends BaseRecipe<StrikeBlockRecipe, StrikeBlock
 	public record Inv(Level level, BlockState state, BlockPos pos) implements RecipeInput {
 
 		@Override
+		public boolean isEmpty() {
+			return false;
+		}
+
+		@Override
 		public ItemStack getItem(int i) {
 			return ItemStack.EMPTY;
 		}

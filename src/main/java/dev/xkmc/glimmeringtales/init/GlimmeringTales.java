@@ -1,5 +1,9 @@
 package dev.xkmc.glimmeringtales.init;
 
+import com.tterrag.registrate.providers.ProviderType;
+import dev.xkmc.glimmeringtales.init.data.GTLang;
+import dev.xkmc.glimmeringtales.init.data.GTRecipeGen;
+import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import dev.xkmc.l2core.init.reg.simple.Reg;
@@ -29,7 +33,9 @@ public class GlimmeringTales {
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
 
 	public GlimmeringTales() {
+		GTItems.register();
 		GTRecipes.register();
+
 	}
 
 	@SubscribeEvent
@@ -44,6 +50,8 @@ public class GlimmeringTales {
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void gatherData(GatherDataEvent event) {
+		REGISTRATE.addDataGenerator(ProviderType.RECIPE, GTRecipeGen::onRecipeGen);
+		REGISTRATE.addDataGenerator(ProviderType.LANG, GTLang::addTranslations);
 	}
 
 	public static ResourceLocation loc(String id) {

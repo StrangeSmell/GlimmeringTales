@@ -1,3 +1,22 @@
 {
-  "glimmeringtales.title": "sǝןɐ⟘ buıɹǝɯɯıן⅁"
+  "glimmeringtales.configuration.crystalOfFlameRequirement": "uoıʇdɯnsuoɔ ɐʌɐꞀ :ǝɯɐןℲ ɟo ןɐʇsʎɹƆ",
+  "glimmeringtales.configuration.crystalOfFlameRequirement.tooltip": "000Ɩ ~ Ɩ :ǝbuɐᴚ",
+  "glimmeringtales.configuration.crystalOfWinterstormRequirement": "uoıʇdɯnsuoɔ ʍouS ɹǝpʍoԀ :ɯɹoʇsɹǝʇuıM ɟo ןɐʇsʎɹƆ",
+  "glimmeringtales.configuration.crystalOfWinterstormRequirement.tooltip": "000Ɩ ~ Ɩ :ǝbuɐᴚ",
+  "glimmeringtales.configuration.materials": "sǝıʇɹǝdoɹd ןɐıɹǝʇɐW",
+  "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml": "uoıʇɐɹnbıɟuoƆ ɹǝʌɹǝS sǝןɐ⟘ buıɹǝɯɯıן⅁",
+  "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml.title": "uoıʇɐɹnbıɟuoƆ ɹǝʌɹǝS sǝןɐ⟘ buıɹǝɯɯıן⅁",
+  "glimmeringtales.configuration.title": "uoıʇɐɹnbıɟuoƆ sǝןɐ⟘ buıɹǝɯɯıן⅁",
+  "glimmeringtales.jei.strike_block": "ʞɔoןᗺ sǝʞıɹʇS buıuʇɥbıꞀ",
+  "glimmeringtales.jei.strike_item": "ɯǝʇI sǝʞıɹʇS buıuʇɥbıꞀ",
+  "glimmeringtales.title": "sǝןɐ⟘ buıɹǝɯɯıן⅁",
+  "glimmeringtales.tooltip.consume_block": "ǝɔuǝssǝ qɹosqɐ oʇ %s ʞɔıןɔ ʇɥbıᴚ",
+  "glimmeringtales.tooltip.fill_crystal": "%s / %s :ssǝɹboɹԀ",
+  "item.glimmeringtales.crystal_of_earth": "ɥʇɹɐƎ ɟO ןɐʇsʎɹƆ",
+  "item.glimmeringtales.crystal_of_flame": "ǝɯɐןℲ ɟO ןɐʇsʎɹƆ",
+  "item.glimmeringtales.crystal_of_life": "ǝɟıꞀ ɟO ןɐʇsʎɹƆ",
+  "item.glimmeringtales.crystal_of_nature": "ǝɹnʇɐN ɟO ןɐʇsʎɹƆ",
+  "item.glimmeringtales.crystal_of_winterstorm": "ɯɹoʇsɹǝʇuıM ɟO ןɐʇsʎɹƆ",
+  "item.glimmeringtales.depleted_crystal_of_flame": "ǝɯɐןℲ ɟO ןɐʇsʎɹƆ pǝʇǝןdǝᗡ",
+  "item.glimmeringtales.depleted_crystal_of_winterstorm": "ɯɹoʇsɹǝʇuıM ɟO ןɐʇsʎɹƆ pǝʇǝןdǝᗡ"
 }
