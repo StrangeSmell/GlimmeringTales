@@ -2,7 +2,7 @@ package dev.xkmc.glimmeringtales.init.data;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
-import dev.xkmc.l2complements.init.data.LangData;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 
 public enum GTLang {
@@ -27,7 +27,7 @@ public enum GTLang {
 		if (objs.length != this.count) {
 			throw new IllegalArgumentException("for " + this.name() + ": expect " + this.count + " parameters, got " + objs.length);
 		} else {
-			return LangData.translate(this.id, objs);
+			return Component.translatable(this.id, objs);
 		}
 	}
 

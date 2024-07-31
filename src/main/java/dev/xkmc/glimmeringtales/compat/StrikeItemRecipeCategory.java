@@ -3,7 +3,6 @@ package dev.xkmc.glimmeringtales.compat;
 import dev.xkmc.glimmeringtales.content.recipe.StrikeItemRecipe;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
-import dev.xkmc.l2complements.init.data.LangData;
 import dev.xkmc.l2core.compat.jei.BaseRecipeCategory;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;

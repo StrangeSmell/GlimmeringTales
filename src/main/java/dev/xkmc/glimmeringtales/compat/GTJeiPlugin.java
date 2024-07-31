@@ -65,7 +65,7 @@ public class GTJeiPlugin implements IModPlugin {
 				.getAllRecipesFor(GTRecipes.RT_STRIKE_ITEM.get()).stream().map(RecipeHolder::value).toList());
 		registration.addRecipes(TRANSFORM.getRecipeType(), List.of(
 				new ItemTransformation(GTItems.DEPLETED_FLAME.asStack(), GTItems.CRYSTAL_FLAME.asStack()),
-				new ItemTransformation(GTItems.DEPLETED_WINTERSTORM.asStack(), GTItems.DEPLETED_WINTERSTORM.asStack())
+				new ItemTransformation(GTItems.DEPLETED_WINTERSTORM.asStack(), GTItems.CRYSTAL_WINTERSTORM.asStack())
 		));
 	}
 
