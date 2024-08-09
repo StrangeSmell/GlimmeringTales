@@ -164,8 +164,9 @@ dependencies {
 
     implementation jarJar(group: 'dev.xkmc', name: 'l2backpack', version: "[${l2backpack_ver},)")
     implementation jarJar(group: 'dev.xkmc', name: 'l2complements', version: "[${l2complements_ver},)")
-    implementation jarJar(group: 'dev.xkmc', name: 'modulargolems', version: "[${modulargolems_ver},)")
-    implementation jarJar(group: 'dev.xkmc', name: 'l2weaponry', version: "[${l2weaponry_ver},)")
+
+    implementation "dev.xkmc:modulargolems:${modulargolems_ver}"
+    implementation "dev.xkmc:l2weaponry:${l2weaponry_ver}"
 
     runtimeOnly jarJar(group: 'dev.xkmc', name: 'better_creative_tabs', version: "[0.1.1,)")
 
