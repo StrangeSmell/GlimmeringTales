@@ -1,7 +1,7 @@
-// 1.21.1	2024-08-12T13:46:26.897179	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type)]
+// 1.21.1	2024-08-12T16:45:20.344084	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type)]
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
-1682db07e3801d1fdf6270423f0caf2a695f64b0 assets/glimmeringtales/lang/en_ud.json
-4c70db381a38563ee48f575ab57a706a510a481d assets/glimmeringtales/lang/en_us.json
+0188dd5860d75ba418ae73d53fce225b6e4dc86e assets/glimmeringtales/lang/en_ud.json
+3fb1fed41bd57b140ae25145b4397c3cce2a23b5 assets/glimmeringtales/lang/en_us.json
 a8bf80e58d57d3c05f21fcaa3f797e25109c3fd0 assets/glimmeringtales/models/block/crystal_vine_0.json
 48fcd1871c263069bccab050df4130b58f380f01 assets/glimmeringtales/models/block/crystal_vine_1.json
 042358e3ac3812f52bf590aba3753fb5930d3d51 assets/glimmeringtales/models/block/crystal_vine_2.json
@@ -25,8 +25,8 @@ aa675587bf109ef0a0dcba62c8c4c9b2f77457b2 data/glimmeringtales/advancement/recipe
 6063ac52cd3d4de4ca3d50844b4d54749da3a86d data/glimmeringtales/advancement/recipes/strike_item/crystal_of_nature.json
 9eac4b17a3353b47b4525c28fa716c002717a996 data/glimmeringtales/data_maps/block/block_spell.json
 b58b13ac763dda774a2fb8e30ab6080516fe43e8 data/glimmeringtales/glimmeringtales/spell/dripstone.json
-d4e9f10c45f7cedc7d16860cf6d43bd8663f524e data/glimmeringtales/l2magic/projectile/dripstone.json
-f76d846171ec496083eea82d9cfc1f33b8b8d29b data/glimmeringtales/l2magic/spell_action/dripstone.json
+3cec1a765183336ab1e25a15c6621ac344f9c89b data/glimmeringtales/l2magic/projectile/dripstone.json
+6b0b2da1aca5449cc46f85f2889a47143c4ac9dd data/glimmeringtales/l2magic/spell_action/dripstone.json
 efa083ada4cd89b6750ff95ff0ecede3a59fa965 data/glimmeringtales/loot_table/blocks/crystal_vine.json
 6a2b299e9337dfb06cc012193ad10123242d2c76 data/glimmeringtales/recipe/crystal_vine.json
 769408493d16e190195564ad76e28e2d15655c2c data/glimmeringtales/recipe/depleted_crystal_of_flame.json

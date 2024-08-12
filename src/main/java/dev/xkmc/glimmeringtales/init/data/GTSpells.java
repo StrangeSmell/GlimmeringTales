@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.init.data;
 
 import com.tterrag.registrate.providers.RegistrateDataMapProvider;
+import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellGenRegistry;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
@@ -32,6 +33,12 @@ public class GTSpells {
 		var builder = pvd.builder(GTRegistries.BLOCK.reg());
 		for (var e : NatureSpellGenRegistry.LIST) {
 			e.regBlock(builder);
+		}
+	}
+
+	public static void addLang(RegistrateLangProvider pvd) {
+		for (var e : NatureSpellGenRegistry.LIST) {
+			e.genLang(pvd);
 		}
 	}
 

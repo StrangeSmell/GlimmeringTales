@@ -10,11 +10,17 @@
           "bypassEntity": true,
           "bypassWall": false,
           "config": "glimmeringtales:dripstone",
-          "life": "40",
+          "life": "20",
           "params": {},
-          "speed": "1"
+          "speed": "0.8"
         },
         "modifiers": [
+          {
+            "type": "l2magic:offset",
+            "x": "0",
+            "y": "-0.45",
+            "z": "0"
+          },
           {
             "type": "l2magic:direction",
             "x": "0",
@@ -34,8 +40,19 @@
                 "face": "FULL"
               },
               {
-                "type": "l2magic:block",
-                "block": "minecraft:pointed_dripstone"
+                "type": "l2magic:move",
+                "child": {
+                  "type": "l2magic:block",
+                  "block": "minecraft:pointed_dripstone"
+                },
+                "modifiers": [
+                  {
+                    "type": "l2magic:offset",
+                    "x": "0",
+                    "y": "-1",
+                    "z": "0"
+                  }
+                ]
               }
             ]
           },

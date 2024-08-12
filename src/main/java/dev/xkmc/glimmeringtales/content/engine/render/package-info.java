@@ -1,7 +1,7 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-package dev.xkmc.glimmeringtales.content.core;
+package dev.xkmc.glimmeringtales.content.engine.render;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 

@@ -5,6 +5,7 @@ import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.data.GTRecipeGen;
 import dev.xkmc.glimmeringtales.init.data.GTSpells;
+import dev.xkmc.glimmeringtales.init.reg.GTEngine;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
@@ -41,6 +42,7 @@ public class GlimmeringTales {
 		GTItems.register();
 		GTRegistries.register();
 		GTRecipes.register();
+		GTEngine.register();
 		Handlers.registerReg(NatureSpell.class, GTRegistries.SPELL);
 	}
 
@@ -60,6 +62,7 @@ public class GlimmeringTales {
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, GTRecipeGen::onRecipeGen);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, GTLang::addTranslations);
 		var init = REGISTRATE.getDataGenInitializer();
+		REGISTRATE.addDataGenerator(ProviderType.LANG, GTSpells::addLang);
 		init.add(EngineRegistry.PROJECTILE, GTSpells::genProjectiles);
 		init.add(EngineRegistry.SPELL, GTSpells::genSpells);
 		init.add(GTRegistries.SPELL, GTSpells::genNature);
