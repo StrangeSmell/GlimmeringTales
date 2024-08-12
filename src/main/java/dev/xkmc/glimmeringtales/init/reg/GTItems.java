@@ -5,6 +5,8 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.glimmeringtales.content.block.crop.LifeCrystalCrop;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
 import dev.xkmc.glimmeringtales.content.item.materials.LightningImmuneItem;
+import dev.xkmc.glimmeringtales.content.item.rune.RuneItem;
+import dev.xkmc.glimmeringtales.content.item.wand.RuneWandItem;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTConfigs;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
@@ -26,39 +28,61 @@ public class GTItems {
 			.buildL2CreativeTab("glimmeringtales", "Glimmering Tales", e ->
 					e.icon(GTItems.CRYSTAL_NATURE::asStack));
 
+	public static final ItemEntry<RuneWandItem> WAND;
+
 	public static final ItemEntry<LightningImmuneItem> CRYSTAL_NATURE;
 	public static final ItemEntry<LightningImmuneItem> CRYSTAL_LIFE, CRYSTAL_FLAME, CRYSTAL_EARTH, CRYSTAL_WINTERSTORM;
 	public static final ItemEntry<DepletedItem> DEPLETED_FLAME, DEPLETED_WINTERSTORM;
 	public static final BlockEntry<LifeCrystalCrop> CRYSTAL_VINE;
+
+	public static final ItemEntry<RuneItem> RUNE_DRIPSTONE;
 
 	private static final DCReg DC = DCReg.of(GlimmeringTales.REG);
 
 	public static final DCVal<Integer> PROGRESS = DC.intVal("progress");
 
 	static {
-		CRYSTAL_NATURE = GlimmeringTales.REGISTRATE.item("crystal_of_nature", LightningImmuneItem::new).register();
-		CRYSTAL_EARTH = GlimmeringTales.REGISTRATE.item("crystal_of_earth", LightningImmuneItem::new).register();
-		CRYSTAL_LIFE = GlimmeringTales.REGISTRATE.item("crystal_of_life", LightningImmuneItem::new).register();
-		CRYSTAL_FLAME = GlimmeringTales.REGISTRATE.item("crystal_of_flame", LightningImmuneItem::new).register();
-		CRYSTAL_WINTERSTORM = GlimmeringTales.REGISTRATE.item("crystal_of_winterstorm", LightningImmuneItem::new).register();
-		DEPLETED_FLAME = GlimmeringTales.REGISTRATE.item("depleted_crystal_of_flame", p ->
-				new DepletedItem(p, () -> Blocks.LAVA, GTConfigs.SERVER.crystalOfFlameRequirement,
-						CRYSTAL_FLAME::get, () -> SoundEvents.BUCKET_FILL_LAVA)
-		).register();
-		DEPLETED_WINTERSTORM = GlimmeringTales.REGISTRATE.item("depleted_crystal_of_winterstorm", p ->
-				new DepletedItem(p, () -> Blocks.POWDER_SNOW, GTConfigs.SERVER.crystalOfWinterstormRequirement,
-						CRYSTAL_WINTERSTORM::get, () -> SoundEvents.BUCKET_FILL_POWDER_SNOW)
-		).register();
 
-		CRYSTAL_VINE = GlimmeringTales.REGISTRATE.block("crystal_vine", LifeCrystalCrop::new)
-				.properties(p -> p.mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak()
-						.sound(SoundType.CROP).pushReaction(PushReaction.DESTROY))
-				.item(ItemNameBlockItem::new).model((ctx, pvd) -> pvd.generated(ctx))
-				.lang("Seed of Nature").tag(Tags.Items.SEEDS).build()
-				.blockstate(LifeCrystalCrop::buildState)
-				.loot(LifeCrystalCrop::builtLoot)
-				.tag(BlockTags.CROPS)
-				.register();
+		{
+			CRYSTAL_NATURE = GlimmeringTales.REGISTRATE.item("crystal_of_nature", LightningImmuneItem::new).register();
+			CRYSTAL_EARTH = GlimmeringTales.REGISTRATE.item("crystal_of_earth", LightningImmuneItem::new).register();
+			CRYSTAL_LIFE = GlimmeringTales.REGISTRATE.item("crystal_of_life", LightningImmuneItem::new).register();
+			CRYSTAL_FLAME = GlimmeringTales.REGISTRATE.item("crystal_of_flame", LightningImmuneItem::new).register();
+			CRYSTAL_WINTERSTORM = GlimmeringTales.REGISTRATE.item("crystal_of_winterstorm", LightningImmuneItem::new).register();
+			DEPLETED_FLAME = GlimmeringTales.REGISTRATE.item("depleted_crystal_of_flame", p ->
+					new DepletedItem(p, () -> Blocks.LAVA, GTConfigs.SERVER.crystalOfFlameRequirement,
+							CRYSTAL_FLAME::get, () -> SoundEvents.BUCKET_FILL_LAVA)
+			).register();
+			DEPLETED_WINTERSTORM = GlimmeringTales.REGISTRATE.item("depleted_crystal_of_winterstorm", p ->
+					new DepletedItem(p, () -> Blocks.POWDER_SNOW, GTConfigs.SERVER.crystalOfWinterstormRequirement,
+							CRYSTAL_WINTERSTORM::get, () -> SoundEvents.BUCKET_FILL_POWDER_SNOW)
+			).register();
+
+			CRYSTAL_VINE = GlimmeringTales.REGISTRATE.block("crystal_vine", LifeCrystalCrop::new)
+					.properties(p -> p.mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak()
+							.sound(SoundType.CROP).pushReaction(PushReaction.DESTROY))
+					.item(ItemNameBlockItem::new).model((ctx, pvd) -> pvd.generated(ctx))
+					.lang("Seed of Nature").tag(Tags.Items.SEEDS).build()
+					.blockstate(LifeCrystalCrop::buildState)
+					.loot(LifeCrystalCrop::builtLoot)
+					.tag(BlockTags.CROPS)
+					.register();
+		}
+
+		{
+			WAND = GlimmeringTales.REGISTRATE.item("wand",
+							p -> new RuneWandItem(p.stacksTo(1).fireResistant()))
+					.register();
+		}
+
+		{
+			RUNE_DRIPSTONE = GlimmeringTales.REGISTRATE.item("dripstone",
+							p -> new RuneItem(p.stacksTo(1).fireResistant(), () -> Blocks.DRIPSTONE_BLOCK))
+					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName())))
+					.lang("Rune: Stalactite")
+					.register();
+		}
+
 	}
 
 	public static void register() {

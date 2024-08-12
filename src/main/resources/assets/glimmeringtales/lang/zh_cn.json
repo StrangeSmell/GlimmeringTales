@@ -1,3 +1,40 @@
 {
-  "glimmeringtales.title": "微光纪事"
+  "glimmeringtales.title": "微光纪事",
+  "itemGroup.l2core.glimmeringtales": "微光纪事",
+
+  "item.glimmeringtales.crystal_of_earth": "地脉宝石",
+  "item.glimmeringtales.crystal_of_flame": "蕴炎宝石",
+  "item.glimmeringtales.crystal_of_life": "生机宝石",
+  "item.glimmeringtales.crystal_of_nature": "自然宝石",
+  "item.glimmeringtales.crystal_of_winterstorm": "风雪宝石",
+  "item.glimmeringtales.crystal_vine": "自然之种",
+  "item.glimmeringtales.depleted_crystal_of_flame": "匮乏的蕴炎宝石",
+  "item.glimmeringtales.depleted_crystal_of_winterstorm": "匮乏的风雪宝石",
+  "item.glimmeringtales.dripstone": "符石: 钟乳石",
+  "item.glimmeringtales.wand": "法杖",
+
+  "block.glimmeringtales.crystal_vine": "生命之藤",
+
+  "element.glimmeringtales.earth": "地脉",
+  "element.glimmeringtales.flame": "蕴炎",
+  "element.glimmeringtales.life": "生机",
+  "element.glimmeringtales.snow": "风雪",
+
+  "glimmeringtales.tooltip.consume_block": "右键[%s]吸收精华",
+  "glimmeringtales.tooltip.fill_crystal": "进度: %s / %s",
+  "glimmeringtales.tooltip.narby_grow": "相邻的作物自然生长至成熟的瞬间才会生长",
+
+  "spell_action.glimmeringtales.dripstone": "岩刺",
+
+  "glimmeringtales.jei.strike_block": "雷击方块",
+  "glimmeringtales.jei.strike_item": "雷击物品",
+  "glimmeringtales.jei.transform": "物品特殊转化",
+  "glimmeringtales.configuration.crystalOfFlameRequirement": "蕴炎宝石：岩浆消耗",
+  "glimmeringtales.configuration.crystalOfFlameRequirement.tooltip": "范围: 1 ~ 1000",
+  "glimmeringtales.configuration.crystalOfWinterstormRequirement": "风雪宝石：细雪消耗",
+  "glimmeringtales.configuration.crystalOfWinterstormRequirement.tooltip": "范围: 1 ~ 1000",
+  "glimmeringtales.configuration.materials": "材料属性",
+  "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml": "微光纪事 - 服务端配置",
+  "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml.title": "微光纪事 - 服务端配置",
+  "glimmeringtales.configuration.title": "微光纪事 - 配置"
 }

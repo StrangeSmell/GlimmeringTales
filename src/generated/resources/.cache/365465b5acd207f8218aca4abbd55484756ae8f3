@@ -1,7 +1,7 @@
-// 1.21.1	2024-08-12T16:45:20.344084	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type)]
+// 1.21.1	2024-08-12T19:15:20.698249	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Patchouli Provider, Tags (damage_type)]
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
-0188dd5860d75ba418ae73d53fce225b6e4dc86e assets/glimmeringtales/lang/en_ud.json
-3fb1fed41bd57b140ae25145b4397c3cce2a23b5 assets/glimmeringtales/lang/en_us.json
+9e4af5381ed1ecfa7e47a8f9995396989a9143ef assets/glimmeringtales/lang/en_ud.json
+27f21f6c86776659bcb41de93b68da66428ba50d assets/glimmeringtales/lang/en_us.json
 a8bf80e58d57d3c05f21fcaa3f797e25109c3fd0 assets/glimmeringtales/models/block/crystal_vine_0.json
 48fcd1871c263069bccab050df4130b58f380f01 assets/glimmeringtales/models/block/crystal_vine_1.json
 042358e3ac3812f52bf590aba3753fb5930d3d51 assets/glimmeringtales/models/block/crystal_vine_2.json
@@ -18,6 +18,8 @@ aa8494ac8cc09638452f62a45da6757a73b286eb assets/glimmeringtales/models/item/crys
 81ec436786ab075a7b25ba538c36a33ff5935070 assets/glimmeringtales/models/item/crystal_vine.json
 05fa82385b81c3897c470ff0784eb938c1a86083 assets/glimmeringtales/models/item/depleted_crystal_of_flame.json
 6d1734f3814ff6292be31800563f9f3e34af78ad assets/glimmeringtales/models/item/depleted_crystal_of_winterstorm.json
+c653da05315a1b098bb80e2e7a673c255833e820 assets/glimmeringtales/models/item/dripstone.json
+862a5728ec5360ef3df6a36fa357fae288f7d207 assets/glimmeringtales/models/item/wand.json
 ef0507da819d40fd56142e3a90c7e96c7439fe5c data/c/tags/item/seeds.json
 7a41145fe85f33ad0aa364bfb041a776a30f0e4f data/glimmeringtales/advancement/recipes/misc/crystal_vine.json
 c428489b9830ffdbfb7499ac57e465f307533924 data/glimmeringtales/advancement/recipes/misc/depleted_crystal_of_flame.json

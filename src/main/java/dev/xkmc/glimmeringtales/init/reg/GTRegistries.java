@@ -3,7 +3,10 @@ package dev.xkmc.glimmeringtales.init.reg;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
+import dev.xkmc.glimmeringtales.content.item.wand.RuneSwapType;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.l2backpack.content.quickswap.type.MatcherSwapType;
+import dev.xkmc.l2backpack.content.quickswap.type.QuickSwapTypes;
 import dev.xkmc.l2core.init.reg.datapack.DataMapReg;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
@@ -30,6 +33,8 @@ public class GTRegistries {
 	public static final SimpleEntry<SpellElement> SNOW = reg("snow", GTItems.CRYSTAL_WINTERSTORM::get);
 	//public static final SimpleEntry<SpellElement> SEA = reg("sea", GTItems.CRYSTAL_NATURE::get);
 	//public static final SimpleEntry<SpellElement> THUNDER = reg("thunder");
+
+	public static final MatcherSwapType SWAP = new RuneSwapType();
 
 	private static SimpleEntry<SpellElement> reg(String id, Supplier<Item> item) {
 		return new SimpleEntry<>(GlimmeringTales.REGISTRATE.generic(ELEMENT, id, SpellElement::new)

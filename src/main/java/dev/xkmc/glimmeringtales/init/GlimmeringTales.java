@@ -9,6 +9,7 @@ import dev.xkmc.glimmeringtales.init.reg.GTEngine;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
+import dev.xkmc.l2backpack.content.common.BaseBagItemHandler;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import dev.xkmc.l2core.init.reg.simple.Reg;
 import dev.xkmc.l2core.serial.config.PacketHandlerWithConfig;
@@ -20,6 +21,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import org.apache.logging.log4j.LogManager;
@@ -55,6 +58,11 @@ public class GlimmeringTales {
 	@SubscribeEvent
 	public static void onDatapackRegistry(DataPackRegistryEvent.NewRegistry event) {
 		event.dataPackRegistry(GTRegistries.SPELL, NatureSpell.CODEC, NatureSpell.CODEC);
+	}
+
+	@SubscribeEvent
+	public static void registerCap(RegisterCapabilitiesEvent event) {
+		event.registerItem(Capabilities.ItemHandler.ITEM, (stack, c) -> new BaseBagItemHandler(stack), GTItems.WAND);
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
