@@ -1,9 +1,9 @@
 {
   "type": "glimmeringtales:strike_block",
-  "ingredient": "minecraft:deepslate_lapis_ore",
+  "ingredient": "minecraft:budding_amethyst",
   "result": {
     "count": 1,
     "id": "glimmeringtales:crystal_of_earth"
   },
-  "transformTo": "minecraft:deepslate"
+  "transformTo": "minecraft:air"
 }

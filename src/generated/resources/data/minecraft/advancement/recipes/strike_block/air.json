@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lapis_lazuli": {
+    "has_amethyst_shard": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:lapis_lazuli"
+            "items": "minecraft:amethyst_shard"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:deepslate"
+        "recipe": "minecraft:air"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_lapis_lazuli"
+      "has_amethyst_shard"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:deepslate"
+      "minecraft:air"
     ]
   }
 }

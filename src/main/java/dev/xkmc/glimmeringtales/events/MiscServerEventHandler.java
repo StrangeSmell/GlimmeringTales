@@ -1,10 +1,12 @@
 package dev.xkmc.glimmeringtales.events;
 
+import dev.xkmc.glimmeringtales.content.block.api.CropGrowListener;
 import dev.xkmc.glimmeringtales.content.recipe.StrikeBlockRecipe;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
-import dev.xkmc.l2library.init.L2Library;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
@@ -16,9 +18,23 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.EntityStruckByLightningEvent;
+import net.neoforged.neoforge.event.level.block.CropGrowEvent;
 
 @EventBusSubscriber(modid = GlimmeringTales.MODID, bus = EventBusSubscriber.Bus.GAME)
 public class MiscServerEventHandler {
+
+	@SubscribeEvent
+	public static void onCropGrow(CropGrowEvent.Post event) {
+		if (!(event.getLevel() instanceof ServerLevel level)) return;
+		for (var e : Direction.values()) {
+			if (e.getAxis() == Direction.Axis.Y) continue;
+			var pos = event.getPos().relative(e);
+			var state = level.getBlockState(pos);
+			if (state.getBlock() instanceof CropGrowListener block) {
+				block.onNeighborGrow(level, state, pos, event.getState());
+			}
+		}
+	}
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void onEntityStruck(EntityStruckByLightningEvent event) {

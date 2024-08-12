@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.Tags;
 
 import java.util.function.BiFunction;
 
@@ -24,8 +25,8 @@ public class GTRecipeGen {
 				GTItems.CRYSTAL_NATURE.asStack())::unlockedBy, Items.LAPIS_LAZULI)
 				.save(pvd);
 
-		unlock(pvd, new StrikeBlockRecipeBuilder(Blocks.DEEPSLATE_LAPIS_ORE, Blocks.DEEPSLATE,
-				GTItems.CRYSTAL_EARTH.asStack())::unlockedBy, Items.LAPIS_LAZULI)
+		unlock(pvd, new StrikeBlockRecipeBuilder(Blocks.BUDDING_AMETHYST, Blocks.AIR,
+				GTItems.CRYSTAL_EARTH.asStack())::unlockedBy, Items.AMETHYST_SHARD)
 				.save(pvd);
 
 		unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GTItems.DEPLETED_FLAME.get())::unlockedBy, GTItems.CRYSTAL_NATURE.get())
@@ -40,8 +41,14 @@ public class GTRecipeGen {
 				.define('B', GTItems.CRYSTAL_NATURE)
 				.save(pvd);
 
-	}
+		unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GTItems.CRYSTAL_VINE.get())::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+				.pattern("AAA").pattern("ABA").pattern("AAA")
+				.define('A', Tags.Items.SEEDS)
+				.define('B', GTItems.CRYSTAL_NATURE)
+				.save(pvd);
 
+
+	}
 
 	public static <T> T unlock(RegistrateRecipeProvider pvd, BiFunction<String, Criterion<InventoryChangeTrigger.TriggerInstance>, T> func, Item item) {
 		return func.apply("has_" + pvd.safeName(item), DataIngredient.items(item).getCriterion(pvd));

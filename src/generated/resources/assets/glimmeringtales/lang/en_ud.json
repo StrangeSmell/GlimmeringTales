@@ -1,4 +1,9 @@
 {
+  "block.glimmeringtales.crystal_vine": "ǝuıΛ ןɐʇsʎɹƆ",
+  "element.glimmeringtales.earth": "ɥʇɹɐƎ",
+  "element.glimmeringtales.flame": "ǝɯɐןℲ",
+  "element.glimmeringtales.life": "ǝɟıꞀ",
+  "element.glimmeringtales.snow": "ʍouS",
   "glimmeringtales.configuration.crystalOfFlameRequirement": "uoıʇdɯnsuoɔ ɐʌɐꞀ :ǝɯɐןℲ ɟo ןɐʇsʎɹƆ",
   "glimmeringtales.configuration.crystalOfFlameRequirement.tooltip": "000Ɩ ~ Ɩ :ǝbuɐᴚ",
   "glimmeringtales.configuration.crystalOfWinterstormRequirement": "uoıʇdɯnsuoɔ ʍouS ɹǝpʍoԀ :ɯɹoʇsɹǝʇuıM ɟo ןɐʇsʎɹƆ",
@@ -13,11 +18,13 @@
   "glimmeringtales.title": "sǝןɐ⟘ buıɹǝɯɯıן⅁",
   "glimmeringtales.tooltip.consume_block": "ǝɔuǝssǝ qɹosqɐ oʇ %s ʞɔıןɔ ʇɥbıᴚ",
   "glimmeringtales.tooltip.fill_crystal": "%s / %s :ssǝɹboɹԀ",
+  "glimmeringtales.tooltip.narby_grow": "ʎןןɐɹnʇɐu ʎʇıɹnʇɐɯ oʇ ʍoɹb sdoɹɔ ʇuǝɔɐظpɐ uǝɥʍ sʍoɹ⅁",
   "item.glimmeringtales.crystal_of_earth": "ɥʇɹɐƎ ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.crystal_of_flame": "ǝɯɐןℲ ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.crystal_of_life": "ǝɟıꞀ ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.crystal_of_nature": "ǝɹnʇɐN ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.crystal_of_winterstorm": "ɯɹoʇsɹǝʇuıM ɟO ןɐʇsʎɹƆ",
+  "item.glimmeringtales.crystal_vine": "ǝɹnʇɐN ɟo pǝǝS",
   "item.glimmeringtales.depleted_crystal_of_flame": "ǝɯɐןℲ ɟO ןɐʇsʎɹƆ pǝʇǝןdǝᗡ",
   "item.glimmeringtales.depleted_crystal_of_winterstorm": "ɯɹoʇsɹǝʇuıM ɟO ןɐʇsʎɹƆ pǝʇǝןdǝᗡ",
   "itemGroup.l2core.glimmeringtales": "sǝןɐ⟘ buıɹǝɯɯıן⅁"

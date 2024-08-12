@@ -1,13 +1,18 @@
 package dev.xkmc.glimmeringtales.init;
 
 import com.tterrag.registrate.providers.ProviderType;
+import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.data.GTRecipeGen;
+import dev.xkmc.glimmeringtales.init.data.GTSpells;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
+import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import dev.xkmc.l2core.init.reg.simple.Reg;
 import dev.xkmc.l2core.serial.config.PacketHandlerWithConfig;
+import dev.xkmc.l2magic.init.registrate.EngineRegistry;
+import dev.xkmc.l2serial.serialization.custom_handler.Handlers;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -34,8 +39,9 @@ public class GlimmeringTales {
 
 	public GlimmeringTales() {
 		GTItems.register();
+		GTRegistries.register();
 		GTRecipes.register();
-
+		Handlers.registerReg(NatureSpell.class, GTRegistries.SPELL);
 	}
 
 	@SubscribeEvent
@@ -46,12 +52,19 @@ public class GlimmeringTales {
 
 	@SubscribeEvent
 	public static void onDatapackRegistry(DataPackRegistryEvent.NewRegistry event) {
+		event.dataPackRegistry(GTRegistries.SPELL, NatureSpell.CODEC, NatureSpell.CODEC);
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void gatherData(GatherDataEvent event) {
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, GTRecipeGen::onRecipeGen);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, GTLang::addTranslations);
+		var init = REGISTRATE.getDataGenInitializer();
+		init.add(EngineRegistry.PROJECTILE, GTSpells::genProjectiles);
+		init.add(EngineRegistry.SPELL, GTSpells::genSpells);
+		init.add(GTRegistries.SPELL, GTSpells::genNature);
+		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTSpells::genBlockMap);
+		init.addDependency(ProviderType.DATA_MAP, ProviderType.DYNAMIC);
 	}
 
 	public static ResourceLocation loc(String id) {

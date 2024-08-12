@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "block": "glimmeringtales:crystal_vine",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "age": "7"
+                  }
+                }
+              ],
+              "name": "glimmeringtales:crystal_of_life"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "glimmeringtales:crystal_vine"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "glimmeringtales:blocks/crystal_vine"
+}
