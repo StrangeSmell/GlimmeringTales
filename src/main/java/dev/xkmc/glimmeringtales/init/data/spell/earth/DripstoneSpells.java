@@ -119,11 +119,7 @@ public class DripstoneSpells extends NatureSpellEntry {
 				false, true,
 				Map.of()
 		).move(OffsetModifier.of("0", "-0.45", "0"),
-				new SetDirectionModifier(
-						DoubleVariable.ZERO,
-						DoubleVariable.of("1"),
-						DoubleVariable.ZERO
-				)).circular(
+				SetDirectionModifier.UP).circular(
 				DoubleVariable.of("2"),
 				DoubleVariable.of("2"),
 				false, null,

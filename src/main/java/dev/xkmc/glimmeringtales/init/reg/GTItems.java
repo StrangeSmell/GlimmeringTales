@@ -40,7 +40,9 @@ public class GTItems {
 	public static final ItemEntry<DepletedItem> DEPLETED_FLAME, DEPLETED_WINTERSTORM;
 	public static final BlockEntry<LifeCrystalCrop> CRYSTAL_VINE;
 
-	public static final ItemEntry<RuneItem> RUNE_CLAY, RUNE_DRIPSTONE, RUNE_AMETHYST;
+	public static final ItemEntry<RuneItem> RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE,
+	RUNE_SAND, RUNE_GRAVEL, RUNE_QUARTZ, RUNE_CLAY, RUNE_DRIPSTONE, RUNE_AMETHYST,
+	RUNE_LAVA, RUNE_SOUL_SAND, RUNE_SNOW, RUNE_ICE, RUNE_POWDER_SNOW;
 
 	public static final BlockEntry<DelegateBlock> CLAY_CARPET;
 
@@ -83,9 +85,25 @@ public class GTItems {
 		}
 
 		{
+
+			RUNE_BAMBOO = rune("bamboo", () -> Blocks.BAMBOO, "Rune: Bamboo");
+			RUNE_CACTUS = rune("cactus", () -> Blocks.CACTUS, "Rune: Cactus");
+			RUNE_FLOWER = rune("flower", () -> Blocks.POPPY, "Rune: Flower");
+			RUNE_VINE = rune("vine", () -> Blocks.VINE, "Rune: Vine");
+
+			RUNE_SAND = rune("sand", () -> Blocks.SAND, "Rune: Sand");
+			RUNE_GRAVEL = rune("gravel", () -> Blocks.GRAVEL, "Rune: Gravel");
 			RUNE_CLAY = rune("clay", () -> Blocks.CLAY, "Rune: Clay");
+			RUNE_QUARTZ = rune("quartz", () -> Blocks.QUARTZ_BLOCK, "Rune: Quartz");
 			RUNE_DRIPSTONE = rune("dripstone", () -> Blocks.DRIPSTONE_BLOCK, "Rune: Stalactite");
 			RUNE_AMETHYST = rune("amethyst", () -> Blocks.AMETHYST_BLOCK, "Rune: Amethyst");
+
+			RUNE_LAVA = rune("lava", () -> Blocks.LAVA, "Rune: Lava");
+			RUNE_SOUL_SAND = rune("soul_sand", () -> Blocks.SOUL_SAND, "Rune: Soul Sand");
+
+			RUNE_SNOW = rune("snow", () -> Blocks.SNOW_BLOCK, "Rune: Snow");
+			RUNE_ICE = rune("ice", () -> Blocks.ICE, "Rune: Ice");
+			RUNE_POWDER_SNOW = rune("powder_snow", () -> Blocks.POWDER_SNOW, "Rune: Powder Snow");
 		}
 
 		{

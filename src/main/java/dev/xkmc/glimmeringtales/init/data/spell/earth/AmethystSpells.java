@@ -19,7 +19,6 @@ import dev.xkmc.l2magic.content.engine.modifier.SetDirectionModifier;
 import dev.xkmc.l2magic.content.engine.particle.DustParticleInstance;
 import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.processor.EffectProcessor;
-import dev.xkmc.l2magic.content.engine.processor.PushProcessor;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
 import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
@@ -124,12 +123,10 @@ public class AmethystSpells extends NatureSpellEntry {
 								DoubleVariable.of(90 / phi + "*(i+0.5)")
 						)), "j"
 				), "i"
-		).move(OffsetModifier.of("0", "0.55", "0"),
-				new SetDirectionModifier(
-						DoubleVariable.of("1"),
-						DoubleVariable.ZERO,
-						DoubleVariable.ZERO
-				));
+		).move(
+				OffsetModifier.of("0", "0.55", "0"),
+				SetDirectionModifier.of("1", "0", "0")
+		);
 	}
 
 }

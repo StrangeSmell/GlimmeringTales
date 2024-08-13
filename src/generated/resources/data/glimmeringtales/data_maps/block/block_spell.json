@@ -1,5 +1,8 @@
 {
   "values": {
+    "#minecraft:sand": {
+      "spell": "glimmeringtales:sand"
+    },
     "glimmeringtales:clay_carpet": {
       "spell": "glimmeringtales:clay"
     },
