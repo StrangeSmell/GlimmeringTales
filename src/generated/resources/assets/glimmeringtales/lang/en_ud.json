@@ -21,6 +21,7 @@
   "glimmeringtales.tooltip.consume_block": "ǝɔuǝssǝ qɹosqɐ oʇ %s ʞɔıןɔ ʇɥbıᴚ",
   "glimmeringtales.tooltip.fill_crystal": "%s / %s :ssǝɹboɹԀ",
   "glimmeringtales.tooltip.nearby_grow": "ʎןןɐɹnʇɐu ʎʇıɹnʇɐɯ oʇ ʍoɹb sdoɹɔ ʇuǝɔɐظpɐ uǝɥʍ sʍoɹ⅁",
+  "item.glimmeringtales.amethyst": "ʇsʎɥʇǝɯⱯ :ǝunᴚ",
   "item.glimmeringtales.clay": "ʎɐןƆ :ǝunᴚ",
   "item.glimmeringtales.crystal_of_earth": "ɥʇɹɐƎ ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.crystal_of_flame": "ǝɯɐןℲ ɟO ןɐʇsʎɹƆ",
@@ -33,6 +34,7 @@
   "item.glimmeringtales.dripstone": "ǝʇıʇɔɐןɐʇS :ǝunᴚ",
   "item.glimmeringtales.wand": "puɐM",
   "itemGroup.l2core.glimmeringtales": "sǝןɐ⟘ buıɹǝɯɯıן⅁",
+  "spell_action.glimmeringtales.amethyst": "ʇsʎɥʇǝɯⱯ buıɹǝʇʇɐɔS",
   "spell_action.glimmeringtales.clay": "ʍoןɟɹǝʌO ʎɐןƆ",
   "spell_action.glimmeringtales.dripstone": "ʇsɹnᗺ ǝʇıʇɔɐןɐʇS"
 }

@@ -7,7 +7,7 @@ import dev.xkmc.l2magic.content.entity.renderer.ProjectileRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.resources.ResourceLocation;
 
-public record VerticalTextureRenderer(
+public record CrossTextureRenderer(
 		ResourceLocation texture
 ) implements ProjectileRenderer {
 
@@ -19,7 +19,7 @@ public record VerticalTextureRenderer(
 	@Override
 	public void render(LMProjectile e, LMProjectileRenderer<?> r, float pTick, PoseStack pose, MultiBufferSource buffer, int light) {
 		pose.pushPose();
-		new VerticalSpriteType(texture).create(r, e, pose, pTick);
+		new CrossSpriteType(texture).create(r, e, pose, pTick);
 		pose.popPose();
 
 	}

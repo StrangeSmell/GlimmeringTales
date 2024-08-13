@@ -10,9 +10,10 @@
   "item.glimmeringtales.crystal_vine": "自然之种",
   "item.glimmeringtales.depleted_crystal_of_flame": "匮乏的蕴炎宝石",
   "item.glimmeringtales.depleted_crystal_of_winterstorm": "匮乏的风雪宝石",
+  "item.glimmeringtales.wand": "法杖",
   "item.glimmeringtales.dripstone": "符石: 钟乳石",
   "item.glimmeringtales.clay": "符石: 粘土",
-  "item.glimmeringtales.wand": "法杖",
+  "item.glimmeringtales.amethyst": "符石: 紫水晶",
 
   "block.glimmeringtales.crystal_vine": "生命之藤",
   "block.glimmeringtales.clay_carpet": "粘土地毯",
@@ -29,6 +30,7 @@
 
   "spell_action.glimmeringtales.dripstone": "岩刺",
   "spell_action.glimmeringtales.clay": "粘毯",
+  "spell_action.glimmeringtales.amethyst": "晶爆",
 
   "glimmeringtales.jei.strike_block": "雷击方块",
   "glimmeringtales.jei.strike_item": "雷击物品",

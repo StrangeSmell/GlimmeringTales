@@ -6,7 +6,6 @@ import dev.xkmc.glimmeringtales.content.block.crop.LifeCrystalCrop;
 import dev.xkmc.glimmeringtales.content.block.misc.ClayCarpetImpl;
 import dev.xkmc.glimmeringtales.content.block.misc.SelfDestroyImpl;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
-import dev.xkmc.glimmeringtales.content.item.materials.LightningImmuneItem;
 import dev.xkmc.glimmeringtales.content.item.materials.SpellCoreItem;
 import dev.xkmc.glimmeringtales.content.item.rune.RuneItem;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneWandItem;
@@ -20,10 +19,13 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+
+import java.util.function.Supplier;
 
 public class GTItems {
 
@@ -38,7 +40,7 @@ public class GTItems {
 	public static final ItemEntry<DepletedItem> DEPLETED_FLAME, DEPLETED_WINTERSTORM;
 	public static final BlockEntry<LifeCrystalCrop> CRYSTAL_VINE;
 
-	public static final ItemEntry<RuneItem> RUNE_CLAY, RUNE_DRIPSTONE;
+	public static final ItemEntry<RuneItem> RUNE_CLAY, RUNE_DRIPSTONE, RUNE_AMETHYST;
 
 	public static final BlockEntry<DelegateBlock> CLAY_CARPET;
 
@@ -81,17 +83,9 @@ public class GTItems {
 		}
 
 		{
-			RUNE_CLAY = GlimmeringTales.REGISTRATE.item("clay",
-							p -> new RuneItem(p.stacksTo(1).fireResistant(), () -> Blocks.CLAY))
-					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName())))
-					.lang("Rune: Clay")
-					.register();
-
-			RUNE_DRIPSTONE = GlimmeringTales.REGISTRATE.item("dripstone",
-							p -> new RuneItem(p.stacksTo(1).fireResistant(), () -> Blocks.DRIPSTONE_BLOCK))
-					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName())))
-					.lang("Rune: Stalactite")
-					.register();
+			RUNE_CLAY = rune("clay", () -> Blocks.CLAY, "Rune: Clay");
+			RUNE_DRIPSTONE = rune("dripstone", () -> Blocks.DRIPSTONE_BLOCK, "Rune: Stalactite");
+			RUNE_AMETHYST = rune("amethyst", () -> Blocks.AMETHYST_BLOCK, "Rune: Amethyst");
 		}
 
 		{
@@ -103,6 +97,12 @@ public class GTItems {
 					.register();
 		}
 
+	}
+
+	private static ItemEntry<RuneItem> rune(String id, Supplier<Block> block, String name) {
+		return GlimmeringTales.REGISTRATE.item(id, p -> new RuneItem(p.stacksTo(1).fireResistant(), block))
+				.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName())))
+				.lang(name).register();
 	}
 
 	public static void register() {

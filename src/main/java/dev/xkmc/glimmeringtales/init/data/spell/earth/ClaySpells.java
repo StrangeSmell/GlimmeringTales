@@ -47,15 +47,13 @@ public class ClaySpells extends NatureSpellEntry {
 
 	@Override
 	public void register(BootstrapContext<SpellAction> ctx) {
-		var spell = new SpellAction(
+		new SpellAction(
 				gen(new DataGenContext(ctx)),
 				GTItems.RUNE_CLAY.asItem(),
 				1020,
 				SpellCastType.INSTANT,
 				SpellTriggerType.TARGET_POS
-		);
-		spell.verify(SPELL.key.location());
-		SPELL.gen(ctx, spell);
+		).verifyOnBuild(ctx, SPELL);
 	}
 
 	@Override
