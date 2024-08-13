@@ -2,6 +2,7 @@ package dev.xkmc.glimmeringtales.init;
 
 import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
+import dev.xkmc.glimmeringtales.init.data.GTDataMapGen;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.data.GTRecipeGen;
 import dev.xkmc.glimmeringtales.init.data.GTSpells;
@@ -42,8 +43,8 @@ public class GlimmeringTales {
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
 
 	public GlimmeringTales() {
-		GTItems.register();
 		GTRegistries.register();
+		GTItems.register();
 		GTRecipes.register();
 		GTEngine.register();
 		Handlers.registerReg(NatureSpell.class, GTRegistries.SPELL);
@@ -69,6 +70,7 @@ public class GlimmeringTales {
 	public static void gatherData(GatherDataEvent event) {
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, GTRecipeGen::onRecipeGen);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, GTLang::addTranslations);
+		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTDataMapGen::genMap);
 		var init = REGISTRATE.getDataGenInitializer();
 		REGISTRATE.addDataGenerator(ProviderType.LANG, GTSpells::addLang);
 		init.add(EngineRegistry.PROJECTILE, GTSpells::genProjectiles);

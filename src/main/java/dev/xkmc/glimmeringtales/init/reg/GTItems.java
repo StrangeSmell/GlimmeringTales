@@ -3,8 +3,11 @@ package dev.xkmc.glimmeringtales.init.reg;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.glimmeringtales.content.block.crop.LifeCrystalCrop;
+import dev.xkmc.glimmeringtales.content.block.misc.ClayCarpetImpl;
+import dev.xkmc.glimmeringtales.content.block.misc.SelfDestroyImpl;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
 import dev.xkmc.glimmeringtales.content.item.materials.LightningImmuneItem;
+import dev.xkmc.glimmeringtales.content.item.materials.SpellCoreItem;
 import dev.xkmc.glimmeringtales.content.item.rune.RuneItem;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneWandItem;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
@@ -12,6 +15,7 @@ import dev.xkmc.glimmeringtales.init.data.GTConfigs;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
+import dev.xkmc.l2modularblock.core.DelegateBlock;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.CreativeModeTab;
@@ -20,7 +24,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import net.neoforged.neoforge.common.Tags;
 
 public class GTItems {
 
@@ -30,12 +33,14 @@ public class GTItems {
 
 	public static final ItemEntry<RuneWandItem> WAND;
 
-	public static final ItemEntry<LightningImmuneItem> CRYSTAL_NATURE;
-	public static final ItemEntry<LightningImmuneItem> CRYSTAL_LIFE, CRYSTAL_FLAME, CRYSTAL_EARTH, CRYSTAL_WINTERSTORM;
+	public static final ItemEntry<SpellCoreItem> CRYSTAL_NATURE;
+	public static final ItemEntry<SpellCoreItem> CRYSTAL_LIFE, CRYSTAL_FLAME, CRYSTAL_EARTH, CRYSTAL_WINTERSTORM;
 	public static final ItemEntry<DepletedItem> DEPLETED_FLAME, DEPLETED_WINTERSTORM;
 	public static final BlockEntry<LifeCrystalCrop> CRYSTAL_VINE;
 
-	public static final ItemEntry<RuneItem> RUNE_DRIPSTONE;
+	public static final ItemEntry<RuneItem> RUNE_CLAY, RUNE_DRIPSTONE;
+
+	public static final BlockEntry<DelegateBlock> CLAY_CARPET;
 
 	private static final DCReg DC = DCReg.of(GlimmeringTales.REG);
 
@@ -44,11 +49,11 @@ public class GTItems {
 	static {
 
 		{
-			CRYSTAL_NATURE = GlimmeringTales.REGISTRATE.item("crystal_of_nature", LightningImmuneItem::new).register();
-			CRYSTAL_EARTH = GlimmeringTales.REGISTRATE.item("crystal_of_earth", LightningImmuneItem::new).register();
-			CRYSTAL_LIFE = GlimmeringTales.REGISTRATE.item("crystal_of_life", LightningImmuneItem::new).register();
-			CRYSTAL_FLAME = GlimmeringTales.REGISTRATE.item("crystal_of_flame", LightningImmuneItem::new).register();
-			CRYSTAL_WINTERSTORM = GlimmeringTales.REGISTRATE.item("crystal_of_winterstorm", LightningImmuneItem::new).register();
+			CRYSTAL_NATURE = GlimmeringTales.REGISTRATE.item("crystal_of_nature", SpellCoreItem::new).register();
+			CRYSTAL_EARTH = GlimmeringTales.REGISTRATE.item("crystal_of_earth", SpellCoreItem::new).register();
+			CRYSTAL_LIFE = GlimmeringTales.REGISTRATE.item("crystal_of_life", SpellCoreItem::new).register();
+			CRYSTAL_FLAME = GlimmeringTales.REGISTRATE.item("crystal_of_flame", SpellCoreItem::new).register();
+			CRYSTAL_WINTERSTORM = GlimmeringTales.REGISTRATE.item("crystal_of_winterstorm", SpellCoreItem::new).register();
 			DEPLETED_FLAME = GlimmeringTales.REGISTRATE.item("depleted_crystal_of_flame", p ->
 					new DepletedItem(p, () -> Blocks.LAVA, GTConfigs.SERVER.crystalOfFlameRequirement,
 							CRYSTAL_FLAME::get, () -> SoundEvents.BUCKET_FILL_LAVA)
@@ -62,7 +67,7 @@ public class GTItems {
 					.properties(p -> p.mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak()
 							.sound(SoundType.CROP).pushReaction(PushReaction.DESTROY))
 					.item(ItemNameBlockItem::new).model((ctx, pvd) -> pvd.generated(ctx))
-					.lang("Seed of Nature").tag(Tags.Items.SEEDS).build()
+					.lang("Seed of Nature").build()
 					.blockstate(LifeCrystalCrop::buildState)
 					.loot(LifeCrystalCrop::builtLoot)
 					.tag(BlockTags.CROPS)
@@ -76,10 +81,25 @@ public class GTItems {
 		}
 
 		{
+			RUNE_CLAY = GlimmeringTales.REGISTRATE.item("clay",
+							p -> new RuneItem(p.stacksTo(1).fireResistant(), () -> Blocks.CLAY))
+					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName())))
+					.lang("Rune: Clay")
+					.register();
+
 			RUNE_DRIPSTONE = GlimmeringTales.REGISTRATE.item("dripstone",
 							p -> new RuneItem(p.stacksTo(1).fireResistant(), () -> Blocks.DRIPSTONE_BLOCK))
 					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName())))
 					.lang("Rune: Stalactite")
+					.register();
+		}
+
+		{
+			CLAY_CARPET = GlimmeringTales.REGISTRATE.block("clay_carpet",
+							p -> DelegateBlock.newBaseBlock(p, new SelfDestroyImpl(), new ClayCarpetImpl()))
+					.properties(p -> p.mapColor(MapColor.CLAY).strength(0.6f).speedFactor(0.05F)
+							.sound(SoundType.GRAVEL).pushReaction(PushReaction.DESTROY).noLootTable())
+					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().carpet(ctx.getName(), pvd.mcLoc("block/clay"))))
 					.register();
 		}
 

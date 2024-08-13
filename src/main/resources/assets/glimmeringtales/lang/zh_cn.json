@@ -11,9 +11,11 @@
   "item.glimmeringtales.depleted_crystal_of_flame": "匮乏的蕴炎宝石",
   "item.glimmeringtales.depleted_crystal_of_winterstorm": "匮乏的风雪宝石",
   "item.glimmeringtales.dripstone": "符石: 钟乳石",
+  "item.glimmeringtales.clay": "符石: 粘土",
   "item.glimmeringtales.wand": "法杖",
 
   "block.glimmeringtales.crystal_vine": "生命之藤",
+  "block.glimmeringtales.clay_carpet": "粘土地毯",
 
   "element.glimmeringtales.earth": "地脉",
   "element.glimmeringtales.flame": "蕴炎",
@@ -22,9 +24,11 @@
 
   "glimmeringtales.tooltip.consume_block": "右键[%s]吸收精华",
   "glimmeringtales.tooltip.fill_crystal": "进度: %s / %s",
-  "glimmeringtales.tooltip.narby_grow": "相邻的作物自然生长至成熟的瞬间才会生长",
+  "glimmeringtales.tooltip.nearby_grow": "相邻的作物自然生长至成熟的瞬间才会生长",
+  "glimmeringtales.tooltip.affinity": "[%s]亲和度: %s",
 
   "spell_action.glimmeringtales.dripstone": "岩刺",
+  "spell_action.glimmeringtales.clay": "粘毯",
 
   "glimmeringtales.jei.strike_block": "雷击方块",
   "glimmeringtales.jei.strike_item": "雷击物品",
@@ -37,4 +41,5 @@
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml": "微光纪事 - 服务端配置",
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml.title": "微光纪事 - 服务端配置",
   "glimmeringtales.configuration.title": "微光纪事 - 配置"
+
 }

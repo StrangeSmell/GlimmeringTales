@@ -2,12 +2,15 @@ package dev.xkmc.glimmeringtales.content.core.spell;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
@@ -27,8 +30,17 @@ public record NatureSpell(
 		return Component.translatable(SpellAction.lang(spell().unwrapKey().orElseThrow().location()));
 	}
 
-	public void desc(List<Component> list) {
-		list.add(lang().withStyle(ChatFormatting.BOLD));
+	public void runeDesc(List<Component> list) {
+		list.add(lang().withStyle(ChatFormatting.GRAY));
+		Component val = Component.literal( "100%").withStyle(ChatFormatting.BLUE);
+		list.add(GTLang.TOOLTIP_AFFINITY.get(elem.coloredDesc(), val).withStyle(ChatFormatting.GRAY));
+	}
+
+	public void cooldown(Player player, ItemStack stack, double affinity) {
+		if (affinity < 0.2) affinity = 0.2;
+		int cooldown = (int) Math.round(cost / affinity);
+		player.getCooldowns().addCooldown(stack.getItem(), cooldown);
+
 	}
 
 }

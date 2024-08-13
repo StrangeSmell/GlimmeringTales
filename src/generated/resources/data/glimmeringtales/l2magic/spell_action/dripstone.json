@@ -71,7 +71,7 @@
     "range": "2"
   },
   "cast_type": "INSTANT",
-  "icon": "minecraft:pointed_dripstone",
+  "icon": "glimmeringtales:dripstone",
   "order": 1010,
   "trigger_type": "TARGET_POS"
 }

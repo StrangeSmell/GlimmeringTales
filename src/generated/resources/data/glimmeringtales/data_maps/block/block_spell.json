@@ -1,6 +1,15 @@
 {
   "values": {
+    "glimmeringtales:clay_carpet": {
+      "spell": "glimmeringtales:clay"
+    },
+    "minecraft:clay": {
+      "spell": "glimmeringtales:clay"
+    },
     "minecraft:dripstone_block": {
+      "spell": "glimmeringtales:dripstone"
+    },
+    "minecraft:pointed_dripstone": {
       "spell": "glimmeringtales:dripstone"
     }
   }

@@ -1,6 +1,6 @@
 package dev.xkmc.glimmeringtales.content.item.wand;
 
-import dev.xkmc.glimmeringtales.content.item.rune.RuneItem;
+import dev.xkmc.glimmeringtales.content.item.rune.IWandCoreItem;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2backpack.content.quickswap.common.IQuickSwapToken;
 import dev.xkmc.l2backpack.content.quickswap.common.SingleSwapItem;
@@ -14,7 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-public class RuneWandItem extends SingleSwapItem implements IWandItem {
+public class RuneWandItem extends SingleSwapItem {
 
 	public RuneWandItem(Properties properties) {
 		super(properties);
@@ -28,14 +28,14 @@ public class RuneWandItem extends SingleSwapItem implements IWandItem {
 
 	@Override
 	public boolean isValidContent(ItemStack stack) {
-		return stack.getItem() instanceof RuneItem;
+		return stack.getItem() instanceof IWandCoreItem;
 	}
 
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
 		ItemStack stack = player.getItemInHand(hand);
 		var sel = getItems(stack).get(getSelected(stack));
-		if (sel.getItem() instanceof RuneItem rune) {
+		if (sel.getItem() instanceof IWandCoreItem rune) {
 			return rune.onUse(level, player, stack);
 		}
 		return super.use(level, player, hand);

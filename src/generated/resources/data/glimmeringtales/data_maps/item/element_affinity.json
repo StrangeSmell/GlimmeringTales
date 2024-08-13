@@ -1,0 +1,32 @@
+{
+  "values": {
+    "glimmeringtales:crystal_of_earth": {
+      "affinity": {
+        "glimmeringtales:earth": 1.5
+      }
+    },
+    "glimmeringtales:crystal_of_flame": {
+      "affinity": {
+        "glimmeringtales:flame": 1.5
+      }
+    },
+    "glimmeringtales:crystal_of_life": {
+      "affinity": {
+        "glimmeringtales:life": 1.5
+      }
+    },
+    "glimmeringtales:crystal_of_nature": {
+      "affinity": {
+        "glimmeringtales:earth": 0.5,
+        "glimmeringtales:flame": 0.5,
+        "glimmeringtales:life": 0.5,
+        "glimmeringtales:snow": 0.5
+      }
+    },
+    "glimmeringtales:crystal_of_winterstorm": {
+      "affinity": {
+        "glimmeringtales:snow": 1.5
+      }
+    }
+  }
+}

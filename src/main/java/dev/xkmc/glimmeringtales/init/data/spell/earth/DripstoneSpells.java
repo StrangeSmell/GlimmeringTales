@@ -6,6 +6,7 @@ import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.engine.render.VerticalRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
+import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.context.DataGenContext;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
@@ -34,7 +35,6 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.DataMapProvider;
@@ -63,14 +63,15 @@ public class DripstoneSpells extends NatureSpellEntry {
 
 	@Override
 	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-		builder.add(BuiltInRegistries.BLOCK.wrapAsHolder(Blocks.DRIPSTONE_BLOCK), new BlockSpell(NATURE), false);
+		builder.add(Blocks.DRIPSTONE_BLOCK.builtInRegistryHolder(), new BlockSpell(NATURE), false);
+		builder.add(Blocks.POINTED_DRIPSTONE.builtInRegistryHolder(), new BlockSpell(NATURE), false);
 	}
 
 	@Override
 	public void register(BootstrapContext<SpellAction> ctx) {
 		var spell = new SpellAction(
 				gen(new DataGenContext(ctx)),
-				Items.POINTED_DRIPSTONE,//TODO rune
+				GTItems.RUNE_DRIPSTONE.asItem(),
 				1010,
 				SpellCastType.INSTANT,
 				SpellTriggerType.TARGET_POS

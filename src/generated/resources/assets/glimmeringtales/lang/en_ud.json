@@ -1,4 +1,5 @@
 {
+  "block.glimmeringtales.clay_carpet": "ʇǝdɹɐƆ ʎɐןƆ",
   "block.glimmeringtales.crystal_vine": "ǝuıΛ ןɐʇsʎɹƆ",
   "element.glimmeringtales.earth": "ɥʇɹɐƎ",
   "element.glimmeringtales.flame": "ǝɯɐןℲ",
@@ -16,9 +17,11 @@
   "glimmeringtales.jei.strike_item": "ɯǝʇI sǝʞıɹʇS buıuʇɥbıꞀ",
   "glimmeringtales.jei.transform": "uoıʇɐɯɹoɟsuɐɹ⟘ ןɐıɔǝdS ɯǝʇI",
   "glimmeringtales.title": "sǝןɐ⟘ buıɹǝɯɯıן⅁",
+  "glimmeringtales.tooltip.affinity": "%s :ʎʇıuıɟɟɐ ]%s[",
   "glimmeringtales.tooltip.consume_block": "ǝɔuǝssǝ qɹosqɐ oʇ %s ʞɔıןɔ ʇɥbıᴚ",
   "glimmeringtales.tooltip.fill_crystal": "%s / %s :ssǝɹboɹԀ",
-  "glimmeringtales.tooltip.narby_grow": "ʎןןɐɹnʇɐu ʎʇıɹnʇɐɯ oʇ ʍoɹb sdoɹɔ ʇuǝɔɐظpɐ uǝɥʍ sʍoɹ⅁",
+  "glimmeringtales.tooltip.nearby_grow": "ʎןןɐɹnʇɐu ʎʇıɹnʇɐɯ oʇ ʍoɹb sdoɹɔ ʇuǝɔɐظpɐ uǝɥʍ sʍoɹ⅁",
+  "item.glimmeringtales.clay": "ʎɐןƆ :ǝunᴚ",
   "item.glimmeringtales.crystal_of_earth": "ɥʇɹɐƎ ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.crystal_of_flame": "ǝɯɐןℲ ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.crystal_of_life": "ǝɟıꞀ ɟO ןɐʇsʎɹƆ",
@@ -30,5 +33,6 @@
   "item.glimmeringtales.dripstone": "ǝʇıʇɔɐןɐʇS :ǝunᴚ",
   "item.glimmeringtales.wand": "puɐM",
   "itemGroup.l2core.glimmeringtales": "sǝןɐ⟘ buıɹǝɯɯıן⅁",
+  "spell_action.glimmeringtales.clay": "ʍoןɟɹǝʌO ʎɐןƆ",
   "spell_action.glimmeringtales.dripstone": "ʇsɹnᗺ ǝʇıʇɔɐןɐʇS"
 }
