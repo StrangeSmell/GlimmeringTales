@@ -1,16 +1,16 @@
 {
   "values": {
+    "#glimmeringtales:amethyst": {
+      "spell": "glimmeringtales:amethyst"
+    },
+    "#glimmeringtales:quartz": {
+      "spell": "glimmeringtales:quartz"
+    },
     "#minecraft:sand": {
       "spell": "glimmeringtales:sand"
     },
     "glimmeringtales:clay_carpet": {
       "spell": "glimmeringtales:clay"
-    },
-    "minecraft:amethyst_block": {
-      "spell": "glimmeringtales:amethyst"
-    },
-    "minecraft:amethyst_cluster": {
-      "spell": "glimmeringtales:amethyst"
     },
     "minecraft:clay": {
       "spell": "glimmeringtales:clay"

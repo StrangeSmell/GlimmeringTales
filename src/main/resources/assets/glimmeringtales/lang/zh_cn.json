@@ -14,9 +14,12 @@
   "item.glimmeringtales.dripstone": "符石: 钟乳石",
   "item.glimmeringtales.clay": "符石: 粘土",
   "item.glimmeringtales.amethyst": "符石: 紫水晶",
+  "item.glimmeringtales.quartz": "符石: 石英",
+  "item.glimmeringtales.sand": "符石: 沙子",
 
   "block.glimmeringtales.crystal_vine": "生命之藤",
   "block.glimmeringtales.clay_carpet": "粘土地毯",
+  "block.glimmeringtales.glass": "玻璃",
 
   "element.glimmeringtales.earth": "地脉",
   "element.glimmeringtales.flame": "蕴炎",
@@ -31,6 +34,8 @@
   "spell_action.glimmeringtales.dripstone": "岩刺",
   "spell_action.glimmeringtales.clay": "粘毯",
   "spell_action.glimmeringtales.amethyst": "晶爆",
+  "spell_action.glimmeringtales.quartz": "晶化",
+  "spell_action.glimmeringtales.sand": "沙暴",
 
   "glimmeringtales.jei.strike_block": "雷击方块",
   "glimmeringtales.jei.strike_item": "雷击物品",
@@ -42,6 +47,19 @@
   "glimmeringtales.configuration.materials": "材料属性",
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml": "微光纪事 - 服务端配置",
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml.title": "微光纪事 - 服务端配置",
-  "glimmeringtales.configuration.title": "微光纪事 - 配置"
+  "glimmeringtales.configuration.title": "微光纪事 - 配置",
+
+  "item.glimmeringtales.crystal_of_ocean": "Crystal Of Ocean",
+  "item.glimmeringtales.crystal_of_thunder": "Crystal Of Thunder",
+  "item.glimmeringtales.bamboo": "Rune: Bamboo",
+  "item.glimmeringtales.cactus": "Rune: Cactus",
+  "item.glimmeringtales.flower": "Rune: Flower",
+  "item.glimmeringtales.gravel": "Rune: Gravel",
+  "item.glimmeringtales.ice": "Rune: Ice",
+  "item.glimmeringtales.lava": "Rune: Lava",
+  "item.glimmeringtales.powder_snow": "Rune: Powder Snow",
+  "item.glimmeringtales.snow": "Rune: Snow",
+  "item.glimmeringtales.soul_sand": "Rune: Soul Sand",
+  "item.glimmeringtales.vine": "Rune: Vine"
 
 }

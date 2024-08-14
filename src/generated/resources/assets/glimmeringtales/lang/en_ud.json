@@ -1,6 +1,7 @@
 {
   "block.glimmeringtales.clay_carpet": "ʇǝdɹɐƆ ʎɐןƆ",
   "block.glimmeringtales.crystal_vine": "ǝuıΛ ןɐʇsʎɹƆ",
+  "block.glimmeringtales.glass": "ssɐן⅁",
   "element.glimmeringtales.earth": "ɥʇɹɐƎ",
   "element.glimmeringtales.flame": "ǝɯɐןℲ",
   "element.glimmeringtales.life": "ǝɟıꞀ",
@@ -29,6 +30,8 @@
   "item.glimmeringtales.crystal_of_flame": "ǝɯɐןℲ ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.crystal_of_life": "ǝɟıꞀ ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.crystal_of_nature": "ǝɹnʇɐN ɟO ןɐʇsʎɹƆ",
+  "item.glimmeringtales.crystal_of_ocean": "uɐǝɔO ɟO ןɐʇsʎɹƆ",
+  "item.glimmeringtales.crystal_of_thunder": "ɹǝpunɥ⟘ ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.crystal_of_winterstorm": "ɯɹoʇsɹǝʇuıM ɟO ןɐʇsʎɹƆ",
   "item.glimmeringtales.crystal_vine": "ǝɹnʇɐN ɟo pǝǝS",
   "item.glimmeringtales.depleted_crystal_of_flame": "ǝɯɐןℲ ɟO ןɐʇsʎɹƆ pǝʇǝןdǝᗡ",
@@ -49,5 +52,6 @@
   "spell_action.glimmeringtales.amethyst": "ʇsʎɥʇǝɯⱯ buıɹǝʇʇɐɔS",
   "spell_action.glimmeringtales.clay": "ʍoןɟɹǝʌO ʎɐןƆ",
   "spell_action.glimmeringtales.dripstone": "ʇsɹnᗺ ǝʇıʇɔɐןɐʇS",
+  "spell_action.glimmeringtales.quartz": "uoıʇɐzıןɐʇsʎɹƆ",
   "spell_action.glimmeringtales.sand": "ɯɹoʇspuɐS"
 }

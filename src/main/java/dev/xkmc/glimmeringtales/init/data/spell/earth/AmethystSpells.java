@@ -5,6 +5,7 @@ import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.engine.render.CrossRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.glimmeringtales.init.data.GTTagGen;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
@@ -60,8 +61,7 @@ public class AmethystSpells extends NatureSpellEntry {
 
 	@Override
 	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-		builder.add(Blocks.AMETHYST_BLOCK.builtInRegistryHolder(), new BlockSpell(NATURE), false);
-		builder.add(Blocks.AMETHYST_CLUSTER.builtInRegistryHolder(), new BlockSpell(NATURE), false);
+		builder.add(GTTagGen.AMETHYST, new BlockSpell(NATURE), false);
 	}
 
 	@Override

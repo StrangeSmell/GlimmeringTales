@@ -1,6 +1,7 @@
 {
   "block.glimmeringtales.clay_carpet": "Clay Carpet",
   "block.glimmeringtales.crystal_vine": "Crystal Vine",
+  "block.glimmeringtales.glass": "Glass",
   "element.glimmeringtales.earth": "Earth",
   "element.glimmeringtales.flame": "Flame",
   "element.glimmeringtales.life": "Life",
@@ -29,6 +30,8 @@
   "item.glimmeringtales.crystal_of_flame": "Crystal Of Flame",
   "item.glimmeringtales.crystal_of_life": "Crystal Of Life",
   "item.glimmeringtales.crystal_of_nature": "Crystal Of Nature",
+  "item.glimmeringtales.crystal_of_ocean": "Crystal Of Ocean",
+  "item.glimmeringtales.crystal_of_thunder": "Crystal Of Thunder",
   "item.glimmeringtales.crystal_of_winterstorm": "Crystal Of Winterstorm",
   "item.glimmeringtales.crystal_vine": "Seed of Nature",
   "item.glimmeringtales.depleted_crystal_of_flame": "Depleted Crystal Of Flame",
@@ -49,5 +52,6 @@
   "spell_action.glimmeringtales.amethyst": "Scattering Amethyst",
   "spell_action.glimmeringtales.clay": "Clay Overflow",
   "spell_action.glimmeringtales.dripstone": "Stalactite Burst",
+  "spell_action.glimmeringtales.quartz": "Crystalization",
   "spell_action.glimmeringtales.sand": "Sandstorm"
 }
