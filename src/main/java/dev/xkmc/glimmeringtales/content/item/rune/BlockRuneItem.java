@@ -2,28 +2,26 @@ package dev.xkmc.glimmeringtales.content.item.rune;
 
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
+import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public class RuneItem extends Item implements IWandCoreItem {
+public class BlockRuneItem extends Item implements IBlockSpellItem {
 
 	private final Supplier<Block> block;
 
-	public RuneItem(Properties properties, Supplier<Block> block) {
+	public BlockRuneItem(Properties properties, Supplier<Block> block) {
 		super(properties);
 		this.block = block;
 	}
@@ -41,19 +39,20 @@ public class RuneItem extends Item implements IWandCoreItem {
 		getSpell(level.registryAccess()).ifPresent(e -> e.value().runeDesc(list));
 	}
 
-	public InteractionResultHolder<ItemStack> onUse(Level level, Player player, ItemStack stack) {
-		var spell = getSpell(level.registryAccess());
-		if (spell.isPresent() && castSpell(stack, level, player, spell.get().value()))
-			return InteractionResultHolder.success(stack);
-		return InteractionResultHolder.fail(stack);
+	@Override
+	public int entityTrace() {
+		return 64; //TODO
 	}
 
-	private boolean castSpell(ItemStack stack, Level level, Player user, NatureSpell spell) {
-		var ctx = BlockSpellContext.entitySpellContext(user, 64);
+	@Override
+	public boolean castSpell(SpellCastContext user) {
+		var opt = getSpell(user.level().registryAccess());
+		if (opt.isEmpty()) return false;
+		var spell = opt.get().value();
+		var ctx = BlockSpellContext.entitySpellContext(user.user(), entityTrace());
 		if (ctx == null) return false;
-		if (!level.isClientSide()) {
-			spell.spell().value().execute(ctx.ctx());
-			spell.cooldown(user, stack, 1);
+		if (!user.level().isClientSide()) {
+			execute(spell, ctx.ctx(), user, DefaultAffinity.INS);
 		}
 		return true;
 	}

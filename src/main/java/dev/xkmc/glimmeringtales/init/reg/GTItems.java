@@ -7,8 +7,8 @@ import dev.xkmc.glimmeringtales.content.block.misc.ClayCarpetImpl;
 import dev.xkmc.glimmeringtales.content.block.misc.SelfDestroyImpl;
 import dev.xkmc.glimmeringtales.content.block.misc.SelfDestroyTransparent;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
-import dev.xkmc.glimmeringtales.content.item.materials.SpellCoreItem;
-import dev.xkmc.glimmeringtales.content.item.rune.RuneItem;
+import dev.xkmc.glimmeringtales.content.item.rune.SpellCoreItem;
+import dev.xkmc.glimmeringtales.content.item.rune.BlockRuneItem;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneWandItem;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTConfigs;
@@ -43,7 +43,7 @@ public class GTItems {
 	public static final ItemEntry<DepletedItem> DEPLETED_FLAME, DEPLETED_WINTERSTORM;
 	public static final BlockEntry<LifeCrystalCrop> CRYSTAL_VINE;
 
-	public static final ItemEntry<RuneItem> RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE,
+	public static final ItemEntry<BlockRuneItem> RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE,
 			RUNE_SAND, RUNE_GRAVEL, RUNE_QUARTZ, RUNE_CLAY, RUNE_DRIPSTONE, RUNE_AMETHYST,
 			RUNE_LAVA, RUNE_SOUL_SAND, RUNE_SNOW, RUNE_ICE, RUNE_POWDER_SNOW;
 
@@ -130,8 +130,8 @@ public class GTItems {
 
 	}
 
-	private static ItemEntry<RuneItem> rune(String id, Supplier<Block> block, String name) {
-		return GlimmeringTales.REGISTRATE.item(id, p -> new RuneItem(p.stacksTo(1).fireResistant(), block))
+	private static ItemEntry<BlockRuneItem> rune(String id, Supplier<Block> block, String name) {
+		return GlimmeringTales.REGISTRATE.item(id, p -> new BlockRuneItem(p.stacksTo(1).fireResistant(), block))
 				.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName())))
 				.lang(name).register();
 	}

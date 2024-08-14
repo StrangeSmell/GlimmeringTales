@@ -1,14 +1,12 @@
-package dev.xkmc.glimmeringtales.content.item.materials;
+package dev.xkmc.glimmeringtales.content.item.rune;
 
 import dev.xkmc.glimmeringtales.content.core.spell.ElementAffinity;
-import dev.xkmc.glimmeringtales.content.item.rune.BlockSpellContext;
-import dev.xkmc.glimmeringtales.content.item.rune.IWandCoreItem;
+import dev.xkmc.glimmeringtales.content.item.materials.LightningImmuneItem;
+import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -16,18 +14,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class SpellCoreItem extends LightningImmuneItem implements IWandCoreItem {
+public class SpellCoreItem extends LightningImmuneItem implements IBlockSpellItem {
 
 	public SpellCoreItem(Properties prop) {
 		super(prop);
-	}
-
-	@Override
-	public InteractionResultHolder<ItemStack> onUse(Level level, Player player, ItemStack stack) {
-		if (castSpell(level, player, stack)) {
-			return InteractionResultHolder.success(stack);
-		}
-		return InteractionResultHolder.fail(stack);
 	}
 
 	@Override
@@ -43,23 +33,27 @@ public class SpellCoreItem extends LightningImmuneItem implements IWandCoreItem 
 		}
 	}
 
+	@Override
+	public int entityTrace() {
+		return 0;
+	}
+
 	@Nullable
 	private ElementAffinity getAffinity(Level level) {
 		return GTRegistries.AFFINITY.get(level.registryAccess(), builtInRegistryHolder());
 	}
 
-	private boolean castSpell(Level level, Player player, ItemStack stack) {
-		var ctx = BlockSpellContext.blockSpellContext(player, 64);
+	public boolean castSpell(SpellCastContext user) {
+		var ctx = BlockSpellContext.blockSpellContext(user.user(), 64);//TODO
 		if (ctx == null) return false;
-		var spell = GTRegistries.BLOCK.get(level.registryAccess(), ctx.state().getBlockHolder());
+		var spell = GTRegistries.BLOCK.get(user.level().registryAccess(), ctx.state().getBlockHolder());
 		if (spell == null) return false;
 		var nature = spell.spell().value();
-		var aff = getAffinity(level);
+		var aff = getAffinity(user.level());
 		if (aff == null || !aff.affinity().containsKey(nature.elem()))
 			return false;
-		if (!level.isClientSide()) {
-			nature.spell().value().execute(ctx.ctx());
-			nature.cooldown(player, stack, aff.affinity().getOrDefault(nature.elem(), 1d));
+		if (!user.level().isClientSide()) {
+			execute(nature, ctx.ctx(), user, aff);
 		}
 		return true;
 	}

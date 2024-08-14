@@ -32,13 +32,13 @@ public record NatureSpell(
 
 	public void runeDesc(List<Component> list) {
 		list.add(lang().withStyle(ChatFormatting.GRAY));
-		Component val = Component.literal( "100%").withStyle(ChatFormatting.BLUE);
+		Component val = Component.literal("100%").withStyle(ChatFormatting.BLUE);
 		list.add(GTLang.TOOLTIP_AFFINITY.get(elem.coloredDesc(), val).withStyle(ChatFormatting.GRAY));
 	}
 
 	public void cooldown(Player player, ItemStack stack, double affinity) {
 		if (affinity < 0.2) affinity = 0.2;
-		int cooldown = (int) Math.round(cost / affinity);
+		int cooldown = Math.max(10, (int) Math.round(cost / affinity));
 		player.getCooldowns().addCooldown(stack.getItem(), cooldown);
 
 	}

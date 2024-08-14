@@ -1,4 +1,4 @@
-// 1.21.1	2024-08-14T14:33:50.409836	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type)]
+// 1.21.1	2024-08-14T22:08:25.039334	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type)]
 4132de47f0c0e042aadf759876c94ea0a1d95cd2 assets/glimmeringtales/blockstates/clay_carpet.json
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
 5b35a73783c36500b58926de9d068672603d2192 assets/glimmeringtales/blockstates/glass.json
@@ -43,6 +43,7 @@ e4494482be533da60631062c6bad31eebb37ec81 assets/glimmeringtales/models/item/vine
 7a41145fe85f33ad0aa364bfb041a776a30f0e4f data/glimmeringtales/advancement/recipes/misc/crystal_vine.json
 c428489b9830ffdbfb7499ac57e465f307533924 data/glimmeringtales/advancement/recipes/misc/depleted_crystal_of_flame.json
 aa675587bf109ef0a0dcba62c8c4c9b2f77457b2 data/glimmeringtales/advancement/recipes/misc/depleted_crystal_of_winterstorm.json
+34bc0c3d4262c8c6ce57b9727528ae6cd2a0f05f data/glimmeringtales/advancement/recipes/strike_block/crystal_of_earth.json
 6063ac52cd3d4de4ca3d50844b4d54749da3a86d data/glimmeringtales/advancement/recipes/strike_item/crystal_of_nature.json
 d92a030ee73869074689487d9a5dcfbc72d24260 data/glimmeringtales/data_maps/block/block_spell.json
 db08776c210ef986084d9960aa2bcc6d2a7c273e data/glimmeringtales/data_maps/item/element_affinity.json
@@ -64,9 +65,8 @@ efa083ada4cd89b6750ff95ff0ecede3a59fa965 data/glimmeringtales/loot_table/blocks/
 6a2b299e9337dfb06cc012193ad10123242d2c76 data/glimmeringtales/recipe/crystal_vine.json
 769408493d16e190195564ad76e28e2d15655c2c data/glimmeringtales/recipe/depleted_crystal_of_flame.json
 d615ba2a80eb386198594c59465ab30918aa3404 data/glimmeringtales/recipe/depleted_crystal_of_winterstorm.json
+86e4e575ae5acaa45f0d5458060912c77b5f9cc1 data/glimmeringtales/recipe/recipes/strike_block/crystal_of_earth.json
 aa68edff554424efcc5baccef2840a0d8c155fe6 data/glimmeringtales/recipe/recipes/strike_item/crystal_of_nature.json
 6f1a5738017d87de886c4bbcdd0ca15c7bc61d7d data/glimmeringtales/tags/block/amethyst.json
 01b8a21a3c8217d84cc132f4607bd9b27a1997ba data/glimmeringtales/tags/block/quartz.json
-cb970e4905996bd892b80c33e7cad8c1b4b1b7dc data/minecraft/advancement/recipes/strike_block/air.json
-86e4e575ae5acaa45f0d5458060912c77b5f9cc1 data/minecraft/recipe/recipes/strike_block/air.json
 ef0507da819d40fd56142e3a90c7e96c7439fe5c data/minecraft/tags/block/crops.json
