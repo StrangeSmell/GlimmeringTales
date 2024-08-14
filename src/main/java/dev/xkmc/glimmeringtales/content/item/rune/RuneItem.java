@@ -49,7 +49,7 @@ public class RuneItem extends Item implements IWandCoreItem {
 	}
 
 	private boolean castSpell(ItemStack stack, Level level, Player user, NatureSpell spell) {
-		var ctx = BlockSpellContext.blockSpellContext(user, 64);
+		var ctx = BlockSpellContext.entitySpellContext(user, 64);
 		if (ctx == null) return false;
 		if (!level.isClientSide()) {
 			spell.spell().value().execute(ctx.ctx());

@@ -1,20 +1,24 @@
 package dev.xkmc.glimmeringtales.content.item.wand;
 
 import dev.xkmc.glimmeringtales.content.item.rune.IWandCoreItem;
+import dev.xkmc.glimmeringtales.content.item.rune.RuneItem;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2backpack.content.quickswap.common.IQuickSwapToken;
 import dev.xkmc.l2backpack.content.quickswap.common.SingleSwapItem;
 import dev.xkmc.l2backpack.content.quickswap.common.SingleSwapToken;
 import dev.xkmc.l2backpack.content.quickswap.type.QuickSwapType;
+import dev.xkmc.l2library.content.raytrace.IGlowingTarget;
+import dev.xkmc.l2library.content.raytrace.RayTraceUtil;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-public class RuneWandItem extends SingleSwapItem {
+public class RuneWandItem extends SingleSwapItem implements IGlowingTarget {
 
 	public RuneWandItem(Properties properties) {
 		super(properties);
@@ -34,10 +38,27 @@ public class RuneWandItem extends SingleSwapItem {
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
 		ItemStack stack = player.getItemInHand(hand);
-		var sel = getItems(stack).get(getSelected(stack));
+		var sel = getCore(stack);
 		if (sel.getItem() instanceof IWandCoreItem rune) {
 			return rune.onUse(level, player, stack);
 		}
 		return super.use(level, player, hand);
 	}
+
+	@Override
+	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+		if (isSelected && level.isClientSide() && entity instanceof Player player) {
+			RayTraceUtil.clientUpdateTarget(player, getDistance(stack));
+		}
+	}
+
+	@Override
+	public int getDistance(ItemStack stack) {
+		return getCore(stack).getItem() instanceof RuneItem ? 64 : 0;
+	}
+
+	private ItemStack getCore(ItemStack stack) {
+		return getItems(stack).get(getSelected(stack));
+	}
+
 }
