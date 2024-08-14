@@ -9,12 +9,10 @@
       "positioned": true
     },
     {
-      "type": "l2magic:effect",
-      "ambient": false,
-      "amplifier": "1",
-      "duration": "300",
-      "effect": "l2complements:armor_reduce",
-      "visible": true
+      "type": "glimmeringtales:stacking",
+      "duration": "100",
+      "effect": "l2complements:bleed",
+      "max": "6"
     }
   ],
   "motion": {

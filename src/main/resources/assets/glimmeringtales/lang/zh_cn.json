@@ -7,15 +7,28 @@
   "item.glimmeringtales.crystal_of_life": "生机宝石",
   "item.glimmeringtales.crystal_of_nature": "自然宝石",
   "item.glimmeringtales.crystal_of_winterstorm": "风雪宝石",
+  "item.glimmeringtales.crystal_of_ocean": "深海宝石",
+  "item.glimmeringtales.crystal_of_thunder": "雷霆宝石",
   "item.glimmeringtales.crystal_vine": "自然之种",
   "item.glimmeringtales.depleted_crystal_of_flame": "匮乏的蕴炎宝石",
   "item.glimmeringtales.depleted_crystal_of_winterstorm": "匮乏的风雪宝石",
   "item.glimmeringtales.wand": "法杖",
+
   "item.glimmeringtales.dripstone": "符石: 钟乳石",
   "item.glimmeringtales.clay": "符石: 粘土",
   "item.glimmeringtales.amethyst": "符石: 紫水晶",
   "item.glimmeringtales.quartz": "符石: 石英",
   "item.glimmeringtales.sand": "符石: 沙子",
+  "item.glimmeringtales.bamboo": "符石: 竹子",
+  "item.glimmeringtales.cactus": "符石: 仙人掌",
+  "item.glimmeringtales.flower": "符石: 花",
+  "item.glimmeringtales.gravel": "符石: 沙砾",
+  "item.glimmeringtales.ice": "符石: 冰",
+  "item.glimmeringtales.lava": "符石: 岩浆",
+  "item.glimmeringtales.powder_snow": "符石: 细雪",
+  "item.glimmeringtales.snow": "符石: Snow",
+  "item.glimmeringtales.soul_sand": "符石: 灵魂沙",
+  "item.glimmeringtales.vine": "符石: 藤蔓",
 
   "block.glimmeringtales.crystal_vine": "生命之藤",
   "block.glimmeringtales.clay_carpet": "粘土地毯",
@@ -36,6 +49,7 @@
   "spell_action.glimmeringtales.amethyst": "晶爆",
   "spell_action.glimmeringtales.quartz": "晶化",
   "spell_action.glimmeringtales.sand": "沙暴",
+  "spell_action.glimmeringtales.gravel": "燧风",
 
   "glimmeringtales.jei.strike_block": "雷击方块",
   "glimmeringtales.jei.strike_item": "雷击物品",
@@ -47,19 +61,7 @@
   "glimmeringtales.configuration.materials": "材料属性",
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml": "微光纪事 - 服务端配置",
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml.title": "微光纪事 - 服务端配置",
-  "glimmeringtales.configuration.title": "微光纪事 - 配置",
+  "glimmeringtales.configuration.title": "微光纪事 - 配置"
 
-  "item.glimmeringtales.crystal_of_ocean": "Crystal Of Ocean",
-  "item.glimmeringtales.crystal_of_thunder": "Crystal Of Thunder",
-  "item.glimmeringtales.bamboo": "Rune: Bamboo",
-  "item.glimmeringtales.cactus": "Rune: Cactus",
-  "item.glimmeringtales.flower": "Rune: Flower",
-  "item.glimmeringtales.gravel": "Rune: Gravel",
-  "item.glimmeringtales.ice": "Rune: Ice",
-  "item.glimmeringtales.lava": "Rune: Lava",
-  "item.glimmeringtales.powder_snow": "Rune: Powder Snow",
-  "item.glimmeringtales.snow": "Rune: Snow",
-  "item.glimmeringtales.soul_sand": "Rune: Soul Sand",
-  "item.glimmeringtales.vine": "Rune: Vine"
 
 }

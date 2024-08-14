@@ -11,7 +11,8 @@ public class NatureSpellGenRegistry {
 			new ClaySpells(), // 1020
 			new AmethystSpells(), // 1030
 			new SandSpells(), // 1040
-			new QuartzSpells() // 1050
+			new QuartzSpells(), // 1050
+			new GravelSpells() // 1060
 	);
 
 }

@@ -3,6 +3,7 @@ package dev.xkmc.glimmeringtales.init.data.spell.earth;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
+import dev.xkmc.glimmeringtales.content.engine.processor.StackingEffectProcessor;
 import dev.xkmc.glimmeringtales.content.engine.render.CrossRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTTagGen;
@@ -93,12 +94,10 @@ public class AmethystSpells extends NatureSpellEntry {
 						DoubleVariable.of("4"),
 						true,
 						true
-				)).hit(new EffectProcessor(
-						LCEffects.ARMOR_REDUCE,
-						IntVariable.of("300"),
-						IntVariable.of("1"),
-						false,
-						true
+				)).hit(new StackingEffectProcessor(
+						LCEffects.BLEED,
+						IntVariable.of("100"),
+						IntVariable.of("6")
 				)).size(DoubleVariable.of("0.25"))
 				.motion(SimpleMotion.BREAKING)
 				.renderer(new CrossRenderData(TEX))
