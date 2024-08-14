@@ -11,6 +11,7 @@ public class GTTagGen {
 
 	public static final TagKey<Block> AMETHYST = of("amethyst");
 	public static final TagKey<Block> QUARTZ = of("quartz");
+	public static final TagKey<Block> VINE = of("vine");
 
 	public static void genBlockTag(RegistrateTagsProvider.IntrinsicImpl<Block> pvd) {
 		pvd.addTag(AMETHYST).add(
@@ -24,6 +25,12 @@ public class GTTagGen {
 				Blocks.QUARTZ_SLAB, Blocks.SMOOTH_QUARTZ_SLAB,
 				Blocks.QUARTZ_STAIRS, Blocks.SMOOTH_QUARTZ_STAIRS
 		);
+
+		pvd.addTag(VINE).add(
+				Blocks.VINE, Blocks.CAVE_VINES, Blocks.CAVE_VINES_PLANT, Blocks.TWISTING_VINES,
+				Blocks.TWISTING_VINES_PLANT, Blocks.WEEPING_VINES, Blocks.WEEPING_VINES_PLANT
+		);
+
 	}
 
 	public static TagKey<Block> of(String id) {
