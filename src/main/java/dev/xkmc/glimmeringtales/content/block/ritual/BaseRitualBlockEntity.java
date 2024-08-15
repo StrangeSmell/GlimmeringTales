@@ -1,18 +1,23 @@
 package dev.xkmc.glimmeringtales.content.block.ritual;
 
 import dev.xkmc.l2core.base.tile.BaseBlockEntity;
+import dev.xkmc.l2modularblock.tile_api.BlockContainer;
 import dev.xkmc.l2serial.serialization.marker.SerialClass;
 import dev.xkmc.l2serial.serialization.marker.SerialField;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.IItemHandler;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
+
 @SerialClass
-public class BaseRitualBlockEntity extends BaseBlockEntity {
+public class BaseRitualBlockEntity extends BaseBlockEntity implements BlockContainer {
 
 	@SerialField
 	private ItemStack stack = ItemStack.EMPTY;
@@ -24,9 +29,7 @@ public class BaseRitualBlockEntity extends BaseBlockEntity {
 	}
 
 	public void setItem(ItemStack stack) {
-		this.stack = stack;
-		sync();
-		setChanged();
+
 	}
 
 	public ItemStack getItem() {
@@ -35,6 +38,19 @@ public class BaseRitualBlockEntity extends BaseBlockEntity {
 
 	public IItemHandler getItemHandler(@Nullable Direction direction) {
 		return handler;
+	}
+
+	@Override
+	public List<Container> getContainers() {
+		return List.of(new SimpleContainer(stack));
+	}
+
+	public void onReplaced() {
+
+	}
+
+	public void onPlaced() {
+
 	}
 
 }
