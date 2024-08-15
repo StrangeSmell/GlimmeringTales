@@ -29,7 +29,8 @@ public class BaseRitualBlockEntity extends BaseBlockEntity implements BlockConta
 	}
 
 	public void setItem(ItemStack stack) {
-
+		if (locked()) return;
+		this.stack = stack;
 	}
 
 	public ItemStack getItem() {
@@ -43,6 +44,10 @@ public class BaseRitualBlockEntity extends BaseBlockEntity implements BlockConta
 	@Override
 	public List<Container> getContainers() {
 		return List.of(new SimpleContainer(stack));
+	}
+
+	public boolean locked() {
+		return false;
 	}
 
 	public void onReplaced() {

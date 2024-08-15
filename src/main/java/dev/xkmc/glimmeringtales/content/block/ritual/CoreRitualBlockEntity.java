@@ -7,7 +7,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 
 @SerialClass
 public class CoreRitualBlockEntity extends BaseRitualBlockEntity implements TickableBlockEntity {
@@ -29,9 +31,21 @@ public class CoreRitualBlockEntity extends BaseRitualBlockEntity implements Tick
 		if (level.getGameTime() % PerformanceConstants.CHECK_INTERVAL != 0) return;
 		var pos = getBlockPos();
 		if (linked.removeIf(e -> !(level.getBlockEntity(e) instanceof SideRitualBlockEntity be && be.isLinked(this, pos)))) {
+			onLinkBreak();
 			sync();
 			setChanged();
 		}
+	}
+
+	protected List<SideRitualBlockEntity> getLinked() {
+		List<SideRitualBlockEntity> ans = new ArrayList<>();
+		if (level == null) return ans;
+		for (var e : linked) {
+			if (level.getBlockEntity(e) instanceof SideRitualBlockEntity be) {
+				ans.add(be);
+			}
+		}
+		return ans;
 	}
 
 	public boolean isLinked(SideRitualBlockEntity side, BlockPos pos) {
@@ -40,8 +54,13 @@ public class CoreRitualBlockEntity extends BaseRitualBlockEntity implements Tick
 
 	public void removeLink(SideRitualBlockEntity side, BlockPos pos) {
 		if (!linked.remove(pos)) return;
+		onLinkBreak();
 		sync();
 		setChanged();
+	}
+
+	public void onLinkBreak() {
+
 	}
 
 	@Override
@@ -65,6 +84,7 @@ public class CoreRitualBlockEntity extends BaseRitualBlockEntity implements Tick
 				for (int z = -r; z <= r; z++) {
 					BlockPos pos = self.offset(x, y, z);
 					if (level.getBlockEntity(pos) instanceof SideRitualBlockEntity be) {
+						if (be.locked()) continue;
 						var other = be.getLink();
 						if (other == null || other.distSqr(pos) < self.distSqr(pos)) {
 							be.establishLink(this, self);

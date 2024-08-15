@@ -7,6 +7,7 @@ public record RitualItemHandler(BaseRitualBlockEntity be) implements IItemHandle
 
 	@Override
 	public void setStackInSlot(int slot, ItemStack stack) {
+		if (be.locked()) return;
 		be.setItem(stack);
 	}
 
@@ -22,6 +23,7 @@ public record RitualItemHandler(BaseRitualBlockEntity be) implements IItemHandle
 
 	@Override
 	public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+		if (be.locked()) return stack;
 		ItemStack current = be.getItem();
 		if (!current.isEmpty()) return stack;
 		ItemStack copy = stack.copy();
@@ -32,6 +34,7 @@ public record RitualItemHandler(BaseRitualBlockEntity be) implements IItemHandle
 
 	@Override
 	public ItemStack extractItem(int slot, int amount, boolean simulate) {
+		if (be.locked()) return ItemStack.EMPTY;
 		ItemStack current = be.getItem();
 		if (amount == 0 || current.isEmpty()) return ItemStack.EMPTY;
 		if (!simulate) be.setItem(ItemStack.EMPTY);

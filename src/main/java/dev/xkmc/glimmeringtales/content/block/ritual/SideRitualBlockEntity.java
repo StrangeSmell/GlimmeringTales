@@ -60,6 +60,13 @@ public class SideRitualBlockEntity extends BaseRitualBlockEntity implements Tick
 		if (isLinked(be, pos)) setLink(null);
 	}
 
+	@Override
+	public boolean locked() {
+		if (level == null) return false;
+		if (level.getBlockEntity(core) instanceof CoreRitualBlockEntity be)
+			return be.locked();
+		return false;
+	}
 
 	@Override
 	public void onReplaced() {
@@ -82,7 +89,8 @@ public class SideRitualBlockEntity extends BaseRitualBlockEntity implements Tick
 			for (int y = -r; y <= r; y++) {
 				for (int z = -r; z <= r; z++) {
 					BlockPos pos = self.offset(x, y, z);
-					if (level.getBlockEntity(pos) instanceof CoreRitualBlockEntity) {
+					if (level.getBlockEntity(pos) instanceof CoreRitualBlockEntity be) {
+						if (be.locked()) continue;
 						int isqr = x * x + y * y + z * z;
 						if (isqr < sqr) {
 							sqr = isqr;

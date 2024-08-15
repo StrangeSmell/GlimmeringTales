@@ -6,9 +6,10 @@ import dev.xkmc.glimmeringtales.content.block.crop.LifeCrystalCrop;
 import dev.xkmc.glimmeringtales.content.block.misc.ClayCarpetImpl;
 import dev.xkmc.glimmeringtales.content.block.misc.SelfDestroyImpl;
 import dev.xkmc.glimmeringtales.content.block.misc.SelfDestroyTransparent;
+import dev.xkmc.glimmeringtales.content.block.misc.StuckEntityMethod;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
-import dev.xkmc.glimmeringtales.content.item.rune.SpellCoreItem;
 import dev.xkmc.glimmeringtales.content.item.rune.BlockRuneItem;
+import dev.xkmc.glimmeringtales.content.item.rune.SpellCoreItem;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneWandItem;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTConfigs;
@@ -26,6 +27,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.function.Supplier;
 
@@ -114,7 +116,8 @@ public class GTItems {
 
 		{
 			CLAY_CARPET = GlimmeringTales.REGISTRATE.block("clay_carpet",
-							p -> DelegateBlock.newBaseBlock(p, new SelfDestroyImpl(), new ClayCarpetImpl()))
+							p -> DelegateBlock.newBaseBlock(p, new SelfDestroyImpl(), new ClayCarpetImpl(),
+									new StuckEntityMethod(new Vec3(0.05, 1f, 0.05))))
 					.properties(p -> p.mapColor(MapColor.CLAY).strength(0.6f).speedFactor(0.2F).jumpFactor(0.2f)
 							.sound(SoundType.GRAVEL).pushReaction(PushReaction.DESTROY).noLootTable())
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().carpet(ctx.getName(), pvd.mcLoc("block/clay"))))

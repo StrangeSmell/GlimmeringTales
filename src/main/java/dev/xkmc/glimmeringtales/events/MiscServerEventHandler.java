@@ -1,7 +1,7 @@
 package dev.xkmc.glimmeringtales.events;
 
 import dev.xkmc.glimmeringtales.content.block.api.CropGrowListener;
-import dev.xkmc.glimmeringtales.content.recipe.StrikeBlockRecipe;
+import dev.xkmc.glimmeringtales.content.recipe.thunder.StrikeBlockRecipe;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
 import net.minecraft.core.BlockPos;
