@@ -18,7 +18,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ClayCarpetImpl implements ShapeBlockMethod, ShapeUpdateBlockMethod, SurviveBlockMethod, EntityInsideBlockMethod {
+public class ClayCarpetImpl implements ShapeBlockMethod, ShapeUpdateBlockMethod, SurviveBlockMethod {
 
 	protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
 
@@ -41,9 +41,4 @@ public class ClayCarpetImpl implements ShapeBlockMethod, ShapeUpdateBlockMethod,
 		return !state.canSurvive(level, pos) ? Blocks.AIR.defaultBlockState() : current;
 	}
 
-	@Override
-	public void entityInside(BlockState state, Level level, BlockPos pos, Entity e) {
-		Vec3 vec3 = new Vec3(0.05, 1f, 0.05);
-		e.makeStuckInBlock(state, vec3);
-	}
 }

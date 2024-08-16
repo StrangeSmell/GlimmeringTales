@@ -1,7 +1,7 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-package dev.xkmc.glimmeringtales.content.recipe;
+package dev.xkmc.glimmeringtales.content.block.ritual;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 

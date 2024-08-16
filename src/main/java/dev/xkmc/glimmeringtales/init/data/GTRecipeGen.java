@@ -2,8 +2,8 @@ package dev.xkmc.glimmeringtales.init.data;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
-import dev.xkmc.glimmeringtales.content.recipe.StrikeBlockRecipeBuilder;
-import dev.xkmc.glimmeringtales.content.recipe.StrikeItemRecipeBuilder;
+import dev.xkmc.glimmeringtales.content.recipe.thunder.StrikeBlockRecipeBuilder;
+import dev.xkmc.glimmeringtales.content.recipe.thunder.StrikeItemRecipeBuilder;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;

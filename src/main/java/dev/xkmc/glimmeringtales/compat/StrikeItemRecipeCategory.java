@@ -1,6 +1,6 @@
 package dev.xkmc.glimmeringtales.compat;
 
-import dev.xkmc.glimmeringtales.content.recipe.StrikeItemRecipe;
+import dev.xkmc.glimmeringtales.content.recipe.thunder.StrikeItemRecipe;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.l2core.compat.jei.BaseRecipeCategory;
