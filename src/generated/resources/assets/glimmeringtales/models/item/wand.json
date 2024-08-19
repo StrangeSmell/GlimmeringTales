@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "glimmeringtales:custom/wand",
+  "gui_light": "front",
   "textures": {
-    "layer0": "glimmeringtales:item/wand"
+    "particle": "minecraft:item/stick"
   }
 }

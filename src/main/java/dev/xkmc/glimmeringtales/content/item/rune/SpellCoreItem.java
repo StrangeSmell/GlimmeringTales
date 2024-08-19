@@ -6,6 +6,8 @@ import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -56,6 +58,10 @@ public class SpellCoreItem extends LightningImmuneItem implements IBlockSpellIte
 			execute(nature, ctx.ctx(), user, aff);
 		}
 		return true;
+	}
+
+	public ModelResourceLocation model() {
+		return ModelResourceLocation.standalone(BuiltInRegistries.ITEM.getKey(this).withPath(e -> "item/" + e + "_core"));
 	}
 
 }

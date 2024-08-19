@@ -1,9 +1,11 @@
 package dev.xkmc.glimmeringtales.init;
 
+import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent;
 import net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
@@ -26,10 +28,19 @@ public class GlimmeringTalesClient {
 
 	}
 
-
 	@SubscribeEvent
 	public static void onResourceReload(RegisterClientReloadListenersEvent event) {
 
+	}
+
+	@SubscribeEvent
+	public static void onModelLoad(ModelEvent.RegisterAdditional event) {
+		for (var item : GTItems.CORES) {
+			event.register(item.get().model());
+		}
+		for (var item : GTItems.HANDLES) {
+			event.register(item.get().model());
+		}
 	}
 
 }

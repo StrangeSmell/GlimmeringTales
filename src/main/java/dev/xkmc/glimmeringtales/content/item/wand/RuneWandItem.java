@@ -1,5 +1,7 @@
 package dev.xkmc.glimmeringtales.content.item.wand;
 
+import com.tterrag.registrate.util.CreativeModeTabModifier;
+import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2backpack.content.quickswap.common.IQuickSwapToken;
 import dev.xkmc.l2backpack.content.quickswap.common.SingleSwapItem;
@@ -14,12 +16,22 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, FastItem {
+
+	public static WandHandleItem getHandle(ItemStack stack) {
+		var item = GTItems.WAND_HANDLE.getOrDefault(stack, GTItems.WOOD_WAND);
+		return item.value() instanceof WandHandleItem handle ? handle : GTItems.WOOD_WAND.get();
+	}
+
+	public static ItemStack getCore(ItemStack stack) {
+		return getItems(stack).get(getSelected(stack));
+	}
 
 	public RuneWandItem(Properties properties) {
 		super(properties);
@@ -56,10 +68,6 @@ public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, Fast
 	@Override
 	public boolean isFast(ItemStack itemStack) {
 		return true;
-	}
-
-	private ItemStack getCore(ItemStack stack) {
-		return getItems(stack).get(getSelected(stack));
 	}
 
 	@Override
@@ -114,4 +122,9 @@ public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, Fast
 		return user instanceof Player player && spell.cast(SpellCastContext.of(level, player, stack), useTick, charging);
 	}
 
+	public void fillCreativeTabs(CreativeModeTabModifier x) {
+		for (var e : GTItems.HANDLES) {
+			x.accept(GTItems.WAND_HANDLE.set(getDefaultInstance(), e), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+		}
+	}
 }

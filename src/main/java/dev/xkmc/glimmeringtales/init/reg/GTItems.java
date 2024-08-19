@@ -10,16 +10,23 @@ import dev.xkmc.glimmeringtales.content.block.misc.StuckEntityMethod;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
 import dev.xkmc.glimmeringtales.content.item.rune.BlockRuneItem;
 import dev.xkmc.glimmeringtales.content.item.rune.SpellCoreItem;
+import dev.xkmc.glimmeringtales.content.item.wand.GTBEWLR;
+import dev.xkmc.glimmeringtales.content.item.wand.IWandCoreItem;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneWandItem;
+import dev.xkmc.glimmeringtales.content.item.wand.WandHandleItem;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTConfigs;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
 import dev.xkmc.l2modularblock.core.DelegateBlock;
+import net.minecraft.client.renderer.block.model.BlockModel;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -28,7 +35,10 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 public class GTItems {
@@ -37,6 +47,9 @@ public class GTItems {
 			.buildL2CreativeTab("glimmeringtales", "Glimmering Tales", e ->
 					e.icon(GTItems.CRYSTAL_EARTH::asStack));
 
+	public static final List<ItemEntry<? extends IWandCoreItem>> CORES = new ArrayList<>();
+	public static final List<ItemEntry<? extends WandHandleItem>> HANDLES = new ArrayList<>();
+
 	public static final ItemEntry<RuneWandItem> WAND;
 
 	public static final ItemEntry<SpellCoreItem> CRYSTAL_NATURE,
@@ -44,6 +57,8 @@ public class GTItems {
 			CRYSTAL_OCEAN, CRYSTAL_THUNDER;
 	public static final ItemEntry<DepletedItem> DEPLETED_FLAME, DEPLETED_WINTERSTORM;
 	public static final BlockEntry<LifeCrystalCrop> CRYSTAL_VINE;
+
+	public static final ItemEntry<WandHandleItem> WOOD_WAND, GOLD_WAND;
 
 	public static final ItemEntry<BlockRuneItem> RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE,
 			RUNE_SAND, RUNE_GRAVEL, RUNE_QUARTZ, RUNE_CLAY, RUNE_DRIPSTONE, RUNE_AMETHYST,
@@ -55,17 +70,18 @@ public class GTItems {
 	private static final DCReg DC = DCReg.of(GlimmeringTales.REG);
 
 	public static final DCVal<Integer> PROGRESS = DC.intVal("progress");
+	public static final DCVal<Holder<Item>> WAND_HANDLE = DC.registry("handle", BuiltInRegistries.ITEM);
 
 	static {
 
 		{
-			CRYSTAL_NATURE = GlimmeringTales.REGISTRATE.item("crystal_of_nature", SpellCoreItem::new).register();
-			CRYSTAL_EARTH = GlimmeringTales.REGISTRATE.item("crystal_of_earth", SpellCoreItem::new).register();
-			CRYSTAL_LIFE = GlimmeringTales.REGISTRATE.item("crystal_of_life", SpellCoreItem::new).register();
-			CRYSTAL_FLAME = GlimmeringTales.REGISTRATE.item("crystal_of_flame", SpellCoreItem::new).register();
-			CRYSTAL_WINTERSTORM = GlimmeringTales.REGISTRATE.item("crystal_of_winterstorm", SpellCoreItem::new).register();
-			CRYSTAL_OCEAN = GlimmeringTales.REGISTRATE.item("crystal_of_ocean", SpellCoreItem::new).register();
-			CRYSTAL_THUNDER = GlimmeringTales.REGISTRATE.item("crystal_of_thunder", SpellCoreItem::new).register();
+			CRYSTAL_NATURE = core("crystal_of_nature");
+			CRYSTAL_EARTH = core("crystal_of_earth");
+			CRYSTAL_LIFE = core("crystal_of_life");
+			CRYSTAL_FLAME = core("crystal_of_flame");
+			CRYSTAL_WINTERSTORM = core("crystal_of_winterstorm");
+			CRYSTAL_OCEAN = core("crystal_of_ocean");
+			CRYSTAL_THUNDER = core("crystal_of_thunder");
 			DEPLETED_FLAME = GlimmeringTales.REGISTRATE.item("depleted_crystal_of_flame", p ->
 					new DepletedItem(p, () -> Blocks.LAVA, GTConfigs.SERVER.crystalOfFlameRequirement,
 							CRYSTAL_FLAME::get, () -> SoundEvents.BUCKET_FILL_LAVA)
@@ -89,7 +105,17 @@ public class GTItems {
 		{
 			WAND = GlimmeringTales.REGISTRATE.item("wand",
 							p -> new RuneWandItem(p.stacksTo(1).fireResistant()))
+					.model((ctx, pvd) -> pvd.getBuilder(ctx.getName())
+							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("custom/wand")))
+							.guiLight(BlockModel.GuiLight.FRONT)
+							.texture("particle", "minecraft:item/stick"))
+					.clientExtension(() -> () -> GTBEWLR.EXTENSIONS)
+					.tab(TAB.key(), (m, x) -> m.get().fillCreativeTabs(x))
 					.register();
+
+			WOOD_WAND = handle("wood_wand", 0.25f, 0.75f);
+			GOLD_WAND = handle("gold_wand", 0.4f, 0.8f);
+
 		}
 
 		{
@@ -133,10 +159,48 @@ public class GTItems {
 
 	}
 
+	private static ItemEntry<SpellCoreItem> core(String id) {
+		var ans = GlimmeringTales.REGISTRATE.item(id, SpellCoreItem::new)
+				.model((ctx, pvd) -> {
+					pvd.generated(ctx, pvd.modLoc("item/crystal/" + ctx.getName()));
+					pvd.getBuilder(ctx.getName() + "_core").parent(
+									new ModelFile.UncheckedModelFile(pvd.modLoc("custom/rune_core")))
+							.texture("all", pvd.modLoc("item/core/" + ctx.getName()))
+							.renderType("cutout");
+				})
+				.register();
+		CORES.add(ans);
+		return ans;
+	}
+
 	private static ItemEntry<BlockRuneItem> rune(String id, Supplier<Block> block, String name) {
-		return GlimmeringTales.REGISTRATE.item(id, p -> new BlockRuneItem(p.stacksTo(1).fireResistant(), block))
-				.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName())))
+		var ans = GlimmeringTales.REGISTRATE.item(id, p ->
+						new BlockRuneItem(p.stacksTo(1).fireResistant(), block))
+				.model((ctx, pvd) -> {
+					pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName()));
+					pvd.getBuilder(ctx.getName() + "_core").parent(
+									new ModelFile.UncheckedModelFile(pvd.modLoc("custom/rune_core")))
+							.texture("all", pvd.modLoc("item/rune/" + ctx.getName()))
+							.renderType("cutout");
+				})
 				.lang(name).register();
+		CORES.add(ans);
+		return ans;
+	}
+
+	private static ItemEntry<WandHandleItem> handle(String id, float size, float offset) {
+		var ans = GlimmeringTales.REGISTRATE.item(id,
+						p -> new WandHandleItem(p.stacksTo(1), size, offset))
+				.model((ctx, pvd) -> {
+					pvd.handheld(ctx, pvd.modLoc("item/wand"));//TODO
+					pvd.getBuilder(ctx.getName() + "_handle").parent(
+									new ModelFile.UncheckedModelFile(pvd.modLoc("custom/" + ctx.getName())))
+							.texture("all", pvd.modLoc("item/wand/" + ctx.getName()))
+							.renderType("cutout");
+				})
+				.register();
+		HANDLES.add(ans);
+		return ans;
 	}
 
 	public static void register() {

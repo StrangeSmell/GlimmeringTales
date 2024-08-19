@@ -1,0 +1,84 @@
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+	"particle": "#all"
+  },
+  "ambientocclusion": false,
+  "elements": [
+	{
+	  "from": [
+		3,
+		3,
+		3
+	  ],
+	  "to": [
+		13,
+		13,
+		13
+	  ],
+	  "shade": false,
+	  "faces": {
+		"north": {
+		  "uv": [
+			3,
+			3,
+			13,
+			13
+		  ],
+		  "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 },
+		  "texture": "#all"
+		},
+		"east": {
+		  "uv": [
+			3,
+			3,
+			13,
+			13
+		  ],
+		  "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 },
+		  "texture": "#all"
+		},
+		"south": {
+		  "uv": [
+			3,
+			3,
+			13,
+			13
+		  ],
+		  "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 },
+		  "texture": "#all"
+		},
+		"west": {
+		  "uv": [
+			3,
+			3,
+			13,
+			13
+		  ],
+		  "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 },
+		  "texture": "#all"
+		},
+		"up": {
+		  "uv": [
+			3,
+			3,
+			13,
+			13
+		  ],
+		  "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 },
+		  "texture": "#all"
+		},
+		"down": {
+		  "uv": [
+			3,
+			3,
+			13,
+			13
+		  ],
+		  "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 },
+		  "texture": "#all"
+		}
+	  }
+	}
+  ]
+}
