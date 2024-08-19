@@ -91,11 +91,11 @@ public class VinesSpell extends NatureSpellEntry {
                 new LoopIterator(
                         IntVariable.of("1"),
                         new SphereRandomIterator(
-                                DoubleVariable.of("8"),
-                                IntVariable.of("200"),
+                                DoubleVariable.of("12"),
+                                IntVariable.of("300"),
                                 new BlockParticleInstance(
                                         Blocks.VINE,
-                                        DoubleVariable.of("-.5"),
+                                        DoubleVariable.of("-.8"),
                                         DoubleVariable.of("1"),
                                         IntVariable.of("40"),
                                         true

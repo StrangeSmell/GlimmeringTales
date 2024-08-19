@@ -2,6 +2,7 @@ package dev.xkmc.glimmeringtales.init.reg;
 
 import dev.xkmc.glimmeringtales.content.engine.processor.StackingEffectProcessor;
 import dev.xkmc.glimmeringtales.content.engine.processor.strange_smell.AffectingProjectilesProcessor;
+import dev.xkmc.glimmeringtales.content.engine.processor.strange_smell.EffectCloudProcessor;
 import dev.xkmc.glimmeringtales.content.engine.processor.strange_smell.ProcreationProcessor;
 import dev.xkmc.glimmeringtales.content.engine.render.CrossRenderData;
 import dev.xkmc.glimmeringtales.content.engine.render.VerticalRenderData;
@@ -21,6 +22,9 @@ public class GTEngine {
 
 	public static final Val<ProcessorType<AffectingProjectilesProcessor>> AFFECTINGPROJECT =
 			REG.reg("affecting_project", () -> AffectingProjectilesProcessor.CODEC);
+
+	public static final Val<ProcessorType<EffectCloudProcessor>> EFFECT_CLOUD =
+			REG.reg("effect_cloud", () -> EffectCloudProcessor.CODEC);
 
 	public static final Val<ProcessorType<ProcreationProcessor>> PROCREATION =
 			REG.reg("procreation", () -> ProcreationProcessor.CODEC);

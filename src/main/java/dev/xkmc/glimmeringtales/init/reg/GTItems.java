@@ -66,6 +66,7 @@ public class GTItems {
 
 	public static final BlockEntry<DelegateBlock> CLAY_CARPET;
 	public static final BlockEntry<SelfDestroyTransparent> FAKE_GLASS;
+	public static final BlockEntry<SelfDestroyTransparent> FAKE_BAMBOO;
 
 	private static final DCReg DC = DCReg.of(GlimmeringTales.REG);
 
@@ -153,6 +154,12 @@ public class GTItems {
 					.properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).noLootTable())
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
 							.withExistingParent(ctx.getName(), pvd.mcLoc("block/glass")).renderType("cutout")))
+					.register();
+
+			FAKE_BAMBOO = GlimmeringTales.REGISTRATE.block("bamboo", SelfDestroyTransparent::new)
+					.properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO).noLootTable())
+					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
+							.withExistingParent(ctx.getName(), pvd.mcLoc("block/bamboo4_age1")).renderType("cutout")))
 					.register();
 
 		}
