@@ -1,4 +1,5 @@
 {
+  "block.glimmeringtales.bamboo": "Bamboo",
   "block.glimmeringtales.clay_carpet": "Clay Carpet",
   "block.glimmeringtales.crystal_vine": "Crystal Vine",
   "block.glimmeringtales.glass": "Glass",
@@ -52,9 +53,14 @@
   "item.glimmeringtales.wood_wand": "Wood Wand",
   "itemGroup.l2core.glimmeringtales": "Glimmering Tales",
   "spell_action.glimmeringtales.amethyst": "Scattering Amethyst",
+  "spell_action.glimmeringtales.bamboo": "Bamboo",
+  "spell_action.glimmeringtales.cactus": "Cactus",
   "spell_action.glimmeringtales.clay": "Clay Overflow",
   "spell_action.glimmeringtales.dripstone": "Stalactite Burst",
+  "spell_action.glimmeringtales.flower": "Flower",
   "spell_action.glimmeringtales.gravel": "Flint Storm",
+  "spell_action.glimmeringtales.procreation": "Procreation",
   "spell_action.glimmeringtales.quartz": "Crystalization",
-  "spell_action.glimmeringtales.sand": "Sandstorm"
+  "spell_action.glimmeringtales.sand": "Sandstorm",
+  "spell_action.glimmeringtales.vine": "Vine"
 }

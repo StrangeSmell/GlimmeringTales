@@ -1,0 +1,54 @@
+{
+  "action": {
+    "type": "l2magic:list",
+    "children": [
+      {
+        "type": "l2magic:processor",
+        "processors": [
+          {
+            "type": "l2magic:damage",
+            "damage": "1",
+            "damage_type": "minecraft:indirect_magic",
+            "indirect": true,
+            "positioned": false
+          },
+          {
+            "type": "l2magic:push",
+            "angle": "0",
+            "from_center": "TO_CENTER",
+            "speed": "-.5",
+            "tilt": "0"
+          }
+        ],
+        "selector": {
+          "type": "l2magic:box",
+          "center": true,
+          "size": "16",
+          "y": "16"
+        },
+        "target": "ENEMY"
+      },
+      {
+        "type": "l2magic:iterate",
+        "child": {
+          "type": "l2magic:random_pos_sphere",
+          "child": {
+            "type": "l2magic:block_particle",
+            "block": "minecraft:vine",
+            "breaking": true,
+            "life": "40",
+            "scale": "1",
+            "speed": "-.8"
+          },
+          "count": "300",
+          "radius": "12"
+        },
+        "step": "1"
+      }
+    ]
+  },
+  "cast_type": "INSTANT",
+  "icon": "minecraft:vine",
+  "order": 3100,
+  "trigger_type": "TARGET_POS"
+}

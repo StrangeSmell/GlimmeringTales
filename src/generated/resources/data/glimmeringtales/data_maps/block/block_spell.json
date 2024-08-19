@@ -6,8 +6,17 @@
     "#glimmeringtales:amethyst": {
       "spell": "glimmeringtales:amethyst"
     },
+    "#glimmeringtales:bamboo": {
+      "spell": "glimmeringtales:bamboo"
+    },
     "#glimmeringtales:quartz": {
       "spell": "glimmeringtales:quartz"
+    },
+    "#glimmeringtales:vine": {
+      "spell": "glimmeringtales:vine"
+    },
+    "#minecraft:flowers": {
+      "spell": "glimmeringtales:flower"
     },
     "#minecraft:sand": {
       "spell": "glimmeringtales:sand"
@@ -15,11 +24,17 @@
     "glimmeringtales:clay_carpet": {
       "spell": "glimmeringtales:clay"
     },
+    "minecraft:cactus": {
+      "spell": "glimmeringtales:cactus"
+    },
     "minecraft:clay": {
       "spell": "glimmeringtales:clay"
     },
     "minecraft:dripstone_block": {
       "spell": "glimmeringtales:dripstone"
+    },
+    "minecraft:hay_block": {
+      "spell": "glimmeringtales:procreation"
     },
     "minecraft:pointed_dripstone": {
       "spell": "glimmeringtales:dripstone"

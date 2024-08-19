@@ -8,6 +8,7 @@ import dev.xkmc.l2complements.content.effect.StackingEffect;
 import dev.xkmc.l2magic.content.engine.context.EngineContext;
 import dev.xkmc.l2magic.content.engine.core.EntityProcessor;
 import dev.xkmc.l2magic.content.engine.core.ProcessorType;
+import dev.xkmc.l2magic.content.engine.processor.SimpleServerProcessor;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.core.Holder;
@@ -21,7 +22,7 @@ public record StackingEffectProcessor(
 		Holder<MobEffect> eff,
 		IntVariable duration,
 		IntVariable max
-) implements EntityProcessor<StackingEffectProcessor> {
+) implements SimpleServerProcessor<StackingEffectProcessor> {
 
 	public static final MapCodec<StackingEffectProcessor> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
 			BuiltInRegistries.MOB_EFFECT.holderByNameCodec().fieldOf("effect").forGetter(e -> e.eff),

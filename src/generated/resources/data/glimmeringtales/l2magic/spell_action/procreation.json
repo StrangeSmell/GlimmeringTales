@@ -1,0 +1,67 @@
+{
+  "action": {
+    "type": "l2magic:list",
+    "children": [
+      {
+        "type": "l2magic:if",
+        "action": {
+          "type": "l2magic:processor",
+          "processors": [
+            {
+              "type": "glimmeringtales:procreation",
+              "num": "4"
+            }
+          ],
+          "selector": {
+            "type": "l2magic:arc",
+            "maxAngle": "-180+360/12*11",
+            "minAngle": "-180",
+            "radius": "4.0",
+            "size": "2.0",
+            "step": "11"
+          },
+          "target": "ALL"
+        },
+        "predicate": "TickUsing>=10"
+      },
+      {
+        "type": "l2magic:iterate_delayed",
+        "child": {
+          "type": "l2magic:random_pos_fan",
+          "child": {
+            "type": "l2magic:move",
+            "child": {
+              "type": "l2magic:particle",
+              "particle": "minecraft:heart",
+              "speed": "0.5"
+            },
+            "modifiers": [
+              {
+                "type": "l2magic:rotate",
+                "degree": "75",
+                "vertical": "0"
+              },
+              {
+                "type": "l2magic:offset",
+                "x": "0",
+                "y": "rand(0.5,2.5)",
+                "z": "0"
+              }
+            ]
+          },
+          "count": "5",
+          "maxAngle": "180",
+          "maxRadius": "5.0",
+          "minAngle": "-180",
+          "minRadius": "3.0"
+        },
+        "delay": "2",
+        "step": "10"
+      }
+    ]
+  },
+  "cast_type": "CONTINUOUS",
+  "icon": "minecraft:wheat",
+  "order": 100,
+  "trigger_type": "SELF_POS"
+}

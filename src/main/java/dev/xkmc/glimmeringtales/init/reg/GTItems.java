@@ -115,7 +115,7 @@ public class GTItems {
 					.register();
 
 			WOOD_WAND = handle("wood_wand", 0.25f, 0.75f);
-			GOLD_WAND = handle("gold_wand", 0.4f, 0.8f);
+			GOLD_WAND = handle("gold_wand", 0.25f, 0.75f);
 
 		}
 

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "type": "glimmeringtales:effect_cloud",
+    "duration": "10",
+    "effect": "minecraft:healing",
+    "radius": "3"
+  },
+  "cast_type": "INSTANT",
+  "icon": "minecraft:allium",
+  "order": 3200,
+  "trigger_type": "TARGET_POS"
+}

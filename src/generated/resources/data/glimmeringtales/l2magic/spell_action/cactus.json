@@ -1,0 +1,88 @@
+{
+  "action": {
+    "type": "l2magic:iterate_arc",
+    "child": {
+      "type": "l2magic:move",
+      "child": {
+        "type": "l2magic:iterate_delayed",
+        "child": {
+          "type": "l2magic:move",
+          "child": {
+            "type": "l2magic:list",
+            "children": [
+              {
+                "type": "l2magic:processor",
+                "processors": [
+                  {
+                    "type": "l2magic:damage",
+                    "damage": "6",
+                    "damage_type": "minecraft:indirect_magic",
+                    "indirect": true,
+                    "positioned": true
+                  },
+                  {
+                    "type": "l2magic:push",
+                    "angle": "0",
+                    "from_center": "UNIFORM",
+                    "speed": "0.5",
+                    "tilt": "0"
+                  }
+                ],
+                "selector": {
+                  "type": "l2magic:box",
+                  "center": true,
+                  "size": "1.0",
+                  "y": "1.0"
+                },
+                "target": "ENEMY"
+              },
+              {
+                "type": "l2magic:move",
+                "child": {
+                  "type": "l2magic:particle",
+                  "particle": "minecraft:crit",
+                  "speed": "rand(0.5,1)"
+                },
+                "modifiers": [
+                  {
+                    "type": "l2magic:offset",
+                    "x": "0",
+                    "y": "rand(-1,1)",
+                    "z": "0"
+                  }
+                ]
+              }
+            ]
+          },
+          "modifiers": [
+            {
+              "type": "l2magic:forward",
+              "distance": "1.0*i"
+            }
+          ]
+        },
+        "delay": "1",
+        "index": "i",
+        "step": "12"
+      },
+      "modifiers": [
+        {
+          "type": "l2magic:direction",
+          "x": "rand(-1,1)",
+          "y": "0",
+          "z": "rand(-1,1)"
+        }
+      ]
+    },
+    "count": "120",
+    "index": "i",
+    "maxAngle": "360",
+    "maxInclusive": true,
+    "minAngle": "0",
+    "radius": "0.1"
+  },
+  "cast_type": "INSTANT",
+  "icon": "minecraft:cactus",
+  "order": 3100,
+  "trigger_type": "TARGET_POS"
+}

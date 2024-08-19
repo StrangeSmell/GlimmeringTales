@@ -1,15 +1,13 @@
-package dev.xkmc.glimmeringtales.content.engine.processor.strange_smell;
+package dev.xkmc.glimmeringtales.content.engine.processor;
 
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.xkmc.fastprojectileapi.collision.EntityStorageCache;
 import dev.xkmc.glimmeringtales.init.reg.GTEngine;
 import dev.xkmc.l2magic.content.engine.context.EngineContext;
-import dev.xkmc.l2magic.content.engine.core.EntityProcessor;
 import dev.xkmc.l2magic.content.engine.core.ProcessorType;
+import dev.xkmc.l2magic.content.engine.processor.SimpleServerProcessor;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
-import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Animal;
@@ -21,7 +19,7 @@ import static net.minecraft.world.entity.AgeableMob.getSpeedUpSecondsWhenFeeding
 
 public record ProcreationProcessor(
         IntVariable num
-        ) implements EntityProcessor<ProcreationProcessor> {
+        ) implements SimpleServerProcessor<ProcreationProcessor> {
 
     public static final MapCodec<ProcreationProcessor> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
             IntVariable.codec("num", e -> e.num)

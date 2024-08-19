@@ -31,7 +31,7 @@ import net.neoforged.neoforge.common.data.DataMapProvider;
 
 import java.util.List;
 
-public class BamBooSpell extends NatureSpellEntry {
+public class BambooSpell extends NatureSpellEntry {
     public static final ResourceLocation ID = GlimmeringTales.loc("bamboo");
     public static final DataGenCachedHolder<SpellAction> SPELL = spell(ID);
     public static final DataGenCachedHolder<NatureSpell> NATURE = nature(ID);

@@ -14,9 +14,9 @@ public class NatureSpellGenRegistry {
 			new SandSpells(), // 1040
 			new QuartzSpells(), // 1050
 			new VinesSpell(), // 1050
-			new Procreation(),
+			new HaySpell(),
 			new CactusSpell(),
-			new BamBooSpell(),
+			new BambooSpell(),
 			new FlowerSpell(),
 			new GravelSpells() // 1060
 	);
