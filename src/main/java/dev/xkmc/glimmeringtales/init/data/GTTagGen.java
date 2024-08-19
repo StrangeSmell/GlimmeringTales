@@ -12,6 +12,7 @@ public class GTTagGen {
 	public static final TagKey<Block> AMETHYST = of("amethyst");
 	public static final TagKey<Block> QUARTZ = of("quartz");
 	public static final TagKey<Block> VINE = of("vine");
+	public static final TagKey<Block> BAMBOO = of("bamboo");
 
 	public static void genBlockTag(RegistrateTagsProvider.IntrinsicImpl<Block> pvd) {
 		pvd.addTag(AMETHYST).add(
@@ -29,6 +30,15 @@ public class GTTagGen {
 		pvd.addTag(VINE).add(
 				Blocks.VINE, Blocks.CAVE_VINES, Blocks.CAVE_VINES_PLANT, Blocks.TWISTING_VINES,
 				Blocks.TWISTING_VINES_PLANT, Blocks.WEEPING_VINES, Blocks.WEEPING_VINES_PLANT
+		);
+
+		pvd.addTag(BAMBOO).add(
+				Blocks.BAMBOO, Blocks.BAMBOO_BLOCK, Blocks.BAMBOO_BUTTON, Blocks.BAMBOO_DOOR,
+				Blocks.BAMBOO_FENCE, Blocks.BAMBOO_FENCE_GATE, Blocks.BAMBOO_HANGING_SIGN,
+				Blocks.BAMBOO_MOSAIC, Blocks.BAMBOO_MOSAIC_SLAB, Blocks.BAMBOO_MOSAIC_STAIRS,
+				Blocks.BAMBOO_WALL_SIGN, Blocks.BAMBOO_TRAPDOOR, Blocks.BAMBOO_SAPLING,
+				Blocks.BAMBOO_PLANKS, Blocks.BAMBOO_PRESSURE_PLATE, Blocks.STRIPPED_BAMBOO_BLOCK,
+				Blocks.POTTED_BAMBOO
 		);
 
 	}
