@@ -1,7 +1,7 @@
 package dev.xkmc.glimmeringtales.init.data.spell;
 
 import dev.xkmc.glimmeringtales.init.data.spell.earth.*;
-import dev.xkmc.glimmeringtales.init.data.spell.strange_smell.*;
+import dev.xkmc.glimmeringtales.init.data.spell.life.*;
 
 import java.util.List;
 

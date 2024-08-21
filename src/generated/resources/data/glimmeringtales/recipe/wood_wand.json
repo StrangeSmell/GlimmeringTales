@@ -1,0 +1,21 @@
+{
+  "type": "glimmeringtales:wand_craft",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "O": {
+      "tag": "glimmeringtales:crystal"
+    }
+  },
+  "pattern": [
+    "  O",
+    " I ",
+    "I  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "glimmeringtales:wood_wand"
+  }
+}

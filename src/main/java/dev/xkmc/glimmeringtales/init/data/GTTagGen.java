@@ -1,18 +1,27 @@
 package dev.xkmc.glimmeringtales.init.data;
 
+import com.tterrag.registrate.providers.RegistrateItemTagsProvider;
 import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 public class GTTagGen {
 
-	public static final TagKey<Block> AMETHYST = of("amethyst");
-	public static final TagKey<Block> QUARTZ = of("quartz");
-	public static final TagKey<Block> VINE = of("vine");
-	public static final TagKey<Block> BAMBOO = of("bamboo");
+	public static final TagKey<Item> CRYSTAL = item("crystal");
+	public static final TagKey<Item> CORE = item("core");
+
+	public static final TagKey<Block> AMETHYST = block("amethyst");
+	public static final TagKey<Block> QUARTZ = block("quartz");
+	public static final TagKey<Block> VINE = block("vine");
+	public static final TagKey<Block> BAMBOO = block("bamboo");
+
+	public static void genItemTag(RegistrateItemTagsProvider pvd) {
+		pvd.addTag(CORE).addTag(CRYSTAL);
+	}
 
 	public static void genBlockTag(RegistrateTagsProvider.IntrinsicImpl<Block> pvd) {
 		pvd.addTag(AMETHYST).add(
@@ -43,8 +52,12 @@ public class GTTagGen {
 
 	}
 
-	public static TagKey<Block> of(String id) {
+	public static TagKey<Block> block(String id) {
 		return TagKey.create(Registries.BLOCK, GlimmeringTales.loc(id));
+	}
+
+	public static TagKey<Item> item(String id) {
+		return TagKey.create(Registries.ITEM, GlimmeringTales.loc(id));
 	}
 
 }

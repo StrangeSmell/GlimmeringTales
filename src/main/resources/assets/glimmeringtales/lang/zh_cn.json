@@ -13,6 +13,8 @@
   "item.glimmeringtales.depleted_crystal_of_flame": "匮乏的蕴炎宝石",
   "item.glimmeringtales.depleted_crystal_of_winterstorm": "匮乏的风雪宝石",
   "item.glimmeringtales.wand": "法杖",
+  "item.glimmeringtales.gold_wand": "金杖柄",
+  "item.glimmeringtales.wood_wand": "木杖柄",
 
   "item.glimmeringtales.dripstone": "符石: 钟乳石",
   "item.glimmeringtales.clay": "符石: 粘土",
@@ -26,13 +28,14 @@
   "item.glimmeringtales.ice": "符石: 冰",
   "item.glimmeringtales.lava": "符石: 岩浆",
   "item.glimmeringtales.powder_snow": "符石: 细雪",
-  "item.glimmeringtales.snow": "符石: Snow",
+  "item.glimmeringtales.snow": "符石: 雪",
   "item.glimmeringtales.soul_sand": "符石: 灵魂沙",
   "item.glimmeringtales.vine": "符石: 藤蔓",
 
   "block.glimmeringtales.crystal_vine": "生命之藤",
   "block.glimmeringtales.clay_carpet": "粘土地毯",
   "block.glimmeringtales.glass": "玻璃",
+  "block.glimmeringtales.bamboo": "竹子",
 
   "element.glimmeringtales.earth": "地脉",
   "element.glimmeringtales.flame": "蕴炎",
@@ -44,6 +47,11 @@
   "glimmeringtales.tooltip.nearby_grow": "相邻的作物自然生长至成熟的瞬间才会生长",
   "glimmeringtales.tooltip.affinity": "[%s]亲和度: %s",
 
+  "spell_action.glimmeringtales.bamboo": "竹栅",
+  "spell_action.glimmeringtales.cactus": "棘风",
+  "spell_action.glimmeringtales.flower": "花环",
+  "spell_action.glimmeringtales.procreation": "温馨",
+  "spell_action.glimmeringtales.vine": "藤缚",
   "spell_action.glimmeringtales.dripstone": "岩刺",
   "spell_action.glimmeringtales.clay": "粘毯",
   "spell_action.glimmeringtales.amethyst": "晶爆",

@@ -16,6 +16,7 @@ import dev.xkmc.glimmeringtales.content.item.wand.RuneWandItem;
 import dev.xkmc.glimmeringtales.content.item.wand.WandHandleItem;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTConfigs;
+import dev.xkmc.glimmeringtales.init.data.GTTagGen;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
@@ -60,8 +61,9 @@ public class GTItems {
 
 	public static final ItemEntry<WandHandleItem> WOOD_WAND, GOLD_WAND;
 
-	public static final ItemEntry<BlockRuneItem> RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE,
-			RUNE_SAND, RUNE_GRAVEL, RUNE_QUARTZ, RUNE_CLAY, RUNE_DRIPSTONE, RUNE_AMETHYST,
+	public static final ItemEntry<BlockRuneItem>
+			RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE, RUNE_HAYBALE,
+			RUNE_SAND, RUNE_GRAVEL, RUNE_QUARTZ, RUNE_CLAY, RUNE_STONE, RUNE_DRIPSTONE, RUNE_AMETHYST,
 			RUNE_LAVA, RUNE_SOUL_SAND, RUNE_SNOW, RUNE_ICE, RUNE_POWDER_SNOW;
 
 	public static final BlockEntry<DelegateBlock> CLAY_CARPET;
@@ -112,10 +114,11 @@ public class GTItems {
 							.texture("particle", "minecraft:item/stick"))
 					.clientExtension(() -> () -> GTBEWLR.EXTENSIONS)
 					.tab(TAB.key(), (m, x) -> m.get().fillCreativeTabs(x))
+					.lang(" Wand")
 					.register();
 
-			WOOD_WAND = handle("wood_wand", 0.25f, 0.75f);
-			GOLD_WAND = handle("gold_wand", 0.25f, 0.75f);
+			WOOD_WAND = handle("wood_wand", 0.25f, 0.75f, "Wooden");
+			GOLD_WAND = handle("gold_wand", 0.25f, 0.75f, "Golden");
 
 		}
 
@@ -125,10 +128,12 @@ public class GTItems {
 			RUNE_CACTUS = rune("cactus", () -> Blocks.CACTUS, "Rune: Cactus");
 			RUNE_FLOWER = rune("flower", () -> Blocks.POPPY, "Rune: Flower");
 			RUNE_VINE = rune("vine", () -> Blocks.VINE, "Rune: Vine");
+			RUNE_HAYBALE = rune("hay_bale", () -> Blocks.HAY_BLOCK, "Rune: Hay Bale");
 
 			RUNE_SAND = rune("sand", () -> Blocks.SAND, "Rune: Sand");
 			RUNE_GRAVEL = rune("gravel", () -> Blocks.GRAVEL, "Rune: Gravel");
 			RUNE_CLAY = rune("clay", () -> Blocks.CLAY, "Rune: Clay");
+			RUNE_STONE = rune("stone", () -> Blocks.STONE, "Rune: Stone");
 			RUNE_QUARTZ = rune("quartz", () -> Blocks.QUARTZ_BLOCK, "Rune: Quartz");
 			RUNE_DRIPSTONE = rune("dripstone", () -> Blocks.DRIPSTONE_BLOCK, "Rune: Stalactite");
 			RUNE_AMETHYST = rune("amethyst", () -> Blocks.AMETHYST_BLOCK, "Rune: Amethyst");
@@ -175,6 +180,7 @@ public class GTItems {
 							.texture("all", pvd.modLoc("item/core/" + ctx.getName()))
 							.renderType("cutout");
 				})
+				.tag(GTTagGen.CRYSTAL)
 				.register();
 		CORES.add(ans);
 		return ans;
@@ -190,21 +196,25 @@ public class GTItems {
 							.texture("all", pvd.modLoc("item/rune/" + ctx.getName()))
 							.renderType("cutout");
 				})
+				.tag(GTTagGen.CORE)
 				.lang(name).register();
 		CORES.add(ans);
 		return ans;
 	}
 
-	private static ItemEntry<WandHandleItem> handle(String id, float size, float offset) {
+	private static ItemEntry<WandHandleItem> handle(String id, float size, float offset, String name) {
 		var ans = GlimmeringTales.REGISTRATE.item(id,
 						p -> new WandHandleItem(p.stacksTo(1), size, offset))
 				.model((ctx, pvd) -> {
-					pvd.handheld(ctx, pvd.modLoc("item/wand"));//TODO
+					pvd.handheld(ctx, pvd.modLoc("item/handle/" + id));
+					pvd.getBuilder(ctx.getName() + "_icon").parent(
+									new ModelFile.UncheckedModelFile(pvd.mcLoc("item/handheld")))
+							.texture("layer0", pvd.modLoc("item/handle/" + id));
 					pvd.getBuilder(ctx.getName() + "_handle").parent(
 									new ModelFile.UncheckedModelFile(pvd.modLoc("custom/" + ctx.getName())))
 							.texture("all", pvd.modLoc("item/wand/" + ctx.getName()))
 							.renderType("cutout");
-				})
+				}).removeTab(TAB.key()).lang(name)
 				.register();
 		HANDLES.add(ans);
 		return ans;

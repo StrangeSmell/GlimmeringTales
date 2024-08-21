@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.init.reg;
 
+import dev.xkmc.glimmeringtales.content.recipe.craft.WandCraftRecipe;
 import dev.xkmc.glimmeringtales.content.recipe.ritual.RitualInput;
 import dev.xkmc.glimmeringtales.content.recipe.ritual.RitualRecipe;
 import dev.xkmc.glimmeringtales.content.recipe.ritual.SimpleRitualRecipe;
@@ -8,6 +9,7 @@ import dev.xkmc.glimmeringtales.content.recipe.thunder.StrikeItemRecipe;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.l2core.init.reg.simple.SR;
 import dev.xkmc.l2core.init.reg.simple.Val;
+import dev.xkmc.l2core.serial.recipe.AbstractShapedRecipe;
 import dev.xkmc.l2core.serial.recipe.BaseRecipe;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -29,6 +31,8 @@ public class GTRecipes {
 			RS.reg("strike_item", () -> new BaseRecipe.RecType<>(StrikeItemRecipe.class, RT_STRIKE_ITEM));
 	public static final Val<BaseRecipe.RecType<SimpleRitualRecipe, RitualRecipe<?>, RitualInput>> RSR_SIMPLE =
 			RS.reg("simple_ritual", () -> new BaseRecipe.RecType<>(SimpleRitualRecipe.class, RT_RITUAL));
+	public static final Val<AbstractShapedRecipe.Serializer<WandCraftRecipe>> WAND =
+			RS.reg("wand_craft", () -> new AbstractShapedRecipe.Serializer<>(WandCraftRecipe::new));
 
 	public static void register() {
 	}

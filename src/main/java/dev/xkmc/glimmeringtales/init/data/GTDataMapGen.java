@@ -29,5 +29,12 @@ public class GTDataMapGen {
 		builder.add(GTItems.CRYSTAL_WINTERSTORM, ElementAffinity.of(Map.of(
 				GTRegistries.SNOW.get(), 1.5d
 		)), false);
+
+		builder.add(GTItems.WOOD_WAND, ElementAffinity.of(Map.of(
+				GTRegistries.LIFE.get(), 0.25d
+		)), false);
+		builder.add(GTItems.GOLD_WAND, ElementAffinity.of(Map.of(
+				GTRegistries.EARTH.get(), 0.25d
+		)), false);
 	}
 }

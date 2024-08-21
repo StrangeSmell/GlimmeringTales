@@ -1,0 +1,24 @@
+{
+  "type": "glimmeringtales:wand_craft",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:gold_ingot"
+    },
+    "O": {
+      "tag": "glimmeringtales:crystal"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "  O",
+    "RI ",
+    "IR "
+  ],
+  "result": {
+    "count": 1,
+    "id": "glimmeringtales:gold_wand"
+  }
+}

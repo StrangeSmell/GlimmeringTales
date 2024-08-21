@@ -68,6 +68,7 @@ public class GlimmeringTales {
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, GTRecipeGen::onRecipeGen);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, GTLang::addTranslations);
 		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTDataMapGen::genMap);
+		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, GTTagGen::genItemTag);
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, GTTagGen::genBlockTag);
 		var init = REGISTRATE.getDataGenInitializer();
 		REGISTRATE.addDataGenerator(ProviderType.LANG, GTSpells::addLang);

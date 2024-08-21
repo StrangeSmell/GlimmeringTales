@@ -39,6 +39,7 @@ public class GlimmeringTalesClient {
 			event.register(item.get().model());
 		}
 		for (var item : GTItems.HANDLES) {
+			event.register(item.get().icon());
 			event.register(item.get().model());
 		}
 	}

@@ -13,7 +13,12 @@ public interface ISpellHolder {
 
 	default void execute(NatureSpell spell, SpellContext ctx, SpellCastContext user, IAffinityProvider aff) {
 		spell.spell().value().execute(ctx);
-		spell.cooldown(user.user(), user.wand(), aff.get(spell.elem()));
+		var val = aff.get(spell.elem());
+		var wandAff = RuneWandItem.getHandle(user.wand()).getAffinity(user.level());
+		if (wandAff != null) {
+			val += aff.get(spell.elem());
+		}
+		spell.cooldown(user.user(), user.wand(), val);
 	}
 
 }

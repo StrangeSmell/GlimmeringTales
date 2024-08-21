@@ -11,6 +11,7 @@ import dev.xkmc.l2library.content.raytrace.FastItem;
 import dev.xkmc.l2library.content.raytrace.IGlowingTarget;
 import dev.xkmc.l2library.content.raytrace.RayTraceUtil;
 import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -19,8 +20,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, FastItem {
 
@@ -126,5 +130,20 @@ public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, Fast
 		for (var e : GTItems.HANDLES) {
 			x.accept(GTItems.WAND_HANDLE.set(getDefaultInstance(), e), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 		}
+	}
+
+	@Override
+	public Component getName(ItemStack stack) {
+		var handle = getHandle(stack);
+		return Component.translatable(handle.getDescriptionId()).append(super.getName(stack));
+	}
+
+	@Override
+	public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> list, TooltipFlag flag) {
+		var level = ctx.level();
+		if (level == null) return;
+		var handle = getHandle(stack);
+		list.add(Component.translatable(handle.getDescriptionId()).append(": "));
+		handle.appendAffinityDesc(level, list);
 	}
 }

@@ -1,7 +1,7 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-package dev.xkmc.glimmeringtales.init.data.spell.strange_smell;
+package dev.xkmc.glimmeringtales.init.data.spell.life;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 

@@ -50,6 +50,11 @@ public class GTBEWLR extends BlockEntityWithoutLevelRenderer {
 						   MultiBufferSource bufferSource, int light, int overlay) {
 		var manager = Minecraft.getInstance().getModelManager();
 		var handle = RuneWandItem.getHandle(stack);
+		if (type == ItemDisplayContext.GUI) {
+			render(stack, type, false, pose, bufferSource, light, overlay,
+					manager.getModel(handle.icon()), GTBEWLR::wandHandle);
+			return;
+		}
 		render(stack, type, false, pose, bufferSource, light, overlay,
 				manager.getModel(handle.model()), GTBEWLR::wandHandle);
 		var sel = RuneWandItem.getCore(stack).getItem();

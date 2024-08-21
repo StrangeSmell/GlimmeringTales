@@ -1,0 +1,22 @@
+{
+  "values": [
+    "glimmeringtales:bamboo",
+    "glimmeringtales:cactus",
+    "glimmeringtales:flower",
+    "glimmeringtales:vine",
+    "glimmeringtales:hay_bale",
+    "glimmeringtales:sand",
+    "glimmeringtales:gravel",
+    "glimmeringtales:clay",
+    "glimmeringtales:stone",
+    "glimmeringtales:quartz",
+    "glimmeringtales:dripstone",
+    "glimmeringtales:amethyst",
+    "glimmeringtales:lava",
+    "glimmeringtales:soul_sand",
+    "glimmeringtales:snow",
+    "glimmeringtales:ice",
+    "glimmeringtales:powder_snow",
+    "#glimmeringtales:crystal"
+  ]
+}

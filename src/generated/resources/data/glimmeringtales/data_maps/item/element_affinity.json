@@ -27,6 +27,16 @@
       "affinity": {
         "glimmeringtales:snow": 1.5
       }
+    },
+    "glimmeringtales:gold_wand": {
+      "affinity": {
+        "glimmeringtales:earth": 0.25
+      }
+    },
+    "glimmeringtales:wood_wand": {
+      "affinity": {
+        "glimmeringtales:life": 0.25
+      }
     }
   }
 }

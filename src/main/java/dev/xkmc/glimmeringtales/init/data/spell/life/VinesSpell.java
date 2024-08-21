@@ -1,4 +1,4 @@
-package dev.xkmc.glimmeringtales.init.data.spell.strange_smell;
+package dev.xkmc.glimmeringtales.init.data.spell.life;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
@@ -20,15 +20,12 @@ import dev.xkmc.l2magic.content.engine.spell.SpellTriggerType;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import dev.xkmc.l2magic.init.data.DataGenCachedHolder;
-import dev.xkmc.l2magic.init.data.SpellDataGenEntry;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.DataMapProvider;
 
 import java.util.List;

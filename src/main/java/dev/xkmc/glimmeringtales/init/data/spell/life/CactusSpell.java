@@ -1,4 +1,4 @@
-package dev.xkmc.glimmeringtales.init.data.spell.strange_smell;
+package dev.xkmc.glimmeringtales.init.data.spell.life;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;

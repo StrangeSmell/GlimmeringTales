@@ -2,6 +2,7 @@ package dev.xkmc.glimmeringtales.init.data;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
+import dev.xkmc.glimmeringtales.content.recipe.craft.WandRecipeBuilder;
 import dev.xkmc.glimmeringtales.content.recipe.ritual.SimpleRitualRecipeBuilder;
 import dev.xkmc.glimmeringtales.content.recipe.thunder.StrikeBlockRecipeBuilder;
 import dev.xkmc.glimmeringtales.content.recipe.thunder.StrikeItemRecipeBuilder;
@@ -48,6 +49,22 @@ public class GTRecipeGen {
 					.pattern("AAA").pattern("ABA").pattern("AAA")
 					.define('A', Tags.Items.SEEDS)
 					.define('B', GTItems.CRYSTAL_NATURE)
+					.save(pvd);
+		}
+
+		// wand
+		{
+			unlock(pvd, new WandRecipeBuilder(GTItems.WOOD_WAND, 1)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+					.pattern("  O").pattern(" I ").pattern("I  ")
+					.define('O', GTTagGen.CRYSTAL)
+					.define('I', Items.STICK)
+					.save(pvd);
+
+			unlock(pvd, new WandRecipeBuilder(GTItems.GOLD_WAND, 1)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+					.pattern("  O").pattern("RI ").pattern("IR ")
+					.define('O', GTTagGen.CRYSTAL)
+					.define('I', Items.GOLD_INGOT)
+					.define('R', Items.REDSTONE)
 					.save(pvd);
 		}
 
