@@ -50,7 +50,7 @@ public class CactusSpell extends NatureSpellEntry {
     public static final ResourceLocation ID = GlimmeringTales.loc("cactus");
     public static final DataGenCachedHolder<SpellAction> SPELL = spell(ID);
     public static final DataGenCachedHolder<NatureSpell> NATURE = nature(ID);
-    public static final ResourceLocation TEX = GlimmeringTales.loc("textures/spell/amethyst.png");
+    public static final ResourceLocation TEX = GlimmeringTales.loc("textures/spell/cactus.png");
     public static final DataGenCachedHolder<ProjectileConfig> PROJECTILE = projectile(ID);
     @Override
     public void regNature(BootstrapContext<NatureSpell> ctx) {
@@ -137,7 +137,9 @@ public class CactusSpell extends NatureSpellEntry {
                                 IntVariable.of("100"),
                                 false, true,
                                 Map.of()
-                        ).move(SetDirectionModifier.of("rand(" +"-1"+ "," + 1+ ")","0","rand(" +"-1"+ "," + 1+ ")")), "j"
+                        ).move(SetDirectionModifier.of("rand(" +"-1"+ "," + 1+ ")","0","rand(" +"-1"+ "," + 1+ ")"))
+                                .move(OffsetModifier.of("0", "rand(" +"-1"+ "," + 0.5+ ")", "0"))
+                        , "j"
                 ), "i"
         ).move(
                 OffsetModifier.of("0", "0.55", "0"),
