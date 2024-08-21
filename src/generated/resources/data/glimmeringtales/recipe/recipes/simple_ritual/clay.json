@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_earth"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:clay"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:clay"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:clay"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:clay"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:clay"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:mud"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:mud"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:mud"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:mud"
+      }
+    }
+  ],
+  "time": 0
+}

@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_life"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:cactus"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:cactus"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:cactus"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:cactus"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:cactus"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:cactus"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:cactus"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:cactus"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:cactus"
+      }
+    }
+  ],
+  "time": 0
+}

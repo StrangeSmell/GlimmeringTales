@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_earth"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:quartz"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:quartz_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:quartz_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:quartz_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:quartz_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      }
+    }
+  ],
+  "time": 0
+}

@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_earth"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:amethyst"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:amethyst_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:amethyst_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:amethyst_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:amethyst_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:amethyst_shard"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:amethyst_shard"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:amethyst_shard"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:amethyst_shard"
+      }
+    }
+  ],
+  "time": 0
+}

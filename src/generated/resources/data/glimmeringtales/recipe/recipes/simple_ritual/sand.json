@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_earth"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:sand"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "tag": "c:sands"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:sands"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:sands"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:sands"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:sands"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:sands"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:sands"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "c:sands"
+      }
+    }
+  ],
+  "time": 0
+}

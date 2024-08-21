@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_life"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:bamboo"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:bamboo"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:bamboo"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:bamboo"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:bamboo"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:bamboo"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:bamboo"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:bamboo"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:bamboo"
+      }
+    }
+  ],
+  "time": 0
+}

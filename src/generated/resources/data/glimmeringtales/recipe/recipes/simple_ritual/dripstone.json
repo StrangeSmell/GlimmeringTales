@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_earth"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:dripstone"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:dripstone_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:dripstone_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:dripstone_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:dripstone_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:pointed_dripstone"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:pointed_dripstone"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:pointed_dripstone"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:pointed_dripstone"
+      }
+    }
+  ],
+  "time": 0
+}

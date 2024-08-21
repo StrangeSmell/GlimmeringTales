@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_life"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:flower"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "tag": "minecraft:flowers"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "minecraft:flowers"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "minecraft:flowers"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "minecraft:flowers"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "minecraft:flowers"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "minecraft:flowers"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "minecraft:flowers"
+      }
+    },
+    {
+      "ingredient": {
+        "tag": "minecraft:flowers"
+      }
+    }
+  ],
+  "time": 0
+}

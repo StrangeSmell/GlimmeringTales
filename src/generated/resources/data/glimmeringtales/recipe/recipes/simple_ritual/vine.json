@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_life"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:vine"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:vine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:vine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:vine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:vine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:vine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:vine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:vine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:vine"
+      }
+    }
+  ],
+  "time": 0
+}
