@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_flame"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:earth_meltdown"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:magma"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:stone"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:strong_fire_charge"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:strong_fire_charge"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    }
+  ],
+  "time": 0
+}

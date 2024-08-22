@@ -19,6 +19,9 @@ public class GTTagGen {
 	public static final TagKey<Block> VINE = block("vine");
 	public static final TagKey<Block> BAMBOO = block("bamboo");
 
+
+	public static final TagKey<Block> FAKE_MAGMA = block("fake_magma");
+
 	public static void genItemTag(RegistrateItemTagsProvider pvd) {
 		pvd.addTag(CORE).addTag(CRYSTAL);
 	}

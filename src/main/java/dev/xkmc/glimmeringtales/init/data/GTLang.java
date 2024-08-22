@@ -10,6 +10,7 @@ public enum GTLang {
 	TOOLTIP_BLOCK("tooltip.consume_block", "Right click %s to absorb essence", 1),
 	TOOLTIP_VINE("tooltip.nearby_grow", "Grows when adjacent crops grow to maturity naturally", 0),
 	TOOLTIP_AFFINITY("tooltip.affinity", "[%s] affinity: %s", 2),
+	TOOLTIP_COST("tooltip.cost", "Spell cost: [%s] - %s", 2),
 
 	JEI_STRIKE_ITEM("jei.strike_item", "Lightning Strikes Item", 0),
 	JEI_STRIKE_BLOCK("jei.strike_block", "Lightning Strikes Block", 0),

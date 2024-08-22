@@ -55,6 +55,8 @@ public class SpellCoreItem extends LightningImmuneItem implements IBlockSpellIte
 		if (aff == null || !aff.affinity().containsKey(nature.elem()))
 			return false;
 		if (!user.level().isClientSide()) {
+			if (spell.breakBlock())
+				user.level().removeBlock(ctx.pos(), false);
 			execute(nature, ctx.ctx(), user, aff);
 		}
 		return true;

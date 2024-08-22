@@ -56,10 +56,12 @@ public class HaySpell extends NatureSpellEntry {
         NATURE.gen(ctx, new NatureSpell(SPELL, GTRegistries.LIFE.get(), 20));
     }
 
-    @Override
-    public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-        builder.add(Blocks.HAY_BLOCK.builtInRegistryHolder(), new BlockSpell(NATURE), false);
-    }
+
+	@Override
+	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
+		builder.add(Blocks.HAY_BLOCK.builtInRegistryHolder(), new BlockSpell(NATURE, true, 1), false);
+	}
+
 
     @Override
     public void genLang(RegistrateLangProvider ctx) {

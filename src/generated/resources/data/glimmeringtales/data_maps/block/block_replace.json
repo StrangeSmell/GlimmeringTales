@@ -1,0 +1,13 @@
+{
+  "values": {
+    "glimmeringtales:magma_block_for_deepslate": {
+      "block": "minecraft:deepslate"
+    },
+    "glimmeringtales:magma_block_for_netherrack": {
+      "block": "minecraft:netherrack"
+    },
+    "glimmeringtales:magma_block_for_stone": {
+      "block": "minecraft:stone"
+    }
+  }
+}

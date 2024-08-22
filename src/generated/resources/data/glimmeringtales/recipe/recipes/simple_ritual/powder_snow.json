@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_winterstorm"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:powder_snow"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:powder_snow_bucket"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:powder_snow_bucket"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:powder_snow_bucket"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:powder_snow_bucket"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:snowball"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:snowball"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:snowball"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:snowball"
+      }
+    }
+  ],
+  "time": 0
+}

@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_life"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:hay_bale"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:hay_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:hay_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:hay_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:hay_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:carrot"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:carrot"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:carrot"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:carrot"
+      }
+    }
+  ],
+  "time": 0
+}

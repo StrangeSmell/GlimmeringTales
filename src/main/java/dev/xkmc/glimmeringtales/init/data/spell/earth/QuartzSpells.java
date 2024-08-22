@@ -42,7 +42,7 @@ public class QuartzSpells extends NatureSpellEntry {
 
 	@Override
 	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-		builder.add(GTTagGen.QUARTZ, new BlockSpell(NATURE), false);
+		builder.add(GTTagGen.QUARTZ, new BlockSpell(NATURE, false, 0), false);
 	}
 
 	@Override

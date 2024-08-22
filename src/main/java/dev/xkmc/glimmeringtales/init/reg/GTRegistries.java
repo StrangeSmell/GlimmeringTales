@@ -1,9 +1,6 @@
 package dev.xkmc.glimmeringtales.init.reg;
 
-import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
-import dev.xkmc.glimmeringtales.content.core.spell.ElementAffinity;
-import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
-import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
+import dev.xkmc.glimmeringtales.content.core.spell.*;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneSwapType;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.l2backpack.content.quickswap.type.MatcherSwapType;
@@ -27,13 +24,17 @@ public class GTRegistries {
 			GlimmeringTales.REG.dataMap("block_spell", Registries.BLOCK, BlockSpell.class);
 	public static final DataMapReg<Item, ElementAffinity> AFFINITY =
 			GlimmeringTales.REG.dataMap("element_affinity", Registries.ITEM, ElementAffinity.class);
+	public static final DataMapReg<Block, BlockReplace> REPLACE =
+			GlimmeringTales.REG.dataMap("block_replace", Registries.BLOCK, BlockReplace.class);
+	public static final DataMapReg<Block, BlockReplace> MELT =
+			GlimmeringTales.REG.dataMap("block_melt", Registries.BLOCK, BlockReplace.class);
 
 	public static final SimpleEntry<SpellElement> LIFE = reg("life", ChatFormatting.GREEN);
 	public static final SimpleEntry<SpellElement> EARTH = reg("earth", ChatFormatting.GOLD);
 	public static final SimpleEntry<SpellElement> FLAME = reg("flame", ChatFormatting.RED);
 	public static final SimpleEntry<SpellElement> SNOW = reg("snow", ChatFormatting.AQUA);
-	//public static final SimpleEntry<SpellElement> SEA = reg("sea", GTItems.CRYSTAL_NATURE::get);
-	//public static final SimpleEntry<SpellElement> THUNDER = reg("thunder");
+	public static final SimpleEntry<SpellElement> OCEAN = reg("ocean", ChatFormatting.DARK_AQUA);
+	public static final SimpleEntry<SpellElement> THUNDER = reg("thunder", ChatFormatting.YELLOW);
 
 	public static final MatcherSwapType SWAP = new RuneSwapType();
 

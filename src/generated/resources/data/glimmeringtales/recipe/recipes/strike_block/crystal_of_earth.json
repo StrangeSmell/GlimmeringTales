@@ -1,6 +1,8 @@
 {
   "type": "glimmeringtales:strike_block",
-  "ingredient": "minecraft:budding_amethyst",
+  "ingredient": {
+    "item": "minecraft:budding_amethyst"
+  },
   "result": {
     "count": 1,
     "id": "glimmeringtales:crystal_of_earth"

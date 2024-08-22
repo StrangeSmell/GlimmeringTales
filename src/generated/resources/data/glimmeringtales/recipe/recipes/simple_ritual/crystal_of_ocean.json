@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "minecraft:conduit"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:crystal_of_ocean"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:prismarine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:prismarine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:prismarine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:prismarine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:prismarine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:prismarine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:prismarine"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:prismarine"
+      }
+    }
+  ],
+  "time": 0
+}

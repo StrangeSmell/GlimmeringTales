@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_winterstorm"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:snow_tornado"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:snow"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:sand"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:hard_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:hard_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:snow_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:snow_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:snow_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:snow_block"
+      }
+    }
+  ],
+  "time": 0
+}

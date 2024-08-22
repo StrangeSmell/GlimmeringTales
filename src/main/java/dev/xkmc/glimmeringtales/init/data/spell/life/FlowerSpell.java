@@ -35,7 +35,7 @@ public class FlowerSpell extends NatureSpellEntry {
 
 	@Override
 	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-		builder.add(BlockTags.FLOWERS, new BlockSpell(NATURE), false);
+		builder.add(BlockTags.FLOWERS, new BlockSpell(NATURE, true, 1), false);
 	}
 
 

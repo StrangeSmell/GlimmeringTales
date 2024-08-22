@@ -50,10 +50,11 @@ public class MiscServerEventHandler {
 	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void onEntityAdded(EntityJoinLevelEvent event) {
 		var level = event.getLevel();
-		if (!level.isClientSide()) return;
+		if (level.isClientSide()) return;
 		if (!(event.getEntity() instanceof LightningBolt ie)) return;
 		BlockPos pos = BlockPos.containing(ie.position().add(0, -1e-6, 0));
 		BlockState state = level.getBlockState(pos);
+		if (state.isAir()) level.getBlockState(pos = pos.below());
 		BlockPos hitPos;
 		BlockState hitState;
 		if (state.is(Blocks.LIGHTNING_ROD)) {

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "glimmeringtales:block/struck_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "glimmeringtales:block/struck_log"
+    },
+    "axis=z": {
+      "model": "glimmeringtales:block/struck_log_horizontal",
+      "x": 90
+    }
+  }
+}

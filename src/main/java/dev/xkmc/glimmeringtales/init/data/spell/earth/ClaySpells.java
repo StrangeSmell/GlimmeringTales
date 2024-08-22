@@ -41,8 +41,8 @@ public class ClaySpells extends NatureSpellEntry {
 
 	@Override
 	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-		builder.add(Blocks.CLAY.builtInRegistryHolder(), new BlockSpell(NATURE), false);
-		builder.add(GTItems.CLAY_CARPET, new BlockSpell(NATURE), false);
+		builder.add(Blocks.CLAY.builtInRegistryHolder(), new BlockSpell(NATURE, false, 0), false);
+		builder.add(GTItems.CLAY_CARPET, new BlockSpell(NATURE, false, 0), false);
 	}
 
 	@Override

@@ -1,12 +1,17 @@
 package dev.xkmc.glimmeringtales.init.reg;
 
+import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.glimmeringtales.content.block.crop.LifeCrystalCrop;
 import dev.xkmc.glimmeringtales.content.block.misc.*;
+import dev.xkmc.glimmeringtales.content.block.ritual.NatureSideBlockEntity;
+import dev.xkmc.glimmeringtales.content.block.ritual.RitualBlock;
+import dev.xkmc.glimmeringtales.content.block.ritual.RitualRenderer;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
 import dev.xkmc.glimmeringtales.content.item.rune.BlockRuneItem;
 import dev.xkmc.glimmeringtales.content.item.rune.SpellCoreItem;
+import dev.xkmc.glimmeringtales.content.item.rune.SpellRuneItem;
 import dev.xkmc.glimmeringtales.content.item.wand.GTBEWLR;
 import dev.xkmc.glimmeringtales.content.item.wand.IWandCoreItem;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneWandItem;
@@ -48,22 +53,30 @@ public class GTItems {
 	public static final List<ItemEntry<? extends IWandCoreItem>> CORES = new ArrayList<>();
 	public static final List<ItemEntry<? extends WandHandleItem>> HANDLES = new ArrayList<>();
 
-	public static final ItemEntry<RuneWandItem> WAND;
-
 	public static final ItemEntry<SpellCoreItem> CRYSTAL_NATURE,
 			CRYSTAL_LIFE, CRYSTAL_FLAME, CRYSTAL_EARTH, CRYSTAL_WINTERSTORM,
 			CRYSTAL_OCEAN, CRYSTAL_THUNDER;
 	public static final ItemEntry<DepletedItem> DEPLETED_FLAME, DEPLETED_WINTERSTORM;
 	public static final BlockEntry<LifeCrystalCrop> CRYSTAL_VINE;
+	public static final BlockEntry<StruckLogBlock> STRUCK_LOG;
 
+	public static final BlockEntry<DelegateBlock> RITUAL_ALTAR;
+	public static final BlockEntityEntry<NatureSideBlockEntity> ALTAR_BE;
+
+	public static final ItemEntry<RuneWandItem> WAND;
 	public static final ItemEntry<WandHandleItem> WOOD_WAND, GOLD_WAND;
 
 	public static final ItemEntry<BlockRuneItem>
 			RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE, RUNE_HAYBALE,
 			RUNE_SAND, RUNE_GRAVEL, RUNE_QUARTZ, RUNE_CLAY, RUNE_STONE, RUNE_DRIPSTONE, RUNE_AMETHYST,
-			RUNE_LAVA, RUNE_SOUL_SAND, RUNE_SNOW, RUNE_ICE, RUNE_POWDER_SNOW;
+			RUNE_MAGMA, RUNE_SOUL_SAND, RUNE_SNOW, RUNE_ICE, RUNE_POWDER_SNOW,
+			RUNE_THUNDER;
 
-	public static final BlockEntry<DelegateBlock> CLAY_CARPET;
+	public static final ItemEntry<SpellRuneItem>
+			HELL_MARK, EARTH_MELTDOWN, WINTER_STORM, SNOW_TORNADO;
+
+	public static final BlockEntry<DelegateBlock> CLAY_CARPET, FAKE_STONE,
+			FAKE_MAGMA_STONE, FAKE_MAGMA_DEEPSLATE, FAKE_MAGMA_NETHERRACK;
 	public static final BlockEntry<SelfDestroyTransparent> FAKE_GLASS;
 	public static final BlockEntry<DelegateBlock> FAKE_BAMBOO;
 
@@ -100,6 +113,26 @@ public class GTItems {
 					.loot(LifeCrystalCrop::builtLoot)
 					.tag(BlockTags.CROPS)
 					.register();
+
+			STRUCK_LOG = GlimmeringTales.REGISTRATE.block("struck_log", p ->
+							new StruckLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)))
+					.blockstate((ctx, pvd) -> pvd.logBlock(ctx.get()))
+					.tag(BlockTags.LOGS_THAT_BURN).simpleItem().register();
+
+			RITUAL_ALTAR = GlimmeringTales.REGISTRATE.block("ritual_altar", p ->
+							DelegateBlock.newBaseBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)
+									.noOcclusion(), RitualBlock.ITEM, RitualBlock.LINK, RitualBlock.SIDE))
+					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().getBuilder("block/" + ctx.getName())
+							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("custom/ritual_altar")))
+							.texture("all", "block/" + ctx.getName())
+							.renderType("cutout")))
+					.simpleItem()
+					.register();
+
+			ALTAR_BE = GlimmeringTales.REGISTRATE.blockEntity("ritual_altar", NatureSideBlockEntity::new)
+					.validBlock(RITUAL_ALTAR)
+					.renderer(() -> RitualRenderer::new)
+					.register();
 		}
 
 		{
@@ -135,12 +168,19 @@ public class GTItems {
 			RUNE_DRIPSTONE = rune("dripstone", () -> Blocks.DRIPSTONE_BLOCK, "Rune: Stalactite");
 			RUNE_AMETHYST = rune("amethyst", () -> Blocks.AMETHYST_BLOCK, "Rune: Amethyst");
 
-			RUNE_LAVA = rune("lava", () -> Blocks.LAVA, "Rune: Lava");
+			RUNE_MAGMA = rune("magma", () -> Blocks.MAGMA_BLOCK, "Rune: Magma Block");
 			RUNE_SOUL_SAND = rune("soul_sand", () -> Blocks.SOUL_SAND, "Rune: Soul Sand");
 
 			RUNE_SNOW = rune("snow", () -> Blocks.SNOW_BLOCK, "Rune: Snow");
 			RUNE_ICE = rune("ice", () -> Blocks.ICE, "Rune: Ice");
 			RUNE_POWDER_SNOW = rune("powder_snow", () -> Blocks.POWDER_SNOW, "Rune: Powder Snow");
+
+			RUNE_THUNDER = rune("thunder", STRUCK_LOG::get, "Rune: Thunder");
+
+			HELL_MARK = spell("hell_mark", "Rune: Hell Mark");
+			EARTH_MELTDOWN = spell("earth_meltdown", "Rune: Earth Meltdown");
+			WINTER_STORM = spell("winter_storm", "Rune: Winter Storm");
+			SNOW_TORNADO = spell("snow_tornado", "Rune: Snow Tornado");
 		}
 
 		{
@@ -150,6 +190,12 @@ public class GTItems {
 					.properties(p -> p.mapColor(MapColor.CLAY).strength(0.6f).speedFactor(0.2F).jumpFactor(0.2f)
 							.sound(SoundType.GRAVEL).pushReaction(PushReaction.DESTROY).noLootTable())
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().carpet(ctx.getName(), pvd.mcLoc("block/clay"))))
+					.register();
+
+			FAKE_STONE = GlimmeringTales.REGISTRATE.block("stone",
+							p -> DelegateBlock.newBaseBlock(p, new SelfDestroyImpl()))
+					.properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noLootTable())
+					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().cubeAll(ctx.getName(), pvd.mcLoc("block/stone"))))
 					.register();
 
 			FAKE_GLASS = GlimmeringTales.REGISTRATE.block("glass", SelfDestroyTransparent::new)
@@ -168,6 +214,10 @@ public class GTItems {
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(),
 							pvd.models().withExistingParent(ctx.getName(), pvd.mcLoc("block/bamboo1_age1")).renderType("cutout")))
 					.register();
+
+			FAKE_MAGMA_STONE = magma("stone");
+			FAKE_MAGMA_DEEPSLATE = magma("deepslate");
+			FAKE_MAGMA_NETHERRACK = magma("netherrack");
 
 		}
 
@@ -204,6 +254,22 @@ public class GTItems {
 		return ans;
 	}
 
+	private static ItemEntry<SpellRuneItem> spell(String id, String name) {
+		var ans = GlimmeringTales.REGISTRATE.item(id, p ->
+						new SpellRuneItem(p.stacksTo(1).fireResistant(), GlimmeringTales.loc(id)))
+				.model((ctx, pvd) -> {
+					pvd.generated(ctx, pvd.modLoc("item/spell/" + ctx.getName()));
+					pvd.getBuilder(ctx.getName() + "_core").parent(
+									new ModelFile.UncheckedModelFile(pvd.modLoc("custom/rune_core")))
+							.texture("all", pvd.modLoc("item/spell/" + ctx.getName()))
+							.renderType("cutout");
+				})
+				.tag(GTTagGen.CORE)
+				.lang(name).register();
+		CORES.add(ans);
+		return ans;
+	}
+
 	private static ItemEntry<WandHandleItem> handle(String id, float size, float offset, String name) {
 		var ans = GlimmeringTales.REGISTRATE.item(id,
 						p -> new WandHandleItem(p.stacksTo(1), size, offset))
@@ -220,6 +286,16 @@ public class GTItems {
 				.register();
 		HANDLES.add(ans);
 		return ans;
+	}
+
+	private static BlockEntry<DelegateBlock> magma(String id) {
+		return GlimmeringTales.REGISTRATE.block("magma_block_for_" + id,
+						p -> DelegateBlock.newBaseBlock(p, new MagmaImpl(), new SelfReplaceImpl()))
+				.properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.MAGMA_BLOCK).noLootTable())
+				.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().cubeAll(ctx.getName(), pvd.mcLoc("block/magma"))))
+				.tag(GTTagGen.FAKE_MAGMA)
+				.lang("Magma Block")
+				.register();
 	}
 
 	public static void register() {

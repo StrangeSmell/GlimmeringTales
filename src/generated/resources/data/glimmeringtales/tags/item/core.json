@@ -12,11 +12,16 @@
     "glimmeringtales:quartz",
     "glimmeringtales:dripstone",
     "glimmeringtales:amethyst",
-    "glimmeringtales:lava",
+    "glimmeringtales:magma",
     "glimmeringtales:soul_sand",
     "glimmeringtales:snow",
     "glimmeringtales:ice",
     "glimmeringtales:powder_snow",
+    "glimmeringtales:thunder",
+    "glimmeringtales:hell_mark",
+    "glimmeringtales:earth_meltdown",
+    "glimmeringtales:winter_storm",
+    "glimmeringtales:snow_tornado",
     "#glimmeringtales:crystal"
   ]
 }

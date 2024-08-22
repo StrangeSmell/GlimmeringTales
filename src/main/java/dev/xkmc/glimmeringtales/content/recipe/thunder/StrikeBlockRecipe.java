@@ -7,6 +7,7 @@ import dev.xkmc.l2serial.serialization.marker.SerialField;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -16,7 +17,9 @@ import net.minecraft.world.level.block.state.BlockState;
 public class StrikeBlockRecipe extends BaseRecipe<StrikeBlockRecipe, StrikeBlockRecipe, StrikeBlockRecipe.Inv> {
 
 	@SerialField
-	public Block ingredient, transformTo;
+	public Ingredient ingredient;
+	@SerialField
+	public Block transformTo;
 
 	@SerialField
 	public ItemStack result;
@@ -27,7 +30,7 @@ public class StrikeBlockRecipe extends BaseRecipe<StrikeBlockRecipe, StrikeBlock
 
 	@Override
 	public boolean matches(Inv inv, Level level) {
-		return inv.state.getBlock() == ingredient;
+		return ingredient.test(inv.state.getBlock().asItem().getDefaultInstance());
 	}
 
 	@Override

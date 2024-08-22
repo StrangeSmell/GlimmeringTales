@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_flame"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:soul_sand"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:magma_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:magma_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:magma_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:magma_block"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:magma_cream"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:magma_cream"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:magma_cream"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:magma_cream"
+      }
+    }
+  ],
+  "time": 0
+}

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "glimmeringtales:item/rune/lava"
+    "layer0": "glimmeringtales:item/spell/hell_mark"
   }
 }

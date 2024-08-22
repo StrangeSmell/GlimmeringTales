@@ -1,11 +1,9 @@
 package dev.xkmc.glimmeringtales.content.item.rune;
 
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
-import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.core.Holder;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -27,17 +25,16 @@ public class BlockRuneItem extends Item implements IBlockSpellItem {
 		this.block = block;
 	}
 
-	public Optional<Holder<NatureSpell>> getSpell(RegistryAccess access) {
+	public Optional<BlockSpell> getSpell(RegistryAccess access) {
 		return Optional.ofNullable(GTRegistries.BLOCK.get(access,
-						BuiltInRegistries.BLOCK.wrapAsHolder(block.get())))
-				.map(BlockSpell::spell);
+				BuiltInRegistries.BLOCK.wrapAsHolder(block.get())));
 	}
 
 	@Override
 	public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> list, TooltipFlag flag) {
 		var level = ctx.level();
 		if (level == null) return;
-		getSpell(level.registryAccess()).ifPresent(e -> e.value().runeDesc(list));
+		getSpell(level.registryAccess()).ifPresent(e -> e.spell().value().runeDesc(list));
 	}
 
 	@Override
@@ -49,11 +46,11 @@ public class BlockRuneItem extends Item implements IBlockSpellItem {
 	public boolean castSpell(SpellCastContext user) {
 		var opt = getSpell(user.level().registryAccess());
 		if (opt.isEmpty()) return false;
-		var spell = opt.get().value();
-		var ctx = BlockSpellContext.entitySpellContext(user.user(), entityTrace());
+		var spell = opt.get();
+		var ctx = BlockSpellContext.entitySpellContext(user.user(), entityTrace(), spell.noBlockOffset());
 		if (ctx == null) return false;
 		if (!user.level().isClientSide()) {
-			execute(spell, ctx.ctx(), user, DefaultAffinity.INS);
+			execute(spell.spell().value(), ctx.ctx(), user, DefaultAffinity.INS);
 		}
 		return true;
 	}

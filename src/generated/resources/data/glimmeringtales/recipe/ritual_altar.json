@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "D": {
+      "item": "minecraft:deepslate_bricks"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "N": {
+      "item": "glimmeringtales:crystal_of_nature"
+    },
+    "W": {
+      "item": "glimmeringtales:struck_log"
+    }
+  },
+  "pattern": [
+    "DGD",
+    "ANA",
+    "DWD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "glimmeringtales:ritual_altar"
+  }
+}

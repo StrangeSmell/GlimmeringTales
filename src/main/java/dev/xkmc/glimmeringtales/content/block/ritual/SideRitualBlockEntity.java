@@ -62,7 +62,7 @@ public class SideRitualBlockEntity extends BaseRitualBlockEntity implements Tick
 
 	@Override
 	public boolean locked() {
-		if (level == null) return false;
+		if (level == null || core==null) return false;
 		if (level.getBlockEntity(core) instanceof CoreRitualBlockEntity be)
 			return be.locked();
 		return false;
@@ -70,8 +70,7 @@ public class SideRitualBlockEntity extends BaseRitualBlockEntity implements Tick
 
 	@Override
 	public void onReplaced() {
-		if (level == null || level.isClientSide()) return;
-		if (core == null) return;
+		if (level == null || level.isClientSide() || core == null) return;
 		if (level.getBlockEntity(core) instanceof CoreRitualBlockEntity be) {
 			be.removeLink(this, getBlockPos());
 		}

@@ -62,8 +62,8 @@ public class DripstoneSpells extends NatureSpellEntry {
 
 	@Override
 	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-		builder.add(Blocks.DRIPSTONE_BLOCK.builtInRegistryHolder(), new BlockSpell(NATURE), false);
-		builder.add(Blocks.POINTED_DRIPSTONE.builtInRegistryHolder(), new BlockSpell(NATURE), false);
+		builder.add(Blocks.DRIPSTONE_BLOCK.builtInRegistryHolder(), new BlockSpell(NATURE, false, 0), false);
+		builder.add(Blocks.POINTED_DRIPSTONE.builtInRegistryHolder(), new BlockSpell(NATURE, true, 0), false);
 	}
 
 	@Override
