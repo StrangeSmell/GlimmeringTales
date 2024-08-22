@@ -53,7 +53,7 @@ public class HaySpell extends NatureSpellEntry {
 
 	@Override
 	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-		builder.add(Blocks.HAY_BLOCK.builtInRegistryHolder(), new BlockSpell(NATURE), false);
+		builder.add(Blocks.HAY_BLOCK.builtInRegistryHolder(), new BlockSpell(NATURE, true, 1), false);
 	}
 
 	@Override

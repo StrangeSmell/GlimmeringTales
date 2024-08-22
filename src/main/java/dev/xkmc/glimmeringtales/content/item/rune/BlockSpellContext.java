@@ -16,7 +16,7 @@ import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
-public record BlockSpellContext(SpellContext ctx, BlockState state) {
+public record BlockSpellContext(SpellContext ctx, BlockState state, BlockPos pos) {
 
 	@Nullable
 	public static BlockSpellContext blockSpellContext(LivingEntity user, int distance) {
@@ -33,12 +33,12 @@ public record BlockSpellContext(SpellContext ctx, BlockState state) {
 			seed = ThreadLocalRandom.current().nextLong();
 		}
 		var ctx = new SpellContext(user, pos.getCenter(), ori, seed, 0, 1);
-		return new BlockSpellContext(ctx, level.getBlockState(pos));
+		return new BlockSpellContext(ctx, level.getBlockState(pos), pos);
 	}
 
 
 	@Nullable
-	public static BlockSpellContext entitySpellContext(LivingEntity user, int distance) {
+	public static BlockSpellContext entitySpellContext(LivingEntity user, int distance, int offset) {
 		Level level = user.level();
 		Vec3 start = user.getEyePosition();
 		Vec3 forward = SpellContext.getForward(user);
@@ -58,7 +58,7 @@ public record BlockSpellContext(SpellContext ctx, BlockState state) {
 			seed = ThreadLocalRandom.current().nextLong();
 		}
 		var ctx = new SpellContext(user, pos.getCenter(), ori, seed, 0, 1);
-		return new BlockSpellContext(ctx, level.getBlockState(pos));
+		return new BlockSpellContext(ctx, level.getBlockState(pos), pos);
 	}
 
 }

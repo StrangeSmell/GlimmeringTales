@@ -1,42 +1,68 @@
 {
   "values": {
     "#c:gravels": {
+      "breakBlock": false,
+      "noBlockOffset": 0,
       "spell": "glimmeringtales:gravel"
     },
     "#glimmeringtales:amethyst": {
+      "breakBlock": true,
+      "noBlockOffset": 0,
       "spell": "glimmeringtales:amethyst"
     },
     "#glimmeringtales:bamboo": {
+      "breakBlock": false,
+      "noBlockOffset": 1,
       "spell": "glimmeringtales:bamboo"
     },
     "#glimmeringtales:quartz": {
+      "breakBlock": false,
+      "noBlockOffset": 0,
       "spell": "glimmeringtales:quartz"
     },
     "#glimmeringtales:vine": {
+      "breakBlock": true,
+      "noBlockOffset": 1,
       "spell": "glimmeringtales:vine"
     },
     "#minecraft:flowers": {
+      "breakBlock": true,
+      "noBlockOffset": 1,
       "spell": "glimmeringtales:flower"
     },
     "#minecraft:sand": {
+      "breakBlock": false,
+      "noBlockOffset": 0,
       "spell": "glimmeringtales:sand"
     },
     "glimmeringtales:clay_carpet": {
+      "breakBlock": false,
+      "noBlockOffset": 0,
       "spell": "glimmeringtales:clay"
     },
     "minecraft:cactus": {
+      "breakBlock": true,
+      "noBlockOffset": 1,
       "spell": "glimmeringtales:cactus"
     },
     "minecraft:clay": {
+      "breakBlock": false,
+      "noBlockOffset": 0,
       "spell": "glimmeringtales:clay"
     },
     "minecraft:dripstone_block": {
+      "breakBlock": false,
+      "noBlockOffset": 0,
       "spell": "glimmeringtales:dripstone"
     },
     "minecraft:hay_block": {
+      "breakBlock": true,
+      "noBlockOffset": 1,
       "spell": "glimmeringtales:procreation"
     },
     "minecraft:pointed_dripstone": {
+      "breakBlock": true,
+      "noBlockOffset": 0,
       "spell": "glimmeringtales:dripstone"
     }
   }

@@ -3,10 +3,7 @@ package dev.xkmc.glimmeringtales.init.reg;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.glimmeringtales.content.block.crop.LifeCrystalCrop;
-import dev.xkmc.glimmeringtales.content.block.misc.ClayCarpetImpl;
-import dev.xkmc.glimmeringtales.content.block.misc.SelfDestroyImpl;
-import dev.xkmc.glimmeringtales.content.block.misc.SelfDestroyTransparent;
-import dev.xkmc.glimmeringtales.content.block.misc.StuckEntityMethod;
+import dev.xkmc.glimmeringtales.content.block.misc.*;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
 import dev.xkmc.glimmeringtales.content.item.rune.BlockRuneItem;
 import dev.xkmc.glimmeringtales.content.item.rune.SpellCoreItem;
@@ -58,13 +55,14 @@ public class GTItems {
 			CRYSTAL_OCEAN, CRYSTAL_THUNDER;
 	public static final ItemEntry<DepletedItem> DEPLETED_FLAME, DEPLETED_WINTERSTORM;
 	public static final BlockEntry<LifeCrystalCrop> CRYSTAL_VINE;
+	public static final BlockEntry<StruckLogBlock> STRUCK_LOG;
 
 	public static final ItemEntry<WandHandleItem> WOOD_WAND, GOLD_WAND;
 
 	public static final ItemEntry<BlockRuneItem>
 			RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE, RUNE_HAYBALE,
 			RUNE_SAND, RUNE_GRAVEL, RUNE_QUARTZ, RUNE_CLAY, RUNE_STONE, RUNE_DRIPSTONE, RUNE_AMETHYST,
-			RUNE_LAVA, RUNE_SOUL_SAND, RUNE_SNOW, RUNE_ICE, RUNE_POWDER_SNOW;
+			RUNE_MAGMA, RUNE_SOUL_SAND, RUNE_SNOW, RUNE_ICE, RUNE_POWDER_SNOW;
 
 	public static final BlockEntry<DelegateBlock> CLAY_CARPET;
 	public static final BlockEntry<SelfDestroyTransparent> FAKE_GLASS;
@@ -103,6 +101,11 @@ public class GTItems {
 					.loot(LifeCrystalCrop::builtLoot)
 					.tag(BlockTags.CROPS)
 					.register();
+
+			STRUCK_LOG = GlimmeringTales.REGISTRATE.block("struck_log", p ->
+							new StruckLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)))
+					.blockstate((ctx, pvd) -> pvd.logBlock(ctx.get()))
+					.tag(BlockTags.LOGS).simpleItem().register();
 		}
 
 		{
@@ -138,7 +141,7 @@ public class GTItems {
 			RUNE_DRIPSTONE = rune("dripstone", () -> Blocks.DRIPSTONE_BLOCK, "Rune: Stalactite");
 			RUNE_AMETHYST = rune("amethyst", () -> Blocks.AMETHYST_BLOCK, "Rune: Amethyst");
 
-			RUNE_LAVA = rune("lava", () -> Blocks.LAVA, "Rune: Lava");
+			RUNE_MAGMA = rune("magma", () -> Blocks.MAGMA_BLOCK, "Rune: Magma Block");
 			RUNE_SOUL_SAND = rune("soul_sand", () -> Blocks.SOUL_SAND, "Rune: Soul Sand");
 
 			RUNE_SNOW = rune("snow", () -> Blocks.SNOW_BLOCK, "Rune: Snow");

@@ -20,7 +20,6 @@ import dev.xkmc.l2magic.content.engine.modifier.RotationModifier;
 import dev.xkmc.l2magic.content.engine.modifier.SetDirectionModifier;
 import dev.xkmc.l2magic.content.engine.particle.DustParticleInstance;
 import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
-import dev.xkmc.l2magic.content.engine.processor.EffectProcessor;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
 import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
@@ -36,7 +35,6 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.DataMapProvider;
 
 import java.util.Map;
@@ -62,7 +60,7 @@ public class AmethystSpells extends NatureSpellEntry {
 
 	@Override
 	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-		builder.add(GTTagGen.AMETHYST, new BlockSpell(NATURE), false);
+		builder.add(GTTagGen.AMETHYST, new BlockSpell(NATURE, true, 0), false);
 	}
 
 	@Override

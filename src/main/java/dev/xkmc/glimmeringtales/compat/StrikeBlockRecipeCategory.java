@@ -34,7 +34,7 @@ public class StrikeBlockRecipeCategory extends BaseRecipeCategory<StrikeBlockRec
 
 	@Override
 	public void setRecipe(IRecipeLayoutBuilder builder, StrikeBlockRecipe recipe, IFocusGroup focuses) {
-		builder.addSlot(RecipeIngredientRole.INPUT, 1, 1).addItemStack(recipe.ingredient.asItem().getDefaultInstance());
+		builder.addSlot(RecipeIngredientRole.INPUT, 1, 1).addIngredients(recipe.ingredient);
 		builder.addSlot(RecipeIngredientRole.OUTPUT, 55, 1).addItemStack(recipe.transformTo.asItem().getDefaultInstance());
 		builder.addSlot(RecipeIngredientRole.OUTPUT, 73, 1).addItemStack(recipe.result);
 	}

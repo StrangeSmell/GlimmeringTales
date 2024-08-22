@@ -13,7 +13,7 @@ import dev.xkmc.l2magic.content.engine.block.SetBlock;
 import dev.xkmc.l2magic.content.engine.context.DataGenContext;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.logic.ListLogic;
-import dev.xkmc.l2magic.content.engine.modifier.*;
+import dev.xkmc.l2magic.content.engine.modifier.OffsetModifier;
 import dev.xkmc.l2magic.content.engine.predicate.BlockTestCondition;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
 import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
@@ -26,52 +26,51 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-
 import net.neoforged.neoforge.common.data.DataMapProvider;
 
 import java.util.List;
 
 public class BambooSpell extends NatureSpellEntry {
-    public static final ResourceLocation ID = GlimmeringTales.loc("bamboo");
-    public static final DataGenCachedHolder<SpellAction> SPELL = spell(ID);
-    public static final DataGenCachedHolder<NatureSpell> NATURE = nature(ID);
+	public static final ResourceLocation ID = GlimmeringTales.loc("bamboo");
+	public static final DataGenCachedHolder<SpellAction> SPELL = spell(ID);
+	public static final DataGenCachedHolder<NatureSpell> NATURE = nature(ID);
 
-    @Override
-    public void regNature(BootstrapContext<NatureSpell> ctx) {
-        NATURE.gen(ctx, new NatureSpell(SPELL, GTRegistries.LIFE.get(), 20));
-    }
+	@Override
+	public void regNature(BootstrapContext<NatureSpell> ctx) {
+		NATURE.gen(ctx, new NatureSpell(SPELL, GTRegistries.LIFE.get(), 20));
+	}
 
-    @Override
-    public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-        builder.add(GTTagGen.BAMBOO, new BlockSpell(NATURE), false);
-    }
+	@Override
+	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
+		builder.add(GTTagGen.BAMBOO, new BlockSpell(NATURE, false, 1), false);
+	}
 
 
-    @Override
-    public void genLang(RegistrateLangProvider ctx) {
-        ctx.add(SpellAction.lang(ID), "Bamboo");
-    }
+	@Override
+	public void genLang(RegistrateLangProvider ctx) {
+		ctx.add(SpellAction.lang(ID), "Bamboo");
+	}
 
-    @Override
-    public void register(BootstrapContext<SpellAction> ctx) {
-        new SpellAction(
-                gen(new DataGenContext(ctx)),
-                Items.BAMBOO, 3100,
-                SpellCastType.INSTANT,
-                SpellTriggerType.TARGET_POS
-        ).verifyOnBuild(ctx, SPELL);
-    }
+	@Override
+	public void register(BootstrapContext<SpellAction> ctx) {
+		new SpellAction(
+				gen(new DataGenContext(ctx)),
+				Items.BAMBOO, 3100,
+				SpellCastType.INSTANT,
+				SpellTriggerType.TARGET_POS
+		).verifyOnBuild(ctx, SPELL);
+	}
 
-    private static ConfiguredEngine<?> gen(DataGenContext ctx) {
-        return new ListLogic(List.of(
-                new SetBlock(GTItems.FAKE_BAMBOO.getDefaultState()),
-                new ScheduleTick(IntVariable.of("rand(180,220)"), GTItems.FAKE_BAMBOO.get())
-        )).circular(
-                DoubleVariable.of("4"),
-                DoubleVariable.of("1"),//每个方块放置的时间差距，会随着半径变大而倍增
-                false, "i",
-                BooleanVariable.of("abs(i_r-4)<2"),//放置方块的条件，距离半径差值小于2，可以看成厚度
-                BlockTestCondition.Type.REPLACEABLE.get()
-        ).move(OffsetModifier.ABOVE);
-    }
+	private static ConfiguredEngine<?> gen(DataGenContext ctx) {
+		return new ListLogic(List.of(
+				new SetBlock(GTItems.FAKE_BAMBOO.getDefaultState()),
+				new ScheduleTick(IntVariable.of("rand(180,220)"), GTItems.FAKE_BAMBOO.get())
+		)).circular(
+				DoubleVariable.of("4"),
+				DoubleVariable.of("1"),//每个方块放置的时间差距，会随着半径变大而倍增
+				false, "i",
+				BooleanVariable.of("abs(i_r-4)<2"),//放置方块的条件，距离半径差值小于2，可以看成厚度
+				BlockTestCondition.Type.REPLACEABLE.get()
+		).move(OffsetModifier.ABOVE);
+	}
 }

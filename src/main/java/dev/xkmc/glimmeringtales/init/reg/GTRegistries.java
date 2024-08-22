@@ -32,8 +32,8 @@ public class GTRegistries {
 	public static final SimpleEntry<SpellElement> EARTH = reg("earth", ChatFormatting.GOLD);
 	public static final SimpleEntry<SpellElement> FLAME = reg("flame", ChatFormatting.RED);
 	public static final SimpleEntry<SpellElement> SNOW = reg("snow", ChatFormatting.AQUA);
-	//public static final SimpleEntry<SpellElement> SEA = reg("sea", GTItems.CRYSTAL_NATURE::get);
-	//public static final SimpleEntry<SpellElement> THUNDER = reg("thunder");
+	public static final SimpleEntry<SpellElement> OCEAN = reg("ocean", ChatFormatting.DARK_AQUA);
+	public static final SimpleEntry<SpellElement> THUNDER = reg("thunder", ChatFormatting.YELLOW);
 
 	public static final MatcherSwapType SWAP = new RuneSwapType();
 

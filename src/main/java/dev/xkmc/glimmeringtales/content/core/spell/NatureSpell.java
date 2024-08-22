@@ -32,8 +32,8 @@ public record NatureSpell(
 
 	public void runeDesc(List<Component> list) {
 		list.add(lang().withStyle(ChatFormatting.GRAY));
-		Component val = Component.literal("100%").withStyle(ChatFormatting.BLUE);
-		list.add(GTLang.TOOLTIP_AFFINITY.get(elem.coloredDesc(), val).withStyle(ChatFormatting.GRAY));
+		Component val = Component.literal(cost + "").withStyle(ChatFormatting.BLUE);
+		list.add(GTLang.TOOLTIP_COST.get(elem.coloredDesc(), val).withStyle(ChatFormatting.GRAY));
 	}
 
 	public void cooldown(Player player, ItemStack stack, double affinity) {

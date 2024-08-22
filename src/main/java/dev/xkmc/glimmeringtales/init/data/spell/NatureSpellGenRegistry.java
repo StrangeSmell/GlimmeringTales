@@ -1,5 +1,7 @@
 package dev.xkmc.glimmeringtales.init.data.spell;
 
+import dev.xkmc.glimmeringtales.init.data.spell.advanced.FlameSpells;
+import dev.xkmc.glimmeringtales.init.data.spell.advanced.SnowSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.earth.*;
 import dev.xkmc.glimmeringtales.init.data.spell.life.*;
 
@@ -18,7 +20,9 @@ public class NatureSpellGenRegistry {
 			new CactusSpell(),
 			new BambooSpell(),
 			new FlowerSpell(),
-			new GravelSpells() // 1060
+			new GravelSpells(), // 1060
+			new FlameSpells(),
+			new SnowSpells()
 	);
 
 }

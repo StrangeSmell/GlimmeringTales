@@ -26,12 +26,15 @@
   "item.glimmeringtales.flower": "符石: 花",
   "item.glimmeringtales.gravel": "符石: 沙砾",
   "item.glimmeringtales.ice": "符石: 冰",
-  "item.glimmeringtales.lava": "符石: 岩浆",
+  "item.glimmeringtales.magma": "符石: 岩浆块",
   "item.glimmeringtales.powder_snow": "符石: 细雪",
   "item.glimmeringtales.snow": "符石: 雪",
   "item.glimmeringtales.soul_sand": "符石: 灵魂沙",
   "item.glimmeringtales.vine": "符石: 藤蔓",
+  "item.glimmeringtales.hay_bale": "符石: 干草块",
+  "item.glimmeringtales.stone": "符石: 石头",
 
+  "block.glimmeringtales.struck_log": "雷焰木",
   "block.glimmeringtales.crystal_vine": "生命之藤",
   "block.glimmeringtales.clay_carpet": "粘土地毯",
   "block.glimmeringtales.glass": "玻璃",
@@ -41,11 +44,14 @@
   "element.glimmeringtales.flame": "蕴炎",
   "element.glimmeringtales.life": "生机",
   "element.glimmeringtales.snow": "风雪",
+  "element.glimmeringtales.ocean": "深海",
+  "element.glimmeringtales.thunder": "雷霆",
 
   "glimmeringtales.tooltip.consume_block": "右键[%s]吸收精华",
   "glimmeringtales.tooltip.fill_crystal": "进度: %s / %s",
   "glimmeringtales.tooltip.nearby_grow": "相邻的作物自然生长至成熟的瞬间才会生长",
   "glimmeringtales.tooltip.affinity": "[%s]亲和度: %s",
+  "glimmeringtales.tooltip.cost": "魔力消耗: [%s] - %s",
 
   "spell_action.glimmeringtales.bamboo": "竹栅",
   "spell_action.glimmeringtales.cactus": "棘风",
@@ -58,6 +64,10 @@
   "spell_action.glimmeringtales.quartz": "晶化",
   "spell_action.glimmeringtales.sand": "沙暴",
   "spell_action.glimmeringtales.gravel": "燧风",
+  "spell_action.glimmeringtales.hell_mark": "狱火烙印",
+  "spell_action.glimmeringtales.lava_burst": "地层熔毁",
+  "spell_action.glimmeringtales.snow_tornado": "暴雪旋风",
+  "spell_action.glimmeringtales.winter_storm": "凛冬风暴",
 
   "glimmeringtales.jei.strike_block": "雷击方块",
   "glimmeringtales.jei.strike_item": "雷击物品",
@@ -70,6 +80,4 @@
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml": "微光纪事 - 服务端配置",
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml.title": "微光纪事 - 服务端配置",
   "glimmeringtales.configuration.title": "微光纪事 - 配置"
-
-
 }

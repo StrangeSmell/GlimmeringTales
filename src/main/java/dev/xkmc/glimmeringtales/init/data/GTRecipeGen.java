@@ -13,6 +13,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
@@ -31,6 +32,10 @@ public class GTRecipeGen {
 
 			unlock(pvd, new StrikeBlockRecipeBuilder(Blocks.BUDDING_AMETHYST, Blocks.AIR,
 					GTItems.CRYSTAL_EARTH.asStack())::unlockedBy, Items.AMETHYST_SHARD)
+					.save(pvd);
+
+			unlock(pvd, new StrikeBlockRecipeBuilder(ItemTags.LOGS_THAT_BURN, GTItems.STRUCK_LOG.get(),
+					ItemStack.EMPTY)::unlockedBy, Items.OAK_LOG)
 					.save(pvd);
 
 			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GTItems.DEPLETED_FLAME.get())::unlockedBy, GTItems.CRYSTAL_NATURE.get())
@@ -72,19 +77,24 @@ public class GTRecipeGen {
 		{
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_LIFE, GTItems.RUNE_BAMBOO)::unlockedBy, GTItems.CRYSTAL_LIFE.get())
-					.side(Ingredient.of(Items.BAMBOO), 8)
+					.side(Items.BAMBOO, 8)
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_LIFE, GTItems.RUNE_CACTUS)::unlockedBy, GTItems.CRYSTAL_LIFE.get())
-					.side(Ingredient.of(Items.CACTUS), 8)
+					.side(Items.CACTUS, 8)
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_LIFE, GTItems.RUNE_FLOWER)::unlockedBy, GTItems.CRYSTAL_LIFE.get())
-					.side(Ingredient.of(ItemTags.FLOWERS), 8)
+					.side(ItemTags.FLOWERS, 8)
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_LIFE, GTItems.RUNE_VINE)::unlockedBy, GTItems.CRYSTAL_LIFE.get())
-					.side(Ingredient.of(Items.VINE), 8)
+					.side(Items.VINE, 8)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_LIFE, GTItems.RUNE_HAYBALE)::unlockedBy, GTItems.CRYSTAL_LIFE.get())
+					.side(Items.HAY_BLOCK, 4)
+					.side(Items.CARROT, 4)
 					.save(pvd);
 
 		}
@@ -92,32 +102,32 @@ public class GTRecipeGen {
 		// earth
 		{
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.RUNE_SAND)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
-					.side(Ingredient.of(Tags.Items.SANDS), 8)
+					.side(Tags.Items.SANDS, 8)
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.RUNE_GRAVEL)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
-					.side(Ingredient.of(Tags.Items.GRAVELS), 4)
-					.side(Ingredient.of(Items.FLINT), 4)
+					.side(Tags.Items.GRAVELS, 4)
+					.side(Items.FLINT, 4)
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.RUNE_QUARTZ)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
-					.side(Ingredient.of(Items.QUARTZ_BLOCK), 4)
-					.side(Ingredient.of(Items.GLASS), 4)
+					.side(Items.QUARTZ_BLOCK, 4)
+					.side(Items.GLASS, 4)
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.RUNE_CLAY)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
-					.side(Ingredient.of(Items.CLAY), 4)
-					.side(Ingredient.of(Items.MUD), 4)
+					.side(Items.CLAY, 4)
+					.side(Items.MUD, 4)
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.RUNE_DRIPSTONE)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
-					.side(Ingredient.of(Items.DRIPSTONE_BLOCK), 4)
-					.side(Ingredient.of(Items.POINTED_DRIPSTONE), 4)
+					.side(Items.DRIPSTONE_BLOCK, 4)
+					.side(Items.POINTED_DRIPSTONE, 4)
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.RUNE_AMETHYST)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
-					.side(Ingredient.of(Items.AMETHYST_BLOCK), 4)
-					.side(Ingredient.of(Items.AMETHYST_SHARD), 4)
+					.side(Items.AMETHYST_BLOCK, 4)
+					.side(Items.AMETHYST_SHARD, 4)
 					.save(pvd);
 
 		}
