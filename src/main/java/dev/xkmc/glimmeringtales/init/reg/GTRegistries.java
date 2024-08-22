@@ -1,9 +1,6 @@
 package dev.xkmc.glimmeringtales.init.reg;
 
-import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
-import dev.xkmc.glimmeringtales.content.core.spell.ElementAffinity;
-import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
-import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
+import dev.xkmc.glimmeringtales.content.core.spell.*;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneSwapType;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.l2backpack.content.quickswap.type.MatcherSwapType;
@@ -27,6 +24,10 @@ public class GTRegistries {
 			GlimmeringTales.REG.dataMap("block_spell", Registries.BLOCK, BlockSpell.class);
 	public static final DataMapReg<Item, ElementAffinity> AFFINITY =
 			GlimmeringTales.REG.dataMap("element_affinity", Registries.ITEM, ElementAffinity.class);
+	public static final DataMapReg<Block, BlockReplace> REPLACE =
+			GlimmeringTales.REG.dataMap("block_replace", Registries.BLOCK, BlockReplace.class);
+	public static final DataMapReg<Block, BlockReplace> MELT =
+			GlimmeringTales.REG.dataMap("block_melt", Registries.BLOCK, BlockReplace.class);
 
 	public static final SimpleEntry<SpellElement> LIFE = reg("life", ChatFormatting.GREEN);
 	public static final SimpleEntry<SpellElement> EARTH = reg("earth", ChatFormatting.GOLD);

@@ -31,6 +31,8 @@ public class BaseRitualBlockEntity extends BaseBlockEntity implements BlockConta
 	public void setItem(ItemStack stack) {
 		if (locked()) return;
 		this.stack = stack;
+		sync();
+		setChanged();
 	}
 
 	public ItemStack getItem() {

@@ -7,6 +7,7 @@ import dev.xkmc.glimmeringtales.content.recipe.ritual.SimpleRitualRecipeBuilder;
 import dev.xkmc.glimmeringtales.content.recipe.thunder.StrikeBlockRecipeBuilder;
 import dev.xkmc.glimmeringtales.content.recipe.thunder.StrikeItemRecipeBuilder;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
+import dev.xkmc.l2complements.init.registrate.LCItems;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -54,6 +55,27 @@ public class GTRecipeGen {
 					.pattern("AAA").pattern("ABA").pattern("AAA")
 					.define('A', Tags.Items.SEEDS)
 					.define('B', GTItems.CRYSTAL_NATURE)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(Items.CONDUIT, GTItems.CRYSTAL_OCEAN)::unlockedBy, Items.CONDUIT)
+					.side(Items.PRISMARINE, 8)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_NATURE, GTItems.CRYSTAL_THUNDER)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+					.side(GTItems.CRYSTAL_EARTH, 1)
+					.side(GTItems.CRYSTAL_FLAME, 1)
+					.side(GTItems.CRYSTAL_WINTERSTORM, 1)
+					.side(GTItems.CRYSTAL_OCEAN, 1)
+					.side(GTItems.STRUCK_LOG, 4)
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GTItems.RITUAL_ALTAR.get())::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+					.pattern("DGD").pattern("ANA").pattern("DWD")
+					.define('A', Items.AMETHYST_SHARD)
+					.define('G', Items.GOLD_INGOT)
+					.define('N', GTItems.CRYSTAL_NATURE)
+					.define('W', GTItems.STRUCK_LOG)
+					.define('D', Items.DEEPSLATE_BRICKS)
 					.save(pvd);
 		}
 
@@ -120,6 +142,10 @@ public class GTRecipeGen {
 					.side(Items.MUD, 4)
 					.save(pvd);
 
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.RUNE_STONE)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
+					.side(Items.STONE, 8)
+					.save(pvd);
+
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.RUNE_DRIPSTONE)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
 					.side(Items.DRIPSTONE_BLOCK, 4)
 					.side(Items.POINTED_DRIPSTONE, 4)
@@ -130,6 +156,70 @@ public class GTRecipeGen {
 					.side(Items.AMETHYST_SHARD, 4)
 					.save(pvd);
 
+		}
+
+		//
+		{
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.RUNE_MAGMA)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
+					.side(Items.MAGMA_BLOCK, 4)
+					.side(Items.MAGMA_CREAM, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.RUNE_SOUL_SAND)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
+					.side(Items.MAGMA_BLOCK, 4)
+					.side(Items.MAGMA_CREAM, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.RUNE_SNOW)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
+					.side(Items.SNOW_BLOCK, 4)
+					.side(Items.SNOWBALL, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.RUNE_ICE)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
+					.side(Items.PACKED_ICE, 4)
+					.side(Items.ICE, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.RUNE_POWDER_SNOW)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
+					.side(Items.POWDER_SNOW_BUCKET, 4)
+					.side(Items.SNOWBALL, 4)
+					.save(pvd);
+		}
+
+		{
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_THUNDER, GTItems.RUNE_THUNDER)::unlockedBy, GTItems.CRYSTAL_THUNDER.get())
+					.side(GTItems.STRUCK_LOG, 8)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.HELL_MARK)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
+					.side(GTItems.RUNE_SOUL_SAND, 1)
+					.side(GTItems.RUNE_DRIPSTONE, 1)
+					.side(LCItems.SOUL_CHARGE, 2)
+					.side(Items.BLAZE_POWDER, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.EARTH_MELTDOWN)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
+					.side(GTItems.RUNE_MAGMA, 1)
+					.side(GTItems.RUNE_STONE, 1)
+					.side(LCItems.STRONG_CHARGE, 2)
+					.side(Items.BLAZE_POWDER, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.WINTER_STORM)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
+					.side(GTItems.RUNE_POWDER_SNOW, 1)
+					.side(GTItems.RUNE_GRAVEL, 1)
+					.side(LCItems.HARD_ICE, 2)
+					.side(Items.SNOW_BLOCK, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.SNOW_TORNADO)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
+					.side(GTItems.RUNE_SNOW, 1)
+					.side(GTItems.RUNE_SAND, 1)
+					.side(LCItems.HARD_ICE, 2)
+					.side(Items.SNOW_BLOCK, 4)
+					.save(pvd);
 		}
 
 	}

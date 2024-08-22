@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_nature"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:crystal_of_thunder"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_earth"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_flame"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_winterstorm"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_ocean"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    }
+  ],
+  "time": 0
+}

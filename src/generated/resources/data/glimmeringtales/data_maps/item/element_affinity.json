@@ -23,6 +23,16 @@
         "glimmeringtales:snow": 0.5
       }
     },
+    "glimmeringtales:crystal_of_ocean": {
+      "affinity": {
+        "glimmeringtales:ocean": 1.5
+      }
+    },
+    "glimmeringtales:crystal_of_thunder": {
+      "affinity": {
+        "glimmeringtales:thunder": 1.5
+      }
+    },
     "glimmeringtales:crystal_of_winterstorm": {
       "affinity": {
         "glimmeringtales:snow": 1.5

@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_thunder"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:thunder"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    }
+  ],
+  "time": 0
+}
