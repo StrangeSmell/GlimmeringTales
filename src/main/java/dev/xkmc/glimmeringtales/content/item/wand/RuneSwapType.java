@@ -39,7 +39,8 @@ public class RuneSwapType extends MatcherSwapType {
 	@Override
 	public void renderSelected(SelectionSideBar.Context ctx, Player player, ISwapEntry<?> token, EntryRenderContext entry) {
 		boolean selected = entry.selected();
-		ItemStack stack = token.getStack();
+		ItemStack core = token.getStack();
+		ItemStack wand = token.token().stack();
 		int i = entry.i();
 		int size = 9;
 		int h = ctx.g().guiHeight();
@@ -47,17 +48,17 @@ public class RuneSwapType extends MatcherSwapType {
 		int r = h / 4 + (int) (entry.easing() * w / 2);
 		int dx = w / 2 + (int) (Math.sin(2 * Math.PI * i / size) * r);
 		int dy = h / 2 - (int) (Math.cos(2 * Math.PI * i / size) * r);
-		ctx.renderItem(stack, dx - 8, dy - 8);
+		ctx.renderItem(core, dx - 8, dy - 8);
 		ctx.g().blitSprite(COPPER, dx - 12, dy - 12, 24, 24);
 		if (selected) {
 			ctx.g().blitSprite(SELECTED, dx - 12, dy - 12, 24, 24);
-			if (!stack.isEmpty()) {
+			if (!core.isEmpty()) {
 				TextBox box = switch (i) {
 					case 1, 2, 3, 4 -> new TextBox(ctx.g(), 0, 1, dx + 16, dy, -1);
 					case 5, 6, 7, 8 -> new TextBox(ctx.g(), 2, 1, dx - 16, dy, -1);
 					default -> new TextBox(ctx.g(), 1, 2, dx, dy - 16, -1);
 				};
-				box.renderLongText(ctx.font(), List.of(stack.getHoverName()));
+				box.renderLongText(ctx.font(), List.of(core.getHoverName()));
 			}
 		}
 
