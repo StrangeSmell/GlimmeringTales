@@ -14,6 +14,7 @@ import dev.xkmc.l2core.serial.config.PacketHandlerWithConfig;
 import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import dev.xkmc.l2serial.serialization.custom_handler.Handlers;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -22,6 +23,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -51,6 +53,12 @@ public class GlimmeringTales {
 	public static void setup(final FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 		});
+	}
+
+	@SubscribeEvent
+	public static void onAttribute(EntityAttributeModificationEvent event) {
+		event.add(EntityType.PLAYER, GTRegistries.MAX_MANA);
+		event.add(EntityType.PLAYER, GTRegistries.MANA_REGEN);
 	}
 
 	@SubscribeEvent
