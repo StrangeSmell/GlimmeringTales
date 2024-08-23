@@ -33,7 +33,7 @@ public class MagmaSpells extends NatureSpellEntry {
 
 	@Override
 	public void regNature(BootstrapContext<NatureSpell> ctx) {
-		NATURE.gen(ctx, new NatureSpell(SPELL, GTRegistries.EARTH.get(), 20));
+		NATURE.gen(ctx, new NatureSpell(SPELL, GTRegistries.FLAME.get(), 20));
 	}
 
 	@Override
@@ -55,13 +55,13 @@ public class MagmaSpells extends NatureSpellEntry {
 
 	@Override
 	public void genLang(RegistrateLangProvider ctx) {
-		ctx.add(SpellAction.lang(ID), "Stone Extension");
+		ctx.add(SpellAction.lang(ID), "Meltdown");
 	}
 
 	private static ConfiguredEngine<?> gen(DataGenContext ctx) {
 		return new MeltBlockInstance(IntVariable.of("rand(180,220)")).circular(
 				DoubleVariable.of("6"), DoubleVariable.of("2"), false, null,
-				BlockTestCondition.Type.BLOCKS_MOTION.get().move(OffsetModifier.ABOVE));
+				BlockTestCondition.Type.REPLACEABLE.get().move(OffsetModifier.ABOVE));
 	}
 
 

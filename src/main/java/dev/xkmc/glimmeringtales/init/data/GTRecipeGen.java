@@ -200,7 +200,7 @@ public class GTRecipeGen {
 					.side(Items.BLAZE_POWDER, 4)
 					.save(pvd);
 
-			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.EARTH_MELTDOWN)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.LAVA_BURST)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
 					.side(GTItems.RUNE_MAGMA, 1)
 					.side(GTItems.RUNE_STONE, 1)
 					.side(LCItems.STRONG_CHARGE, 2)

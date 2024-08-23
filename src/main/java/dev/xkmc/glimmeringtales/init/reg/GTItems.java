@@ -73,7 +73,7 @@ public class GTItems {
 			RUNE_THUNDER;
 
 	public static final ItemEntry<SpellRuneItem>
-			HELL_MARK, EARTH_MELTDOWN, WINTER_STORM, SNOW_TORNADO;
+			HELL_MARK, LAVA_BURST, WINTER_STORM, SNOW_TORNADO;
 
 	public static final BlockEntry<DelegateBlock> CLAY_CARPET, FAKE_STONE,
 			MAGMA_STONE, MAGMA_DEEPSLATE, MAGMA_NETHERRACK;
@@ -178,7 +178,7 @@ public class GTItems {
 			RUNE_THUNDER = rune("thunder", STRUCK_LOG::get, "Rune: Thunder");
 
 			HELL_MARK = spell("hell_mark", "Rune: Hell Mark");
-			EARTH_MELTDOWN = spell("earth_meltdown", "Rune: Earth Meltdown");
+			LAVA_BURST = spell("lava_burst", "Rune: Lava Burst");
 			WINTER_STORM = spell("winter_storm", "Rune: Winter Storm");
 			SNOW_TORNADO = spell("snow_tornado", "Rune: Snow Tornado");
 		}

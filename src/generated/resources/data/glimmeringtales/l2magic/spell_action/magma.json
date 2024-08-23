@@ -14,7 +14,7 @@
             "type": "l2magic:move",
             "child": {
               "type": "l2magic:block_test",
-              "test": "BLOCKS_MOTION"
+              "test": "REPLACEABLE"
             },
             "modifiers": [
               {

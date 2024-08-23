@@ -35,7 +35,7 @@
   "item.glimmeringtales.stone": "符石: 石头",
   "item.glimmeringtales.thunder": "符石: 雷霆",
 
-  "item.glimmeringtales.earth_meltdown": "符石: 地层熔毁",
+  "item.glimmeringtales.lava_burst": "符石: 地层熔毁",
   "item.glimmeringtales.hell_mark": "符石: 狱火烙印",
   "item.glimmeringtales.snow_tornado": "符石: 暴雪旋风",
   "item.glimmeringtales.winter_storm": "符石: 凛冬风暴",
@@ -76,6 +76,10 @@
   "spell_action.glimmeringtales.quartz": "晶化",
   "spell_action.glimmeringtales.sand": "沙暴",
   "spell_action.glimmeringtales.gravel": "燧风",
+  "spell_action.glimmeringtales.magma": "岩熔",
+  "spell_action.glimmeringtales.stone": "石崖",
+  "spell_action.glimmeringtales.thunder": "雷霆",
+
   "spell_action.glimmeringtales.hell_mark": "狱火烙印",
   "spell_action.glimmeringtales.lava_burst": "地层熔毁",
   "spell_action.glimmeringtales.snow_tornado": "暴雪旋风",
@@ -92,5 +96,6 @@
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml": "微光纪事 - 服务端配置",
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml.title": "微光纪事 - 服务端配置",
   "glimmeringtales.configuration.title": "微光纪事 - 配置"
+
 
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "glimmeringtales:item/spell/earth_meltdown"
+    "layer0": "glimmeringtales:item/spell/lava_burst"
   }
 }
