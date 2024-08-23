@@ -9,7 +9,6 @@ import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.context.DataGenContext;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
-import dev.xkmc.l2magic.content.engine.core.Modifier;
 import dev.xkmc.l2magic.content.engine.iterator.DelayedIterator;
 import dev.xkmc.l2magic.content.engine.iterator.LinearIterator;
 import dev.xkmc.l2magic.content.engine.iterator.LoopIterator;
@@ -28,7 +27,6 @@ import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.processor.KnockBackProcessor;
 import dev.xkmc.l2magic.content.engine.processor.PropertyProcessor;
 import dev.xkmc.l2magic.content.engine.processor.PushProcessor;
-import dev.xkmc.l2magic.content.engine.processor.PushProcessor.Type;
 import dev.xkmc.l2magic.content.engine.selector.ApproxCylinderSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
@@ -63,7 +61,7 @@ public class FlameSpells extends NatureSpellEntry {
 	@Override
 	public void regNature(BootstrapContext<NatureSpell> ctx) {
 		HM_NATURE.gen(ctx, new NatureSpell(HM_SPELL, GTRegistries.FLAME.get(), 160));
-		LB_NATURE.gen(ctx, new NatureSpell(LB_SPELL, GTRegistries.FLAME.get(), 160));
+		LB_NATURE.gen(ctx, new NatureSpell(LB_SPELL, GTRegistries.FLAME.get(), 10, 30));
 	}
 
 	@Override

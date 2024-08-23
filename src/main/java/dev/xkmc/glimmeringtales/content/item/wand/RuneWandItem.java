@@ -123,7 +123,7 @@ public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, Fast
 	}
 
 	private boolean castSpell(ItemStack stack, Level level, LivingEntity user, ISpellHolder spell, int useTick, boolean charging) {
-		return user instanceof Player player && spell.cast(SpellCastContext.of(level, player, stack), useTick, charging);
+		return spell.cast(SpellCastContext.of(level, user, stack), useTick, charging);
 	}
 
 	public void fillCreativeTabs(CreativeModeTabModifier x) {

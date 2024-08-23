@@ -20,7 +20,7 @@ public record SpellHolder(Holder<NatureSpell> spell, int dist) implements ISpell
 				spell.value().spell().value(), useTick, charging ? 0 : 1, dist);
 		if (ctx == null) return false;
 		if (!user.level().isClientSide()) {
-			execute(spell.value(), ctx, user, DefaultAffinity.INS);
+			execute(spell.value(), ctx, user, DefaultAffinity.INS, useTick, charging);
 		}
 		return true;
 	}
