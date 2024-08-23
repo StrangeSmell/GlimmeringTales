@@ -34,7 +34,7 @@ public class BlockRuneItem extends Item implements IBlockSpellItem {
 	public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> list, TooltipFlag flag) {
 		var level = ctx.level();
 		if (level == null) return;
-		getSpell(level.registryAccess()).ifPresent(e -> e.spell().value().runeDesc(list));
+		getSpell(level.registryAccess()).ifPresent(e -> e.spell().value().blockRuneDesc(list));
 	}
 
 	@Override

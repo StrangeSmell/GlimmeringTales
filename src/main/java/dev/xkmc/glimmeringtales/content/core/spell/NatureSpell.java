@@ -30,8 +30,16 @@ public record NatureSpell(
 		return Component.translatable(SpellAction.lang(spell().unwrapKey().orElseThrow().location()));
 	}
 
-	public void runeDesc(List<Component> list) {
-		list.add(lang().withStyle(ChatFormatting.GRAY));
+	public void blockRuneDesc(List<Component> list) {
+		list.add(lang().withStyle(ChatFormatting.YELLOW));
+		Component val = Component.literal(cost + "").withStyle(ChatFormatting.BLUE);
+		list.add(GTLang.TOOLTIP_COST.get(elem.coloredDesc(), val).withStyle(ChatFormatting.GRAY));
+	}
+
+	public void spellRuneDesc(List<Component> list) {
+		list.add(lang().withStyle(ChatFormatting.GOLD));
+		list.add(spell().value().castType().desc());
+		list.add(spell().value().triggerType().desc());
 		Component val = Component.literal(cost + "").withStyle(ChatFormatting.BLUE);
 		list.add(GTLang.TOOLTIP_COST.get(elem.coloredDesc(), val).withStyle(ChatFormatting.GRAY));
 	}
