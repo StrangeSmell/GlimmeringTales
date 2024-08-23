@@ -78,7 +78,7 @@ public class GTItems {
 	public static final BlockEntry<DelegateBlock> CLAY_CARPET, FAKE_STONE,
 			FAKE_MAGMA_STONE, FAKE_MAGMA_DEEPSLATE, FAKE_MAGMA_NETHERRACK;
 	public static final BlockEntry<SelfDestroyTransparent> FAKE_GLASS;
-	public static final BlockEntry<SelfDestroyTransparent> FAKE_BAMBOO;
+	public static final BlockEntry<DelegateBlock> FAKE_BAMBOO;
 
 	private static final DCReg DC = DCReg.of(GlimmeringTales.REG);
 
@@ -200,14 +200,19 @@ public class GTItems {
 
 			FAKE_GLASS = GlimmeringTales.REGISTRATE.block("glass", SelfDestroyTransparent::new)
 					.properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).noLootTable())
-					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
-							.withExistingParent(ctx.getName(), pvd.mcLoc("block/glass")).renderType("cutout")))
+					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(),
+							pvd.models().withExistingParent(ctx.getName(), pvd.mcLoc("block/glass")).renderType("cutout")))
 					.register();
 
-			FAKE_BAMBOO = GlimmeringTales.REGISTRATE.block("bamboo", SelfDestroyTransparent::new)
-					.properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO).noLootTable())
-					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
-							.withExistingParent(ctx.getName(), pvd.mcLoc("block/bamboo4_age1")).renderType("cutout")))
+			FAKE_BAMBOO = GlimmeringTales.REGISTRATE.block("bamboo",
+							p -> DelegateBlock.newBaseBlock(p, new SelfDestroyImpl(), new BamBooImpl()))
+					.properties(p -> BlockBehaviour.Properties.of()
+							.mapColor(MapColor.PLANT).forceSolidOn().randomTicks().instabreak()
+							.strength(1.0F).sound(SoundType.BAMBOO).noOcclusion()
+							.dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ)
+							.ignitedByLava().pushReaction(PushReaction.DESTROY).noLootTable())
+					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(),
+							pvd.models().withExistingParent(ctx.getName(), pvd.mcLoc("block/bamboo1_age1")).renderType("cutout")))
 					.register();
 
 			FAKE_MAGMA_STONE = magma("stone");
