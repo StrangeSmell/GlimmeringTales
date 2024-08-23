@@ -1,0 +1,10 @@
+{
+  "action": {
+    "type": "glimmeringtales:thunder",
+    "damage": "10"
+  },
+  "cast_type": "INSTANT",
+  "icon": "glimmeringtales:thunder",
+  "order": 1040,
+  "trigger_type": "TARGET_POS"
+}

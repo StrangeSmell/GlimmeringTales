@@ -76,7 +76,7 @@ public class GTItems {
 			HELL_MARK, EARTH_MELTDOWN, WINTER_STORM, SNOW_TORNADO;
 
 	public static final BlockEntry<DelegateBlock> CLAY_CARPET, FAKE_STONE,
-			FAKE_MAGMA_STONE, FAKE_MAGMA_DEEPSLATE, FAKE_MAGMA_NETHERRACK;
+			MAGMA_STONE, MAGMA_DEEPSLATE, MAGMA_NETHERRACK;
 	public static final BlockEntry<SelfDestroyTransparent> FAKE_GLASS;
 	public static final BlockEntry<DelegateBlock> FAKE_BAMBOO;
 
@@ -215,9 +215,9 @@ public class GTItems {
 							pvd.models().withExistingParent(ctx.getName(), pvd.mcLoc("block/bamboo1_age1")).renderType("cutout")))
 					.register();
 
-			FAKE_MAGMA_STONE = magma("stone");
-			FAKE_MAGMA_DEEPSLATE = magma("deepslate");
-			FAKE_MAGMA_NETHERRACK = magma("netherrack");
+			MAGMA_STONE = magma("stone");
+			MAGMA_DEEPSLATE = magma("deepslate");
+			MAGMA_NETHERRACK = magma("netherrack");
 
 		}
 

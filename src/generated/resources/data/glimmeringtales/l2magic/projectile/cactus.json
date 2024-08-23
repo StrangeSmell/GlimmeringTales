@@ -1,0 +1,54 @@
+{
+  "filter": "ENEMY_NO_FAMILY",
+  "hit": [
+    {
+      "type": "l2magic:damage",
+      "damage": "1",
+      "damage_type": "minecraft:arrow",
+      "indirect": true,
+      "positioned": true
+    },
+    {
+      "type": "glimmeringtales:stacking",
+      "duration": "100",
+      "effect": "l2complements:bleed",
+      "max": "6"
+    }
+  ],
+  "motion": {
+    "type": "l2magic:simple",
+    "friction": "0.02",
+    "gravity": "0.04"
+  },
+  "params": [],
+  "renderer": {
+    "type": "glimmeringtales:cross",
+    "texture": "glimmeringtales:textures/spell/cactus.png"
+  },
+  "size": "0.25",
+  "tick": {
+    "type": "l2magic:move",
+    "child": {
+      "type": "l2magic:move",
+      "child": {
+        "type": "l2magic:particle",
+        "particle": "minecraft:crit",
+        "speed": "rand(0.5,1)"
+      },
+      "modifiers": [
+        {
+          "type": "l2magic:forward",
+          "distance": "-0.2"
+        }
+      ]
+    },
+    "modifiers": [
+      {
+        "type": "l2magic:offset",
+        "x": "0",
+        "y": "rand(-1,1)",
+        "z": "0"
+      }
+    ]
+  }
+}

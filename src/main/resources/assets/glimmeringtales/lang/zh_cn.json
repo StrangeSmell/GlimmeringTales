@@ -33,12 +33,24 @@
   "item.glimmeringtales.vine": "符石: 藤蔓",
   "item.glimmeringtales.hay_bale": "符石: 干草块",
   "item.glimmeringtales.stone": "符石: 石头",
+  "item.glimmeringtales.thunder": "符石: 雷霆",
+
+  "item.glimmeringtales.earth_meltdown": "符石: 地层熔毁",
+  "item.glimmeringtales.hell_mark": "符石: 狱火烙印",
+  "item.glimmeringtales.snow_tornado": "符石: 暴雪旋风",
+  "item.glimmeringtales.winter_storm": "符石: 凛冬风暴",
 
   "block.glimmeringtales.struck_log": "雷焰木",
+  "block.glimmeringtales.ritual_altar": "仪式祭坛",
   "block.glimmeringtales.crystal_vine": "生命之藤",
+
   "block.glimmeringtales.clay_carpet": "粘土地毯",
   "block.glimmeringtales.glass": "玻璃",
   "block.glimmeringtales.bamboo": "竹子",
+  "block.glimmeringtales.stone": "石头",
+  "block.glimmeringtales.magma_block_for_deepslate": "岩浆块",
+  "block.glimmeringtales.magma_block_for_netherrack": "岩浆块",
+  "block.glimmeringtales.magma_block_for_stone": "岩浆块",
 
   "element.glimmeringtales.earth": "地脉",
   "element.glimmeringtales.flame": "蕴炎",
@@ -80,4 +92,5 @@
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml": "微光纪事 - 服务端配置",
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.server.toml.title": "微光纪事 - 服务端配置",
   "glimmeringtales.configuration.title": "微光纪事 - 配置"
+
 }

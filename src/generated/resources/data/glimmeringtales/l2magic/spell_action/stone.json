@@ -1,0 +1,38 @@
+{
+  "action": {
+    "type": "l2magic:block_in_range",
+    "child": {
+      "type": "l2magic:if",
+      "action": {
+        "type": "l2magic:list",
+        "children": [
+          {
+            "type": "l2magic:set_block",
+            "state": "glimmeringtales:stone"
+          },
+          {
+            "type": "l2magic:schedule_tick",
+            "block": "glimmeringtales:stone",
+            "tick": "rand(180,220)"
+          }
+        ]
+      },
+      "predicate": {
+        "type": "l2magic:and",
+        "list": [
+          {
+            "type": "l2magic:block_test",
+            "test": "REPLACEABLE"
+          }
+        ]
+      }
+    },
+    "delayPerBlock": "0",
+    "plane": true,
+    "range": "3"
+  },
+  "cast_type": "INSTANT",
+  "icon": "glimmeringtales:stone",
+  "order": 1040,
+  "trigger_type": "TARGET_POS"
+}

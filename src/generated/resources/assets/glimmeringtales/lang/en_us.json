@@ -77,10 +77,13 @@
   "spell_action.glimmeringtales.gravel": "Flint Storm",
   "spell_action.glimmeringtales.hell_mark": "Hell Mark",
   "spell_action.glimmeringtales.lava_burst": "Lava Burst",
+  "spell_action.glimmeringtales.magma": "Stone Extension",
   "spell_action.glimmeringtales.procreation": "Procreation",
   "spell_action.glimmeringtales.quartz": "Crystalization",
   "spell_action.glimmeringtales.sand": "Sandstorm",
   "spell_action.glimmeringtales.snow_tornado": "Snow Tornado",
+  "spell_action.glimmeringtales.stone": "Stone Extension",
+  "spell_action.glimmeringtales.thunder": "Thunder",
   "spell_action.glimmeringtales.vine": "Vine",
   "spell_action.glimmeringtales.winter_storm": "Winter Storm"
 }

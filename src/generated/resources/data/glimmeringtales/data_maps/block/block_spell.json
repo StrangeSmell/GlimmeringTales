@@ -5,6 +5,11 @@
       "noBlockOffset": 0,
       "spell": "glimmeringtales:gravel"
     },
+    "#c:stones": {
+      "breakBlock": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:stone"
+    },
     "#glimmeringtales:amethyst": {
       "breakBlock": true,
       "noBlockOffset": 0,
@@ -14,6 +19,11 @@
       "breakBlock": false,
       "noBlockOffset": 1,
       "spell": "glimmeringtales:bamboo"
+    },
+    "#glimmeringtales:fake_magma": {
+      "breakBlock": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:magma"
     },
     "#glimmeringtales:quartz": {
       "breakBlock": false,
@@ -40,6 +50,16 @@
       "noBlockOffset": 0,
       "spell": "glimmeringtales:clay"
     },
+    "glimmeringtales:stone": {
+      "breakBlock": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:stone"
+    },
+    "glimmeringtales:struck_log": {
+      "breakBlock": false,
+      "noBlockOffset": 1,
+      "spell": "glimmeringtales:thunder"
+    },
     "minecraft:cactus": {
       "breakBlock": true,
       "noBlockOffset": 1,
@@ -59,6 +79,16 @@
       "breakBlock": true,
       "noBlockOffset": 1,
       "spell": "glimmeringtales:procreation"
+    },
+    "minecraft:lightning_rod": {
+      "breakBlock": false,
+      "noBlockOffset": 1,
+      "spell": "glimmeringtales:thunder"
+    },
+    "minecraft:magma_block": {
+      "breakBlock": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:magma"
     },
     "minecraft:pointed_dripstone": {
       "breakBlock": true,

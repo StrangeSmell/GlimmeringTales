@@ -1,4 +1,4 @@
 {
-  "parent": "minecraft:block/bamboo4_age1",
+  "parent": "minecraft:block/bamboo1_age1",
   "render_type": "minecraft:cutout"
 }

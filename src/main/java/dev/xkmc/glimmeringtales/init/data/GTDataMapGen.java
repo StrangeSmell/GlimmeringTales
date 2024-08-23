@@ -53,9 +53,9 @@ public class GTDataMapGen {
 		{
 			var melt = pvd.builder(GTRegistries.MELT.reg());
 			var replace = pvd.builder(GTRegistries.REPLACE.reg());
-			melt(melt, replace, Blocks.STONE, GTItems.FAKE_MAGMA_STONE.get());
-			melt(melt, replace, Blocks.DEEPSLATE, GTItems.FAKE_MAGMA_DEEPSLATE.get());
-			melt(melt, replace, Blocks.NETHERRACK, GTItems.FAKE_MAGMA_NETHERRACK.get());
+			melt(melt, replace, Blocks.STONE, GTItems.MAGMA_STONE.get());
+			melt(melt, replace, Blocks.DEEPSLATE, GTItems.MAGMA_DEEPSLATE.get());
+			melt(melt, replace, Blocks.NETHERRACK, GTItems.MAGMA_NETHERRACK.get());
 
 		}
 	}

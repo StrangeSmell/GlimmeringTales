@@ -3,7 +3,9 @@ package dev.xkmc.glimmeringtales.init.data.spell;
 import dev.xkmc.glimmeringtales.init.data.spell.advanced.FlameSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.advanced.SnowSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.earth.*;
+import dev.xkmc.glimmeringtales.init.data.spell.flame.MagmaSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.life.*;
+import dev.xkmc.glimmeringtales.init.data.spell.thunder.ThunderSpells;
 
 import java.util.List;
 
@@ -22,7 +24,10 @@ public class NatureSpellGenRegistry {
 			new FlowerSpell(),
 			new GravelSpells(), // 1060
 			new FlameSpells(),
-			new SnowSpells()
+			new SnowSpells(),
+			new StoneSpells(),
+			new MagmaSpells(),
+			new ThunderSpells()
 	);
 
 }

@@ -45,7 +45,7 @@ public record EffectCloudInstance(
 
 	private void makeAreaOfEffectCloud(PotionContents content, EngineContext ctx) {
 		Vec3 vec3 = ctx.loc().pos();
-		AreaEffectCloud e = new AreaEffectCloud(ctx.user().level(), vec3.x, vec3.y+1, vec3.z);
+		AreaEffectCloud e = new AreaEffectCloud(ctx.user().level(), vec3.x, vec3.y, vec3.z);
 
 		Player player = (Player) ctx.user().user();
 		e.setOwner(player);
