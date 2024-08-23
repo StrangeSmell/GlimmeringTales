@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.init;
 
 import com.tterrag.registrate.providers.ProviderType;
+import dev.xkmc.glimmeringtales.content.block.ritual.BaseRitualBlockEntity;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.init.data.*;
 import dev.xkmc.glimmeringtales.init.reg.GTEngine;
@@ -69,6 +70,8 @@ public class GlimmeringTales {
 	@SubscribeEvent
 	public static void registerCap(RegisterCapabilitiesEvent event) {
 		event.registerItem(Capabilities.ItemHandler.ITEM, (stack, c) -> new BaseBagItemHandler(stack), GTItems.WAND);
+		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GTItems.ALTAR_BE.get(), BaseRitualBlockEntity::getItemHandler);
+		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GTItems.MATRIX_BE.get(), BaseRitualBlockEntity::getItemHandler);
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGH)

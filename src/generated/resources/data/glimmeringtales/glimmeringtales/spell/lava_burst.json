@@ -1,5 +1,6 @@
 {
-  "cost": 160,
+  "cost": 10,
   "elem": "glimmeringtales:flame",
+  "maxConsumeTick": 30,
   "spell": "glimmeringtales:lava_burst"
 }

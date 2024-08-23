@@ -1,5 +1,6 @@
 {
   "cost": 20,
   "elem": "glimmeringtales:flame",
+  "maxConsumeTick": 0,
   "spell": "glimmeringtales:magma"
 }

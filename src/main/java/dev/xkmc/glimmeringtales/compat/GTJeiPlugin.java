@@ -3,6 +3,7 @@ package dev.xkmc.glimmeringtales.compat;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
+import dev.xkmc.l2serial.util.Wrappers;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -26,6 +27,7 @@ public class GTJeiPlugin implements IModPlugin {
 	public final StrikeBlockRecipeCategory STRIKE_BLOCK = new StrikeBlockRecipeCategory();
 	public final StrikeItemRecipeCategory STRIKE_ITEM = new StrikeItemRecipeCategory();
 	public final ItemTransformationRecipeCategory TRANSFORM = new ItemTransformationRecipeCategory();
+	public final RitualRecipeCategory RITUAL = new RitualRecipeCategory();
 
 	public IGuiHelper GUI_HELPER;
 
@@ -49,6 +51,7 @@ public class GTJeiPlugin implements IModPlugin {
 		registration.addRecipeCategories(STRIKE_BLOCK.init(helper));
 		registration.addRecipeCategories(STRIKE_ITEM.init(helper));
 		registration.addRecipeCategories(TRANSFORM.init(helper));
+		registration.addRecipeCategories(RITUAL.init(helper));
 	}
 
 	@Override
@@ -63,6 +66,8 @@ public class GTJeiPlugin implements IModPlugin {
 				.getAllRecipesFor(GTRecipes.RT_STRIKE_BLOCK.get()).stream().map(RecipeHolder::value).toList());
 		registration.addRecipes(STRIKE_ITEM.getRecipeType(), level.getRecipeManager()
 				.getAllRecipesFor(GTRecipes.RT_STRIKE_ITEM.get()).stream().map(RecipeHolder::value).toList());
+		registration.addRecipes(RITUAL.getRecipeType(), Wrappers.cast(level.getRecipeManager()
+				.getAllRecipesFor(GTRecipes.RT_RITUAL.get()).stream().map(RecipeHolder::value).toList()));
 		registration.addRecipes(TRANSFORM.getRecipeType(), List.of(
 				new ItemTransformation(GTItems.DEPLETED_FLAME.asStack(), GTItems.CRYSTAL_FLAME.asStack()),
 				new ItemTransformation(GTItems.DEPLETED_WINTERSTORM.asStack(), GTItems.CRYSTAL_WINTERSTORM.asStack()),
@@ -80,6 +85,8 @@ public class GTJeiPlugin implements IModPlugin {
 		registration.addRecipeCatalyst(Blocks.LIGHTNING_ROD.asItem().getDefaultInstance(), STRIKE_BLOCK.getRecipeType());
 		registration.addRecipeCatalyst(Items.TRIDENT.getDefaultInstance(), STRIKE_ITEM.getRecipeType());
 		registration.addRecipeCatalyst(Blocks.LIGHTNING_ROD.asItem().getDefaultInstance(), STRIKE_ITEM.getRecipeType());
+		registration.addRecipeCatalyst(GTItems.RITUAL_MATRIX.asStack(), RITUAL.getRecipeType());
+		registration.addRecipeCatalyst(GTItems.RITUAL_ALTAR.asStack(), RITUAL.getRecipeType());
 	}
 
 	@Override

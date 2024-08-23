@@ -41,17 +41,26 @@ public record NatureSpell(
 	}
 
 	public void blockRuneDesc(List<Component> list) {
-		list.add(lang().withStyle(ChatFormatting.YELLOW));
+		list.add(GTLang.TOOLTIP_SPELL.get(lang().withStyle(ChatFormatting.GOLD),
+				elem.coloredDesc()).withStyle(ChatFormatting.GRAY));
 		Component val = Component.literal(cost + "").withStyle(ChatFormatting.BLUE);
-		list.add(GTLang.TOOLTIP_COST.get(elem.coloredDesc(), val).withStyle(ChatFormatting.GRAY));
+		list.add(GTLang.TOOLTIP_COST.get(val).withStyle(ChatFormatting.GRAY));
 	}
 
 	public void spellRuneDesc(List<Component> list) {
-		list.add(lang().withStyle(ChatFormatting.GOLD));
+		list.add(GTLang.TOOLTIP_SPELL.get(lang().withStyle(ChatFormatting.GOLD),
+				elem.coloredDesc()).withStyle(ChatFormatting.GRAY));
 		list.add(spell().value().castType().desc());
 		list.add(spell().value().triggerType().desc());
 		Component val = Component.literal(cost + "").withStyle(ChatFormatting.BLUE);
-		list.add(GTLang.TOOLTIP_COST.get(elem.coloredDesc(), val).withStyle(ChatFormatting.GRAY));
+		if (spell().value().castType() == SpellCastType.INSTANT) {
+			list.add(GTLang.TOOLTIP_COST.get(val).withStyle(ChatFormatting.GRAY));
+		} else if (maxConsumeTick <= 0) {
+			list.add(GTLang.TOOLTIP_COST_CONT.get(val).withStyle(ChatFormatting.GRAY));
+		} else {
+			Component max = Component.literal(cost * maxConsumeTick + "").withStyle(ChatFormatting.BLUE);
+			list.add(GTLang.TOOLTIP_COST_CAPPED.get(val, max).withStyle(ChatFormatting.GRAY));
+		}
 	}
 
 	public boolean consumeMana(LivingEntity user, ItemStack stack, double affinity, int useTick, boolean charging) {

@@ -1,0 +1,7 @@
+{
+  "parent": "glimmeringtales:custom/ritual_altar",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "glimmeringtales:block/ritual_matrix"
+  }
+}

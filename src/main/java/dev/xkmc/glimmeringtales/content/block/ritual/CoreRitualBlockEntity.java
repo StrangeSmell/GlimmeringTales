@@ -59,6 +59,13 @@ public class CoreRitualBlockEntity extends BaseRitualBlockEntity implements Tick
 		setChanged();
 	}
 
+	public void establishLink(SideRitualBlockEntity be, BlockPos pos) {
+		if (level == null || level.isClientSide()) return;
+		linked.add(pos);
+		sync();
+		setChanged();
+	}
+
 	public void onLinkBreak() {
 
 	}

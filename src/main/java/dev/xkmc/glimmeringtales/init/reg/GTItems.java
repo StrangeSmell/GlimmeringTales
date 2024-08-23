@@ -5,6 +5,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.glimmeringtales.content.block.crop.LifeCrystalCrop;
 import dev.xkmc.glimmeringtales.content.block.misc.*;
+import dev.xkmc.glimmeringtales.content.block.ritual.NatureCoreBlockEntity;
 import dev.xkmc.glimmeringtales.content.block.ritual.NatureSideBlockEntity;
 import dev.xkmc.glimmeringtales.content.block.ritual.RitualBlock;
 import dev.xkmc.glimmeringtales.content.block.ritual.RitualRenderer;
@@ -60,8 +61,9 @@ public class GTItems {
 	public static final BlockEntry<LifeCrystalCrop> CRYSTAL_VINE;
 	public static final BlockEntry<StruckLogBlock> STRUCK_LOG;
 
-	public static final BlockEntry<DelegateBlock> RITUAL_ALTAR;
+	public static final BlockEntry<DelegateBlock> RITUAL_ALTAR, RITUAL_MATRIX;
 	public static final BlockEntityEntry<NatureSideBlockEntity> ALTAR_BE;
+	public static final BlockEntityEntry<NatureCoreBlockEntity> MATRIX_BE;
 
 	public static final ItemEntry<RuneWandItem> WAND;
 	public static final ItemEntry<WandHandleItem> WOOD_WAND, GOLD_WAND;
@@ -131,6 +133,21 @@ public class GTItems {
 
 			ALTAR_BE = GlimmeringTales.REGISTRATE.blockEntity("ritual_altar", NatureSideBlockEntity::new)
 					.validBlock(RITUAL_ALTAR)
+					.renderer(() -> RitualRenderer::new)
+					.register();
+
+			RITUAL_MATRIX = GlimmeringTales.REGISTRATE.block("ritual_matrix", p ->
+							DelegateBlock.newBaseBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)
+									.noOcclusion(), RitualBlock.ITEM, RitualBlock.LINK, RitualBlock.START, RitualBlock.CORE))
+					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().getBuilder("block/" + ctx.getName())
+							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("custom/ritual_altar")))
+							.texture("all", "block/" + ctx.getName())
+							.renderType("cutout")))
+					.simpleItem()
+					.register();
+
+			MATRIX_BE = GlimmeringTales.REGISTRATE.blockEntity("ritual_matrix", NatureCoreBlockEntity::new)
+					.validBlock(RITUAL_MATRIX)
 					.renderer(() -> RitualRenderer::new)
 					.register();
 		}

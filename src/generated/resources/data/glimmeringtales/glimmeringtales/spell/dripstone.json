@@ -1,5 +1,6 @@
 {
   "cost": 40,
   "elem": "glimmeringtales:earth",
+  "maxConsumeTick": 0,
   "spell": "glimmeringtales:dripstone"
 }

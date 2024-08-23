@@ -21,6 +21,7 @@ public class SimpleRitualRecipeBuilder extends BaseRecipeBuilder<
 	public SimpleRitualRecipeBuilder(Ingredient core, ItemStack result) {
 		super(GTRecipes.RSR_SIMPLE.get(), result.getItem());
 		recipe.core = new RitualRecipe.Entry(core, result);
+		recipe.time = 100;
 	}
 
 	public SimpleRitualRecipeBuilder side(TagKey<Item> in, int count) {

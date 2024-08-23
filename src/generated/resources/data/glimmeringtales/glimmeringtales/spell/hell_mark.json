@@ -1,5 +1,6 @@
 {
   "cost": 160,
   "elem": "glimmeringtales:flame",
+  "maxConsumeTick": 0,
   "spell": "glimmeringtales:hell_mark"
 }

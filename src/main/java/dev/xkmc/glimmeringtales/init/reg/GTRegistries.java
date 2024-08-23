@@ -43,7 +43,7 @@ public class GTRegistries {
 	public static final SimpleEntry<SpellElement> OCEAN = reg("ocean", ChatFormatting.DARK_AQUA);
 	public static final SimpleEntry<SpellElement> THUNDER = reg("thunder", ChatFormatting.YELLOW);
 
-	public static final Holder<Attribute> MAX_MANA = reg("max_mana",1000,1000000,"Max Mana");
+	public static final Holder<Attribute> MAX_MANA = reg("max_mana",400,1000000,"Max Mana");
 	public static final Holder<Attribute> MANA_REGEN = reg("mana_regen",20,1000000,"Mana Regen");
 
 	public static final AttReg ATT = AttReg.of(GlimmeringTales.REG);

@@ -62,7 +62,7 @@ public class SideRitualBlockEntity extends BaseRitualBlockEntity implements Tick
 
 	@Override
 	public boolean locked() {
-		if (level == null || core==null) return false;
+		if (level == null || core == null) return false;
 		if (level.getBlockEntity(core) instanceof CoreRitualBlockEntity be)
 			return be.locked();
 		return false;
@@ -83,6 +83,7 @@ public class SideRitualBlockEntity extends BaseRitualBlockEntity implements Tick
 		int r = PerformanceConstants.RANGE;
 		BlockPos self = getBlockPos();
 		BlockPos ansPos = null;
+		CoreRitualBlockEntity ansBE = null;
 		int sqr = Integer.MAX_VALUE;
 		for (int x = -r; x <= r; x++) {
 			for (int y = -r; y <= r; y++) {
@@ -94,13 +95,15 @@ public class SideRitualBlockEntity extends BaseRitualBlockEntity implements Tick
 						if (isqr < sqr) {
 							sqr = isqr;
 							ansPos = pos;
+							ansBE = be;
 						}
 					}
 				}
 			}
 		}
-		if (ansPos != null) {
+		if (ansPos != null && ansBE != null) {
 			setLink(ansPos);
+			ansBE.establishLink(this, self);
 		}
 	}
 

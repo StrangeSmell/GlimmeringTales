@@ -1,5 +1,6 @@
 {
   "cost": 20,
   "elem": "glimmeringtales:life",
+  "maxConsumeTick": 0,
   "spell": "glimmeringtales:bamboo"
 }

@@ -6,6 +6,7 @@ import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
 import dev.xkmc.l2serial.serialization.marker.SerialClass;
 import dev.xkmc.l2serial.serialization.marker.SerialField;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,6 +30,9 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 	public void tick() {
 		super.tick();
 		tickCraft();
+		if (level != null && level.isClientSide()) {
+			tickParticle();
+		}
 	}
 
 	public void triggerCraft() {
@@ -68,6 +72,16 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 		if (update) {
 			sync();
 			setChanged();
+		}
+	}
+
+	private void tickParticle() {
+		if (level == null) return;
+		var pos = getBlockPos().getCenter().add(0, 1, 0);
+		for (var e : getLinked()) {
+			var ip = e.getBlockPos().getCenter().add(0, 1, 0).subtract(pos);
+			if (remainTime > 0 || level.getRandom().nextInt(8) == 0)
+				level.addParticle(ParticleTypes.ENCHANT, pos.x, pos.y, pos.z, ip.x, ip.y, ip.z);
 		}
 	}
 
