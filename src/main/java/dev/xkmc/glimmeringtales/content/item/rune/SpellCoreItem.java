@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.content.item.rune;
 
+import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.ElementAffinity;
 import dev.xkmc.glimmeringtales.content.item.materials.LightningImmuneItem;
 import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
@@ -9,6 +10,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -45,8 +47,24 @@ public class SpellCoreItem extends LightningImmuneItem implements IBlockSpellIte
 		return GTRegistries.AFFINITY.get(level.registryAccess(), builtInRegistryHolder());
 	}
 
+	@Override
+	public List<Component> getCastTooltip(Player player, ItemStack wand, ItemStack core) {
+		var ctx = BlockSpellContext.blockSpellContext(player, range());
+		if (ctx == null) return List.of();
+		var spell = GTRegistries.BLOCK.get(player.level().registryAccess(), ctx.state().getBlockHolder());
+		if (spell == null) return List.of();
+		var nature = spell.spell().value();
+		var aff = getAffinity(player.level());
+		if (aff == null || !aff.affinity().containsKey(nature.elem())) return List.of();
+		var ans = spell.spell().value().getBlockCastTooltip(player, wand, aff);
+		if (spell.breakBlock()) {
+			ans.add(GTLang.OVERLAY_DESTROY.get().withStyle(ChatFormatting.RED));
+		}
+		return ans;
+	}
+
 	public boolean castSpell(SpellCastContext user) {
-		var ctx = BlockSpellContext.blockSpellContext(user.user(), 64);//TODO
+		var ctx = BlockSpellContext.blockSpellContext(user.user(), range());
 		if (ctx == null) return false;
 		var spell = GTRegistries.BLOCK.get(user.level().registryAccess(), ctx.state().getBlockHolder());
 		if (spell == null) return false;
@@ -57,9 +75,12 @@ public class SpellCoreItem extends LightningImmuneItem implements IBlockSpellIte
 		if (!user.level().isClientSide()) {
 			if (spell.breakBlock())
 				user.level().removeBlock(ctx.pos(), false);
-			execute(nature, ctx.ctx(), user, aff, 0, false);
 		}
-		return true;
+		return execute(nature, ctx.ctx(), user, aff, 0, false);
+	}
+
+	public int range() {
+		return 64;
 	}
 
 	public ModelResourceLocation model() {

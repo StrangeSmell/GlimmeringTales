@@ -86,7 +86,9 @@ public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, Fast
 					return InteractionResultHolder.fail(stack);
 				}
 			} else {
-				return ItemUtils.startUsingInstantly(level, player, hand);
+				if (checkMana(stack, level, player, spell, 0, spell.castType() == SpellCastType.CHARGE)) {
+					return ItemUtils.startUsingInstantly(level, player, hand);
+				}
 			}
 		}
 		return super.use(level, player, hand);
@@ -97,11 +99,16 @@ public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, Fast
 		super.onUseTick(level, user, stack, remain);
 		var spell = getSpell(stack, level);
 		if (spell != null) {
+			boolean pass = false;
 			if (spell.castType() == SpellCastType.CONTINUOUS) {
-				castSpell(stack, level, user, spell, getUseDuration(stack, user) - remain, false);
+				pass = castSpell(stack, level, user, spell, getUseDuration(stack, user) - remain, false);
 			}
 			if (spell.castType() == SpellCastType.CHARGE) {
-				castSpell(stack, level, user, spell, getUseDuration(stack, user) - remain, true);
+				pass = castSpell(stack, level, user, spell, getUseDuration(stack, user) - remain, true);
+			}
+			if (!pass) {
+				user.useItemRemaining = 0;
+				user.stopUsingItem();
 			}
 		}
 	}
@@ -124,6 +131,10 @@ public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, Fast
 
 	private boolean castSpell(ItemStack stack, Level level, LivingEntity user, ISpellHolder spell, int useTick, boolean charging) {
 		return spell.cast(SpellCastContext.of(level, user, stack), useTick, charging);
+	}
+
+	private boolean checkMana(ItemStack stack, Level level, LivingEntity user, ISpellHolder spell, int useTick, boolean charging) {
+		return spell.cast(SpellCastContext.simulate(level, user, stack), useTick, charging);
 	}
 
 	public void fillCreativeTabs(CreativeModeTabModifier x) {

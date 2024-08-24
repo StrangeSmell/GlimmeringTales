@@ -15,7 +15,7 @@ public class PlayerManaCapability extends PlayerCapabilityTemplate<PlayerManaCap
 
 	@Override
 	public void tick(Player player) {
-		if (player instanceof ServerPlayer sp) {
+		if (player instanceof ServerPlayer sp && sp.tickCount % 20 == 0) {
 			int max = (int) sp.getAttributeValue(GTRegistries.MAX_MANA);
 			int regen = (int) sp.getAttributeValue(GTRegistries.MANA_REGEN);
 			if (mana < max) {

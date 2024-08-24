@@ -57,8 +57,8 @@ public class SnowSpells extends NatureSpellEntry {
 
 	@Override
 	public void regNature(BootstrapContext<NatureSpell> ctx) {
-		WS_NATURE.gen(ctx, new NatureSpell(WS_SPELL, GTRegistries.SNOW.get(), 10,100));
-		ST_NATURE.gen(ctx, new NatureSpell(ST_SPELL, GTRegistries.SNOW.get(), 10,100));
+		WS_NATURE.gen(ctx, new NatureSpell(WS_SPELL, GTRegistries.SNOW.get(), 10));
+		ST_NATURE.gen(ctx, new NatureSpell(ST_SPELL, GTRegistries.SNOW.get(), 10));
 	}
 
 	@Override

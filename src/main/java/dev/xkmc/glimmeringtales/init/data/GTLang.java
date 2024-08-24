@@ -15,6 +15,9 @@ public enum GTLang {
 	TOOLTIP_COST_CONT("tooltip.cost_cont", "Spell cost: %s per tick", 1),
 	TOOLTIP_COST_CAPPED("tooltip.cost_capped", "Spell cost: %s per tick, at most %s", 2),
 
+	OVERLAY_DESTROY("overlay.destroy", "Consume target block", 0),
+	OVERLAY_MANA("overlay.mana", "Mana: %s / %s", 2),
+
 	JEI_STRIKE_ITEM("jei.strike_item", "Lightning Strikes Item", 0),
 	JEI_STRIKE_BLOCK("jei.strike_block", "Lightning Strikes Block", 0),
 	JEI_TRANSFORM("jei.transform", "Item Special Transformation", 0),

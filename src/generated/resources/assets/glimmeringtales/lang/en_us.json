@@ -30,6 +30,8 @@
   "glimmeringtales.jei.strike_block": "Lightning Strikes Block",
   "glimmeringtales.jei.strike_item": "Lightning Strikes Item",
   "glimmeringtales.jei.transform": "Item Special Transformation",
+  "glimmeringtales.overlay.destroy": "Consume target block",
+  "glimmeringtales.overlay.mana": "Mana: %s / %s",
   "glimmeringtales.title": "Glimmering Tales",
   "glimmeringtales.tooltip.affinity": "[%s] affinity: %s",
   "glimmeringtales.tooltip.consume_block": "Right click %s to absorb essence",

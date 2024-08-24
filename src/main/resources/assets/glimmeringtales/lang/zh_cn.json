@@ -70,6 +70,12 @@
   "glimmeringtales.tooltip.cost_cont": "魔力消耗：每刻%s",
   "glimmeringtales.tooltip.cost_capped": "魔力消耗：每刻%s，上限%s",
   "glimmeringtales.tooltip.spell": "%s - [%s]",
+  "glimmeringtales.overlay.destroy": "消耗目标方块",
+  "glimmeringtales.overlay.mana": "魔力: %s / %s",
+  "glimmeringtales.jei.strike_block": "雷击方块",
+  "glimmeringtales.jei.strike_item": "雷击物品",
+  "glimmeringtales.jei.transform": "物品特殊转化",
+  "glimmeringtales.jei.ritual": "仪式",
 
   "spell_action.glimmeringtales.bamboo": "竹栅",
   "spell_action.glimmeringtales.cactus": "棘风",
@@ -91,10 +97,6 @@
   "spell_action.glimmeringtales.snow_tornado": "暴雪旋风",
   "spell_action.glimmeringtales.winter_storm": "凛冬风暴",
 
-  "glimmeringtales.jei.strike_block": "雷击方块",
-  "glimmeringtales.jei.strike_item": "雷击物品",
-  "glimmeringtales.jei.transform": "物品特殊转化",
-  "glimmeringtales.jei.ritual": "仪式",
   "glimmeringtales.configuration.crystalOfFlameRequirement": "蕴炎宝石：岩浆消耗",
   "glimmeringtales.configuration.crystalOfFlameRequirement.tooltip": "范围: 1 ~ 1000",
   "glimmeringtales.configuration.crystalOfWinterstormRequirement": "风雪宝石：细雪消耗",

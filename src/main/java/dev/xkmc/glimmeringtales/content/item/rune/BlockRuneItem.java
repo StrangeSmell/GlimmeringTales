@@ -7,6 +7,7 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -31,6 +32,12 @@ public class BlockRuneItem extends Item implements IBlockSpellItem {
 	}
 
 	@Override
+	public List<Component> getCastTooltip(Player player, ItemStack wand, ItemStack core) {
+		var spell = getSpell(player.level().registryAccess());
+		return spell.map(e -> e.spell().value().getBlockCastTooltip(player, wand, DefaultAffinity.INS)).orElseGet(List::of);
+	}
+
+	@Override
 	public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> list, TooltipFlag flag) {
 		var level = ctx.level();
 		if (level == null) return;
@@ -49,10 +56,7 @@ public class BlockRuneItem extends Item implements IBlockSpellItem {
 		var spell = opt.get();
 		var ctx = BlockSpellContext.entitySpellContext(user.user(), entityTrace(), spell.noBlockOffset());
 		if (ctx == null) return false;
-		if (!user.level().isClientSide()) {
-			execute(spell.spell().value(), ctx.ctx(), user, DefaultAffinity.INS,0,false);
-		}
-		return true;
+		return execute(spell.spell().value(), ctx.ctx(), user, DefaultAffinity.INS, 0, false);
 	}
 
 	public ModelResourceLocation model() {

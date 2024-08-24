@@ -1,21 +1,17 @@
 package dev.xkmc.glimmeringtales.init;
 
+import dev.xkmc.glimmeringtales.content.item.wand.SpellCastingOverlay;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
-import net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent;
-import net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
+import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 
 @EventBusSubscriber(value = Dist.CLIENT, modid = GlimmeringTales.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class GlimmeringTalesClient {
-
-	@SubscribeEvent
-	public static void onParticleRegistryEvent(RegisterParticleProvidersEvent event) {
-	}
 
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
@@ -24,13 +20,8 @@ public class GlimmeringTalesClient {
 	}
 
 	@SubscribeEvent
-	public static void registerItemDecoration(RegisterItemDecorationsEvent event) {
-
-	}
-
-	@SubscribeEvent
-	public static void onResourceReload(RegisterClientReloadListenersEvent event) {
-
+	public static void onOverlayRegister(RegisterGuiLayersEvent event) {
+		event.registerAbove(VanillaGuiLayers.CROSSHAIR, GlimmeringTales.loc("mana"), new SpellCastingOverlay());
 	}
 
 	@SubscribeEvent

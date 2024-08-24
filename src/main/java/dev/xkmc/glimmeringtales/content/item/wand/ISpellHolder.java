@@ -11,14 +11,15 @@ public interface ISpellHolder {
 
 	boolean cast(SpellCastContext user, int useTick, boolean charging);
 
-	default void execute(NatureSpell spell, SpellContext ctx, SpellCastContext user, IAffinityProvider aff, int useTick, boolean charging) {
-		var val = aff.get(spell.elem());
-		var wandAff = RuneWandItem.getHandle(user.wand()).getAffinity(user.level());
-		if (wandAff != null) {
-			val += aff.get(spell.elem());
+	default boolean execute(NatureSpell spell, SpellContext ctx, SpellCastContext user, IAffinityProvider aff, int useTick, boolean charging) {
+		double val = aff.getFinalAffinity(spell.elem(), user.user(), user.wand());
+		if (spell.consumeMana(user.user(), user.wand(), val, useTick, charging, user.simulate())) {
+			if (!user.level().isClientSide()) {
+				spell.spell().value().execute(ctx);
+			}
+			return true;
 		}
-		if (spell.consumeMana(user.user(), user.wand(), val, useTick, charging))
-			spell.spell().value().execute(ctx);
+		return false;
 	}
 
 }

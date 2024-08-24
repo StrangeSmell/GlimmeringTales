@@ -9,6 +9,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -34,6 +35,12 @@ public class SpellRuneItem extends Item implements IWandCoreItem {
 	@Override
 	public @Nullable ISpellHolder getSpell(ItemStack sel, Level level) {
 		return level.registryAccess().holder(id).map(x -> new SpellHolder(x, entityTrace())).orElse(null);
+	}
+
+	@Override
+	public List<Component> getCastTooltip(Player player, ItemStack wand, ItemStack core) {
+		var spell = player.level().registryAccess().holder(id);
+		return spell.map(e -> e.value().getSpellCastTooltip(player, wand)).orElseGet(List::of);
 	}
 
 	@Override

@@ -1,6 +1,9 @@
 package dev.xkmc.glimmeringtales.content.item.wand;
 
+import dev.xkmc.glimmeringtales.content.item.rune.BlockSpellContext;
+import dev.xkmc.glimmeringtales.content.item.rune.SpellCoreItem;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2backpack.content.quickswap.common.EntryRenderContext;
 import dev.xkmc.l2backpack.content.quickswap.entry.ISwapEntry;
 import dev.xkmc.l2backpack.content.quickswap.type.MatcherSwapType;
@@ -59,6 +62,12 @@ public class RuneSwapType extends MatcherSwapType {
 					default -> new TextBox(ctx.g(), 1, 2, dx, dy - 16, -1);
 				};
 				box.renderLongText(ctx.font(), List.of(core.getHoverName()));
+				if (core.getItem() instanceof IWandCoreItem item) {
+					TextBox desc = i <= 5 ?
+							new TextBox(ctx.g(), 0, 1, 20, h / 2, w / 4) :
+							new TextBox(ctx.g(), 2, 1, w - 20, h / 2, w / 4);
+					desc.renderLongText(ctx.font(), item.getCastTooltip(player, wand, core));
+				}
 			}
 		}
 

@@ -1,6 +1,6 @@
 {
   "cost": 10,
   "elem": "glimmeringtales:snow",
-  "maxConsumeTick": 100,
+  "maxConsumeTick": 0,
   "spell": "glimmeringtales:snow_tornado"
 }
