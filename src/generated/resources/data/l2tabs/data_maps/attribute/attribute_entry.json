@@ -1,0 +1,44 @@
+{
+  "values": {
+    "glimmeringtales:earth_affinity": {
+      "intrinsic": 0.0,
+      "order": 13320,
+      "usePercent": true
+    },
+    "glimmeringtales:flame_affinity": {
+      "intrinsic": 0.0,
+      "order": 13330,
+      "usePercent": true
+    },
+    "glimmeringtales:life_affinity": {
+      "intrinsic": 0.0,
+      "order": 13310,
+      "usePercent": true
+    },
+    "glimmeringtales:mana_regen": {
+      "intrinsic": 0.0,
+      "order": 13200,
+      "usePercent": false
+    },
+    "glimmeringtales:max_mana": {
+      "intrinsic": 0.0,
+      "order": 13100,
+      "usePercent": false
+    },
+    "glimmeringtales:ocean_affinity": {
+      "intrinsic": 0.0,
+      "order": 13350,
+      "usePercent": true
+    },
+    "glimmeringtales:snow_affinity": {
+      "intrinsic": 0.0,
+      "order": 13340,
+      "usePercent": true
+    },
+    "glimmeringtales:thunder_affinity": {
+      "intrinsic": 0.0,
+      "order": 13360,
+      "usePercent": true
+    }
+  }
+}

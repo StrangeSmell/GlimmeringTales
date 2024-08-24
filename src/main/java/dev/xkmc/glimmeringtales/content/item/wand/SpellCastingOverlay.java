@@ -22,7 +22,7 @@ public class SpellCastingOverlay implements LayeredDraw.Layer {
 		var mana = GTRegistries.MANA.type().getExisting(player).orElse(null);
 		if (mana == null) return;
 		int max = (int) player.getAttributeValue(GTRegistries.MAX_MANA);
-		int val = mana.getMana();
+		int val = (int) mana.getMana();
 		if (player.getItemInHand(InteractionHand.MAIN_HAND).is(GTItems.WAND) ||
 				player.getItemInHand(InteractionHand.OFF_HAND).is(GTItems.WAND) ||
 				val < max) {

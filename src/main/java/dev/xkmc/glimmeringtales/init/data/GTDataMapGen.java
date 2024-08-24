@@ -5,15 +5,32 @@ import dev.xkmc.glimmeringtales.content.core.spell.BlockReplace;
 import dev.xkmc.glimmeringtales.content.core.spell.ElementAffinity;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
+import dev.xkmc.l2tabs.init.L2Tabs;
+import dev.xkmc.l2tabs.init.data.AttrDispEntry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.DataMapProvider;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
 public class GTDataMapGen {
 
 	public static void genMap(RegistrateDataMapProvider pvd) {
+		// attributes
+		{
+			var builder = pvd.builder(L2Tabs.ATTRIBUTE_ENTRY.reg());
+			attr(builder, GTRegistries.MAX_MANA.getKey(), false, 13100);
+			attr(builder, GTRegistries.MANA_REGEN.getKey(), false, 13200);
+			attr(builder, GTRegistries.LIFE.get().getAffinity().getKey(), true, 13310);
+			attr(builder, GTRegistries.EARTH.get().getAffinity().getKey(), true, 13320);
+			attr(builder, GTRegistries.FLAME.get().getAffinity().getKey(), true, 13330);
+			attr(builder, GTRegistries.SNOW.get().getAffinity().getKey(), true, 13340);
+			attr(builder, GTRegistries.OCEAN.get().getAffinity().getKey(), true, 13350);
+			attr(builder, GTRegistries.THUNDER.get().getAffinity().getKey(), true, 13360);
+		}
 		// affinity
 		{
 			var builder = pvd.builder(GTRegistries.AFFINITY.reg());
@@ -58,6 +75,11 @@ public class GTDataMapGen {
 			melt(melt, replace, Blocks.NETHERRACK, GTItems.MAGMA_NETHERRACK.get());
 
 		}
+	}
+
+	public static void attr(DataMapProvider.Builder<AttrDispEntry, Attribute> b, @Nullable ResourceKey<Attribute> attr, boolean perc, int order) {
+		if (attr == null) return;
+		b.add(attr, new AttrDispEntry(perc, order, 0), false);
 	}
 
 	private static void melt(DataMapProvider.Builder<BlockReplace, Block> melt, DataMapProvider.Builder<BlockReplace, Block> replace, Block from, Block to) {

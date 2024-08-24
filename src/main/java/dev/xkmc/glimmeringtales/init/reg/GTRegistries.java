@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.init.reg;
 
+import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.glimmeringtales.content.capability.PlayerManaCapability;
 import dev.xkmc.glimmeringtales.content.core.spell.*;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneSwapType;
@@ -36,15 +37,15 @@ public class GTRegistries {
 	public static final DataMapReg<Block, BlockReplace> MELT =
 			GlimmeringTales.REG.dataMap("block_melt", Registries.BLOCK, BlockReplace.class);
 
+	public static final Holder<Attribute> MAX_MANA = reg("max_mana", 400, 1000000, "Max Mana");
+	public static final Holder<Attribute> MANA_REGEN = reg("mana_regen", 20, 1000000, "Mana Regen");
+
 	public static final SimpleEntry<SpellElement> LIFE = reg("life", ChatFormatting.GREEN);
 	public static final SimpleEntry<SpellElement> EARTH = reg("earth", ChatFormatting.GOLD);
 	public static final SimpleEntry<SpellElement> FLAME = reg("flame", ChatFormatting.RED);
 	public static final SimpleEntry<SpellElement> SNOW = reg("snow", ChatFormatting.AQUA);
 	public static final SimpleEntry<SpellElement> OCEAN = reg("ocean", ChatFormatting.DARK_AQUA);
 	public static final SimpleEntry<SpellElement> THUNDER = reg("thunder", ChatFormatting.YELLOW);
-
-	public static final Holder<Attribute> MAX_MANA = reg("max_mana",400,1000000,"Max Mana");
-	public static final Holder<Attribute> MANA_REGEN = reg("mana_regen",20,1000000,"Mana Regen");
 
 	public static final AttReg ATT = AttReg.of(GlimmeringTales.REG);
 	public static final AttVal.PlayerVal<PlayerManaCapability> MANA = ATT.player("mana",
@@ -53,7 +54,8 @@ public class GTRegistries {
 	public static final MatcherSwapType SWAP = new RuneSwapType();
 
 	private static SimpleEntry<SpellElement> reg(String id, ChatFormatting color) {
-		return new SimpleEntry<>(GlimmeringTales.REGISTRATE.generic(ELEMENT, id, () -> new SpellElement(color))
+		var attr = reg(id + "_affinity", 0, 1000, RegistrateLangProvider.toEnglishName(id + "_affinity"));
+		return new SimpleEntry<>(GlimmeringTales.REGISTRATE.generic(ELEMENT, id, () -> new SpellElement(color, attr))
 				.defaultLang().register());
 	}
 

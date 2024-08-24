@@ -81,7 +81,7 @@ public record NatureSpell(
 
 	public boolean consumeMana(LivingEntity user, ItemStack stack, double affinity, int useTick, boolean charging, boolean simulate) {
 		if (affinity < MIN_AFFINITY) affinity = MIN_AFFINITY;
-		int consume = Math.max(MIN_MANA_COST, (int) Math.round(cost / affinity));
+		double consume = Math.max(MIN_MANA_COST, cost / affinity);
 		var cast = spell().value().castType();
 		if (maxConsumeTick > 0) {
 			if (cast == SpellCastType.CONTINUOUS && useTick > maxConsumeTick) consume = 0;
@@ -116,7 +116,7 @@ public record NatureSpell(
 		var mana = GTRegistries.MANA.type().getExisting(player).orElse(null);
 		if (mana == null) return;
 		int max = (int) player.getAttributeValue(GTRegistries.MAX_MANA);
-		int val = mana.getMana();
+		int val = (int) mana.getMana();
 		var cval = Component.literal("" + val).withStyle(cost > val ? ChatFormatting.RED :
 				val < max ? ChatFormatting.GREEN : ChatFormatting.AQUA);
 		var cmax = Component.literal("" + max).withStyle(ChatFormatting.AQUA);

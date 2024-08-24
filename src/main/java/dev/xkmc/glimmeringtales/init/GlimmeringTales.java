@@ -60,6 +60,7 @@ public class GlimmeringTales {
 	public static void onAttribute(EntityAttributeModificationEvent event) {
 		event.add(EntityType.PLAYER, GTRegistries.MAX_MANA);
 		event.add(EntityType.PLAYER, GTRegistries.MANA_REGEN);
+		GTRegistries.ELEMENT.reg().holders().forEach(e -> event.add(EntityType.PLAYER, e.value().getAffinity()));
 	}
 
 	@SubscribeEvent

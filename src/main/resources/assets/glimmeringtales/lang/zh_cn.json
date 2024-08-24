@@ -1,8 +1,22 @@
 {
   "glimmeringtales.title": "微光纪事",
   "itemGroup.l2core.glimmeringtales": "微光纪事",
+
+  "element.glimmeringtales.earth": "地脉",
+  "element.glimmeringtales.flame": "蕴炎",
+  "element.glimmeringtales.life": "生机",
+  "element.glimmeringtales.snow": "风雪",
+  "element.glimmeringtales.ocean": "深海",
+  "element.glimmeringtales.thunder": "雷霆",
+
   "attribute.glimmeringtales.mana_regen": "魔力再生",
   "attribute.glimmeringtales.max_mana": "最大魔力",
+  "attribute.glimmeringtales.earth_affinity": "地脉元素亲和",
+  "attribute.glimmeringtales.flame_affinity": "蕴炎元素亲和",
+  "attribute.glimmeringtales.life_affinity": "生机元素亲和",
+  "attribute.glimmeringtales.ocean_affinity": "深海元素亲和",
+  "attribute.glimmeringtales.snow_affinity": "风雪元素亲和",
+  "attribute.glimmeringtales.thunder_affinity": "雷霆元素亲和",
 
   "item.glimmeringtales.crystal_of_earth": "地脉宝石",
   "item.glimmeringtales.crystal_of_flame": "蕴炎宝石",
@@ -54,13 +68,6 @@
   "block.glimmeringtales.magma_block_for_deepslate": "岩浆块",
   "block.glimmeringtales.magma_block_for_netherrack": "岩浆块",
   "block.glimmeringtales.magma_block_for_stone": "岩浆块",
-
-  "element.glimmeringtales.earth": "地脉",
-  "element.glimmeringtales.flame": "蕴炎",
-  "element.glimmeringtales.life": "生机",
-  "element.glimmeringtales.snow": "风雪",
-  "element.glimmeringtales.ocean": "深海",
-  "element.glimmeringtales.thunder": "雷霆",
 
   "glimmeringtales.tooltip.consume_block": "右键[%s]吸收精华",
   "glimmeringtales.tooltip.fill_crystal": "进度: %s / %s",

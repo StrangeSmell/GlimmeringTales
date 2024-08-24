@@ -14,7 +14,10 @@ public interface IAffinityProvider {
 		if (wandAff != null) {
 			val += wandAff.get(elem);
 		}
-		//TODO player affinity
+		var ins = user.getAttribute(elem.getAffinity());
+		if (ins != null) {
+			val += ins.getValue();
+		}
 		return val;
 	}
 }
