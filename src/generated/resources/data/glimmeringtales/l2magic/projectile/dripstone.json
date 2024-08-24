@@ -4,7 +4,7 @@
     {
       "type": "l2magic:damage",
       "damage": "4",
-      "damage_type": "minecraft:stalagmite",
+      "damage_type": "glimmeringtales:dripstone",
       "indirect": true,
       "positioned": true
     },

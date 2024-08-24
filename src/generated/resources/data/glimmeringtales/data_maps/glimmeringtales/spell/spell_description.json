@@ -10,6 +10,19 @@
         }
       ]
     },
+    "glimmeringtales:clay": {
+      "list": []
+    },
+    "glimmeringtales:dripstone": {
+      "list": [
+        {
+          "type": "l2magic:damage"
+        },
+        {
+          "type": "l2magic:effect"
+        }
+      ]
+    },
     "glimmeringtales:hell_mark": {
       "list": [
         {
@@ -28,6 +41,9 @@
       "list": [
         {
           "type": "l2magic:damage"
+        },
+        {
+          "type": "l2magic:effect"
         }
       ]
     },
@@ -35,6 +51,9 @@
       "list": [
         {
           "type": "l2magic:damage"
+        },
+        {
+          "type": "l2magic:effect"
         }
       ]
     }

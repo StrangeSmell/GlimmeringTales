@@ -1,14 +1,12 @@
 package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
-import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
-import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2complements.init.registrate.LCEffects;
-import dev.xkmc.l2magic.content.engine.context.DataGenContext;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.iterator.DelayedIterator;
 import dev.xkmc.l2magic.content.engine.iterator.RingRandomIterator;
@@ -22,9 +20,6 @@ import dev.xkmc.l2magic.content.engine.processor.EffectProcessor;
 import dev.xkmc.l2magic.content.engine.processor.SetDeltaProcessor;
 import dev.xkmc.l2magic.content.engine.selector.ApproxCylinderSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
-import dev.xkmc.l2magic.content.engine.spell.SpellAction;
-import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
-import dev.xkmc.l2magic.content.engine.spell.SpellTriggerType;
 import dev.xkmc.l2magic.content.engine.variable.BooleanVariable;
 import dev.xkmc.l2magic.content.engine.variable.ColorVariable;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
@@ -32,52 +27,29 @@ import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import dev.xkmc.l2magic.content.entity.motion.MovePosMotion;
 import dev.xkmc.l2magic.content.particle.engine.*;
 import dev.xkmc.l2magic.content.particle.render.SpriteGeom;
-import dev.xkmc.l2magic.init.data.DataGenCachedHolder;
-import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.data.DataMapProvider;
 
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class GravelSpells extends NatureSpellEntry {
+public class GravelSpells {
 
-	public static final ResourceLocation ID = GlimmeringTales.loc("gravel");
-	public static final DataGenCachedHolder<SpellAction> SPELL = spell(ID);
-	public static final DataGenCachedHolder<NatureSpell> NATURE = nature(ID);
+	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH.get()
+			.build(GlimmeringTales.loc("gravel")).cost(20)
+			.damageCustom(s -> new DamageType(s, 0.1f),
+					"%s is scratched to death by flint", "%s is scratched to death by %s with flint",
+					DamageTypeTags.IS_PROJECTILE)
+			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_GRAVEL, 1060))
+			.block((b, e) -> b.add(Tags.Blocks.GRAVELS, new BlockSpell(e, false, 0)))
+			.lang("Flint Storm");
 
-	@Override
-	public void regNature(BootstrapContext<NatureSpell> ctx) {
-		NATURE.gen(ctx, new NatureSpell(SPELL, GTRegistries.EARTH.get(), 20));
-	}
+	private static final DoubleVariable DMG = DoubleVariable.of("4");
 
-	@Override
-	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-		builder.add(Tags.Blocks.GRAVELS, new BlockSpell(NATURE, false, 0), false);
-	}
-
-	@Override
-	public void register(BootstrapContext<SpellAction> ctx) {
-		new SpellAction(
-				gen(new DataGenContext(ctx)),
-				GTItems.RUNE_GRAVEL.asItem(),
-				1060,
-				SpellCastType.INSTANT,
-				SpellTriggerType.TARGET_POS
-		).verifyOnBuild(ctx, SPELL);
-	}
-
-	@Override
-	public void genLang(RegistrateLangProvider ctx) {
-		ctx.add(SpellAction.lang(ID), "Flint Storm");
-	}
-
-	private static ConfiguredEngine<?> gen(DataGenContext ctx) {
+	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		double vsp = 0.2;
 		int life = 20;
 		double rate = Math.tan(10 * Mth.DEG_TO_RAD);
@@ -93,8 +65,7 @@ public class GravelSpells extends NatureSpellEntry {
 				),
 				List.of(
 						new DamageProcessor(
-								ctx.damage(DamageTypes.ARROW),
-								DoubleVariable.of("4"),
+								ctx.damage(), DMG,
 								true, true
 						),
 						SetDeltaProcessor.ZERO,

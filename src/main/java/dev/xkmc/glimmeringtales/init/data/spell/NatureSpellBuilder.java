@@ -5,6 +5,7 @@ import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
+import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTDamageTypeGen;
 import dev.xkmc.l2core.util.MathHelper;
 import dev.xkmc.l2magic.content.engine.context.DataGenContext;
@@ -47,7 +48,6 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 	private DataGenContext cache;
 
 	private final List<BiConsumer<BlockSpellBuilder, Holder<NatureSpell>>> blockFactories = new ArrayList<>();
-
 
 	public NatureSpellBuilder(ResourceLocation id, SpellElement elem) {
 		this.id = id;
@@ -154,7 +154,9 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 
 	@Override
 	public void registerDamage(GTDamageTypeGen gen) {
-		gen.genDamage(damage, () -> damageEntry.def().apply(id.toLanguageKey()), damageEntry.tags());
+		if (damageEntry != null) {
+			gen.genDamage(damage, () -> damageEntry.def().apply(id.toLanguageKey()), damageEntry.tags());
+		}
 	}
 
 	@Override
@@ -170,7 +172,7 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 	public void regDesc(DataMapProvider.Builder<SpellTooltipData, NatureSpell> pvd) {
 		if (desc != null) {
 			pvd.add(nature.key, desc.data, false);
-		}
+		} else GlimmeringTales.LOGGER.error("Spell {} does not have description setup", id);
 	}
 
 	public record BlockSpellBuilder(DataMapProvider.Builder<BlockSpell, Block> builder) {

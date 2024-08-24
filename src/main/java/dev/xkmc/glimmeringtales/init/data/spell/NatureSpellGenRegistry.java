@@ -21,10 +21,10 @@ public class NatureSpellGenRegistry {
 				DripstoneSpells.BUILDER, // 1010
 				ClaySpells.BUILDER, // 1020
 				AmethystSpells.BUILDER, // 1030
-				new SandSpells(), // 1040
-				new QuartzSpells(), // 1050
-				new GravelSpells(), // 1060
-				new StoneSpells()
+				SandSpells.BUILDER, // 1040
+				QuartzSpells.BUILDER, // 1050
+				GravelSpells.BUILDER, // 1060
+				StoneSpells.BUILDER
 		));
 
 		// vine
