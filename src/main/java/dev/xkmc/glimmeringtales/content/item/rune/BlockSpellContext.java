@@ -50,7 +50,7 @@ public record BlockSpellContext(SpellContext ctx, BlockState state, BlockPos pos
 		if (ehit != null && ehit.getType() != HitResult.Type.MISS) {
 			pos = ehit.getEntity().blockPosition().below();
 		} else if (bhit.getType() != HitResult.Type.MISS) {
-			pos = bhit.getBlockPos();
+			pos = bhit.getBlockPos().relative(bhit.getDirection(), offset);
 		} else return null;
 		var ori = Orientation.regular().asNormal();
 		long seed = 0L;
