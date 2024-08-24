@@ -53,7 +53,7 @@ public class FlameSpells {
 			)).lang("Hell Mark").desc(
 					"[Ranged] Form a flame circle",
 					"Create a pentagram on target position and inflict %s to enemies within",
-					SpellTooltipData.of(new SpellTooltipData.Entry(EngineRegistry.DAMAGE.get()))
+					SpellTooltipData.damage()
 			);
 
 	public static final NatureSpellBuilder LB = GTRegistries.FLAME.get()
@@ -65,7 +65,7 @@ public class FlameSpells {
 			)).lang("Lava Burst").desc(
 					"[Charge] Cause several bursts in the front",
 					"Charge attack: create up to 3 arcs of pentagram marks in front of you and inflict %s to enemies within.",
-					SpellTooltipData.of(new SpellTooltipData.Entry(EngineRegistry.DAMAGE.get()))
+					SpellTooltipData.damage()
 			);
 
 	private static final DoubleVariable HM_DMG = DoubleVariable.of("8");

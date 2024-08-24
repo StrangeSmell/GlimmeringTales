@@ -1,14 +1,13 @@
 package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
-import com.tterrag.registrate.providers.RegistrateLangProvider;
+import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
-import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.engine.render.VerticalRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
-import dev.xkmc.l2magic.content.engine.context.DataGenContext;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.modifier.OffsetModifier;
 import dev.xkmc.l2magic.content.engine.modifier.SetDirectionModifier;
@@ -21,68 +20,41 @@ import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.processor.EffectProcessor;
 import dev.xkmc.l2magic.content.engine.processor.PushProcessor;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
-import dev.xkmc.l2magic.content.engine.spell.SpellAction;
-import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
-import dev.xkmc.l2magic.content.engine.spell.SpellTriggerType;
 import dev.xkmc.l2magic.content.engine.variable.ColorVariable;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import dev.xkmc.l2magic.content.entity.core.ProjectileConfig;
 import dev.xkmc.l2magic.content.entity.engine.CustomProjectileShoot;
-import dev.xkmc.l2magic.init.data.DataGenCachedHolder;
-import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.neoforged.neoforge.common.data.DataMapProvider;
 
 import java.util.List;
 import java.util.Map;
 
-public class DripstoneSpells extends NatureSpellEntry {
+public class DripstoneSpells {
 
-	public static final ResourceLocation ID = GlimmeringTales.loc("dripstone");
-	public static final DataGenCachedHolder<SpellAction> SPELL = spell(ID);
-	public static final DataGenCachedHolder<NatureSpell> NATURE = nature(ID);
-	public static final DataGenCachedHolder<ProjectileConfig> PROJECTILE = projectile(ID);
+	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH.get()
+			.build(GlimmeringTales.loc("dripstone")).cost(40)
+			.damageCustom(e -> new DamageType(e, 0.1f),
+					"%s is pierced by stalagmite", "%s is pierced by %s's stalagmite",
+					DamageTypeTags.IS_PROJECTILE)
+			.projectile(DripstoneSpells::proj)
+			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_DRIPSTONE, 1010))
+			.block((b, e) -> b.add(Blocks.DRIPSTONE_BLOCK, new BlockSpell(e, false, 0)))
+			.block((b, e) -> b.add(Blocks.POINTED_DRIPSTONE, new BlockSpell(e, true, 0)))
+			.lang("Stalactite Burst").desc(
+					"[Block] Shoot stalagmite spikes from ground",
+					"Shoot stalagmite spikes from ground to pierce entities, dealing %s and inflict %s",
+					SpellTooltipData.damageAndEffect()
+			);
 
 	public static final ResourceLocation TEX = GlimmeringTales.loc("textures/spell/pointed_dripstone_up_tip.png");
+	public static final DoubleVariable DMG = DoubleVariable.of("4");
 
-	@Override
-	public void regNature(BootstrapContext<NatureSpell> ctx) {
-		NATURE.gen(ctx, new NatureSpell(SPELL, GTRegistries.EARTH.get(), 40));
-	}
-
-	@Override
-	public void registerProjectile(BootstrapContext<ProjectileConfig> ctx) {
-		proj(new DataGenContext(ctx)).verifyOnBuild(ctx, PROJECTILE);
-	}
-
-	@Override
-	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-		builder.add(Blocks.DRIPSTONE_BLOCK.builtInRegistryHolder(), new BlockSpell(NATURE, false, 0), false);
-		builder.add(Blocks.POINTED_DRIPSTONE.builtInRegistryHolder(), new BlockSpell(NATURE, true, 0), false);
-	}
-
-	@Override
-	public void register(BootstrapContext<SpellAction> ctx) {
-		new SpellAction(
-				gen(new DataGenContext(ctx)),
-				GTItems.RUNE_DRIPSTONE.asItem(),
-				1010,
-				SpellCastType.INSTANT,
-				SpellTriggerType.TARGET_POS
-		).verifyOnBuild(ctx, SPELL);
-	}
-
-	@Override
-	public void genLang(RegistrateLangProvider ctx) {
-		ctx.add(SpellAction.lang(ID), "Stalactite Burst");
-	}
-
-	private static ProjectileConfig proj(DataGenContext ctx) {
+	private static ProjectileConfig proj(NatureSpellBuilder ctx) {
 		return ProjectileConfig.builder(SelectionType.ENEMY_NO_FAMILY)
 				.tick(new DustParticleInstance(
 						ColorVariable.Static.of(0x836356),
@@ -91,8 +63,7 @@ public class DripstoneSpells extends NatureSpellEntry {
 						IntVariable.of("20")
 				).move(OffsetModifier.of("0", "-0.2", "0")))
 				.hit(new DamageProcessor(
-						ctx.damage(DamageTypes.STALAGMITE),
-						DoubleVariable.of("4"),
+						ctx.damage(), DMG,
 						true,
 						true
 				)).hit(new EffectProcessor(
@@ -111,10 +82,10 @@ public class DripstoneSpells extends NatureSpellEntry {
 				.build();
 	}
 
-	private static ConfiguredEngine<?> gen(DataGenContext ctx) {
+	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		return new CustomProjectileShoot(
 				DoubleVariable.of("0.8"),
-				PROJECTILE,
+				ctx.proj,
 				IntVariable.of("20"),
 				false, true,
 				Map.of()

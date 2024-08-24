@@ -31,7 +31,6 @@ import dev.xkmc.l2magic.content.entity.motion.MovePosMotion;
 import dev.xkmc.l2magic.content.particle.engine.CustomParticleInstance;
 import dev.xkmc.l2magic.content.particle.engine.RenderTypePreset;
 import dev.xkmc.l2magic.content.particle.engine.SimpleParticleData;
-import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
@@ -50,8 +49,8 @@ public class SnowSpells {
 					SpellCastType.CONTINUOUS, SpellTriggerType.SELF_POS
 			)).lang("Winter Storm").desc(
 					"[Continuous] Create a circle of storm",
-					"Continuous Attack: Create a circle of storm, dealing %s and push enemies away",
-					SpellTooltipData.of(new SpellTooltipData.Entry(EngineRegistry.DAMAGE.get()))
+					"Continuous Attack: Create a circle of storm, dealing %s, inflict %s, and push enemies away",
+					SpellTooltipData.damageAndEffect()
 			);
 
 	public static final NatureSpellBuilder ST = GTRegistries.SNOW.get()
@@ -63,8 +62,8 @@ public class SnowSpells {
 					SpellCastType.CONTINUOUS, SpellTriggerType.FACING_FRONT
 			)).lang("Snow Tornado").desc(
 					"[Continuous] Create a circle of storm",
-					"Continuous Attack: Create snow tornado in front of you, dealing %s",
-					SpellTooltipData.of(new SpellTooltipData.Entry(EngineRegistry.DAMAGE.get()))
+					"Continuous Attack: Create snow tornado in front of you, dealing %s and inflict %s",
+					SpellTooltipData.damageAndEffect()
 			);
 
 	private static final DoubleVariable WS_DMG = DoubleVariable.of("4");
