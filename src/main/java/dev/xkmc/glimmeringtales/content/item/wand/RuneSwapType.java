@@ -7,6 +7,7 @@ import dev.xkmc.l2backpack.content.quickswap.type.MatcherSwapType;
 import dev.xkmc.l2backpack.init.data.LBConfig;
 import dev.xkmc.l2itemselector.overlay.SelectionSideBar;
 import dev.xkmc.l2itemselector.overlay.TextBox;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -14,7 +15,9 @@ import net.minecraft.world.item.ItemStack;
 import java.util.List;
 
 public class RuneSwapType extends MatcherSwapType {
-	private static final ResourceLocation COPPER = GlimmeringTales.loc("frame");
+	private static final ResourceLocation COPPER = GlimmeringTales.loc("copper_frame");
+	private static final ResourceLocation GOLD = GlimmeringTales.loc("gold_frame");
+	private static final ResourceLocation WOOD = GlimmeringTales.loc("wood_frame");
 	private static final ResourceLocation SELECTED = GlimmeringTales.loc("selected");
 
 	public RuneSwapType() {
@@ -41,6 +44,16 @@ public class RuneSwapType extends MatcherSwapType {
 		boolean selected = entry.selected();
 		ItemStack core = token.getStack();
 		ItemStack wand = token.token().stack();
+		ResourceLocation TEX ;
+		String s =((TranslatableContents)wand.getItem().getName(wand).getContents()).getKey();
+		if(s.equals("item.glimmeringtales.gold_wand")){
+			TEX = GOLD;
+		}  else if(s.equals("item.glimmeringtales.wood_wand")){
+			TEX = WOOD;
+		}else{
+			TEX = COPPER;
+		}
+
 		int i = entry.i();
 		int size = 9;
 		int h = ctx.g().guiHeight();
@@ -49,7 +62,7 @@ public class RuneSwapType extends MatcherSwapType {
 		int dx = w / 2 + (int) (Math.sin(2 * Math.PI * i / size) * r);
 		int dy = h / 2 - (int) (Math.cos(2 * Math.PI * i / size) * r);
 		ctx.renderItem(core, dx - 8, dy - 8);
-		ctx.g().blitSprite(COPPER, dx - 12, dy - 12, 24, 24);
+		ctx.g().blitSprite(TEX, dx - 12, dy - 12, 24, 24);
 		if (selected) {
 			ctx.g().blitSprite(SELECTED, dx - 12, dy - 12, 24, 24);
 			if (!core.isEmpty()) {

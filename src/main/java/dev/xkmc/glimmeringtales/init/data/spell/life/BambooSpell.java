@@ -1,67 +1,41 @@
 package dev.xkmc.glimmeringtales.init.data.spell.life;
 
-import com.tterrag.registrate.providers.RegistrateLangProvider;
+import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
-import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTTagGen;
+import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
+import dev.xkmc.glimmeringtales.init.reg.GTEngine;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.block.ScheduleTick;
 import dev.xkmc.l2magic.content.engine.block.SetBlock;
-import dev.xkmc.l2magic.content.engine.context.DataGenContext;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.logic.ListLogic;
 import dev.xkmc.l2magic.content.engine.modifier.OffsetModifier;
 import dev.xkmc.l2magic.content.engine.predicate.BlockTestCondition;
-import dev.xkmc.l2magic.content.engine.spell.SpellAction;
-import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
-import dev.xkmc.l2magic.content.engine.spell.SpellTriggerType;
 import dev.xkmc.l2magic.content.engine.variable.BooleanVariable;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
-import dev.xkmc.l2magic.init.data.DataGenCachedHolder;
-import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.ResourceLocation;
+import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.data.DataMapProvider;
 
 import java.util.List;
 
-public class BambooSpell extends NatureSpellEntry {
-	public static final ResourceLocation ID = GlimmeringTales.loc("bamboo");
-	public static final DataGenCachedHolder<SpellAction> SPELL = spell(ID);
-	public static final DataGenCachedHolder<NatureSpell> NATURE = nature(ID);
+public class BambooSpell{
+	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE.get()
+			.build(GlimmeringTales.loc("bamboo")).cost(20)
+			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), Items.BAMBOO, 1040))
+			.block((b, e) -> b.add(GTTagGen.BAMBOO, new BlockSpell(e, false, 1)))
+			.lang("Bamboo").desc(
+					"[Block] Generate a bamboo cage",
+					"Generate a spherical temporary bamboo cage",
+					SpellTooltipData.of(
+					)
+			);
 
-	@Override
-	public void regNature(BootstrapContext<NatureSpell> ctx) {
-		NATURE.gen(ctx, new NatureSpell(SPELL, GTRegistries.LIFE.get(), 20));
-	}
-
-	@Override
-	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-		builder.add(GTTagGen.BAMBOO, new BlockSpell(NATURE, false, 1), false);
-	}
-
-
-	@Override
-	public void genLang(RegistrateLangProvider ctx) {
-		ctx.add(SpellAction.lang(ID), "Bamboo");
-	}
-
-	@Override
-	public void register(BootstrapContext<SpellAction> ctx) {
-		new SpellAction(
-				gen(new DataGenContext(ctx)),
-				Items.BAMBOO, 3100,
-				SpellCastType.INSTANT,
-				SpellTriggerType.TARGET_POS
-		).verifyOnBuild(ctx, SPELL);
-	}
-
-	private static ConfiguredEngine<?> gen(DataGenContext ctx) {
+	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(
 				new SetBlock(GTItems.FAKE_BAMBOO.getDefaultState()),
 				new ScheduleTick(IntVariable.of("rand(180,220)"), GTItems.FAKE_BAMBOO.get())
