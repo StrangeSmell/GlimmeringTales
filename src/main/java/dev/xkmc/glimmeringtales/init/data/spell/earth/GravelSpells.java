@@ -45,7 +45,7 @@ public class GravelSpells {
 					DamageTypeTags.IS_PROJECTILE)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_GRAVEL, 1060))
 			.block((b, e) -> b.add(Tags.Blocks.GRAVELS, new BlockSpell(e, false, 0)))
-			.lang("Flint Storm");
+			.lang("Flint Storm");//TODO desc
 
 	private static final DoubleVariable DMG = DoubleVariable.of("4");
 

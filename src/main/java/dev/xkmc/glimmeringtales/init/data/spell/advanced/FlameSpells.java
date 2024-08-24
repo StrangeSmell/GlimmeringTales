@@ -1,4 +1,3 @@
-
 package dev.xkmc.glimmeringtales.init.data.spell.advanced;
 
 import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
@@ -33,7 +32,6 @@ import dev.xkmc.l2magic.content.engine.spell.SpellTriggerType;
 import dev.xkmc.l2magic.content.engine.variable.BooleanVariable;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
-import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageType;

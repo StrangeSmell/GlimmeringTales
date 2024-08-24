@@ -1,6 +1,5 @@
 package dev.xkmc.glimmeringtales.init.data.spell;
 
-import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;

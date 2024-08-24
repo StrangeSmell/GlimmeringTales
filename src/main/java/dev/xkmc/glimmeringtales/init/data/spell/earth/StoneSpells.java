@@ -24,7 +24,7 @@ public class StoneSpells {
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_STONE, 1040))
 			.block((b, e) -> b.add(Tags.Blocks.STONES, new BlockSpell(e, false, 0)))
 			.block((b, e) -> b.add(GTItems.FAKE_STONE, new BlockSpell(e, false, 0)))
-			.lang("Stone Cliff");
+			.lang("Stone Cliff");//TODO desc
 
 	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(

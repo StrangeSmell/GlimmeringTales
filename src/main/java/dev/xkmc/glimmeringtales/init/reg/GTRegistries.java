@@ -14,8 +14,6 @@ import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.AttReg;
 import dev.xkmc.l2core.init.reg.simple.AttVal;
 import dev.xkmc.l2damagetracker.init.L2DamageTracker;
-import dev.xkmc.l2magic.content.engine.spell.SpellAction;
-import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;

@@ -1,9 +1,6 @@
 package dev.xkmc.glimmeringtales.content.item.wand;
 
-import dev.xkmc.glimmeringtales.content.item.rune.BlockSpellContext;
-import dev.xkmc.glimmeringtales.content.item.rune.SpellCoreItem;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
-import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2backpack.content.quickswap.common.EntryRenderContext;
 import dev.xkmc.l2backpack.content.quickswap.entry.ISwapEntry;
 import dev.xkmc.l2backpack.content.quickswap.type.MatcherSwapType;

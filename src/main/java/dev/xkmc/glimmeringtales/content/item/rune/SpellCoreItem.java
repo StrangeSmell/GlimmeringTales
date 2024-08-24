@@ -1,6 +1,5 @@
 package dev.xkmc.glimmeringtales.content.item.rune;
 
-import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.ElementAffinity;
 import dev.xkmc.glimmeringtales.content.item.materials.LightningImmuneItem;
 import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;

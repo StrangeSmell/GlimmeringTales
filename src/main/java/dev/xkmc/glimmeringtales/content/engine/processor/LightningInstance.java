@@ -3,14 +3,11 @@ package dev.xkmc.glimmeringtales.content.engine.processor;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.xkmc.glimmeringtales.init.reg.GTEngine;
-import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2library.init.FlagMarker;
-import dev.xkmc.l2magic.content.engine.block.BlockUtils;
 import dev.xkmc.l2magic.content.engine.block.IBlockProcessor;
 import dev.xkmc.l2magic.content.engine.context.EngineContext;
 import dev.xkmc.l2magic.content.engine.core.EngineType;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
-import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -38,7 +35,7 @@ public record LightningInstance(
 		var level = ctx.user().level();
 		var pos = BlockPos.containing(ctx.loc().pos());
 		var state = level.getBlockState(pos);
-		if (state.isCollisionShapeFullBlock(level,pos))
+		if (state.isCollisionShapeFullBlock(level, pos))
 			pos = pos.above();
 		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(level);
 		assert bolt != null;

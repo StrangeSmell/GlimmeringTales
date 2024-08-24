@@ -43,7 +43,7 @@ public class SandSpells {
 					DamageTypeTags.IS_PROJECTILE)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_SAND, 1040))
 			.block((b, e) -> b.add(BlockTags.SAND, new BlockSpell(e, false, 0)))
-			.lang("Sandstorm");
+			.lang("Sandstorm");// TODO desc
 
 	private static final DoubleVariable DMG = DoubleVariable.of("4");
 

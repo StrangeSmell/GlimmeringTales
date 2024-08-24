@@ -10,7 +10,7 @@ public class RitualLinkBlockMethod implements OnPlaceBlockMethod, OnReplacedBloc
 
 	@Override
 	public void onPlace(BlockState state, Level level, BlockPos pos, BlockState old, boolean moving) {
-		if (level.getBlockEntity(pos) instanceof BaseRitualBlockEntity be){
+		if (level.getBlockEntity(pos) instanceof BaseRitualBlockEntity be) {
 			be.onPlaced();
 		}
 	}
@@ -18,7 +18,7 @@ public class RitualLinkBlockMethod implements OnPlaceBlockMethod, OnReplacedBloc
 	@Override
 	public void onReplaced(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
 		if (state.getBlock() == newState.getBlock()) return;
-		if (level.getBlockEntity(pos) instanceof BaseRitualBlockEntity be){
+		if (level.getBlockEntity(pos) instanceof BaseRitualBlockEntity be) {
 			be.onReplaced();
 		}
 	}

@@ -25,7 +25,7 @@ public class QuartzSpells {
 			.build(GlimmeringTales.loc("quartz")).cost(40)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_QUARTZ, 1050))
 			.block((b, e) -> b.add(GTTagGen.QUARTZ, new BlockSpell(e, false, 0)))
-			.lang("Crystalization");
+			.lang("Crystalization");//TODO desc
 
 	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(

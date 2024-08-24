@@ -11,7 +11,6 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Items;
 
 public class ItemTransformationRecipeCategory extends BaseRecipeCategory<ItemTransformation, ItemTransformationRecipeCategory> {
 
