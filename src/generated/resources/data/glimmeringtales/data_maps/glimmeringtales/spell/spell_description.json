@@ -1,0 +1,42 @@
+{
+  "values": {
+    "glimmeringtales:amethyst": {
+      "list": [
+        {
+          "type": "l2magic:damage"
+        },
+        {
+          "type": "glimmeringtales:stacking"
+        }
+      ]
+    },
+    "glimmeringtales:hell_mark": {
+      "list": [
+        {
+          "type": "l2magic:damage"
+        }
+      ]
+    },
+    "glimmeringtales:lava_burst": {
+      "list": [
+        {
+          "type": "l2magic:damage"
+        }
+      ]
+    },
+    "glimmeringtales:snow_tornado": {
+      "list": [
+        {
+          "type": "l2magic:damage"
+        }
+      ]
+    },
+    "glimmeringtales:winter_storm": {
+      "list": [
+        {
+          "type": "l2magic:damage"
+        }
+      ]
+    }
+  }
+}

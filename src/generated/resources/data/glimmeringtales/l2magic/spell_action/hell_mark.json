@@ -98,8 +98,8 @@
               "processors": [
                 {
                   "type": "l2magic:damage",
-                  "damage": "4",
-                  "damage_type": "minecraft:in_fire",
+                  "damage": "8",
+                  "damage_type": "glimmeringtales:hell_mark",
                   "indirect": true,
                   "positioned": false
                 },
@@ -170,7 +170,7 @@
     ]
   },
   "cast_type": "INSTANT",
-  "icon": "minecraft:fire_charge",
+  "icon": "glimmeringtales:hell_mark",
   "order": 200,
   "trigger_type": "TARGET_POS"
 }

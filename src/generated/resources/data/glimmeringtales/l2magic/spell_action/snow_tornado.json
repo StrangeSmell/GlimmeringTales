@@ -10,7 +10,7 @@
             {
               "type": "l2magic:damage",
               "damage": "4",
-              "damage_type": "minecraft:freeze",
+              "damage_type": "glimmeringtales:snow_tornado",
               "indirect": true,
               "positioned": true
             },
@@ -114,7 +114,7 @@
     ]
   },
   "cast_type": "CONTINUOUS",
-  "icon": "minecraft:powder_snow_bucket",
+  "icon": "glimmeringtales:snow_tornado",
   "order": 100,
   "trigger_type": "FACING_FRONT"
 }

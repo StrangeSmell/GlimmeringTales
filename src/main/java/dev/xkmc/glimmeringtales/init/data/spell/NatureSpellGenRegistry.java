@@ -14,7 +14,7 @@ public class NatureSpellGenRegistry {
 	public static final List<NatureSpellEntry> LIST = List.of(
 			new DripstoneSpells(), // 1010
 			new ClaySpells(), // 1020
-			new AmethystSpells(), // 1030
+			AmethystSpells.BUILDER, // 1030
 			new SandSpells(), // 1040
 			new QuartzSpells(), // 1050
 			new VinesSpell(), // 1050
@@ -23,11 +23,11 @@ public class NatureSpellGenRegistry {
 			new BambooSpell(),
 			new FlowerSpell(),
 			new GravelSpells(), // 1060
-			new FlameSpells(),
-			new SnowSpells(),
 			new StoneSpells(),
 			new MagmaSpells(),
-			new ThunderSpells()
+			new ThunderSpells(),
+			FlameSpells.HM, FlameSpells.LB,
+			SnowSpells.WS, SnowSpells.ST
 	);
 
 }

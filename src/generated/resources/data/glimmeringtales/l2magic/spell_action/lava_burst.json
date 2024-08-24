@@ -127,7 +127,7 @@
                       {
                         "type": "l2magic:damage",
                         "damage": "10",
-                        "damage_type": "minecraft:explosion",
+                        "damage_type": "glimmeringtales:lava_burst",
                         "indirect": true,
                         "positioned": true
                       },
@@ -208,7 +208,7 @@
     "predicate": "Power==0"
   },
   "cast_type": "CHARGE",
-  "icon": "minecraft:tnt",
+  "icon": "glimmeringtales:lava_burst",
   "order": 300,
   "trigger_type": "HORIZONTAL_FACING"
 }

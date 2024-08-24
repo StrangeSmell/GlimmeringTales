@@ -10,7 +10,7 @@
             {
               "type": "l2magic:damage",
               "damage": "4",
-              "damage_type": "minecraft:freeze",
+              "damage_type": "glimmeringtales:winter_storm",
               "indirect": true,
               "positioned": true
             },
@@ -79,7 +79,7 @@
     ]
   },
   "cast_type": "CONTINUOUS",
-  "icon": "minecraft:snowball",
+  "icon": "glimmeringtales:winter_storm",
   "order": 100,
   "trigger_type": "SELF_POS"
 }

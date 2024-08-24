@@ -1,13 +1,11 @@
 
 package dev.xkmc.glimmeringtales.init.data.spell.advanced;
 
-import com.tterrag.registrate.providers.RegistrateLangProvider;
-import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
-import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
+import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
+import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
+import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
-import dev.xkmc.l2magic.content.engine.context.DataGenContext;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.iterator.DelayedIterator;
 import dev.xkmc.l2magic.content.engine.iterator.LinearIterator;
@@ -35,60 +33,45 @@ import dev.xkmc.l2magic.content.engine.spell.SpellTriggerType;
 import dev.xkmc.l2magic.content.engine.variable.BooleanVariable;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
-import dev.xkmc.l2magic.init.data.DataGenCachedHolder;
+import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.common.data.DataMapProvider;
 
 import java.util.List;
 
-public class FlameSpells extends NatureSpellEntry {
+public class FlameSpells {
 
-	public static final ResourceLocation HM = GlimmeringTales.loc("hell_mark");
-	public static final DataGenCachedHolder<SpellAction> HM_SPELL = spell(HM);
-	public static final DataGenCachedHolder<NatureSpell> HM_NATURE = nature(HM);
+	public static final NatureSpellBuilder HM = GTRegistries.FLAME.get()
+			.build(GlimmeringTales.loc("hell_mark")).cost(160)
+			.damageVanilla(() -> new DamageType("onFire", 0.1f), DamageTypeTags.IS_FIRE)
+			.spell(ctx -> new SpellAction(flameBurst(ctx),
+					GTItems.HELL_MARK.get(), 200,
+					SpellCastType.INSTANT, SpellTriggerType.TARGET_POS
+			)).lang("Hell Mark").desc(
+					"[Ranged] Form a flame circle",
+					"Create a pentagram on target position and inflict %s to enemies within",
+					SpellTooltipData.of(new SpellTooltipData.Entry(EngineRegistry.DAMAGE.get()))
+			);
 
-	public static final ResourceLocation LB = GlimmeringTales.loc("lava_burst");
-	public static final DataGenCachedHolder<SpellAction> LB_SPELL = spell(LB);
-	public static final DataGenCachedHolder<NatureSpell> LB_NATURE = nature(LB);
+	public static final NatureSpellBuilder LB = GTRegistries.FLAME.get()
+			.build(GlimmeringTales.loc("lava_burst")).cost(10, 30)
+			.damageVanilla(() -> new DamageType("explosion", 0.1f), DamageTypeTags.IS_EXPLOSION)
+			.spell(ctx -> new SpellAction(earthquake(ctx),
+					GTItems.LAVA_BURST.get(), 300,
+					SpellCastType.CHARGE, SpellTriggerType.HORIZONTAL_FACING
+			)).lang("Lava Burst").desc(
+					"[Charge] Cause several bursts in the front",
+					"Charge attack: create up to 3 arcs of pentagram marks in front of you and inflict %s to enemies within.",
+					SpellTooltipData.of(new SpellTooltipData.Entry(EngineRegistry.DAMAGE.get()))
+			);
 
-	@Override
-	public void regNature(BootstrapContext<NatureSpell> ctx) {
-		HM_NATURE.gen(ctx, new NatureSpell(HM_SPELL, GTRegistries.FLAME.get(), 160));
-		LB_NATURE.gen(ctx, new NatureSpell(LB_SPELL, GTRegistries.FLAME.get(), 10, 30));
-	}
+	private static final DoubleVariable HM_DMG = DoubleVariable.of("8");
+	private static final DoubleVariable LB_DMG = DoubleVariable.of("10");
 
-	@Override
-	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-
-	}
-
-	public void genLang(RegistrateLangProvider pvd) {
-		pvd.add(SpellAction.lang(HM), "Hell Mark");
-		pvd.add(SpellAction.lang(LB), "Lava Burst");
-	}
-
-	public void register(BootstrapContext<SpellAction> ctx) {
-		new SpellAction(
-				flameBurst(new DataGenContext(ctx)),
-				Items.FIRE_CHARGE, 200,
-				SpellCastType.INSTANT, SpellTriggerType.TARGET_POS
-		).verifyOnBuild(ctx, HM_SPELL);
-
-		new SpellAction(
-				earthquake(new DataGenContext(ctx)),
-				Items.TNT, 300,
-				SpellCastType.CHARGE, SpellTriggerType.HORIZONTAL_FACING
-		).verifyOnBuild(ctx, LB_SPELL);
-	}
-
-	private static ConfiguredEngine<?> flameBurst(DataGenContext ctx) {
+	private static ConfiguredEngine<?> flameBurst(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(
 				star(4, 0.3).move(
 						new SetDirectionModifier(
@@ -106,11 +89,7 @@ public class FlameSpells extends NatureSpellEntry {
 												DoubleVariable.of("4"),
 												DoubleVariable.of("6")
 										), List.of(
-										new DamageProcessor(
-												ctx.damage(DamageTypes.IN_FIRE),
-												DoubleVariable.of("4"),
-												true, false
-										),
+										new DamageProcessor(ctx.damage(), HM_DMG, true, false),
 										new PushProcessor(
 												DoubleVariable.of("0.1"),
 												DoubleVariable.ZERO,
@@ -151,7 +130,7 @@ public class FlameSpells extends NatureSpellEntry {
 		));
 	}
 
-	private static ConfiguredEngine<?> earthquake(DataGenContext ctx) {
+	private static ConfiguredEngine<?> earthquake(NatureSpellBuilder ctx) {
 		return new PredicateLogic(BooleanVariable.of("Power==0"),
 				new RingRandomIterator(
 						DoubleVariable.of("0.5"),
@@ -170,7 +149,7 @@ public class FlameSpells extends NatureSpellEntry {
 		);
 	}
 
-	private static ConfiguredEngine<?> earthquakeStart(DataGenContext ctx) {
+	private static ConfiguredEngine<?> earthquakeStart(NatureSpellBuilder ctx) {
 		return new DelayedIterator(
 				IntVariable.of("min(TickUsing/10,3)"),
 				IntVariable.of("10"),
@@ -184,8 +163,7 @@ public class FlameSpells extends NatureSpellEntry {
 														DoubleVariable.of("4"),
 														DoubleVariable.of("2")
 												), List.of(
-												new DamageProcessor(ctx.damage(DamageTypes.EXPLOSION),
-														DoubleVariable.of("10"), true, true),
+												new DamageProcessor(ctx.damage(), LB_DMG, true, true),
 												KnockBackProcessor.of("2")
 										)),
 										new RingRandomIterator(

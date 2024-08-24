@@ -29,10 +29,12 @@ public class GTSpells {
 		}
 	}
 
-	public static void genBlockMap(RegistrateDataMapProvider pvd) {
-		var builder = pvd.builder(GTRegistries.BLOCK.reg());
+	public static void genMap(RegistrateDataMapProvider pvd) {
+		var block = pvd.builder(GTRegistries.BLOCK.reg());
+		var desc = pvd.builder(GTRegistries.DESCRIPTION.reg());
 		for (var e : NatureSpellGenRegistry.LIST) {
-			e.regBlock(builder);
+			e.regBlock(block);
+			e.regDesc(desc);
 		}
 	}
 

@@ -2,6 +2,7 @@ package dev.xkmc.glimmeringtales.init.reg;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.glimmeringtales.content.capability.PlayerManaCapability;
+import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.*;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneSwapType;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
@@ -13,6 +14,8 @@ import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.AttReg;
 import dev.xkmc.l2core.init.reg.simple.AttVal;
 import dev.xkmc.l2damagetracker.init.L2DamageTracker;
+import dev.xkmc.l2magic.content.engine.spell.SpellAction;
+import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -36,6 +39,8 @@ public class GTRegistries {
 			GlimmeringTales.REG.dataMap("block_replace", Registries.BLOCK, BlockReplace.class);
 	public static final DataMapReg<Block, BlockReplace> MELT =
 			GlimmeringTales.REG.dataMap("block_melt", Registries.BLOCK, BlockReplace.class);
+	public static final DataMapReg<NatureSpell, SpellTooltipData> DESCRIPTION =
+			GlimmeringTales.REG.dataMap("spell_description", SPELL, SpellTooltipData.class);
 
 	public static final Holder<Attribute> MAX_MANA = reg("max_mana", 400, 1000000, "Max Mana");
 	public static final Holder<Attribute> MANA_REGEN = reg("mana_regen", 20, 1000000, "Mana Regen");

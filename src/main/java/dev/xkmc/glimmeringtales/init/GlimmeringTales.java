@@ -12,8 +12,10 @@ import dev.xkmc.l2backpack.content.common.BaseBagItemHandler;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import dev.xkmc.l2core.init.reg.simple.Reg;
 import dev.xkmc.l2core.serial.config.PacketHandlerWithConfig;
+import dev.xkmc.l2magic.content.engine.core.ProcessorType;
 import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import dev.xkmc.l2serial.serialization.custom_handler.Handlers;
+import dev.xkmc.l2serial.util.Wrappers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.EventPriority;
@@ -48,6 +50,7 @@ public class GlimmeringTales {
 		GTRecipes.register();
 		GTEngine.register();
 		Handlers.registerReg(NatureSpell.class, GTRegistries.SPELL);
+		Handlers.enableVanilla(Wrappers.cast(ProcessorType.class), EngineRegistry.PROCESSOR.registry().get());
 	}
 
 	@SubscribeEvent
@@ -84,10 +87,11 @@ public class GlimmeringTales {
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, GTTagGen::genBlockTag);
 		var init = REGISTRATE.getDataGenInitializer();
 		REGISTRATE.addDataGenerator(ProviderType.LANG, GTSpells::addLang);
+		new GTDamageTypeGen(REGISTRATE).generate();
 		init.add(EngineRegistry.PROJECTILE, GTSpells::genProjectiles);
 		init.add(EngineRegistry.SPELL, GTSpells::genSpells);
 		init.add(GTRegistries.SPELL, GTSpells::genNature);
-		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTSpells::genBlockMap);
+		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTSpells::genMap);
 		init.addDependency(ProviderType.DATA_MAP, ProviderType.DYNAMIC);
 	}
 

@@ -1,13 +1,11 @@
 package dev.xkmc.glimmeringtales.init.data.spell.advanced;
 
-import com.tterrag.registrate.providers.RegistrateLangProvider;
-import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
-import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
+import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
+import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
+import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2complements.init.registrate.LCEffects;
-import dev.xkmc.l2magic.content.engine.context.DataGenContext;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.iterator.DelayedIterator;
 import dev.xkmc.l2magic.content.engine.iterator.RingRandomIterator;
@@ -33,61 +31,46 @@ import dev.xkmc.l2magic.content.entity.motion.MovePosMotion;
 import dev.xkmc.l2magic.content.particle.engine.CustomParticleInstance;
 import dev.xkmc.l2magic.content.particle.engine.RenderTypePreset;
 import dev.xkmc.l2magic.content.particle.engine.SimpleParticleData;
-import dev.xkmc.l2magic.init.data.DataGenCachedHolder;
+import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.data.DataMapProvider;
+import net.minecraft.world.damagesource.DamageType;
 
 import java.util.List;
 
-public class SnowSpells extends NatureSpellEntry {
+public class SnowSpells {
 
-	public static final ResourceLocation WS = GlimmeringTales.loc("winter_storm");
-	public static final DataGenCachedHolder<SpellAction> WS_SPELL = spell(WS);
-	public static final DataGenCachedHolder<NatureSpell> WS_NATURE = nature(WS);
+	public static final NatureSpellBuilder WS = GTRegistries.SNOW.get()
+			.build(GlimmeringTales.loc("winter_storm")).cost(10)
+			.damageVanilla(() -> new DamageType("freeze", 0.1f),
+					DamageTypeTags.IS_FREEZING, DamageTypeTags.BYPASSES_ARMOR)
+			.spell(ctx -> new SpellAction(winterStorm(ctx, 4, 1.5, 1),
+					GTItems.WINTER_STORM.asItem(), 100,
+					SpellCastType.CONTINUOUS, SpellTriggerType.SELF_POS
+			)).lang("Winter Storm").desc(
+					"[Continuous] Create a circle of storm",
+					"Continuous Attack: Create a circle of storm, dealing %s and push enemies away",
+					SpellTooltipData.of(new SpellTooltipData.Entry(EngineRegistry.DAMAGE.get()))
+			);
 
-	public static final ResourceLocation ST = GlimmeringTales.loc("snow_tornado");
-	public static final DataGenCachedHolder<SpellAction> ST_SPELL = spell(ST);
-	public static final DataGenCachedHolder<NatureSpell> ST_NATURE = nature(ST);
+	public static final NatureSpellBuilder ST = GTRegistries.SNOW.get()
+			.build(GlimmeringTales.loc("snow_tornado")).cost(10)
+			.damageVanilla(() -> new DamageType("freeze", 0.1f),
+					DamageTypeTags.IS_FREEZING, DamageTypeTags.BYPASSES_ARMOR)
+			.spell(ctx -> new SpellAction(tornado(ctx),
+					GTItems.SNOW_TORNADO.asItem(), 100,
+					SpellCastType.CONTINUOUS, SpellTriggerType.FACING_FRONT
+			)).lang("Snow Tornado").desc(
+					"[Continuous] Create a circle of storm",
+					"Continuous Attack: Create snow tornado in front of you, dealing %s",
+					SpellTooltipData.of(new SpellTooltipData.Entry(EngineRegistry.DAMAGE.get()))
+			);
 
-	@Override
-	public void regNature(BootstrapContext<NatureSpell> ctx) {
-		WS_NATURE.gen(ctx, new NatureSpell(WS_SPELL, GTRegistries.SNOW.get(), 10));
-		ST_NATURE.gen(ctx, new NatureSpell(ST_SPELL, GTRegistries.SNOW.get(), 10));
-	}
+	private static final DoubleVariable WS_DMG = DoubleVariable.of("4");
+	private static final DoubleVariable ST_DMG = DoubleVariable.of("4");
 
-	@Override
-	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-
-	}
-
-	public void genLang(RegistrateLangProvider pvd) {
-		pvd.add(SpellAction.lang(WS), "Winter Storm");
-		pvd.add(SpellAction.lang(ST), "Snow Tornado");
-	}
-
-	@Override
-	public void register(BootstrapContext<SpellAction> ctx) {
-		new SpellAction(
-				winterStorm(new DataGenContext(ctx), 4, 1.5, 1),
-				Items.SNOWBALL, 100,
-				SpellCastType.CONTINUOUS,
-				SpellTriggerType.SELF_POS
-		).verifyOnBuild(ctx, WS_SPELL);
-		new SpellAction(
-				tornado(new DataGenContext(ctx)),
-				Items.POWDER_SNOW_BUCKET, 100,
-				SpellCastType.CONTINUOUS,
-				SpellTriggerType.FACING_FRONT
-		).verifyOnBuild(ctx, ST_SPELL);
-	}
-
-	private static ConfiguredEngine<?> winterStorm(DataGenContext ctx, double r, double y, double size) {
+	private static ConfiguredEngine<?> winterStorm(NatureSpellBuilder ctx, double r, double y, double size) {
 		return new ListLogic(List.of(
 				new PredicateLogic(
 						BooleanVariable.of("TickUsing>=10"),
@@ -100,8 +83,7 @@ public class SnowSpells extends NatureSpellEntry {
 										DoubleVariable.of("-180+360/12*11")
 								),
 								List.of(
-										new DamageProcessor(ctx.damage(DamageTypes.FREEZE),
-												DoubleVariable.of("4"), true, true),
+										new DamageProcessor(ctx.damage(), WS_DMG, true, true),
 										new PushProcessor(
 												DoubleVariable.of("0.1"),
 												DoubleVariable.of("75"),
@@ -135,7 +117,7 @@ public class SnowSpells extends NatureSpellEntry {
 		));
 	}
 
-	private static ConfiguredEngine<?> tornado(DataGenContext ctx) {
+	private static ConfiguredEngine<?> tornado(NatureSpellBuilder ctx) {
 		double vsp = 0.5;
 		int life = 20;
 		double rate = Math.tan(10 * Mth.DEG_TO_RAD);
@@ -152,8 +134,7 @@ public class SnowSpells extends NatureSpellEntry {
 										DoubleVariable.of("1.5")
 								),
 								List.of(
-										new DamageProcessor(ctx.damage(DamageTypes.FREEZE),
-												DoubleVariable.of("4"), true, true),
+										new DamageProcessor(ctx.damage(), ST_DMG, true, true),
 										new PushProcessor(
 												DoubleVariable.of("0.1"),
 												DoubleVariable.ZERO,
