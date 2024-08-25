@@ -4,7 +4,7 @@
     {
       "type": "l2magic:damage",
       "damage": "1",
-      "damage_type": "minecraft:arrow",
+      "damage_type": "glimmeringtales:cactus",
       "indirect": true,
       "positioned": true
     },

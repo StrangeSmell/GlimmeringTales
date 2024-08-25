@@ -59,6 +59,6 @@
   },
   "cast_type": "INSTANT",
   "icon": "minecraft:cactus",
-  "order": 3100,
+  "order": 1030,
   "trigger_type": "TARGET_POS"
 }

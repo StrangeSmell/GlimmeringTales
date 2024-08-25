@@ -12,7 +12,7 @@
         ],
         "selector": {
           "type": "l2magic:ball",
-          "r": "5.0"
+          "r": "4.0"
         },
         "target": "ALL"
       },
@@ -35,6 +35,6 @@
   },
   "cast_type": "INSTANT",
   "icon": "minecraft:wheat",
-  "order": 100,
+  "order": 1030,
   "trigger_type": "TARGET_POS"
 }

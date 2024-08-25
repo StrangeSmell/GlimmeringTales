@@ -46,6 +46,6 @@
   },
   "cast_type": "INSTANT",
   "icon": "minecraft:bamboo",
-  "order": 3100,
+  "order": 1040,
   "trigger_type": "TARGET_POS"
 }

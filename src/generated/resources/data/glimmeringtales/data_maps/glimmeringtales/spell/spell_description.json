@@ -10,6 +10,16 @@
         }
       ]
     },
+    "glimmeringtales:bamboo": {
+      "list": []
+    },
+    "glimmeringtales:cactus": {
+      "list": [
+        {
+          "type": "l2magic:damage"
+        }
+      ]
+    },
     "glimmeringtales:clay": {
       "list": []
     },
@@ -22,6 +32,9 @@
           "type": "l2magic:effect"
         }
       ]
+    },
+    "glimmeringtales:flower": {
+      "list": []
     },
     "glimmeringtales:hell_mark": {
       "list": [
@@ -37,6 +50,9 @@
         }
       ]
     },
+    "glimmeringtales:procreation": {
+      "list": []
+    },
     "glimmeringtales:snow_tornado": {
       "list": [
         {
@@ -44,6 +60,13 @@
         },
         {
           "type": "l2magic:effect"
+        }
+      ]
+    },
+    "glimmeringtales:vine": {
+      "list": [
+        {
+          "type": "l2magic:damage"
         }
       ]
     },

@@ -8,7 +8,7 @@
           {
             "type": "l2magic:damage",
             "damage": "1",
-            "damage_type": "minecraft:indirect_magic",
+            "damage_type": "glimmeringtales:vine",
             "indirect": true,
             "positioned": false
           },
@@ -49,6 +49,6 @@
   },
   "cast_type": "INSTANT",
   "icon": "minecraft:vine",
-  "order": 3100,
+  "order": 1030,
   "trigger_type": "TARGET_POS"
 }
