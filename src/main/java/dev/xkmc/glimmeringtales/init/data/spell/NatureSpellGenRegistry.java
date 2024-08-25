@@ -12,41 +12,41 @@ import java.util.List;
 
 public class NatureSpellGenRegistry {
 
-	public static final List<NatureSpellEntry> LIST = new ArrayList<>();
+    public static final List<NatureSpellEntry> LIST = new ArrayList<>();
 
-	static {
+    static {
 
-		// earth
-		LIST.addAll(List.of(
-				DripstoneSpells.BUILDER, // 1010
-				ClaySpells.BUILDER, // 1020
-				AmethystSpells.BUILDER, // 1030
-				SandSpells.BUILDER, // 1040
-				QuartzSpells.BUILDER, // 1050
-				GravelSpells.BUILDER, // 1060
-				StoneSpells.BUILDER
-		));
+        // earth
+        LIST.addAll(List.of(
+                DripstoneSpells.BUILDER, // 1010
+                ClaySpells.BUILDER, // 1020
+                AmethystSpells.BUILDER, // 1030
+                SandSpells.BUILDER, // 1040
+                QuartzSpells.BUILDER, // 1050
+                GravelSpells.BUILDER, // 1060
+                StoneSpells.BUILDER
+        ));
 
-		// vine
-		LIST.addAll(List.of(
-				new VinesSpell(), // 1050
-				new HaySpell(),
-				new CactusSpell(),
-				new BambooSpell(),
-				new FlowerSpell()
-		));
+        // vine
+        LIST.addAll(List.of(
+                VinesSpell.BUILDER, // 1050
+                HaySpell.BUILDER,
+                CactusSpell.BUILDER,
+                BambooSpell.BUILDER,
+                FlowerSpell.BUILDER
+        ));
 
-		// others
-		LIST.addAll(List.of(
-				new MagmaSpells(),
-				new ThunderSpells()
-		));
+        // others
+        LIST.addAll(List.of(
+                new MagmaSpells(),
+                new ThunderSpells()
+        ));
 
-		// advanced
-		LIST.addAll(List.of(
-				FlameSpells.HM, FlameSpells.LB,
-				SnowSpells.WS, SnowSpells.ST
-		));
-	}
+        // advanced
+        LIST.addAll(List.of(
+                FlameSpells.HM, FlameSpells.LB,
+                SnowSpells.WS, SnowSpells.ST
+        ));
+    }
 
 }

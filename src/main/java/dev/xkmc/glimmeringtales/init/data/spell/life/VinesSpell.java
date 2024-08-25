@@ -1,13 +1,12 @@
 package dev.xkmc.glimmeringtales.init.data.spell.life;
 
-import com.tterrag.registrate.providers.RegistrateLangProvider;
+import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
-import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTTagGen;
+import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
-import dev.xkmc.l2magic.content.engine.context.DataGenContext;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.iterator.LoopIterator;
 import dev.xkmc.l2magic.content.engine.iterator.SphereRandomIterator;
@@ -18,55 +17,32 @@ import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.processor.PushProcessor;
 import dev.xkmc.l2magic.content.engine.selector.BoxSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
-import dev.xkmc.l2magic.content.engine.spell.SpellAction;
-import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
-import dev.xkmc.l2magic.content.engine.spell.SpellTriggerType;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
-import dev.xkmc.l2magic.init.data.DataGenCachedHolder;
-import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.neoforged.neoforge.common.data.DataMapProvider;
 
 import java.util.List;
 
-public class VinesSpell extends NatureSpellEntry {
+public class VinesSpell  {
 
-	public static final ResourceLocation ID = GlimmeringTales.loc("vine");
-	public static final DataGenCachedHolder<SpellAction> SPELL = spell(ID);
-	public static final DataGenCachedHolder<NatureSpell> NATURE = nature(ID);
+	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE.get()
+			.build(GlimmeringTales.loc("vine")).cost(40)
+			.damageCustom(msg -> new DamageType(msg, 1f),
+					"%s is dying of vines",
+					"%s is dying by %s with vines",
+					DamageTypeTags.PANIC_ENVIRONMENTAL_CAUSES)
+			.spell(ctx -> NatureSpellEntry.ofBlock(vine(ctx,4, 0.3),Items.VINE, 1030))
+			.block((b, e) -> b.add(GTTagGen.VINE, new BlockSpell(e, true, 1)))
+			.lang("Vine").desc(
+					"[Block] Pull the monster to the vines",
+					"Pulls monster to vine and deals %s damage",
+					SpellTooltipData.damage()
+			);
 
-	@Override
-	public void regNature(BootstrapContext<NatureSpell> ctx) {
-		NATURE.gen(ctx, new NatureSpell(SPELL, GTRegistries.LIFE.get(), 20));
-	}
-
-	@Override
-	public void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder) {
-		builder.add(GTTagGen.VINE, new BlockSpell(NATURE, true, 1), false);
-	}
-
-
-	@Override
-	public void genLang(RegistrateLangProvider ctx) {
-		ctx.add(SpellAction.lang(ID), "Vine");
-	}
-
-	@Override
-	public void register(BootstrapContext<SpellAction> ctx) {
-		new SpellAction(
-				vine(new DataGenContext(ctx), 4, 0.3),
-				Items.VINE, 3100,
-				SpellCastType.INSTANT,
-				SpellTriggerType.TARGET_POS
-		).verifyOnBuild(ctx, SPELL);
-	}
-
-	private static ConfiguredEngine<?> vine(DataGenContext ctx, double radius, double step) {
+	private static ConfiguredEngine<?> vine(NatureSpellBuilder ctx, double radius, double step) {
 		return new ListLogic(List.of(
 				new ProcessorEngine(
 						SelectionType.ENEMY,
@@ -77,7 +53,7 @@ public class VinesSpell extends NatureSpellEntry {
 						),
 						List.of(
 								new DamageProcessor(
-										ctx.damage(DamageTypes.INDIRECT_MAGIC),
+										ctx.damage(),
 										DoubleVariable.of("1"),
 										true, false
 								),
