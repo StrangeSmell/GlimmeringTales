@@ -36,6 +36,16 @@
     "glimmeringtales:flower": {
       "list": []
     },
+    "glimmeringtales:gravel": {
+      "list": [
+        {
+          "type": "l2magic:damage"
+        },
+        {
+          "type": "l2magic:effect"
+        }
+      ]
+    },
     "glimmeringtales:hell_mark": {
       "list": [
         {
@@ -53,6 +63,19 @@
     "glimmeringtales:procreation": {
       "list": []
     },
+    "glimmeringtales:quartz": {
+      "list": []
+    },
+    "glimmeringtales:sand": {
+      "list": [
+        {
+          "type": "l2magic:damage"
+        },
+        {
+          "type": "l2magic:effect"
+        }
+      ]
+    },
     "glimmeringtales:snow_tornado": {
       "list": [
         {
@@ -62,6 +85,9 @@
           "type": "l2magic:effect"
         }
       ]
+    },
+    "glimmeringtales:stone": {
+      "list": []
     },
     "glimmeringtales:vine": {
       "list": [

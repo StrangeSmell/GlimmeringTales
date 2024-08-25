@@ -4,43 +4,26 @@
     "child": {
       "type": "l2magic:iterate",
       "child": {
-        "type": "l2magic:iterate",
+        "type": "l2magic:move",
         "child": {
-          "type": "l2magic:move",
-          "child": {
-            "type": "l2magic:move",
-            "child": {
-              "type": "l2magic:custom_projectile",
-              "bypassEntity": true,
-              "bypassWall": false,
-              "config": "glimmeringtales:cactus",
-              "life": "100",
-              "params": {},
-              "speed": "1"
-            },
-            "modifiers": [
-              {
-                "type": "l2magic:direction",
-                "x": "rand(-1,1)",
-                "y": "0",
-                "z": "rand(-1,1)"
-              }
-            ]
-          },
-          "modifiers": [
-            {
-              "type": "l2magic:offset",
-              "x": "0",
-              "y": "rand(-1,0.5)",
-              "z": "0"
-            }
-          ]
+          "type": "l2magic:custom_projectile",
+          "bypassEntity": true,
+          "bypassWall": false,
+          "config": "glimmeringtales:cactus",
+          "life": "20",
+          "params": {},
+          "speed": "1"
         },
-        "index": "j",
-        "step": "24"
+        "modifiers": [
+          {
+            "type": "l2magic:rotate",
+            "degree": "3*j",
+            "vertical": "0"
+          }
+        ]
       },
-      "index": "i",
-      "step": "7"
+      "index": "j",
+      "step": "120"
     },
     "modifiers": [
       {

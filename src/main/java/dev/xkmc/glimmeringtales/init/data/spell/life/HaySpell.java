@@ -33,12 +33,11 @@ public class HaySpell  {
 	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE.get()
 			.build(GlimmeringTales.loc("procreation")).cost(40)
 			.spell(ctx -> NatureSpellEntry.ofBlock(procreation(ctx,4, 1.5, 1),Items.WHEAT, 1030))
-			.block((b, e) -> b.add(Blocks.HAY_BLOCK.builtInRegistryHolder(), new BlockSpell(e, true, 1)))
+			.block((b, e) -> b.add(Blocks.HAY_BLOCK, new BlockSpell(e, true, 1)))
 			.lang("Procreation").desc(
-					"[Block] Let the animals in the neighbourhood breed",
-					"Consume a hay block to feed all nearby animals",
-					SpellTooltipData.of(
-					)
+					"[Block] Breed nearby animals",
+					"Feed all nearby animals",
+					SpellTooltipData.of()
 			);
 
 	private static ConfiguredEngine<?> procreation(NatureSpellBuilder ctx, double r, double y, double size) {

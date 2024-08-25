@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
+import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
@@ -43,7 +44,11 @@ public class SandSpells {
 					DamageTypeTags.IS_PROJECTILE)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_SAND, 1040))
 			.block((b, e) -> b.add(BlockTags.SAND, new BlockSpell(e, false, 0)))
-			.lang("Sandstorm");// TODO desc
+			.lang("Sandstorm").desc(
+					"[Block] Create sandstorm trapping enemies",
+					"Create a sand tornado, trapping enemies touched, dealing %s, and inflict %s",
+					SpellTooltipData.damageAndEffect()
+			);
 
 	private static final DoubleVariable DMG = DoubleVariable.of("4");
 

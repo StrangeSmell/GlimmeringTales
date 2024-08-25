@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
+import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
@@ -45,7 +46,11 @@ public class GravelSpells {
 					DamageTypeTags.IS_PROJECTILE)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_GRAVEL, 1060))
 			.block((b, e) -> b.add(Tags.Blocks.GRAVELS, new BlockSpell(e, false, 0)))
-			.lang("Flint Storm");//TODO desc
+			.lang("Flint Storm").desc(
+					"[Block] Create flint storm",
+					"Create a flint storm, dealing %s, and inflict %s",
+					SpellTooltipData.damageAndEffect()
+			);
 
 	private static final DoubleVariable DMG = DoubleVariable.of("4");
 

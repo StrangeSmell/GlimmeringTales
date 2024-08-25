@@ -26,19 +26,19 @@ import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
 
-public class VinesSpell  {
+public class VinesSpell {
 
 	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE.get()
 			.build(GlimmeringTales.loc("vine")).cost(40)
 			.damageCustom(msg -> new DamageType(msg, 1f),
-					"%s is dying of vines",
-					"%s is dying by %s with vines",
+					"%s is choked vines",
+					"%s is choked by %s with vines",
 					DamageTypeTags.PANIC_ENVIRONMENTAL_CAUSES)
-			.spell(ctx -> NatureSpellEntry.ofBlock(vine(ctx,4, 0.3),Items.VINE, 1030))
+			.spell(ctx -> NatureSpellEntry.ofBlock(vine(ctx, 4, 0.3), Items.VINE, 1030))
 			.block((b, e) -> b.add(GTTagGen.VINE, new BlockSpell(e, true, 1)))
 			.lang("Vine").desc(
-					"[Block] Pull the monster to the vines",
-					"Pulls monster to vine and deals %s damage",
+					"[Block] Pull enemies to center",
+					"Pull surrounding enemies toward target position, dealing %s",
 					SpellTooltipData.damage()
 			);
 

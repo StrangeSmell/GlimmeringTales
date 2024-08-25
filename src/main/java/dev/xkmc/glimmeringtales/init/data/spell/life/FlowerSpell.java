@@ -14,16 +14,15 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 
-public class FlowerSpell  {
+public class FlowerSpell {
 	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE.get()
 			.build(GlimmeringTales.loc("flower")).cost(40)
-			.spell(ctx -> NatureSpellEntry.ofBlock(flower(ctx),Items.ALLIUM, 1030))
+			.spell(ctx -> NatureSpellEntry.ofBlock(flower(ctx), Items.ALLIUM, 1030))
 			.block((b, e) -> b.add(BlockTags.FLOWERS, new BlockSpell(e, true, 1)))
 			.lang("Flower").desc(
-					"[Block] Release of healing stasis potion",
-					"Release of healing stasis potion",
-					SpellTooltipData.of(
-					)
+					"[Block] Create a healing cloud",
+					"Create a lingering effect cloud of instant healing",
+					SpellTooltipData.of()
 			);
 
 	private static ConfiguredEngine<?> flower(NatureSpellBuilder ctx) {

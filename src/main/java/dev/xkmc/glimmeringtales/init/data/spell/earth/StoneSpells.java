@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
+import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
@@ -24,7 +25,11 @@ public class StoneSpells {
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_STONE, 1040))
 			.block((b, e) -> b.add(Tags.Blocks.STONES, new BlockSpell(e, false, 0)))
 			.block((b, e) -> b.add(GTItems.FAKE_STONE, new BlockSpell(e, false, 0)))
-			.lang("Stone Cliff");//TODO desc
+			.lang("Stone Cliff").desc(
+					"[Block] Create temporary stone floor",
+					"Create a circular stone floor lasting 5 seconds",
+					SpellTooltipData.of()
+			);
 
 	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(
