@@ -16,7 +16,7 @@ public record ElementAffinity(LinkedHashMap<SpellElement, Double> affinity) impl
 
 	@Override
 	public double get(SpellElement elem) {
-		return affinity.getOrDefault(elem, 1d);
+		return affinity.getOrDefault(elem, 0d);
 	}
 
 }

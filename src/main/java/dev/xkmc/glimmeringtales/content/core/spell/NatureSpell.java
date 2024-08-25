@@ -73,7 +73,7 @@ public record NatureSpell(
 		} else if (maxConsumeTick <= 0) {
 			list.add(GTLang.TOOLTIP_COST_CONT.get(val).withStyle(ChatFormatting.GRAY));
 		} else {
-			Component max = Component.literal(cost * maxConsumeTick + "").withStyle(ChatFormatting.BLUE);
+			Component max = Component.literal(consume * maxConsumeTick + "").withStyle(ChatFormatting.BLUE);
 			list.add(GTLang.TOOLTIP_COST_CAPPED.get(val, max).withStyle(ChatFormatting.GRAY));
 		}
 		return consume;
