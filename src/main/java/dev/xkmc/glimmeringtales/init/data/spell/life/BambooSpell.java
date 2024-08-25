@@ -25,7 +25,7 @@ public class BambooSpell {
 	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE.get()
 			.build(GlimmeringTales.loc("bamboo")).cost(20)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), Items.BAMBOO, 1040))
-			.block((b, e) -> b.add(GTTagGen.BAMBOO, new BlockSpell(e, false, 1)))
+			.block((b, e) -> b.add(GTTagGen.BAMBOO, BlockSpell.offset(e)))
 			.lang("Bamboo").desc(
 					"[Block] Generate a bamboo cage",
 					"Generate a spherical cage of bamboo lasting 5 seconds",

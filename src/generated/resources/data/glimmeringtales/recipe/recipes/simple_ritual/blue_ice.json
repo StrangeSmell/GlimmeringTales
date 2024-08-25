@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_winterstorm"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:blue_ice"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:blue_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blue_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blue_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blue_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blue_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blue_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blue_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blue_ice"
+      }
+    }
+  ],
+  "time": 100
+}

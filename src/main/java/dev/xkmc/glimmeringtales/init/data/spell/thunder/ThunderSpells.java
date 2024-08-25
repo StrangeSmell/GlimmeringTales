@@ -18,8 +18,8 @@ public class ThunderSpells {
 	public static final NatureSpellBuilder BUILDER = GTRegistries.THUNDER.get()
 			.build(GlimmeringTales.loc("thunder")).cost(100)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_THUNDER, 1040))
-			.block((b, e) -> b.add(GTItems.STRUCK_LOG, new BlockSpell(e, false, 1)))
-			.block((b, e) -> b.add(Blocks.LIGHTNING_ROD, new BlockSpell(e, false, 1)))
+			.block((b, e) -> b.add(GTItems.STRUCK_LOG, BlockSpell.offset(e)))
+			.block((b, e) -> b.add(Blocks.LIGHTNING_ROD, BlockSpell.offset(e)))
 			.lang("Thunder").desc(
 					"[Block] Create a lightning strike",
 					"Create a lightning strike in target position, inflicting %s multiple times",

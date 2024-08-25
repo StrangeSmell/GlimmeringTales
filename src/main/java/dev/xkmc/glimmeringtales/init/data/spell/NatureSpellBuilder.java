@@ -18,6 +18,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.damagesource.DamageEffects;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.DataMapProvider;
@@ -53,6 +54,10 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 	public NatureSpellBuilder(ResourceLocation id, SpellElement elem) {
 		this.id = id;
 		this.elem = elem;
+	}
+
+	public final NatureSpellBuilder damageFreeze() {
+		return damageVanilla(() -> new DamageType("freeze", 0, DamageEffects.FREEZING), GTDamageTypeGen.freeze());
 	}
 
 	@SafeVarargs

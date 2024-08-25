@@ -44,7 +44,7 @@ public class AmethystSpells {
 					DamageTypeTags.IS_PROJECTILE)
 			.projectile(AmethystSpells::proj)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_AMETHYST, 1030))
-			.block((b, e) -> b.add(GTTagGen.AMETHYST, new BlockSpell(e, true, 0)))
+			.block((b, e) -> b.add(GTTagGen.AMETHYST, BlockSpell.cost(e)))
 			.lang("Scattering Amethyst").desc(
 					"[Block] Splash amethyst shards",
 					"Create a semisphere of amethyst shards, dealing %s and stack %s",

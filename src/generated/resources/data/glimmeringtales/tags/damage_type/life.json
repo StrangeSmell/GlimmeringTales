@@ -1,6 +1,12 @@
 {
   "values": [
     "glimmeringtales:vine",
-    "glimmeringtales:cactus"
+    "glimmeringtales:cactus",
+    "glimmeringtales:cactus-magic",
+    "glimmeringtales:cactus-bypass_magic",
+    "glimmeringtales:cactus-bypass_magic-magic",
+    "glimmeringtales:vine-magic",
+    "glimmeringtales:vine-bypass_magic",
+    "glimmeringtales:vine-bypass_magic-magic"
   ]
 }

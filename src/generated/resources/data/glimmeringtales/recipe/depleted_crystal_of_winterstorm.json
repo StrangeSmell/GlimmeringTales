@@ -3,16 +3,22 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "minecraft:blue_ice"
+      "item": "minecraft:ice"
     },
     "B": {
+      "item": "minecraft:packed_ice"
+    },
+    "C": {
+      "item": "minecraft:blue_ice"
+    },
+    "X": {
       "item": "glimmeringtales:crystal_of_nature"
     }
   },
   "pattern": [
-    "AAA",
-    "ABA",
-    "AAA"
+    "ACA",
+    "BXB",
+    "ACA"
   ],
   "result": {
     "count": 1,

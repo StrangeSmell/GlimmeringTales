@@ -39,7 +39,7 @@ public class CactusSpell {
 					DamageTypeTags.IS_PROJECTILE)
 			.projectile(CactusSpell::proj)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), Items.CACTUS, 1030))
-			.block((b, e) -> b.add(Blocks.CACTUS, new BlockSpell(e, true, 1)))
+			.block((b, e) -> b.add(Blocks.CACTUS, BlockSpell.costOff(e)))
 			.lang("Cactus").desc(
 					"[Block] Splash cactus spikes",
 					"Shoot cactus spikes forming a circle, dealing %s ",
@@ -57,7 +57,7 @@ public class CactusSpell {
 				new CustomProjectileShoot(
 						DoubleVariable.of("1"),
 						ctx.proj,
-						IntVariable.of("20"),
+						IntVariable.of("rand(8,12)"),
 						false, true,
 						Map.of()
 				).move(new RotationModifier(
@@ -75,7 +75,7 @@ public class CactusSpell {
 				.tick(new SimpleParticleInstance(
 						ParticleTypes.CRIT,
 						DoubleVariable.of("rand(" + 0.5 + "," + 1 + ")")
-				).move(ForwardOffsetModifier.of("-0.2")))
+				).move(ForwardOffsetModifier.of("rand(-0.2,-0.1)")))
 				.hit(new DamageProcessor(ctx.damage(), DMG, true, true))
 				.size(DoubleVariable.of("0.25"))
 				.motion(SimpleMotion.ZERO)

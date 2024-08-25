@@ -46,9 +46,11 @@ public class GTRecipeGen {
 					.save(pvd);
 
 			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GTItems.DEPLETED_WINTERSTORM.get())::unlockedBy, GTItems.CRYSTAL_NATURE.get())
-					.pattern("AAA").pattern("ABA").pattern("AAA")
-					.define('A', Items.BLUE_ICE)
-					.define('B', GTItems.CRYSTAL_NATURE)
+					.pattern("ACA").pattern("BXB").pattern("ACA")
+					.define('A', Items.ICE)
+					.define('B', Items.PACKED_ICE)
+					.define('C', Items.BLUE_ICE)
+					.define('X', GTItems.CRYSTAL_NATURE)
 					.save(pvd);
 
 			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GTItems.CRYSTAL_VINE.get())::unlockedBy, GTItems.CRYSTAL_NATURE.get())
@@ -177,8 +179,15 @@ public class GTRecipeGen {
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.RUNE_ICE)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
-					.side(Items.PACKED_ICE, 4)
-					.side(Items.ICE, 4)
+					.side(Items.ICE, 8)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.RUNE_PACKED_ICE)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
+					.side(Items.PACKED_ICE, 8)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.RUNE_BLUE_ICE)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
+					.side(Items.BLUE_ICE, 8)
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.RUNE_POWDER_SNOW)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())

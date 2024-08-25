@@ -4,7 +4,9 @@ import dev.xkmc.glimmeringtales.init.data.spell.advanced.FlameSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.advanced.SnowSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.earth.*;
 import dev.xkmc.glimmeringtales.init.data.spell.flame.MagmaSpells;
+import dev.xkmc.glimmeringtales.init.data.spell.flame.SoulSandSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.life.*;
+import dev.xkmc.glimmeringtales.init.data.spell.snow.IceSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.thunder.ThunderSpells;
 
 import java.util.ArrayList;
@@ -39,6 +41,10 @@ public class NatureSpellGenRegistry {
 		// others
 		LIST.addAll(List.of(
 				MagmaSpells.BUILDER,
+				SoulSandSpells.BUILDER,
+				IceSpells.ICE,
+				IceSpells.PACK_ICE,
+				IceSpells.BLUE_ICE,
 				ThunderSpells.BUILDER
 		));
 

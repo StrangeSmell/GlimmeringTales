@@ -71,7 +71,7 @@ public class GTItems {
 	public static final ItemEntry<BlockRuneItem>
 			RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE, RUNE_HAYBALE,
 			RUNE_SAND, RUNE_GRAVEL, RUNE_QUARTZ, RUNE_CLAY, RUNE_STONE, RUNE_DRIPSTONE, RUNE_AMETHYST,
-			RUNE_MAGMA, RUNE_SOUL_SAND, RUNE_SNOW, RUNE_ICE, RUNE_POWDER_SNOW,
+			RUNE_MAGMA, RUNE_SOUL_SAND, RUNE_SNOW, RUNE_ICE, RUNE_PACKED_ICE, RUNE_BLUE_ICE, RUNE_POWDER_SNOW,
 			RUNE_THUNDER;
 
 	public static final ItemEntry<SpellRuneItem>
@@ -189,8 +189,10 @@ public class GTItems {
 			RUNE_SOUL_SAND = rune("soul_sand", () -> Blocks.SOUL_SAND, "Rune: Soul Sand");
 
 			RUNE_SNOW = rune("snow", () -> Blocks.SNOW_BLOCK, "Rune: Snow");
-			RUNE_ICE = rune("ice", () -> Blocks.ICE, "Rune: Ice");
 			RUNE_POWDER_SNOW = rune("powder_snow", () -> Blocks.POWDER_SNOW, "Rune: Powder Snow");
+			RUNE_ICE = rune("ice", () -> Blocks.ICE, "Rune: Ice");
+			RUNE_PACKED_ICE = rune("packed_ice", () -> Blocks.PACKED_ICE, "Rune: Packed Ice");
+			RUNE_BLUE_ICE = rune("blue_ice", () -> Blocks.BLUE_ICE, "Rune: Blue Ice");
 
 			RUNE_THUNDER = rune("thunder", STRUCK_LOG::get, "Rune: Thunder");
 

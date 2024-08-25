@@ -1,6 +1,14 @@
 {
   "values": [
+    "glimmeringtales:ice",
+    "glimmeringtales:packed_ice",
+    "glimmeringtales:blue_ice",
     "glimmeringtales:winter_storm",
-    "glimmeringtales:snow_tornado"
+    "glimmeringtales:snow_tornado",
+    "glimmeringtales:blue_ice-bypass_magic",
+    "glimmeringtales:ice-bypass_magic",
+    "glimmeringtales:packed_ice-bypass_magic",
+    "glimmeringtales:snow_tornado-bypass_magic",
+    "glimmeringtales:winter_storm-bypass_magic"
   ]
 }

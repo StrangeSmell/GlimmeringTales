@@ -1,0 +1,14 @@
+{
+  "cost": 60,
+  "elem": "glimmeringtales:flame",
+  "maxConsumeTick": 0,
+  "spell": "glimmeringtales:soul_sand",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
+}

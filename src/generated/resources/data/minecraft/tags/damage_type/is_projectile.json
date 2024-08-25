@@ -4,6 +4,11 @@
     "glimmeringtales:amethyst",
     "glimmeringtales:sand",
     "glimmeringtales:gravel",
-    "glimmeringtales:cactus"
+    "glimmeringtales:cactus",
+    "glimmeringtales:amethyst-bypass_magic",
+    "glimmeringtales:cactus-bypass_magic",
+    "glimmeringtales:dripstone-bypass_magic",
+    "glimmeringtales:gravel-bypass_magic",
+    "glimmeringtales:sand-bypass_magic"
   ]
 }

@@ -45,7 +45,7 @@ public class GravelSpells {
 					"%s is scratched to death by flint", "%s is scratched to death by %s with flint",
 					DamageTypeTags.IS_PROJECTILE)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_GRAVEL, 1060))
-			.block((b, e) -> b.add(Tags.Blocks.GRAVELS, new BlockSpell(e, false, 0)))
+			.block((b, e) -> b.add(Tags.Blocks.GRAVELS, BlockSpell.of(e)))
 			.lang("Flint Storm").desc(
 					"[Block] Create flint storm",
 					"Create a flint storm, dealing %s, and inflict %s",

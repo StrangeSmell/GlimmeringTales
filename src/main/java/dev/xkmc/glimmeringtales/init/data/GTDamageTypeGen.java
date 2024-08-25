@@ -1,26 +1,50 @@
 package dev.xkmc.glimmeringtales.init.data;
 
+import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellGenRegistry;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
+import dev.xkmc.l2core.util.MathHelper;
 import dev.xkmc.l2damagetracker.contents.damage.DamageTypeRoot;
+import dev.xkmc.l2damagetracker.contents.damage.DamageTypeWrapper;
 import dev.xkmc.l2damagetracker.contents.damage.DefaultDamageState;
+import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import dev.xkmc.l2damagetracker.init.data.DamageTypeAndTagsGen;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
+import net.neoforged.neoforge.common.Tags;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Supplier;
 
 public class GTDamageTypeGen extends DamageTypeAndTagsGen {
+
+	@SafeVarargs
+	public static TagKey<DamageType>[] magic(TagKey<DamageType>... tags) {
+		return MathHelper.merge(tags, Tags.DamageTypes.IS_MAGIC, DamageTypeTags.BYPASSES_ARMOR);
+	}
+
+	@SafeVarargs
+	public static TagKey<DamageType>[] freeze(TagKey<DamageType>... tags) {
+		return MathHelper.merge(tags, DamageTypeTags.IS_FREEZING, DamageTypeTags.NO_KNOCKBACK, DamageTypeTags.BYPASSES_ARMOR);
+	}
+
+
+	protected final List<DamageTypeWrapper> list = new ArrayList<>();
 
 	public GTDamageTypeGen(L2Registrate reg) {
 		super(reg);
 		for (var e : NatureSpellGenRegistry.LIST) {
 			e.registerDamage(this);
 		}
+		DamageTypeRoot.configureGeneration(Set.of(L2DamageTracker.MODID, GlimmeringTales.MODID), GlimmeringTales.MODID, list);
 	}
+
 
 	@SafeVarargs
 	public final void genDamage(ResourceKey<DamageType> id, Supplier<DamageType> def, TagKey<DamageType>... tags) {
@@ -28,6 +52,24 @@ public class GTDamageTypeGen extends DamageTypeAndTagsGen {
 		new DamageTypeHolder(id, def.get()).add(tags);
 		root.add(DefaultDamageState.BYPASS_MAGIC);
 		root.add(GTDamageStates.MAGIC);
+	}
+
+	@Override
+	protected void addDamageTypes(BootstrapContext<DamageType> ctx) {
+		super.addDamageTypes(ctx);
+		DamageTypeRoot.generateAll();
+		for (DamageTypeWrapper wrapper : list) {
+			ctx.register(wrapper.type(), wrapper.getObject());
+		}
+	}
+
+	@Override
+	protected void addDamageTypeTags(RegistrateTagsProvider.Impl<DamageType> pvd) {
+		super.addDamageTypeTags(pvd);
+		DamageTypeRoot.generateAll();
+		for (DamageTypeWrapper wrapper : list) {
+			wrapper.gen(pvd::addTag);
+		}
 	}
 
 }

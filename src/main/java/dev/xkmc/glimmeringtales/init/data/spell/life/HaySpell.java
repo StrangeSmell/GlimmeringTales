@@ -28,11 +28,11 @@ import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
 
-public class HaySpell  {
+public class HaySpell {
 	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE.get()
 			.build(GlimmeringTales.loc("procreation")).cost(40)
-			.spell(ctx -> NatureSpellEntry.ofBlock(procreation(ctx,4, 1.5, 1),Items.WHEAT, 1030))
-			.block((b, e) -> b.add(Blocks.HAY_BLOCK, new BlockSpell(e, true, 1)))
+			.spell(ctx -> NatureSpellEntry.ofBlock(procreation(ctx, 4, 1.5, 1), Items.WHEAT, 1030))
+			.block((b, e) -> b.add(Blocks.HAY_BLOCK, BlockSpell.costOff(e)))
 			.lang("Procreation").desc(
 					"[Block] Breed nearby animals",
 					"Feed all nearby animals",

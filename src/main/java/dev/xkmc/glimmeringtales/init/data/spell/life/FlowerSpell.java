@@ -18,7 +18,7 @@ public class FlowerSpell {
 	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE.get()
 			.build(GlimmeringTales.loc("flower")).cost(40)
 			.spell(ctx -> NatureSpellEntry.ofBlock(flower(ctx), Items.ALLIUM, 1030))
-			.block((b, e) -> b.add(BlockTags.FLOWERS, new BlockSpell(e, true, 1)))
+			.block((b, e) -> b.add(BlockTags.FLOWERS, BlockSpell.costOff(e)))
 			.lang("Flower").desc(
 					"[Block] Create a healing cloud",
 					"Create a lingering effect cloud of instant healing",

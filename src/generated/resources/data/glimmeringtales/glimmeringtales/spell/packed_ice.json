@@ -1,0 +1,18 @@
+{
+  "cost": 60,
+  "elem": "glimmeringtales:snow",
+  "maxConsumeTick": 0,
+  "spell": "glimmeringtales:packed_ice",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      },
+      {
+        "id": "l2magic:effect",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
+}

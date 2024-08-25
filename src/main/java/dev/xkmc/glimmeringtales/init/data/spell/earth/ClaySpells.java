@@ -24,8 +24,8 @@ public class ClaySpells {
 	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH.get()
 			.build(GlimmeringTales.loc("clay")).cost(20)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_CLAY, 1020))
-			.block((b, e) -> b.add(Blocks.CLAY, new BlockSpell(e, false, 0)))
-			.block((b, e) -> b.add(GTItems.CLAY_CARPET, new BlockSpell(e, false, 0)))
+			.block((b, e) -> b.add(Blocks.CLAY, BlockSpell.of(e)))
+			.block((b, e) -> b.add(GTItems.CLAY_CARPET, BlockSpell.of(e)))
 			.lang("Clay Overflow").desc(
 					"[Block] Form a circular carpet to trap entities",
 					"Create a circular field of clay carpet lasting 5 seconds to immobilize entities",

@@ -1,6 +1,16 @@
 {
   "values": [
+    "glimmeringtales:soul_sand",
     "glimmeringtales:hell_mark",
-    "glimmeringtales:lava_burst"
+    "glimmeringtales:lava_burst",
+    "glimmeringtales:hell_mark-magic",
+    "glimmeringtales:hell_mark-bypass_magic",
+    "glimmeringtales:hell_mark-bypass_magic-magic",
+    "glimmeringtales:lava_burst-magic",
+    "glimmeringtales:lava_burst-bypass_magic",
+    "glimmeringtales:lava_burst-bypass_magic-magic",
+    "glimmeringtales:soul_sand-magic",
+    "glimmeringtales:soul_sand-bypass_magic",
+    "glimmeringtales:soul_sand-bypass_magic-magic"
   ]
 }

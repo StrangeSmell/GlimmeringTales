@@ -34,6 +34,7 @@ import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.damagesource.DamageEffects;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
@@ -44,7 +45,7 @@ public class FlameSpells {
 
 	public static final NatureSpellBuilder HM = GTRegistries.FLAME.get()
 			.build(GlimmeringTales.loc("hell_mark")).cost(160)
-			.damageVanilla(() -> new DamageType("onFire", 0.1f), DamageTypeTags.IS_FIRE)
+			.damageVanilla(() -> new DamageType("onFire", 0, DamageEffects.BURNING), DamageTypeTags.IS_FIRE)
 			.spell(ctx -> new SpellAction(flameBurst(ctx),
 					GTItems.HELL_MARK.get(), 200,
 					SpellCastType.INSTANT, SpellTriggerType.TARGET_POS

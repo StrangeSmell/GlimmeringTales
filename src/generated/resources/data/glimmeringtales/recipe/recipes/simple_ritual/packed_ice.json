@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_winterstorm"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:packed_ice"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:packed_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:packed_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:packed_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:packed_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:packed_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:packed_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:packed_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:packed_ice"
+      }
+    }
+  ],
+  "time": 100
+}

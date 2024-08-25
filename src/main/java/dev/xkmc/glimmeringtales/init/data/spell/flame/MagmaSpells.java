@@ -21,8 +21,8 @@ public class MagmaSpells {
 	public static final NatureSpellBuilder BUILDER = GTRegistries.FLAME.get()
 			.build(GlimmeringTales.loc("magma")).cost(20)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_MAGMA, 1040))
-			.block((b, e) -> b.add(Blocks.MAGMA_BLOCK, new BlockSpell(e, false, 0)))
-			.block((b, e) -> b.add(GTTagGen.FAKE_MAGMA, new BlockSpell(e, false, 0)))
+			.block((b, e) -> b.add(Blocks.MAGMA_BLOCK, BlockSpell.of(e)))
+			.block((b, e) -> b.add(GTTagGen.FAKE_MAGMA, BlockSpell.of(e)))
 			.lang("Meltdown").desc(
 					"[Block] Melts stones into magma temporarily",
 					"Melts stone, deep slate, and netherrack in a circular area for 5 seconds",

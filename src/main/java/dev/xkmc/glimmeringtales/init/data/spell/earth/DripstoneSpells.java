@@ -43,8 +43,8 @@ public class DripstoneSpells {
 					DamageTypeTags.IS_PROJECTILE)
 			.projectile(DripstoneSpells::proj)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_DRIPSTONE, 1010))
-			.block((b, e) -> b.add(Blocks.DRIPSTONE_BLOCK, new BlockSpell(e, false, 0)))
-			.block((b, e) -> b.add(Blocks.POINTED_DRIPSTONE, new BlockSpell(e, true, 0)))
+			.block((b, e) -> b.add(Blocks.DRIPSTONE_BLOCK, BlockSpell.of(e)))
+			.block((b, e) -> b.add(Blocks.POINTED_DRIPSTONE, BlockSpell.cost(e)))
 			.lang("Stalactite Burst").desc(
 					"[Block] Shoot stalagmite spikes from ground",
 					"Shoot stalagmite spikes from ground to pierce entities, dealing %s and inflict %s",

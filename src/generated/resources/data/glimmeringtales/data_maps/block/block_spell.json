@@ -1,99 +1,172 @@
 {
   "values": {
     "#c:gravels": {
+      "allowSelf": false,
       "breakBlock": false,
       "noBlockOffset": 0,
-      "spell": "glimmeringtales:gravel"
+      "spell": "glimmeringtales:gravel",
+      "targetLiquid": false
     },
     "#c:stones": {
+      "allowSelf": true,
       "breakBlock": false,
       "noBlockOffset": 0,
-      "spell": "glimmeringtales:stone"
+      "spell": "glimmeringtales:stone",
+      "targetLiquid": false
     },
     "#glimmeringtales:amethyst": {
+      "allowSelf": false,
       "breakBlock": true,
       "noBlockOffset": 0,
-      "spell": "glimmeringtales:amethyst"
+      "spell": "glimmeringtales:amethyst",
+      "targetLiquid": false
     },
     "#glimmeringtales:bamboo": {
+      "allowSelf": false,
       "breakBlock": false,
       "noBlockOffset": 1,
-      "spell": "glimmeringtales:bamboo"
+      "spell": "glimmeringtales:bamboo",
+      "targetLiquid": false
     },
     "#glimmeringtales:fake_magma": {
+      "allowSelf": false,
       "breakBlock": false,
       "noBlockOffset": 0,
-      "spell": "glimmeringtales:magma"
+      "spell": "glimmeringtales:magma",
+      "targetLiquid": false
     },
     "#glimmeringtales:quartz": {
+      "allowSelf": false,
       "breakBlock": false,
       "noBlockOffset": 0,
-      "spell": "glimmeringtales:quartz"
+      "spell": "glimmeringtales:quartz",
+      "targetLiquid": false
     },
     "#glimmeringtales:vine": {
+      "allowSelf": false,
       "breakBlock": true,
       "noBlockOffset": 1,
-      "spell": "glimmeringtales:vine"
+      "spell": "glimmeringtales:vine",
+      "targetLiquid": false
     },
     "#minecraft:flowers": {
+      "allowSelf": false,
       "breakBlock": true,
       "noBlockOffset": 1,
-      "spell": "glimmeringtales:flower"
+      "spell": "glimmeringtales:flower",
+      "targetLiquid": false
     },
     "#minecraft:sand": {
+      "allowSelf": false,
       "breakBlock": false,
       "noBlockOffset": 0,
-      "spell": "glimmeringtales:sand"
+      "spell": "glimmeringtales:sand",
+      "targetLiquid": false
+    },
+    "#minecraft:soul_fire_base_blocks": {
+      "allowSelf": false,
+      "breakBlock": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:soul_sand",
+      "targetLiquid": false
     },
     "glimmeringtales:clay_carpet": {
+      "allowSelf": false,
       "breakBlock": false,
       "noBlockOffset": 0,
-      "spell": "glimmeringtales:clay"
+      "spell": "glimmeringtales:clay",
+      "targetLiquid": false
     },
     "glimmeringtales:stone": {
+      "allowSelf": true,
       "breakBlock": false,
       "noBlockOffset": 0,
-      "spell": "glimmeringtales:stone"
+      "spell": "glimmeringtales:stone",
+      "targetLiquid": false
     },
     "glimmeringtales:struck_log": {
+      "allowSelf": false,
       "breakBlock": false,
       "noBlockOffset": 1,
-      "spell": "glimmeringtales:thunder"
+      "spell": "glimmeringtales:thunder",
+      "targetLiquid": false
+    },
+    "minecraft:blue_ice": {
+      "allowSelf": false,
+      "breakBlock": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:blue_ice",
+      "targetLiquid": true
     },
     "minecraft:cactus": {
+      "allowSelf": false,
       "breakBlock": true,
       "noBlockOffset": 1,
-      "spell": "glimmeringtales:cactus"
+      "spell": "glimmeringtales:cactus",
+      "targetLiquid": false
     },
     "minecraft:clay": {
+      "allowSelf": false,
       "breakBlock": false,
       "noBlockOffset": 0,
-      "spell": "glimmeringtales:clay"
+      "spell": "glimmeringtales:clay",
+      "targetLiquid": false
     },
     "minecraft:dripstone_block": {
+      "allowSelf": false,
       "breakBlock": false,
       "noBlockOffset": 0,
-      "spell": "glimmeringtales:dripstone"
+      "spell": "glimmeringtales:dripstone",
+      "targetLiquid": false
+    },
+    "minecraft:frosted_ice": {
+      "allowSelf": false,
+      "breakBlock": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:ice",
+      "targetLiquid": true
     },
     "minecraft:hay_block": {
+      "allowSelf": false,
       "breakBlock": true,
       "noBlockOffset": 1,
-      "spell": "glimmeringtales:procreation"
+      "spell": "glimmeringtales:procreation",
+      "targetLiquid": false
+    },
+    "minecraft:ice": {
+      "allowSelf": false,
+      "breakBlock": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:ice",
+      "targetLiquid": true
     },
     "minecraft:lightning_rod": {
+      "allowSelf": false,
       "breakBlock": false,
       "noBlockOffset": 1,
-      "spell": "glimmeringtales:thunder"
+      "spell": "glimmeringtales:thunder",
+      "targetLiquid": false
     },
     "minecraft:magma_block": {
+      "allowSelf": false,
       "breakBlock": false,
       "noBlockOffset": 0,
-      "spell": "glimmeringtales:magma"
+      "spell": "glimmeringtales:magma",
+      "targetLiquid": false
+    },
+    "minecraft:packed_ice": {
+      "allowSelf": false,
+      "breakBlock": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:packed_ice",
+      "targetLiquid": true
     },
     "minecraft:pointed_dripstone": {
+      "allowSelf": false,
       "breakBlock": true,
       "noBlockOffset": 0,
-      "spell": "glimmeringtales:dripstone"
+      "spell": "glimmeringtales:dripstone",
+      "targetLiquid": false
     }
   }
 }

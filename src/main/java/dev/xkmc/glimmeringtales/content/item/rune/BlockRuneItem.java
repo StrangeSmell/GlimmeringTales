@@ -55,7 +55,7 @@ public class BlockRuneItem extends Item implements IBlockSpellItem {
 		var opt = getSpell(user.level().registryAccess());
 		if (opt.isEmpty()) return false;
 		var spell = opt.get();
-		var ctx = BlockSpellContext.entitySpellContext(user.user(), entityTrace(), spell.noBlockOffset());
+		var ctx = BlockSpellContext.entitySpellContext(user.user(), entityTrace(), spell);
 		if (ctx == null) return false;
 		return execute(spell.spell().value(), ctx.ctx(), user, DefaultAffinity.INS, 0, false);
 	}

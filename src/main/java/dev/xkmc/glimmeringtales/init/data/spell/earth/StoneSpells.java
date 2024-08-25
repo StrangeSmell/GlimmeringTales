@@ -23,8 +23,8 @@ public class StoneSpells {
 	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH.get()
 			.build(GlimmeringTales.loc("stone")).cost(20)
 			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_STONE, 1040))
-			.block((b, e) -> b.add(Tags.Blocks.STONES, new BlockSpell(e, false, 0)))
-			.block((b, e) -> b.add(GTItems.FAKE_STONE, new BlockSpell(e, false, 0)))
+			.block((b, e) -> b.add(Tags.Blocks.STONES, BlockSpell.self(e)))
+			.block((b, e) -> b.add(GTItems.FAKE_STONE, BlockSpell.self(e)))
 			.lang("Stone Cliff").desc(
 					"[Block] Create temporary stone floor",
 					"Create a circular stone floor lasting 5 seconds",

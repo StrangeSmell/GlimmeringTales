@@ -30,7 +30,7 @@
     "modifiers": [
       {
         "type": "l2magic:forward",
-        "distance": "-0.2"
+        "distance": "rand(-0.2,-0.1)"
       }
     ]
   }
