@@ -2,5 +2,17 @@
   "cost": 20,
   "elem": "glimmeringtales:earth",
   "maxConsumeTick": 0,
-  "spell": "glimmeringtales:sand"
+  "spell": "glimmeringtales:sand",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      },
+      {
+        "id": "l2magic:effect",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
 }

@@ -2,5 +2,13 @@
   "cost": 40,
   "elem": "glimmeringtales:life",
   "maxConsumeTick": 0,
-  "spell": "glimmeringtales:vine"
+  "spell": "glimmeringtales:vine",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
 }

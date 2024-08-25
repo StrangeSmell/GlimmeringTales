@@ -2,6 +2,7 @@ package dev.xkmc.glimmeringtales.init;
 
 import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.glimmeringtales.content.block.ritual.BaseRitualBlockEntity;
+import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipRegistry;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.init.data.*;
 import dev.xkmc.glimmeringtales.init.reg.GTEngine;
@@ -13,6 +14,7 @@ import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import dev.xkmc.l2core.init.reg.simple.Reg;
 import dev.xkmc.l2core.serial.config.PacketHandlerWithConfig;
 import dev.xkmc.l2magic.content.engine.core.ProcessorType;
+import dev.xkmc.l2magic.content.engine.spell.SpellAction;
 import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import dev.xkmc.l2serial.serialization.custom_handler.Handlers;
 import dev.xkmc.l2serial.util.Wrappers;
@@ -50,12 +52,14 @@ public class GlimmeringTales {
 		GTRecipes.register();
 		GTEngine.register();
 		Handlers.registerReg(NatureSpell.class, GTRegistries.SPELL);
+		Handlers.registerReg(SpellAction.class, EngineRegistry.SPELL);
 		Handlers.enableVanilla(Wrappers.cast(ProcessorType.class), EngineRegistry.PROCESSOR.registry().get());
 	}
 
 	@SubscribeEvent
 	public static void setup(final FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
+			SpellTooltipRegistry.init();
 		});
 	}
 
@@ -76,6 +80,12 @@ public class GlimmeringTales {
 		event.registerItem(Capabilities.ItemHandler.ITEM, (stack, c) -> new BaseBagItemHandler(stack), GTItems.WAND);
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GTItems.ALTAR_BE.get(), BaseRitualBlockEntity::getItemHandler);
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GTItems.MATRIX_BE.get(), BaseRitualBlockEntity::getItemHandler);
+	}
+
+
+	@SubscribeEvent(priority = EventPriority.HIGHEST)
+	public static void gatherDataInit(GatherDataEvent event){
+		SpellTooltipRegistry.init();
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGH)

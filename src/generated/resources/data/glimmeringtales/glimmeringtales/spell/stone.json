@@ -2,5 +2,8 @@
   "cost": 20,
   "elem": "glimmeringtales:earth",
   "maxConsumeTick": 0,
-  "spell": "glimmeringtales:stone"
+  "spell": "glimmeringtales:stone",
+  "tooltip": {
+    "list": []
+  }
 }

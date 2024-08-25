@@ -2,5 +2,8 @@
   "cost": 40,
   "elem": "glimmeringtales:life",
   "maxConsumeTick": 0,
-  "spell": "glimmeringtales:flower"
+  "spell": "glimmeringtales:flower",
+  "tooltip": {
+    "list": []
+  }
 }

@@ -2,5 +2,17 @@
   "cost": 40,
   "elem": "glimmeringtales:earth",
   "maxConsumeTick": 0,
-  "spell": "glimmeringtales:dripstone"
+  "spell": "glimmeringtales:dripstone",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      },
+      {
+        "id": "l2magic:effect",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
 }

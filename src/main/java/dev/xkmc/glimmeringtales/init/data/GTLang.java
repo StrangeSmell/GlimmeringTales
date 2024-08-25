@@ -12,11 +12,21 @@ public enum GTLang {
 	TOOLTIP_AFFINITY("tooltip.affinity", "[%s] affinity: %s", 2),
 	TOOLTIP_SPELL("tooltip.spell", "%s - [%s]", 2),
 	TOOLTIP_COST("tooltip.cost", "Spell cost: %s", 1),
-	TOOLTIP_COST_CONT("tooltip.cost_cont", "Spell cost: %s per tick", 1),
-	TOOLTIP_COST_CAPPED("tooltip.cost_capped", "Spell cost: %s per tick, at most %s", 2),
+	TOOLTIP_COST_CONT("tooltip.cost_cont", "%s per tick", 1),
+	TOOLTIP_COST_CAPPED("tooltip.cost_capped", "%s per tick, at most %s", 2),
 
 	OVERLAY_DESTROY("overlay.destroy", "Consume target block", 0),
 	OVERLAY_MANA("overlay.mana", "Mana: %s / %s", 2),
+
+	DESC_DAMAGE("desc.damage", "Damage", 0),
+	DESC_FIRE("desc.fire", "Fire", 0),
+	DESC_EXPLOSION("desc.explosion", "Explosion", 0),
+	DESC_FREEZING("desc.freezing", "Freezing", 0),
+	DESC_PROJECTILE("desc.projectile", "Projectile", 0),
+	DESC_LIGHTNING("desc.lightning", "Lightning", 0),
+	DESC_MAGIC("desc.magic", "Magic", 0),
+	DESC_SPACE("desc.space", " ", 0),
+	DESC_DMG("desc.damage_number", "%s", 1),
 
 	JEI_STRIKE_ITEM("jei.strike_item", "Lightning Strikes Item", 0),
 	JEI_STRIKE_BLOCK("jei.strike_block", "Lightning Strikes Block", 0),

@@ -2,5 +2,13 @@
   "cost": 160,
   "elem": "glimmeringtales:flame",
   "maxConsumeTick": 0,
-  "spell": "glimmeringtales:hell_mark"
+  "spell": "glimmeringtales:hell_mark",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
 }

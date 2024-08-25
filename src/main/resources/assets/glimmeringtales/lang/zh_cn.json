@@ -74,11 +74,22 @@
   "glimmeringtales.tooltip.nearby_grow": "相邻的作物自然生长至成熟的瞬间才会生长",
   "glimmeringtales.tooltip.affinity": "[%s]亲和度: %s",
   "glimmeringtales.tooltip.cost": "魔力消耗：%s",
-  "glimmeringtales.tooltip.cost_cont": "魔力消耗：每刻%s",
-  "glimmeringtales.tooltip.cost_capped": "魔力消耗：每刻%s，上限%s",
+  "glimmeringtales.tooltip.cost_cont": "每刻%s",
+  "glimmeringtales.tooltip.cost_capped": "每刻%s，上限%s",
   "glimmeringtales.tooltip.spell": "%s - [%s]",
   "glimmeringtales.overlay.destroy": "消耗目标方块",
   "glimmeringtales.overlay.mana": "魔力: %s / %s",
+
+  "glimmeringtales.desc.damage": "伤害",
+  "glimmeringtales.desc.damage_number": "%s点",
+  "glimmeringtales.desc.fire": "火焰",
+  "glimmeringtales.desc.explosion": "爆炸",
+  "glimmeringtales.desc.freezing": "冰冻",
+  "glimmeringtales.desc.lightning": "雷电",
+  "glimmeringtales.desc.magic": "魔法",
+  "glimmeringtales.desc.projectile": "弹射物",
+  "glimmeringtales.desc.space": "",
+
   "glimmeringtales.jei.strike_block": "雷击方块",
   "glimmeringtales.jei.strike_item": "雷击物品",
   "glimmeringtales.jei.transform": "物品特殊转化",
@@ -125,6 +136,7 @@
   "death.attack.glimmeringtales.sand.player": "%s is buried by %s's sandstorm",
   "death.attack.glimmeringtales.vine": "%s is choked vines",
   "death.attack.glimmeringtales.vine.player": "%s is choked by %s with vines",
+
   "nature_spell.glimmeringtales.amethyst.brief": "[Block] Splash amethyst shards",
   "nature_spell.glimmeringtales.amethyst.detail": "Create a semisphere of amethyst shards, dealing %s and stack %s",
   "nature_spell.glimmeringtales.bamboo.brief": "[Block] Generate a bamboo cage",
@@ -156,8 +168,10 @@
   "nature_spell.glimmeringtales.vine.brief": "[Block] Pull enemies to center",
   "nature_spell.glimmeringtales.vine.detail": "Pull surrounding enemies toward target position, dealing %s",
   "nature_spell.glimmeringtales.winter_storm.brief": "[Continuous] Create a circle of storm",
-  "nature_spell.glimmeringtales.winter_storm.detail": "Continuous Attack: Create a circle of storm, dealing %s, inflict %s, and push enemies away"
-
-
+  "nature_spell.glimmeringtales.winter_storm.detail": "Continuous Attack: Create a circle of storm, dealing %s, inflict %s, and push enemies away",
+  "nature_spell.glimmeringtales.magma.brief": "[Block] Melts stones into magma temporarily",
+  "nature_spell.glimmeringtales.magma.detail": "Melts stone, deep slate, and netherrack in a circular area for 5 seconds",
+  "nature_spell.glimmeringtales.thunder.brief": "[Block] Create a lightning strike",
+  "nature_spell.glimmeringtales.thunder.detail": "Create a lightning strike in target position, inflicting %s multiple times"
 
 }

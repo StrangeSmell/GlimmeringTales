@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.content.item.rune;
 
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -41,7 +42,7 @@ public class BlockRuneItem extends Item implements IBlockSpellItem {
 	public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> list, TooltipFlag flag) {
 		var level = ctx.level();
 		if (level == null) return;
-		getSpell(level.registryAccess()).ifPresent(e -> e.spell().value().blockRuneDesc(list));
+		getSpell(level.registryAccess()).ifPresent(e -> NatureSpell.runeItemBlockDesc(e.spell(), level, list));
 	}
 
 	@Override

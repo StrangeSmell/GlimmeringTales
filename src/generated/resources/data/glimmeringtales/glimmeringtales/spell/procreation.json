@@ -2,5 +2,8 @@
   "cost": 40,
   "elem": "glimmeringtales:life",
   "maxConsumeTick": 0,
-  "spell": "glimmeringtales:procreation"
+  "spell": "glimmeringtales:procreation",
+  "tooltip": {
+    "list": []
+  }
 }

@@ -48,7 +48,7 @@ public class SpellRuneItem extends Item implements IWandCoreItem {
 		var level = ctx.level();
 		if (level == null) return;
 		var spell = level.registryAccess().holder(id);
-		spell.ifPresent(e -> e.value().spellRuneDesc(list));
+		spell.ifPresent(e -> NatureSpell.runeItemSpellDesc(e, level, list));
 	}
 
 	public ModelResourceLocation model() {

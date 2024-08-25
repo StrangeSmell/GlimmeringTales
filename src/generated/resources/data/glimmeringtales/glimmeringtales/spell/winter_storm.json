@@ -2,5 +2,17 @@
   "cost": 10,
   "elem": "glimmeringtales:snow",
   "maxConsumeTick": 0,
-  "spell": "glimmeringtales:winter_storm"
+  "spell": "glimmeringtales:winter_storm",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      },
+      {
+        "id": "l2magic:effect",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
 }

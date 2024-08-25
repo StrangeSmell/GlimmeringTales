@@ -2,5 +2,13 @@
   "cost": 10,
   "elem": "glimmeringtales:flame",
   "maxConsumeTick": 30,
-  "spell": "glimmeringtales:lava_burst"
+  "spell": "glimmeringtales:lava_burst",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
 }

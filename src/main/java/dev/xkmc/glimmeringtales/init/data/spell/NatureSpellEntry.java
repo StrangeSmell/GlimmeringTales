@@ -1,6 +1,6 @@
 package dev.xkmc.glimmeringtales.init.data.spell;
 
-import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
+import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.init.data.GTDamageTypeGen;
@@ -51,7 +51,4 @@ public abstract class NatureSpellEntry extends SpellDataGenEntry {
 	public void registerDamage(GTDamageTypeGen gen) {
 	}
 
-	public void regDesc(DataMapProvider.Builder<SpellTooltipData, NatureSpell> desc) {
-
-	}
 }

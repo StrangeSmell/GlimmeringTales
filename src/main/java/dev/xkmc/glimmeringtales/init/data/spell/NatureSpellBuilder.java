@@ -1,7 +1,8 @@
 package dev.xkmc.glimmeringtales.init.data.spell;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
-import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
+import dev.xkmc.glimmeringtales.content.core.description.SpellTooltip;
+import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
@@ -86,7 +87,7 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 
 	public NatureSpellBuilder cost(int cost, int max) {
 		nature = nature(id);
-		this.natureFactory = e -> new NatureSpell(e, elem, cost, max);
+		this.natureFactory = e -> new NatureSpell(e, elem, cost, max, desc == null ? warnEmpty() : desc.data);
 		return this;
 	}
 
@@ -118,6 +119,12 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 		cache = new DataGenContext(ctx);
 		nature.gen(ctx, natureFactory.apply(spell));
 		cache = null;
+		try {
+			new SpellTooltip(nature.value().spell().value().action(), desc.data).verify();
+		} catch (Exception e) {
+			GlimmeringTales.LOGGER.error("Spell {} failed description check", id);
+			GlimmeringTales.LOGGER.throwing(e);
+		}
 	}
 
 	@Override
@@ -168,11 +175,9 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 		}
 	}
 
-	@Override
-	public void regDesc(DataMapProvider.Builder<SpellTooltipData, NatureSpell> pvd) {
-		if (desc != null) {
-			pvd.add(nature.key, desc.data, false);
-		} else GlimmeringTales.LOGGER.error("Spell {} does not have description setup", id);
+	private SpellTooltipData warnEmpty() {
+		GlimmeringTales.LOGGER.error("Spell {} does not have description setup", id);
+		return SpellTooltipData.of();
 	}
 
 	public record BlockSpellBuilder(DataMapProvider.Builder<BlockSpell, Block> builder) {

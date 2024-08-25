@@ -31,10 +31,8 @@ public class GTSpells {
 
 	public static void genMap(RegistrateDataMapProvider pvd) {
 		var block = pvd.builder(GTRegistries.BLOCK.reg());
-		var desc = pvd.builder(GTRegistries.DESCRIPTION.reg());
 		for (var e : NatureSpellGenRegistry.LIST) {
 			e.regBlock(block);
-			e.regDesc(desc);
 		}
 	}
 

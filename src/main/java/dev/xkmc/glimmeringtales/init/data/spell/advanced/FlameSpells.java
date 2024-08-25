@@ -1,6 +1,6 @@
 package dev.xkmc.glimmeringtales.init.data.spell.advanced;
 
-import dev.xkmc.glimmeringtales.content.core.analysis.SpellTooltipData;
+import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;

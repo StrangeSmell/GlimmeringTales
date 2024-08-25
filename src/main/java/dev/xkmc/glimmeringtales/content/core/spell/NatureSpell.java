@@ -1,12 +1,14 @@
 package dev.xkmc.glimmeringtales.content.core.spell;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
+import dev.xkmc.glimmeringtales.content.core.description.SpellTooltip;
+import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.item.rune.DefaultAffinity;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
 import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
+import dev.xkmc.l2serial.serialization.codec.CodecAdaptor;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
@@ -14,6 +16,7 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,32 +24,20 @@ import java.util.List;
 public record NatureSpell(
 		Holder<SpellAction> spell,
 		SpellElement elem,
-		int cost, int maxConsumeTick
+		int cost, int maxConsumeTick,
+		SpellTooltipData tooltip
 ) {
 
 	private static final int MIN_MANA_COST = 1, CAST_COOLDOWN = 10, BREAK_COOLDOWN = 20;
 	private static final double MIN_AFFINITY = 0.2;
 
-	public NatureSpell(Holder<SpellAction> spell, SpellElement elem, int cost) {
-		this(spell, elem, cost, 0);
-	}
-
-	public static final Codec<NatureSpell> CODEC = RecordCodecBuilder.create(i -> i.group(
-			SpellAction.HOLDER.fieldOf("spell").forGetter(NatureSpell::spell),
-			GTRegistries.ELEMENT.reg().byNameCodec().fieldOf("elem").forGetter(NatureSpell::elem),
-			Codec.INT.fieldOf("cost").forGetter(NatureSpell::cost),
-			Codec.INT.fieldOf("maxConsumeTick").forGetter(NatureSpell::maxConsumeTick)
-	).apply(i, NatureSpell::new));
+	public static final Codec<NatureSpell> CODEC = new CodecAdaptor<>(NatureSpell.class);
 
 	public MutableComponent lang() {
 		return Component.translatable(SpellAction.lang(spell().unwrapKey().orElseThrow().location()));
 	}
 
-	public void blockRuneDesc(List<Component> list) {
-		blockRuneDesc(list, 1);
-	}
-
-	public int blockRuneDesc(List<Component> list, double affinity) {
+	public int blockRuneDesc(Level level, List<Component> list, double affinity) {
 		if (affinity < MIN_AFFINITY) affinity = MIN_AFFINITY;
 		int consume = Math.max(MIN_MANA_COST, (int) Math.round(cost / affinity));
 		list.add(GTLang.TOOLTIP_SPELL.get(lang().withStyle(ChatFormatting.GOLD),
@@ -56,11 +47,7 @@ public record NatureSpell(
 		return consume;
 	}
 
-	public void spellRuneDesc(List<Component> list) {
-		spellRuneDesc(list, 1);
-	}
-
-	public int spellRuneDesc(List<Component> list, double affinity) {
+	public int spellRuneDesc(Level level, List<Component> list, double affinity) {
 		if (affinity < MIN_AFFINITY) affinity = MIN_AFFINITY;
 		int consume = Math.max(MIN_MANA_COST, (int) Math.round(cost / affinity));
 		list.add(GTLang.TOOLTIP_SPELL.get(lang().withStyle(ChatFormatting.GOLD),
@@ -68,14 +55,15 @@ public record NatureSpell(
 		list.add(spell().value().castType().desc());
 		list.add(spell().value().triggerType().desc());
 		Component val = Component.literal(consume + "").withStyle(ChatFormatting.BLUE);
-		if (spell().value().castType() == SpellCastType.INSTANT) {
-			list.add(GTLang.TOOLTIP_COST.get(val).withStyle(ChatFormatting.GRAY));
-		} else if (maxConsumeTick <= 0) {
-			list.add(GTLang.TOOLTIP_COST_CONT.get(val).withStyle(ChatFormatting.GRAY));
-		} else {
-			Component max = Component.literal(consume * maxConsumeTick + "").withStyle(ChatFormatting.BLUE);
-			list.add(GTLang.TOOLTIP_COST_CAPPED.get(val, max).withStyle(ChatFormatting.GRAY));
+		if (spell().value().castType() != SpellCastType.INSTANT) {
+			if (maxConsumeTick <= 0) {
+				val = GTLang.TOOLTIP_COST_CONT.get(val).withStyle(ChatFormatting.GRAY);
+			} else {
+				Component max = Component.literal(consume * maxConsumeTick + "").withStyle(ChatFormatting.BLUE);
+				val = GTLang.TOOLTIP_COST_CAPPED.get(val, max).withStyle(ChatFormatting.GRAY);
+			}
 		}
+		list.add(GTLang.TOOLTIP_COST.get(val).withStyle(ChatFormatting.YELLOW));
 		return consume;
 	}
 
@@ -105,13 +93,6 @@ public record NatureSpell(
 		return true;
 	}
 
-	public List<Component> getSpellCastTooltip(Player player, ItemStack wand) {
-		List<Component> list = new ArrayList<>();
-		int cost = spellRuneDesc(list, DefaultAffinity.INS.getFinalAffinity(elem(), player, wand));
-		addMana(list, player, cost);
-		return list;
-	}
-
 	private void addMana(List<Component> list, Player player, int cost) {
 		var mana = GTRegistries.MANA.type().getExisting(player).orElse(null);
 		if (mana == null) return;
@@ -123,10 +104,30 @@ public record NatureSpell(
 		list.add(GTLang.OVERLAY_MANA.get(cval, cmax).withStyle(ChatFormatting.GRAY));
 	}
 
-	public List<Component> getBlockCastTooltip(Player player, ItemStack wand, IAffinityProvider aff) {
+	public static void runeItemBlockDesc(Holder<NatureSpell> spell, Level level, List<Component> list) {
+		spell.value().blockRuneDesc(level, list, 1);
+		var desc = SpellTooltip.get(level, spell);
+		list.add(desc.format(spell.unwrapKey().orElseThrow()));
+	}
+
+	public static void runeItemSpellDesc(Holder<NatureSpell> spell, Level level, List<Component> list) {
+		spell.value().spellRuneDesc(level, list, 1);
+		var desc = SpellTooltip.get(level, spell);
+		list.add(desc.format(spell.unwrapKey().orElseThrow()));
+	}
+
+	public List<Component> getSpellCastTooltip(Player player, ItemStack wand) {
 		List<Component> list = new ArrayList<>();
-		int cost = blockRuneDesc(list, aff.getFinalAffinity(elem(), player, wand));
+		int cost = spellRuneDesc(player.level(), list, DefaultAffinity.INS.getFinalAffinity(elem(), player, wand));
 		addMana(list, player, cost);
 		return list;
 	}
+
+	public List<Component> getBlockCastTooltip(Player player, ItemStack wand, IAffinityProvider aff) {
+		List<Component> list = new ArrayList<>();
+		int cost = blockRuneDesc(player.level(), list, aff.getFinalAffinity(elem(), player, wand));
+		addMana(list, player, cost);
+		return list;
+	}
+
 }
