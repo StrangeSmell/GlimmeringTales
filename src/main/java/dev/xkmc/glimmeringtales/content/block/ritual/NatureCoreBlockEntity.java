@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.content.block.ritual;
 
+import dev.xkmc.glimmeringtales.content.block.altar.CoreRitualBlockEntity;
 import dev.xkmc.glimmeringtales.content.recipe.ritual.RitualInput;
 import dev.xkmc.glimmeringtales.content.recipe.ritual.RitualRecipe;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
@@ -14,13 +15,37 @@ import net.minecraft.world.level.block.state.BlockState;
 @SerialClass
 public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 
+	private static float curve(int m, float lap) {
+		int t = 40;
+		float s = 5;
+		float factor = (s - 1) / 2;
+		if (lap < t) {
+			return lap + lap * lap * factor / t;
+		} else if (lap < m - t) {
+			return lap * s - factor * t;
+		} else if (lap < m) {
+			float diff = m - lap;
+			return m * s - t * (s - 1) - (diff + diff * diff * factor / t);
+		} else return (m - t) * (s - 1) + lap;
+	}
+
 	@SerialField
-	private int remainTime;
+	private int totalTime, remainTime;
+
+	@SerialField
+	private long lastKeyTime, lastTimeStamp;
 
 	@SerialField
 	private ResourceLocation recipeId;
 
 	private RitualRecipe<?> recipe;
+
+	public float getTime(float pTick) {
+		long time = level == null ? 0 : level.getGameTime();
+		float lap = time - lastTimeStamp + pTick;
+		float animTime = totalTime == 0 ? lap : curve(totalTime, lap);
+		return (lastKeyTime + animTime) * 3 % 360;
+	}
 
 	public NatureCoreBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
@@ -35,6 +60,21 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 		}
 	}
 
+	private void laps() {
+		long currentTime = level == null ? 0 : level.getGameTime();
+		long lap = currentTime - lastTimeStamp;
+		lastKeyTime += lap;
+		lastTimeStamp = currentTime;
+	}
+
+	private void stopLap() {
+		long time = level == null ? 0 : level.getGameTime();
+		float lap = time - lastTimeStamp;
+		float animTime = totalTime == 0 ? lap : curve(totalTime, lap);
+		lastKeyTime += (int) animTime;
+		lastTimeStamp = time;
+	}
+
 	public void triggerCraft() {
 		if (level == null || level.isClientSide || remainTime > 0) return;
 		RitualInput input = new RitualInput(this, getLinked());
@@ -42,7 +82,8 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 		if (opt.isEmpty()) return;
 		recipeId = opt.get().id();
 		recipe = opt.get().value();
-		remainTime = recipe.getTime();
+		totalTime = remainTime = recipe.getTime();
+		laps();
 		sync();
 		setChanged();
 	}
@@ -64,7 +105,9 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 		remainTime--;
 		if (remainTime <= 0) {
 			recipe.assemble(new RitualInput(this, getLinked()), level.registryAccess());
+			stopLap();
 			remainTime = 0;
+			totalTime = 0;
 			recipeId = null;
 			recipe = null;
 			update = true;
@@ -93,8 +136,12 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 	@Override
 	public void onLinkBreak() {
 		remainTime = 0;
+		totalTime = 0;
 		recipeId = null;
 		recipe = null;
+		stopLap();
+		sync();
+		setChanged();
 	}
 
 }

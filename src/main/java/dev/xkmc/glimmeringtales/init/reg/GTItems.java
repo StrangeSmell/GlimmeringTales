@@ -5,10 +5,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.glimmeringtales.content.block.crop.LifeCrystalCrop;
 import dev.xkmc.glimmeringtales.content.block.misc.*;
-import dev.xkmc.glimmeringtales.content.block.ritual.NatureCoreBlockEntity;
-import dev.xkmc.glimmeringtales.content.block.ritual.NatureSideBlockEntity;
-import dev.xkmc.glimmeringtales.content.block.ritual.RitualBlock;
-import dev.xkmc.glimmeringtales.content.block.ritual.RitualRenderer;
+import dev.xkmc.glimmeringtales.content.block.ritual.*;
 import dev.xkmc.glimmeringtales.content.item.materials.AmethystCompass;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
 import dev.xkmc.glimmeringtales.content.item.rune.BlockRuneItem;
@@ -154,7 +151,7 @@ public class GTItems {
 
 			MATRIX_BE = GlimmeringTales.REGISTRATE.blockEntity("ritual_matrix", NatureCoreBlockEntity::new)
 					.validBlock(RITUAL_MATRIX)
-					.renderer(() -> RitualRenderer::new)
+					.renderer(() -> MatrixRenderer::new)
 					.register();
 		}
 
@@ -265,7 +262,7 @@ public class GTItems {
 
 	private static ItemEntry<BlockRuneItem> rune(String id, Supplier<Block> block, String name) {
 		var ans = GlimmeringTales.REGISTRATE.item(id, p ->
-						new BlockRuneItem(p.stacksTo(1).fireResistant(), block))
+						new BlockRuneItem(p.fireResistant(), block))
 				.model((ctx, pvd) -> {
 					pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName()));
 					pvd.getBuilder(ctx.getName() + "_core").parent(
@@ -281,7 +278,7 @@ public class GTItems {
 
 	private static ItemEntry<SpellRuneItem> spell(String id, String name) {
 		var ans = GlimmeringTales.REGISTRATE.item(id, p ->
-						new SpellRuneItem(p.stacksTo(1).fireResistant(), GlimmeringTales.loc(id)))
+						new SpellRuneItem(p.fireResistant(), GlimmeringTales.loc(id)))
 				.model((ctx, pvd) -> {
 					pvd.generated(ctx, pvd.modLoc("item/spell/" + ctx.getName()));
 					pvd.getBuilder(ctx.getName() + "_core").parent(
@@ -297,7 +294,7 @@ public class GTItems {
 
 	private static ItemEntry<WandHandleItem> handle(String id, float size, float offset, String name) {
 		var ans = GlimmeringTales.REGISTRATE.item(id,
-						p -> new WandHandleItem(p.stacksTo(1), size, offset))
+						p -> new WandHandleItem(p, size, offset))
 				.model((ctx, pvd) -> {
 					pvd.handheld(ctx, pvd.modLoc("item/handle/" + id));
 					pvd.getBuilder(ctx.getName() + "_icon").parent(

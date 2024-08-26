@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.content.block.ritual;
 
+import dev.xkmc.glimmeringtales.content.block.altar.SideRitualBlockEntity;
 import dev.xkmc.l2serial.serialization.marker.SerialClass;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;

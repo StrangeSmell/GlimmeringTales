@@ -1,4 +1,4 @@
-package dev.xkmc.glimmeringtales.content.block.ritual;
+package dev.xkmc.glimmeringtales.content.block.altar;
 
 import dev.xkmc.l2modularblock.mult.UseItemOnBlockMethod;
 import dev.xkmc.l2modularblock.mult.UseWithoutItemBlockMethod;

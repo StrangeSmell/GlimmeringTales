@@ -1,4 +1,4 @@
-package dev.xkmc.glimmeringtales.content.block.ritual;
+package dev.xkmc.glimmeringtales.content.block.altar;
 
 import dev.xkmc.l2core.base.tile.BaseBlockEntity;
 import dev.xkmc.l2modularblock.tile_api.BlockContainer;

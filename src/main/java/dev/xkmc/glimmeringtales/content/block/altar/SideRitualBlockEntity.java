@@ -1,4 +1,4 @@
-package dev.xkmc.glimmeringtales.content.block.ritual;
+package dev.xkmc.glimmeringtales.content.block.altar;
 
 import dev.xkmc.l2modularblock.tile_api.TickableBlockEntity;
 import dev.xkmc.l2serial.serialization.marker.SerialClass;

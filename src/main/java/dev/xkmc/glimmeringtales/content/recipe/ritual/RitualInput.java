@@ -1,7 +1,7 @@
 package dev.xkmc.glimmeringtales.content.recipe.ritual;
 
-import dev.xkmc.glimmeringtales.content.block.ritual.CoreRitualBlockEntity;
-import dev.xkmc.glimmeringtales.content.block.ritual.SideRitualBlockEntity;
+import dev.xkmc.glimmeringtales.content.block.altar.CoreRitualBlockEntity;
+import dev.xkmc.glimmeringtales.content.block.altar.SideRitualBlockEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.neoforged.neoforge.common.util.RecipeMatcher;

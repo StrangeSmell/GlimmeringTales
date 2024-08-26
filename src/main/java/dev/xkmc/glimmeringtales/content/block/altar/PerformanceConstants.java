@@ -1,4 +1,4 @@
-package dev.xkmc.glimmeringtales.content.block.ritual;
+package dev.xkmc.glimmeringtales.content.block.altar;
 
 public class PerformanceConstants {
 

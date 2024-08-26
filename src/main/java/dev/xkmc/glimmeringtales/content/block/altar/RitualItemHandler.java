@@ -1,4 +1,4 @@
-package dev.xkmc.glimmeringtales.content.block.ritual;
+package dev.xkmc.glimmeringtales.content.block.altar;
 
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.items.IItemHandlerModifiable;

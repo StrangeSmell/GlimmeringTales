@@ -1,6 +1,6 @@
 package dev.xkmc.glimmeringtales.content.recipe.ritual;
 
-import dev.xkmc.glimmeringtales.content.block.ritual.SideRitualBlockEntity;
+import dev.xkmc.glimmeringtales.content.block.altar.SideRitualBlockEntity;
 import dev.xkmc.l2core.serial.recipe.BaseRecipe;
 import dev.xkmc.l2serial.serialization.marker.SerialClass;
 import dev.xkmc.l2serial.serialization.marker.SerialField;

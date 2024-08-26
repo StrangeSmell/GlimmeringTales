@@ -1,5 +1,7 @@
 package dev.xkmc.glimmeringtales.content.block.ritual;
 
+import dev.xkmc.glimmeringtales.content.block.altar.ClickRitualMethod;
+import dev.xkmc.glimmeringtales.content.block.altar.RitualLinkBlockMethod;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.l2modularblock.impl.BlockEntityBlockMethodImpl;
 import dev.xkmc.l2modularblock.type.BlockMethod;
