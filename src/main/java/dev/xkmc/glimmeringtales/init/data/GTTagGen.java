@@ -1,15 +1,23 @@
 package dev.xkmc.glimmeringtales.init.data;
 
+import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.providers.RegistrateItemTagsProvider;
 import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.l2core.init.L2TagGen;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.Structures;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.structure.BuiltinStructures;
+import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class GTTagGen {
+
+	public static final ProviderType<RegistrateTagsProvider.Impl<Structure>> STRUCTURE =
+			L2TagGen.getProvider(Registries.STRUCTURE);
 
 	public static final TagKey<Item> CRYSTAL = item("crystal");
 	public static final TagKey<Item> CORE = item("core");
@@ -19,8 +27,9 @@ public class GTTagGen {
 	public static final TagKey<Block> VINE = block("vine");
 	public static final TagKey<Block> BAMBOO = block("bamboo");
 
-
 	public static final TagKey<Block> FAKE_MAGMA = block("fake_magma");
+
+	public static final TagKey<Structure> ST_AMETHYST = structure("amethyst");
 
 	public static void genItemTag(RegistrateItemTagsProvider pvd) {
 		pvd.addTag(CORE).addTag(CRYSTAL);
@@ -55,12 +64,20 @@ public class GTTagGen {
 
 	}
 
+	public static void genStructureTag(RegistrateTagsProvider.Impl<Structure> pvd) {
+
+	}
+
 	public static TagKey<Block> block(String id) {
 		return TagKey.create(Registries.BLOCK, GlimmeringTales.loc(id));
 	}
 
 	public static TagKey<Item> item(String id) {
 		return TagKey.create(Registries.ITEM, GlimmeringTales.loc(id));
+	}
+
+	public static TagKey<Structure> structure(String id) {
+		return TagKey.create(Registries.STRUCTURE, GlimmeringTales.loc(id));
 	}
 
 }

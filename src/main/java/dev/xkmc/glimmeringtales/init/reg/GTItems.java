@@ -9,6 +9,7 @@ import dev.xkmc.glimmeringtales.content.block.ritual.NatureCoreBlockEntity;
 import dev.xkmc.glimmeringtales.content.block.ritual.NatureSideBlockEntity;
 import dev.xkmc.glimmeringtales.content.block.ritual.RitualBlock;
 import dev.xkmc.glimmeringtales.content.block.ritual.RitualRenderer;
+import dev.xkmc.glimmeringtales.content.item.materials.AmethystCompass;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
 import dev.xkmc.glimmeringtales.content.item.rune.BlockRuneItem;
 import dev.xkmc.glimmeringtales.content.item.rune.SpellCoreItem;
@@ -60,6 +61,7 @@ public class GTItems {
 	public static final ItemEntry<DepletedItem> DEPLETED_FLAME, DEPLETED_WINTERSTORM;
 	public static final BlockEntry<LifeCrystalCrop> CRYSTAL_VINE;
 	public static final BlockEntry<StruckLogBlock> STRUCK_LOG;
+	public static final ItemEntry<AmethystCompass> COMPASS;
 
 	public static final BlockEntry<DelegateBlock> RITUAL_ALTAR, RITUAL_MATRIX;
 	public static final BlockEntityEntry<NatureSideBlockEntity> ALTAR_BE;
@@ -120,6 +122,10 @@ public class GTItems {
 							new StruckLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)))
 					.blockstate((ctx, pvd) -> pvd.logBlock(ctx.get()))
 					.tag(BlockTags.LOGS_THAT_BURN).simpleItem().register();
+
+			COMPASS = GlimmeringTales.REGISTRATE.item("amethyst_compass", p ->
+							new AmethystCompass(p.stacksTo(1)))
+					.register();
 
 			RITUAL_ALTAR = GlimmeringTales.REGISTRATE.block("ritual_altar", p ->
 							DelegateBlock.newBaseBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)

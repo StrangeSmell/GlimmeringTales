@@ -21,7 +21,7 @@ import net.neoforged.neoforge.event.entity.EntityStruckByLightningEvent;
 import net.neoforged.neoforge.event.level.block.CropGrowEvent;
 
 @EventBusSubscriber(modid = GlimmeringTales.MODID, bus = EventBusSubscriber.Bus.GAME)
-public class MiscServerEventHandler {
+public class GTServerEventHandler {
 
 	@SubscribeEvent
 	public static void onCropGrow(CropGrowEvent.Post event) {

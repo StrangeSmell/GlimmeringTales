@@ -3,6 +3,7 @@ package dev.xkmc.glimmeringtales.content.item.rune;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
+import dev.xkmc.glimmeringtales.init.data.GTConfigs;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.RegistryAccess;
@@ -47,7 +48,7 @@ public class BlockRuneItem extends Item implements IBlockSpellItem {
 
 	@Override
 	public int entityTrace() {
-		return 64; //TODO
+		return GTConfigs.SERVER.wandInteractionDistance.get();
 	}
 
 	@Override

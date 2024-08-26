@@ -1,0 +1,35 @@
+package dev.xkmc.glimmeringtales.content.item.materials;
+
+import dev.xkmc.glimmeringtales.content.core.searcher.BlockSearcher;
+import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.glimmeringtales.init.data.GTConfigs;
+import dev.xkmc.glimmeringtales.init.data.GTTagGen;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Blocks;
+
+public class AmethystCompass extends Item implements IBlockSearcher {
+
+	private static final ResourceLocation TEX = GlimmeringTales.loc("textures/icon/amethyst_cluster.png");
+
+	public final BlockSearcher AMETHYST = new BlockSearcher(this,
+			Blocks.BUDDING_AMETHYST, GTTagGen.AMETHYST, -60, 40,
+			GTConfigs.CLIENT.compassSearchRadius,
+			GTConfigs.CLIENT.compassSearchTrialsPerTick,
+			5, 40, 3);
+
+	public AmethystCompass(Properties properties) {
+		super(properties);
+	}
+
+	@Override
+	public BlockSearcher getSearcher() {
+		return AMETHYST;
+	}
+
+	@Override
+	public ResourceLocation id() {
+		return TEX;
+	}
+
+}

@@ -3,6 +3,7 @@ package dev.xkmc.glimmeringtales.content.item.rune;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.item.wand.ISpellHolder;
 import dev.xkmc.glimmeringtales.content.item.wand.IWandCoreItem;
+import dev.xkmc.glimmeringtales.init.data.GTConfigs;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -29,7 +30,7 @@ public class SpellRuneItem extends Item implements IWandCoreItem {
 
 	@Override
 	public int entityTrace() {
-		return 64;//TODO
+		return GTConfigs.SERVER.wandInteractionDistance.get();
 	}
 
 	@Override

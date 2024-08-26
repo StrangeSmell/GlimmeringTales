@@ -18,6 +18,7 @@ import dev.xkmc.l2magic.content.engine.spell.SpellAction;
 import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import dev.xkmc.l2serial.serialization.custom_handler.Handlers;
 import dev.xkmc.l2serial.util.Wrappers;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.EventPriority;
@@ -103,6 +104,7 @@ public class GlimmeringTales {
 		init.add(GTRegistries.SPELL, GTSpells::genNature);
 		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTSpells::genMap);
 		init.addDependency(ProviderType.DATA_MAP, ProviderType.DYNAMIC);
+		REGISTRATE.addDataGenerator(GTTagGen.STRUCTURE, GTTagGen::genStructureTag);
 	}
 
 	public static ResourceLocation loc(String id) {

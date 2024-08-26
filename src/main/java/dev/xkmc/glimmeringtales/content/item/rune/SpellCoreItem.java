@@ -3,6 +3,7 @@ package dev.xkmc.glimmeringtales.content.item.rune;
 import dev.xkmc.glimmeringtales.content.core.spell.ElementAffinity;
 import dev.xkmc.glimmeringtales.content.item.materials.LightningImmuneItem;
 import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
+import dev.xkmc.glimmeringtales.init.data.GTConfigs;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import net.minecraft.ChatFormatting;
@@ -79,7 +80,7 @@ public class SpellCoreItem extends LightningImmuneItem implements IBlockSpellIte
 	}
 
 	public int range() {
-		return 64;
+		return GTConfigs.SERVER.wandInteractionDistance.get();
 	}
 
 	public ModelResourceLocation model() {
