@@ -1,4 +1,4 @@
-// 1.21.1	2024-08-27T10:26:39.902043	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
+// 1.21.1	2024-08-27T10:38:53.74339	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
 f628b87d75a2e2a6c5157d17ef22b26cb8b260eb assets/glimmeringtales/blockstates/bamboo.json
 4132de47f0c0e042aadf759876c94ea0a1d95cd2 assets/glimmeringtales/blockstates/clay_carpet.json
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
@@ -107,11 +107,13 @@ e3c02f589b7d91a4b5811bd2bb4aded3ec22520b assets/glimmeringtales/models/item/wand
 83c4c4591a59138464e8a1b4273d4a5a810e24f0 assets/glimmeringtales/models/item/wood_wand.json
 29e59ddc03848024741d735e12be2930a72491f8 assets/glimmeringtales/models/item/wood_wand_handle.json
 83c4c4591a59138464e8a1b4273d4a5a810e24f0 assets/glimmeringtales/models/item/wood_wand_icon.json
+69dedd9985f3d60efb17550037a2b7199023095a data/glimmeringtales/advancement/recipes/misc/amethyst_resonator.json
 7a41145fe85f33ad0aa364bfb041a776a30f0e4f data/glimmeringtales/advancement/recipes/misc/crystal_vine.json
 c428489b9830ffdbfb7499ac57e465f307533924 data/glimmeringtales/advancement/recipes/misc/depleted_crystal_of_flame.json
 aa675587bf109ef0a0dcba62c8c4c9b2f77457b2 data/glimmeringtales/advancement/recipes/misc/depleted_crystal_of_winterstorm.json
 597048ea1f999fae0aa87002728921e9649b4fce data/glimmeringtales/advancement/recipes/misc/gold_wand.json
 412de3c6aa49864d0b6908fb8909f04664184a5d data/glimmeringtales/advancement/recipes/misc/ritual_altar.json
+61512b90524938e7ef9da9e8f1dbe1d4d322d268 data/glimmeringtales/advancement/recipes/misc/ritual_matrix.json
 4b2cb677ea5aa317eb7222a9e02b83385b6f3d2d data/glimmeringtales/advancement/recipes/misc/wood_wand.json
 ca8515715f0a4ba70b8540ee1a4be580622b6d30 data/glimmeringtales/advancement/recipes/simple_ritual/amethyst.json
 d0e9889cb92d1db5dd291585f3f8f89d1b6ebf90 data/glimmeringtales/advancement/recipes/simple_ritual/bamboo.json
@@ -253,6 +255,7 @@ efa083ada4cd89b6750ff95ff0ecede3a59fa965 data/glimmeringtales/loot_table/blocks/
 54e06087fcf8da4353a7f57814f4ac512a4454b0 data/glimmeringtales/loot_table/blocks/ritual_altar.json
 91bbf8e0ac3f24ccb245d8ba73923a50f0f830bc data/glimmeringtales/loot_table/blocks/ritual_matrix.json
 5ea5b78c89eac1d66fffffa10e371b40061141bd data/glimmeringtales/loot_table/blocks/struck_log.json
+d83263c3acb6da09c67982d78fc3f59c1a3a43b4 data/glimmeringtales/recipe/amethyst_resonator.json
 6a2b299e9337dfb06cc012193ad10123242d2c76 data/glimmeringtales/recipe/crystal_vine.json
 769408493d16e190195564ad76e28e2d15655c2c data/glimmeringtales/recipe/depleted_crystal_of_flame.json
 ec8498ebd0180f621228c65a2f0bc52fcd801f00 data/glimmeringtales/recipe/depleted_crystal_of_winterstorm.json
@@ -287,6 +290,7 @@ ba8a3862b2c57d5bfa0eaa9a4372be505b094ee6 data/glimmeringtales/recipe/recipes/sim
 0e7d6e48f71f66f91c3a958607451e226f6dbfe1 data/glimmeringtales/recipe/recipes/strike_block/struck_log.json
 aa68edff554424efcc5baccef2840a0d8c155fe6 data/glimmeringtales/recipe/recipes/strike_item/crystal_of_nature.json
 1528a43ce74d1797e89ba17afe4c167707070718 data/glimmeringtales/recipe/ritual_altar.json
+fde068b97b798ce3c32d7061e33c392546952087 data/glimmeringtales/recipe/ritual_matrix.json
 880b4a4ee22c956ee1661b963f17490da6c8d99c data/glimmeringtales/recipe/wood_wand.json
 6f1a5738017d87de886c4bbcdd0ca15c7bc61d7d data/glimmeringtales/tags/block/amethyst.json
 ca60c4345d1ee25145f3909858d2878c0249e32b data/glimmeringtales/tags/block/bamboo.json

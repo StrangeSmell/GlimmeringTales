@@ -31,6 +31,7 @@ public class StruckLogBlock extends RotatedPillarBlock {
 
 	@Override
 	public void onCaughtFire(BlockState state, Level level, BlockPos pos, @Nullable Direction direction, @Nullable LivingEntity igniter) {
+		if (!level.canSeeSky(pos.above())) return;
 		level.removeBlock(pos, false);
 		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(level);
 		assert bolt != null;

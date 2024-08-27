@@ -71,11 +71,27 @@ public class GTRecipeGen {
 					.side(GTItems.STRUCK_LOG, 4)
 					.save(pvd);
 
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GTItems.RESONATOR.get())::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+					.pattern(" A ").pattern(" BA").pattern("I  ")
+					.define('A', Items.AMETHYST_SHARD)
+					.define('B', GTItems.CRYSTAL_NATURE)
+					.define('I', Items.IRON_INGOT)
+					.save(pvd);
+
 			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GTItems.RITUAL_ALTAR.get())::unlockedBy, GTItems.CRYSTAL_NATURE.get())
 					.pattern("DGD").pattern("ANA").pattern("DWD")
 					.define('A', Items.AMETHYST_SHARD)
 					.define('G', Items.GOLD_INGOT)
 					.define('N', GTItems.CRYSTAL_NATURE)
+					.define('W', GTItems.STRUCK_LOG)
+					.define('D', Items.DEEPSLATE_BRICKS)
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GTItems.RITUAL_MATRIX.get())::unlockedBy, GTItems.CRYSTAL_EARTH.get())
+					.pattern("GGG").pattern("ANA").pattern("DWD")
+					.define('A', Items.DIAMOND)
+					.define('G', Items.GOLD_INGOT)
+					.define('N', GTItems.CRYSTAL_EARTH)
 					.define('W', GTItems.STRUCK_LOG)
 					.define('D', Items.DEEPSLATE_BRICKS)
 					.save(pvd);

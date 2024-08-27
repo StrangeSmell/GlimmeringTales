@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:diamond"
+    },
+    "D": {
+      "item": "minecraft:deepslate_bricks"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "N": {
+      "item": "glimmeringtales:crystal_of_earth"
+    },
+    "W": {
+      "item": "glimmeringtales:struck_log"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "ANA",
+    "DWD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "glimmeringtales:ritual_matrix"
+  }
+}
