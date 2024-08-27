@@ -6,7 +6,7 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.glimmeringtales.content.block.crop.LifeCrystalCrop;
 import dev.xkmc.glimmeringtales.content.block.misc.*;
 import dev.xkmc.glimmeringtales.content.block.ritual.*;
-import dev.xkmc.glimmeringtales.content.item.materials.AmethystCompass;
+import dev.xkmc.glimmeringtales.content.item.materials.AmethystResonator;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
 import dev.xkmc.glimmeringtales.content.item.rune.BlockRuneItem;
 import dev.xkmc.glimmeringtales.content.item.rune.SpellCoreItem;
@@ -58,7 +58,7 @@ public class GTItems {
 	public static final ItemEntry<DepletedItem> DEPLETED_FLAME, DEPLETED_WINTERSTORM;
 	public static final BlockEntry<LifeCrystalCrop> CRYSTAL_VINE;
 	public static final BlockEntry<StruckLogBlock> STRUCK_LOG;
-	public static final ItemEntry<AmethystCompass> COMPASS;
+	public static final ItemEntry<AmethystResonator> RESONATOR;
 
 	public static final BlockEntry<DelegateBlock> RITUAL_ALTAR, RITUAL_MATRIX;
 	public static final BlockEntityEntry<NatureSideBlockEntity> ALTAR_BE;
@@ -120,8 +120,8 @@ public class GTItems {
 					.blockstate((ctx, pvd) -> pvd.logBlock(ctx.get()))
 					.tag(BlockTags.LOGS_THAT_BURN).simpleItem().register();
 
-			COMPASS = GlimmeringTales.REGISTRATE.item("amethyst_compass", p ->
-							new AmethystCompass(p.stacksTo(1)))
+			RESONATOR = GlimmeringTales.REGISTRATE.item("amethyst_resonator", p ->
+							new AmethystResonator(p.stacksTo(1)))
 					.register();
 
 			RITUAL_ALTAR = GlimmeringTales.REGISTRATE.block("ritual_altar", p ->

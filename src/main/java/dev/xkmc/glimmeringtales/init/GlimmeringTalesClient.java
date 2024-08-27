@@ -29,7 +29,7 @@ public class GlimmeringTalesClient {
 
 	@SubscribeEvent
 	public static void registerItemDecoration(RegisterItemDecorationsEvent event) {
-		event.register(GTItems.COMPASS.get(), new SearcherDeco());
+		event.register(GTItems.RESONATOR.get(), new SearcherDeco());
 	}
 
 

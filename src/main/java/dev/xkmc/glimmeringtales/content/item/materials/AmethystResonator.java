@@ -8,17 +8,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;
 
-public class AmethystCompass extends Item implements IBlockSearcher {
+public class AmethystResonator extends Item implements IBlockSearcher {
 
 	private static final ResourceLocation TEX = GlimmeringTales.loc("textures/icon/amethyst_cluster.png");
 
 	public final BlockSearcher AMETHYST = new BlockSearcher(this,
 			Blocks.BUDDING_AMETHYST, GTTagGen.AMETHYST, -60, 40,
-			GTConfigs.CLIENT.compassSearchRadius,
-			GTConfigs.CLIENT.compassSearchTrialsPerTick,
+			GTConfigs.CLIENT.resonatorSearchRadius,
+			GTConfigs.CLIENT.resonatorSearchTrialsPerTick,
 			5, 40, 3);
 
-	public AmethystCompass(Properties properties) {
+	public AmethystResonator(Properties properties) {
 		super(properties);
 	}
 

@@ -8,16 +8,16 @@ public class GTConfigs {
 
 	public static class Client extends ConfigInit {
 
-		public final ModConfigSpec.IntValue compassSearchRadius;
-		public final ModConfigSpec.IntValue compassSearchTrialsPerTick;
+		public final ModConfigSpec.IntValue resonatorSearchRadius;
+		public final ModConfigSpec.IntValue resonatorSearchTrialsPerTick;
 
 		public Client(Builder builder) {
 			markL2();
-			builder.push("compass", "Compass properties");
-			compassSearchRadius = builder.text("Amethyst Compass search radius")
-					.defineInRange("compassSearchRadius", 64, 16, 128);
-			compassSearchTrialsPerTick = builder.text("Amethyst Compass search trials per tick")
-					.defineInRange("compassSearchTrialsPerTick", 500, 16, 10000);
+			builder.push("resonator", "Resonator properties");
+			resonatorSearchRadius = builder.text("Amethyst Resonator search radius")
+					.defineInRange("resonatorSearchRadius", 64, 16, 128);
+			resonatorSearchTrialsPerTick = builder.text("Amethyst Resonator search trials per tick")
+					.defineInRange("resonatorSearchTrialsPerTick", 500, 16, 10000);
 			builder.pop();
 
 		}
