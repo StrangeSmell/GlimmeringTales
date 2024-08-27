@@ -1,0 +1,14 @@
+{
+  "cost": 40,
+  "elem": "glimmeringtales:snow",
+  "maxConsumeTick": 0,
+  "spell": "glimmeringtales:snow",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
+}

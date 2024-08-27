@@ -1,5 +1,7 @@
 {
   "values": [
+    "glimmeringtales:snow",
+    "glimmeringtales:powder_snow",
     "glimmeringtales:ice",
     "glimmeringtales:packed_ice",
     "glimmeringtales:blue_ice",
@@ -8,6 +10,8 @@
     "glimmeringtales:blue_ice-bypass_magic",
     "glimmeringtales:ice-bypass_magic",
     "glimmeringtales:packed_ice-bypass_magic",
+    "glimmeringtales:powder_snow-bypass_magic",
+    "glimmeringtales:snow-bypass_magic",
     "glimmeringtales:snow_tornado-bypass_magic",
     "glimmeringtales:winter_storm-bypass_magic"
   ]

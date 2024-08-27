@@ -70,7 +70,8 @@ public class GTItems {
 	public static final ItemEntry<BlockRuneItem>
 			RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE, RUNE_HAYBALE,
 			RUNE_SAND, RUNE_GRAVEL, RUNE_QUARTZ, RUNE_CLAY, RUNE_STONE, RUNE_DRIPSTONE, RUNE_AMETHYST,
-			RUNE_MAGMA, RUNE_SOUL_SAND, RUNE_SNOW, RUNE_ICE, RUNE_PACKED_ICE, RUNE_BLUE_ICE, RUNE_POWDER_SNOW,
+			RUNE_MAGMA, RUNE_NETHERRACK, RUNE_SOUL_SAND,
+			RUNE_SNOW, RUNE_ICE, RUNE_PACKED_ICE, RUNE_BLUE_ICE, RUNE_POWDER_SNOW,
 			RUNE_THUNDER;
 
 	public static final ItemEntry<SpellRuneItem>
@@ -189,6 +190,7 @@ public class GTItems {
 			RUNE_AMETHYST = rune("amethyst", () -> Blocks.AMETHYST_BLOCK, "Rune: Amethyst");
 
 			RUNE_MAGMA = rune("magma", () -> Blocks.MAGMA_BLOCK, "Rune: Magma Block");
+			RUNE_NETHERRACK = rune("netherrack", () -> Blocks.NETHERRACK, "Rune: Netherrack");
 			RUNE_SOUL_SAND = rune("soul_sand", () -> Blocks.SOUL_SAND, "Rune: Soul Sand");
 
 			RUNE_SNOW = rune("snow", () -> Blocks.SNOW_BLOCK, "Rune: Snow");

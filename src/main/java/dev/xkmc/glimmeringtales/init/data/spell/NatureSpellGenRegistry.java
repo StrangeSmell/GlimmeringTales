@@ -1,12 +1,15 @@
 package dev.xkmc.glimmeringtales.init.data.spell;
 
 import dev.xkmc.glimmeringtales.init.data.spell.advanced.FlameSpells;
-import dev.xkmc.glimmeringtales.init.data.spell.advanced.SnowSpells;
+import dev.xkmc.glimmeringtales.init.data.spell.advanced.FreezingSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.earth.*;
 import dev.xkmc.glimmeringtales.init.data.spell.flame.MagmaSpells;
+import dev.xkmc.glimmeringtales.init.data.spell.flame.NetherrackSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.flame.SoulSandSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.life.*;
 import dev.xkmc.glimmeringtales.init.data.spell.snow.IceSpells;
+import dev.xkmc.glimmeringtales.init.data.spell.snow.PowderSnowSpell;
+import dev.xkmc.glimmeringtales.init.data.spell.snow.SnowSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.thunder.ThunderSpells;
 
 import java.util.ArrayList;
@@ -41,7 +44,10 @@ public class NatureSpellGenRegistry {
 		// others
 		LIST.addAll(List.of(
 				MagmaSpells.BUILDER,
+				NetherrackSpells.BUILDER,
 				SoulSandSpells.BUILDER,
+				SnowSpells.BUILDER,
+				PowderSnowSpell.BUILDER,
 				IceSpells.ICE,
 				IceSpells.PACK_ICE,
 				IceSpells.BLUE_ICE,
@@ -51,7 +57,7 @@ public class NatureSpellGenRegistry {
 		// advanced
 		LIST.addAll(List.of(
 				FlameSpells.HM, FlameSpells.LB,
-				SnowSpells.WS, SnowSpells.ST
+				FreezingSpells.WS, FreezingSpells.ST
 		));
 	}
 

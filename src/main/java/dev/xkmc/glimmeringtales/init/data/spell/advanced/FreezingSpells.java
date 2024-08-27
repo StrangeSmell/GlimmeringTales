@@ -2,7 +2,6 @@ package dev.xkmc.glimmeringtales.init.data.spell.advanced;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
-import dev.xkmc.glimmeringtales.init.data.GTDamageTypeGen;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
@@ -34,12 +33,10 @@ import dev.xkmc.l2magic.content.particle.engine.RenderTypePreset;
 import dev.xkmc.l2magic.content.particle.engine.SimpleParticleData;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.DamageEffects;
-import net.minecraft.world.damagesource.DamageType;
 
 import java.util.List;
 
-public class SnowSpells {
+public class FreezingSpells {
 
 	public static final NatureSpellBuilder WS = GTRegistries.SNOW.get()
 			.build(GlimmeringTales.loc("winter_storm")).cost(10).damageFreeze()

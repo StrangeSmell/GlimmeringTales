@@ -6,12 +6,10 @@ import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.l2core.init.L2TagGen;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.Structures;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.structure.BuiltinStructures;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class GTTagGen {
@@ -26,6 +24,7 @@ public class GTTagGen {
 	public static final TagKey<Block> QUARTZ = block("quartz");
 	public static final TagKey<Block> VINE = block("vine");
 	public static final TagKey<Block> BAMBOO = block("bamboo");
+	public static final TagKey<Block> SNOW = block("snow");
 
 	public static final TagKey<Block> FAKE_MAGMA = block("fake_magma");
 
@@ -36,6 +35,8 @@ public class GTTagGen {
 	}
 
 	public static void genBlockTag(RegistrateTagsProvider.IntrinsicImpl<Block> pvd) {
+		pvd.addTag(SNOW).add(Blocks.SNOW, Blocks.SNOW_BLOCK);
+
 		pvd.addTag(AMETHYST).add(
 				Blocks.AMETHYST_BLOCK, Blocks.AMETHYST_CLUSTER, Blocks.BUDDING_AMETHYST,
 				Blocks.SMALL_AMETHYST_BUD, Blocks.MEDIUM_AMETHYST_BUD, Blocks.LARGE_AMETHYST_BUD

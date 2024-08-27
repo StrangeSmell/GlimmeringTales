@@ -53,6 +53,7 @@
   "item.glimmeringtales.thunder": "符石: 雷霆",
   "item.glimmeringtales.blue_ice": "符石: 蓝冰",
   "item.glimmeringtales.packed_ice": "符石: 浮冰",
+  "item.glimmeringtales.netherrack": "符石: 下界岩",
 
   "item.glimmeringtales.lava_burst": "符石: 地层熔毁",
   "item.glimmeringtales.hell_mark": "符石: 狱火烙印",
@@ -116,6 +117,9 @@
   "spell_action.glimmeringtales.ice": "冻结",
   "spell_action.glimmeringtales.packed_ice": "冻结 II",
   "spell_action.glimmeringtales.blue_ice": "冻结 III",
+  "spell_action.glimmeringtales.netherrack": "火花",
+  "spell_action.glimmeringtales.powder_snow": "暴雪",
+  "spell_action.glimmeringtales.snow": "雪球",
 
   "spell_action.glimmeringtales.hell_mark": "狱火烙印",
   "spell_action.glimmeringtales.lava_burst": "地层熔毁",
@@ -198,5 +202,11 @@
   "nature_spell.glimmeringtales.packed_ice.brief": "[方块] 冻结小范围内的水体和敌人",
   "nature_spell.glimmeringtales.packed_ice.detail": "把静止和流动的水体冻结成霜冰，对范围内敌人造成%s并施加%s",
   "nature_spell.glimmeringtales.blue_ice.brief": "[方块] 冻结小范围内的水体和敌人",
-  "nature_spell.glimmeringtales.blue_ice.detail": "把静止和流动的水体冻结成霜冰，对范围内敌人造成%s并施加%s"
+  "nature_spell.glimmeringtales.blue_ice.detail": "把静止和流动的水体冻结成霜冰，对范围内敌人造成%s并施加%s",
+  "nature_spell.glimmeringtales.netherrack.brief": "[方块] 焚烧小范围的敌人",
+  "nature_spell.glimmeringtales.netherrack.detail": "生成火花攻击小范围的敌人，造成%s",
+  "nature_spell.glimmeringtales.powder_snow.brief": "[方块] 生成雪龙卷以困住敌人",
+  "nature_spell.glimmeringtales.powder_snow.detail": "生成雪龙卷，困住触碰到的敌人，造成%s和%s",
+  "nature_spell.glimmeringtales.snow.brief": "[方块] 把雪球弄得到处都是",
+  "nature_spell.glimmeringtales.snow.detail": "生成一个由雪球组成的半球形向周围发射，造成%s"
 }

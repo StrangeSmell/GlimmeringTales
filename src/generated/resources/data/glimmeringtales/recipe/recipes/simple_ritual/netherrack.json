@@ -2,52 +2,52 @@
   "type": "glimmeringtales:simple_ritual",
   "core": {
     "ingredient": {
-      "item": "glimmeringtales:crystal_of_winterstorm"
+      "item": "glimmeringtales:crystal_of_flame"
     },
     "remainder": {
       "count": 1,
-      "id": "glimmeringtales:winter_storm"
+      "id": "glimmeringtales:netherrack"
     }
   },
   "list": [
     {
       "ingredient": {
-        "item": "glimmeringtales:blue_ice"
+        "item": "minecraft:nether_bricks"
       }
     },
     {
       "ingredient": {
-        "item": "glimmeringtales:gravel"
+        "item": "minecraft:nether_bricks"
       }
     },
     {
       "ingredient": {
-        "item": "l2complements:hard_ice"
+        "item": "minecraft:nether_bricks"
       }
     },
     {
       "ingredient": {
-        "item": "l2complements:hard_ice"
+        "item": "minecraft:nether_bricks"
       }
     },
     {
       "ingredient": {
-        "item": "minecraft:snow_block"
+        "item": "minecraft:nether_brick"
       }
     },
     {
       "ingredient": {
-        "item": "minecraft:snow_block"
+        "item": "minecraft:nether_brick"
       }
     },
     {
       "ingredient": {
-        "item": "minecraft:snow_block"
+        "item": "minecraft:nether_brick"
       }
     },
     {
       "ingredient": {
-        "item": "minecraft:snow_block"
+        "item": "minecraft:nether_brick"
       }
     }
   ],

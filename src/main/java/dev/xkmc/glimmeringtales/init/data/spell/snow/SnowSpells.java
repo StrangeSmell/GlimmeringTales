@@ -1,0 +1,88 @@
+package dev.xkmc.glimmeringtales.init.data.spell.snow;
+
+import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
+import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.glimmeringtales.init.data.GTTagGen;
+import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
+import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
+import dev.xkmc.glimmeringtales.init.reg.GTItems;
+import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
+import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
+import dev.xkmc.l2magic.content.engine.iterator.LoopIterator;
+import dev.xkmc.l2magic.content.engine.logic.RandomVariableLogic;
+import dev.xkmc.l2magic.content.engine.modifier.ForwardOffsetModifier;
+import dev.xkmc.l2magic.content.engine.modifier.OffsetModifier;
+import dev.xkmc.l2magic.content.engine.modifier.RotationModifier;
+import dev.xkmc.l2magic.content.engine.modifier.SetDirectionModifier;
+import dev.xkmc.l2magic.content.engine.particle.SimpleParticleInstance;
+import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
+import dev.xkmc.l2magic.content.engine.selector.SelectionType;
+import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
+import dev.xkmc.l2magic.content.engine.variable.IntVariable;
+import dev.xkmc.l2magic.content.entity.core.ProjectileConfig;
+import dev.xkmc.l2magic.content.entity.engine.CustomProjectileShoot;
+import dev.xkmc.l2magic.content.entity.motion.SimpleMotion;
+import dev.xkmc.l2magic.content.entity.renderer.OrientedRenderData;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceLocation;
+
+import java.util.Map;
+
+public class SnowSpells {
+
+	public static final NatureSpellBuilder BUILDER = GTRegistries.SNOW.get()
+			.build(GlimmeringTales.loc("snow")).cost(40)
+			.damageFreeze()
+			.projectile(SnowSpells::proj)
+			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_SNOW, 1030))
+			.block((b, e) -> b.add(GTTagGen.SNOW, BlockSpell.cost(e)))
+			.lang("Snowball Festival").desc(
+					"[Block] Splash snowballs everywhere",
+					"Create a semisphere of snowballs, dealing %s",
+					SpellTooltipData.damage()
+			);
+
+	private static final ResourceLocation TEX = GlimmeringTales.loc("textures/spell/snowball.png");
+	private static final DoubleVariable DMG = DoubleVariable.of("2");
+
+	public static ProjectileConfig proj(NatureSpellBuilder ctx) {
+		return ProjectileConfig.builder(SelectionType.ENEMY_NO_FAMILY)
+				.tick(new SimpleParticleInstance(
+						ParticleTypes.SNOWFLAKE,
+						DoubleVariable.ZERO
+				).move(ForwardOffsetModifier.of("-0.2")))
+				.hit(new DamageProcessor(
+						ctx.damage(), DMG, true, true
+				)).size(DoubleVariable.of("0.25"))
+				.motion(SimpleMotion.BREAKING)
+				.renderer(new OrientedRenderData(TEX))
+				.build();
+	}
+
+	public static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
+		int phi = 12;
+		int theta = 12;
+		return new LoopIterator(
+				IntVariable.of("" + phi),
+				new RandomVariableLogic("r", 1,
+						new LoopIterator(
+								IntVariable.of("" + theta),
+								new CustomProjectileShoot(
+										DoubleVariable.of("1"), ctx.proj,
+										IntVariable.of("100"),
+										false, true,
+										Map.of()
+								).move(new RotationModifier(
+										DoubleVariable.of(360 / theta + "*j+r0*360"),
+										DoubleVariable.of(90 / phi + "*(i+0.5)")
+								)), "j"
+						)
+				), "i"
+		).move(
+				OffsetModifier.of("0", "0.55", "0"),
+				SetDirectionModifier.of("1", "0", "0")
+		);
+	}
+
+}

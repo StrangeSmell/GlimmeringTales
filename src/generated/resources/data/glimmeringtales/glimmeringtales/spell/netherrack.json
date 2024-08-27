@@ -1,0 +1,14 @@
+{
+  "cost": 60,
+  "elem": "glimmeringtales:flame",
+  "maxConsumeTick": 0,
+  "spell": "glimmeringtales:netherrack",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
+}

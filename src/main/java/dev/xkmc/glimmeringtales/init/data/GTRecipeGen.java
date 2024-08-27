@@ -184,6 +184,11 @@ public class GTRecipeGen {
 					.side(Items.MAGMA_CREAM, 4)
 					.save(pvd);
 
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.RUNE_NETHERRACK)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
+					.side(Items.NETHER_BRICKS, 4)
+					.side(Items.NETHER_BRICK, 4)
+					.save(pvd);
+
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.RUNE_SOUL_SAND)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
 					.side(Items.MAGMA_BLOCK, 4)
 					.side(Items.MAGMA_CREAM, 4)
@@ -219,7 +224,7 @@ public class GTRecipeGen {
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.HELL_MARK)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
-					.side(GTItems.RUNE_SOUL_SAND, 1)
+					.side(GTItems.RUNE_NETHERRACK, 1)
 					.side(GTItems.RUNE_DRIPSTONE, 1)
 					.side(LCItems.SOUL_CHARGE, 2)
 					.side(Items.BLAZE_POWDER, 4)
@@ -233,14 +238,14 @@ public class GTRecipeGen {
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.WINTER_STORM)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
-					.side(GTItems.RUNE_POWDER_SNOW, 1)
+					.side(GTItems.RUNE_BLUE_ICE, 1)
 					.side(GTItems.RUNE_GRAVEL, 1)
 					.side(LCItems.HARD_ICE, 2)
 					.side(Items.SNOW_BLOCK, 4)
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.SNOW_TORNADO)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
-					.side(GTItems.RUNE_SNOW, 1)
+					.side(GTItems.RUNE_POWDER_SNOW, 1)
 					.side(GTItems.RUNE_SAND, 1)
 					.side(LCItems.HARD_ICE, 2)
 					.side(Items.SNOW_BLOCK, 4)
