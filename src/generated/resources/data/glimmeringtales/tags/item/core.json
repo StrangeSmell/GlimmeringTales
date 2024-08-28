@@ -21,6 +21,10 @@
     "glimmeringtales:packed_ice",
     "glimmeringtales:blue_ice",
     "glimmeringtales:thunder",
+    "glimmeringtales:hell_mark",
+    "glimmeringtales:lava_burst",
+    "glimmeringtales:winter_storm",
+    "glimmeringtales:snow_tornado",
     "#glimmeringtales:crystal"
   ]
 }

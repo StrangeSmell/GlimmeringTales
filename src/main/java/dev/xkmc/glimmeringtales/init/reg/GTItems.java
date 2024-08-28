@@ -102,24 +102,6 @@ public class GTItems {
 
 	static {
 
-		CURIOS = VarItemInit.setup(GlimmeringTales.REGISTRATE, GlimmeringTales.loc("curios"),
-				e -> new AttributeCurioItem(new Item.Properties().stacksTo(1).fireResistant()),
-				(rl, b) -> b.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
-		);
-
-		SPELLS = VarItemInit.setup(GlimmeringTales.REGISTRATE, GlimmeringTales.loc("spell_runes"),
-				e -> new SpellRuneItem(new Item.Properties().fireResistant(), e),
-				(rl, b) -> b.tag(GTTagGen.CORE)
-						.lang("Rune: " + RegistrateLangProvider.toEnglishName(rl.getPath()))
-						.model((ctx, pvd) -> {
-							pvd.generated(ctx, pvd.modLoc("item/spell/" + ctx.getName()));
-							pvd.getBuilder(ctx.getName() + "_core").parent(
-											new ModelFile.UncheckedModelFile(pvd.modLoc("custom/rune_core")))
-									.texture("all", pvd.modLoc("item/spell/" + ctx.getName()))
-									.renderType("cutout");
-						})
-		);
-
 		{
 			CRYSTAL_NATURE = core("crystal_of_nature");
 			CRYSTAL_EARTH = core("crystal_of_earth");
@@ -175,7 +157,7 @@ public class GTItems {
 							DelegateBlock.newBaseBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)
 									.noOcclusion(), RitualBlock.ITEM, RitualBlock.LINK, RitualBlock.START, RitualBlock.CORE))
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().getBuilder("block/" + ctx.getName())
-							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("custom/ritual_altar")))
+							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("custom/ritual_matrix")))
 							.texture("all", "block/" + ctx.getName())
 							.renderType("cutout")))
 					.simpleItem()
@@ -188,6 +170,14 @@ public class GTItems {
 		}
 
 		{
+
+
+			CURIOS = VarItemInit.setup(GlimmeringTales.REGISTRATE, GlimmeringTales.loc("curios"),
+					e -> new AttributeCurioItem(new Item.Properties().stacksTo(1).fireResistant()),
+					(rl, b) -> b.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
+							.lang(RegistrateLangProvider.toEnglishName(rl.getPath()))
+			);
+
 
 			CHARM_OF_STRENGTH = charm("charm_of_strength", AttributeData.of(
 					L2DamageTracker.MAGIC_FACTOR, 0.25, AttributeModifier.Operation.ADD_VALUE
@@ -243,6 +233,21 @@ public class GTItems {
 			RUNE_BLUE_ICE = rune("blue_ice", () -> Blocks.BLUE_ICE, "Rune: Blue Ice");
 
 			RUNE_THUNDER = rune("thunder", STRUCK_LOG::get, "Rune: Thunder");
+		}
+
+		{
+			SPELLS = VarItemInit.setup(GlimmeringTales.REGISTRATE, GlimmeringTales.loc("spell_runes"),
+					e -> new SpellRuneItem(new Item.Properties().fireResistant(), e),
+					(rl, b) -> b.tag(GTTagGen.CORE)
+							.lang("Rune: " + RegistrateLangProvider.toEnglishName(rl.getPath()))
+							.model((ctx, pvd) -> {
+								pvd.generated(ctx, pvd.modLoc("item/spell/" + ctx.getName()));
+								pvd.getBuilder(ctx.getName() + "_core").parent(
+												new ModelFile.UncheckedModelFile(pvd.modLoc("custom/rune_core")))
+										.texture("all", pvd.modLoc("item/spell/" + ctx.getName()))
+										.renderType("cutout");
+							})
+			);
 
 			HELL_MARK = spell("hell_mark");
 			LAVA_BURST = spell("lava_burst");
