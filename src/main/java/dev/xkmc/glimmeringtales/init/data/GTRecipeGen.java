@@ -97,6 +97,22 @@ public class GTRecipeGen {
 					.save(pvd);
 		}
 
+		// curios
+		{
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_OCEAN, GTItems.CHARM_OF_STRENGTH)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+					.side(GTItems.CRYSTAL_NATURE, 2)
+					.side(Items.AMETHYST_SHARD, 2)
+					.side(Items.GOLD_INGOT, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.CHARM_OF_CAPACITY)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+					.side(GTItems.CRYSTAL_NATURE, 2)
+					.side(Items.AMETHYST_SHARD, 2)
+					.side(Items.GOLD_INGOT, 4)
+					.save(pvd);
+		}
+
 		// wand
 		{
 			unlock(pvd, new WandRecipeBuilder(GTItems.WOOD_WAND, 1)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
@@ -176,7 +192,7 @@ public class GTRecipeGen {
 
 		}
 
-		//
+		// flame, snow, thunder
 		{
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.RUNE_MAGMA)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
@@ -217,6 +233,7 @@ public class GTRecipeGen {
 					.save(pvd);
 		}
 
+		// spells
 		{
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_THUNDER, GTItems.RUNE_THUNDER)::unlockedBy, GTItems.CRYSTAL_THUNDER.get())

@@ -6,6 +6,8 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.glimmeringtales.content.block.crop.LifeCrystalCrop;
 import dev.xkmc.glimmeringtales.content.block.misc.*;
 import dev.xkmc.glimmeringtales.content.block.ritual.*;
+import dev.xkmc.glimmeringtales.content.item.curio.AttributeCurioItem;
+import dev.xkmc.glimmeringtales.content.item.curio.AttributeData;
 import dev.xkmc.glimmeringtales.content.item.materials.AmethystResonator;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
 import dev.xkmc.glimmeringtales.content.item.rune.BlockRuneItem;
@@ -21,12 +23,15 @@ import dev.xkmc.glimmeringtales.init.data.GTTagGen;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
+import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import dev.xkmc.l2modularblock.core.DelegateBlock;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -66,6 +71,9 @@ public class GTItems {
 
 	public static final ItemEntry<RuneWandItem> WAND;
 	public static final ItemEntry<WandHandleItem> WOOD_WAND, GOLD_WAND;
+
+	public static final ItemEntry<AttributeCurioItem>
+			CHARM_OF_STRENGTH, CHARM_OF_CAPACITY;
 
 	public static final ItemEntry<BlockRuneItem>
 			RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE, RUNE_HAYBALE,
@@ -154,6 +162,18 @@ public class GTItems {
 					.validBlock(RITUAL_MATRIX)
 					.renderer(() -> MatrixRenderer::new)
 					.register();
+		}
+
+		{
+
+			CHARM_OF_STRENGTH = charm("charm_of_strength", AttributeData.of(
+					L2DamageTracker.MAGIC_FACTOR, 0.25, AttributeModifier.Operation.ADD_VALUE
+			));
+
+			CHARM_OF_CAPACITY = charm("charm_of_capacity", AttributeData.of(
+					GTRegistries.MAX_MANA, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE
+			));
+
 		}
 
 		{
@@ -310,6 +330,15 @@ public class GTItems {
 				.register();
 		HANDLES.add(ans);
 		return ans;
+	}
+
+	private static ItemEntry<AttributeCurioItem> charm(String id, AttributeData data) {
+		return GlimmeringTales.REGISTRATE.item(id,
+						p -> new AttributeCurioItem(p.stacksTo(1).fireResistant()))
+				.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
+				.dataMap(GTRegistries.ITEM_ATTR.reg(), data)
+				.tag(GTTagGen.curio("charm"), GTTagGen.UNIQUE)
+				.register();
 	}
 
 	private static BlockEntry<DelegateBlock> magma(String id) {

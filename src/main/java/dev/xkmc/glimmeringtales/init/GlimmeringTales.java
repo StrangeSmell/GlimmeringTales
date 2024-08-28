@@ -51,16 +51,18 @@ public class GlimmeringTales {
 		GTItems.register();
 		GTRecipes.register();
 		GTEngine.register();
+	}
+
+	private static void initHandlers(){
 		Handlers.registerReg(NatureSpell.class, GTRegistries.SPELL);
 		Handlers.registerReg(SpellAction.class, EngineRegistry.SPELL);
 		Handlers.enableVanilla(Wrappers.cast(ProcessorType.class), EngineRegistry.PROCESSOR.registry().get());
+		SpellTooltipRegistry.init();
 	}
 
 	@SubscribeEvent
 	public static void setup(final FMLCommonSetupEvent event) {
-		event.enqueueWork(() -> {
-			SpellTooltipRegistry.init();
-		});
+		event.enqueueWork(GlimmeringTales::initHandlers);
 	}
 
 	@SubscribeEvent
@@ -84,8 +86,8 @@ public class GlimmeringTales {
 
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
-	public static void gatherDataInit(GatherDataEvent event){
-		SpellTooltipRegistry.init();
+	public static void gatherDataInit(GatherDataEvent event) {
+		initHandlers();
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
@@ -104,6 +106,13 @@ public class GlimmeringTales {
 		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTSpells::genMap);
 		init.addDependency(ProviderType.DATA_MAP, ProviderType.DYNAMIC);
 		REGISTRATE.addDataGenerator(GTTagGen.STRUCTURE, GTTagGen::genStructureTag);
+
+		var gen = event.getGenerator();
+		var run = event.includeServer();
+		var out = gen.getPackOutput();
+		var file = event.getExistingFileHelper();
+		var pvd = event.getLookupProvider();
+		gen.addProvider(run, new GTSlotGen(out, file, pvd));
 	}
 
 	public static ResourceLocation loc(String id) {

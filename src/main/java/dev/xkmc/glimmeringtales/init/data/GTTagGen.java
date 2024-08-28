@@ -6,11 +6,13 @@ import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.l2core.init.L2TagGen;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.Structure;
+import top.theillusivec4.curios.api.CuriosApi;
 
 public class GTTagGen {
 
@@ -19,6 +21,7 @@ public class GTTagGen {
 
 	public static final TagKey<Item> CRYSTAL = item("crystal");
 	public static final TagKey<Item> CORE = item("core");
+	public static final TagKey<Item> UNIQUE = item("unique_curios");
 
 	public static final TagKey<Block> AMETHYST = block("amethyst");
 	public static final TagKey<Block> QUARTZ = block("quartz");
@@ -71,6 +74,10 @@ public class GTTagGen {
 
 	public static TagKey<Block> block(String id) {
 		return TagKey.create(Registries.BLOCK, GlimmeringTales.loc(id));
+	}
+
+	public static TagKey<Item> curio(String id) {
+		return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(CuriosApi.MODID, id));
 	}
 
 	public static TagKey<Item> item(String id) {

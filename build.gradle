@@ -170,8 +170,12 @@ dependencies {
 
     runtimeOnly jarJar(group: 'dev.xkmc', name: 'better_creative_tabs', version: "[0.1.2,)")
 
-
     implementation "mezz.jei:jei-${jei_minecraft_version}:${jei_version}"
-    implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}"
     implementation "vazkii.patchouli:Patchouli:${patchouli_ver}"
+
+    implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}"
+    //implementation "curse.maven:cloth-config-348521:5623420"
+    //implementation "curse.maven:accessories-938917:5654460"
+    //implementation "curse.maven:accessories-cc-layer-1005683:5651834"
+    //compileOnly "curse.maven:adorned-1036809:5652826"
 }
