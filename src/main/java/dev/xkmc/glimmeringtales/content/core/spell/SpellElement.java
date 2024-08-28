@@ -41,4 +41,9 @@ public class SpellElement extends NamedEntry<SpellElement> {
 		return new NatureSpellBuilder(id, this);
 	}
 
+	public int getColor() {
+		var ans = color.getColor();
+		return ans == null ? -1 : ans;
+	}
+
 }

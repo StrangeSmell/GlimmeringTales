@@ -60,4 +60,8 @@ public class BaseRitualBlockEntity extends BaseBlockEntity implements BlockConta
 
 	}
 
+	public float getStackScale(float pTick) {
+		return 1;
+	}
+
 }

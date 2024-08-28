@@ -206,8 +206,8 @@ public class GTRecipeGen {
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.RUNE_SOUL_SAND)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
-					.side(Items.MAGMA_BLOCK, 4)
-					.side(Items.MAGMA_CREAM, 4)
+					.side(Items.SOUL_SAND, 4)
+					.side(Items.SOUL_SOIL, 4)
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.RUNE_SNOW)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())

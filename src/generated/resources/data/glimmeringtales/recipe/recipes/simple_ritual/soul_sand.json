@@ -12,42 +12,42 @@
   "list": [
     {
       "ingredient": {
-        "item": "minecraft:magma_block"
+        "item": "minecraft:soul_sand"
       }
     },
     {
       "ingredient": {
-        "item": "minecraft:magma_block"
+        "item": "minecraft:soul_sand"
       }
     },
     {
       "ingredient": {
-        "item": "minecraft:magma_block"
+        "item": "minecraft:soul_sand"
       }
     },
     {
       "ingredient": {
-        "item": "minecraft:magma_block"
+        "item": "minecraft:soul_sand"
       }
     },
     {
       "ingredient": {
-        "item": "minecraft:magma_cream"
+        "item": "minecraft:soul_soil"
       }
     },
     {
       "ingredient": {
-        "item": "minecraft:magma_cream"
+        "item": "minecraft:soul_soil"
       }
     },
     {
       "ingredient": {
-        "item": "minecraft:magma_cream"
+        "item": "minecraft:soul_soil"
       }
     },
     {
       "ingredient": {
-        "item": "minecraft:magma_cream"
+        "item": "minecraft:soul_soil"
       }
     }
   ],

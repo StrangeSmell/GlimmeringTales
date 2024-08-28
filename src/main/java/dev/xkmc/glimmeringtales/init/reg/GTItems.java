@@ -139,11 +139,12 @@ public class GTItems {
 					.register();
 
 			RITUAL_ALTAR = GlimmeringTales.REGISTRATE.block("ritual_altar", p ->
-							DelegateBlock.newBaseBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)
+							DelegateBlock.newBaseBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).lightLevel(s -> 11)
 									.noOcclusion(), RitualBlock.ITEM, RitualBlock.LINK, RitualBlock.SIDE))
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().getBuilder("block/" + ctx.getName())
 							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("custom/ritual_altar")))
 							.texture("all", "block/" + ctx.getName())
+							.texture("particle", pvd.mcLoc("block/deepslate"))
 							.renderType("cutout")))
 					.simpleItem()
 					.register();
@@ -154,11 +155,12 @@ public class GTItems {
 					.register();
 
 			RITUAL_MATRIX = GlimmeringTales.REGISTRATE.block("ritual_matrix", p ->
-							DelegateBlock.newBaseBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)
+							DelegateBlock.newBaseBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).lightLevel(s -> 11)
 									.noOcclusion(), RitualBlock.ITEM, RitualBlock.LINK, RitualBlock.START, RitualBlock.CORE))
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().getBuilder("block/" + ctx.getName())
 							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("custom/ritual_matrix")))
 							.texture("all", "block/" + ctx.getName())
+							.texture("particle", pvd.mcLoc("block/deepslate"))
 							.renderType("cutout")))
 					.simpleItem()
 					.register();

@@ -9,42 +9,31 @@ import dev.xkmc.l2serial.serialization.marker.SerialField;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SerialClass
 public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
-
-	private static float curve(int m, float lap) {
-		int t = 40;
-		float s = 5;
-		float factor = (s - 1) / 2;
-		if (lap < t) {
-			return lap + lap * lap * factor / t;
-		} else if (lap < m - t) {
-			return lap * s - factor * t;
-		} else if (lap < m) {
-			float diff = m - lap;
-			return m * s - t * (s - 1) - (diff + diff * diff * factor / t);
-		} else return (m - t) * (s - 1) + lap;
-	}
 
 	@SerialField
 	private int totalTime, remainTime;
 
 	@SerialField
-	private long lastKeyTime, lastTimeStamp;
+	private long lastTimeStamp;
 
 	@SerialField
 	private ResourceLocation recipeId;
 
 	private RitualRecipe<?> recipe;
 
+	private final MatrixAnimationState animation = new MatrixAnimationState();
+
 	public float getTime(float pTick) {
-		long time = level == null ? 0 : level.getGameTime();
-		float lap = time - lastTimeStamp + pTick;
-		float animTime = totalTime == 0 ? lap : curve(totalTime, lap);
-		return (lastKeyTime + animTime) * 3 % 360;
+		return animation.getTime(pTick);
 	}
 
 	public NatureCoreBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
@@ -61,18 +50,7 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 	}
 
 	private void laps() {
-		long currentTime = level == null ? 0 : level.getGameTime();
-		long lap = currentTime - lastTimeStamp;
-		lastKeyTime += lap;
-		lastTimeStamp = currentTime;
-	}
-
-	private void stopLap() {
-		long time = level == null ? 0 : level.getGameTime();
-		float lap = time - lastTimeStamp;
-		float animTime = totalTime == 0 ? lap : curve(totalTime, lap);
-		lastKeyTime += (int) animTime;
-		lastTimeStamp = time;
+		lastTimeStamp = level == null ? 0 : level.getGameTime();
 	}
 
 	public void triggerCraft() {
@@ -105,7 +83,7 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 		remainTime--;
 		if (remainTime <= 0) {
 			recipe.assemble(new RitualInput(this, getLinked()), level.registryAccess());
-			stopLap();
+			laps();
 			remainTime = 0;
 			totalTime = 0;
 			recipeId = null;
@@ -120,7 +98,19 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 
 	private void tickParticle() {
 		if (level == null) return;
-		var pos = getBlockPos().getCenter().add(0, 1, 0);
+		if (animation.tick(totalTime > 0)) {
+			if (totalTime > 0) {
+				List<ItemStack> list = new ArrayList<>();
+				list.add(getItem().copy());
+				for (var e : getLinked()) {
+					list.add(e.getItem().copy());
+				}
+				animation.setup(list);
+			} else {
+				animation.release(level, getBlockPos(), this);
+			}
+		}
+		var pos = getBlockPos().getCenter().add(0, 2, 0);
 		for (var e : getLinked()) {
 			var ip = e.getBlockPos().getCenter().add(0, 1, 0).subtract(pos);
 			if (remainTime > 0 || level.getRandom().nextInt(8) == 0)
@@ -139,9 +129,18 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 		totalTime = 0;
 		recipeId = null;
 		recipe = null;
-		stopLap();
+		laps();
 		sync();
 		setChanged();
+	}
+
+	public float progress(float pTick) {
+		if (totalTime > 0) {
+			long time = level == null ? 0 : level.getGameTime();
+			float lap = Math.min(totalTime, time - lastTimeStamp + pTick);
+			return 1 - lap / totalTime;
+		}
+		return 1f;
 	}
 
 }

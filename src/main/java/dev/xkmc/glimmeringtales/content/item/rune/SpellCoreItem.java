@@ -43,7 +43,7 @@ public class SpellCoreItem extends LightningImmuneItem implements IBlockSpellIte
 	}
 
 	@Nullable
-	private ElementAffinity getAffinity(Level level) {
+	public ElementAffinity getAffinity(Level level) {
 		return GTRegistries.AFFINITY.get(level.registryAccess(), builtInRegistryHolder());
 	}
 

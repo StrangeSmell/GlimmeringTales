@@ -2,6 +2,7 @@
   "parent": "glimmeringtales:custom/ritual_matrix",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "glimmeringtales:block/ritual_matrix"
+    "all": "glimmeringtales:block/ritual_matrix",
+    "particle": "minecraft:block/deepslate"
   }
 }

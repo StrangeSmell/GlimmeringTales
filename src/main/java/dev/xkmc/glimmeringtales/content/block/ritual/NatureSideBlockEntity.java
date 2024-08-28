@@ -13,4 +13,12 @@ public class NatureSideBlockEntity extends SideRitualBlockEntity {
 		super(type, pos, state);
 	}
 
+	public float getStackScale(float pTick) {
+		var core = getLink();
+		if (core != null && level != null && level.getBlockEntity(core) instanceof NatureCoreBlockEntity be) {
+			return be.progress(pTick);
+		}
+		return 1;
+	}
+
 }

@@ -16,6 +16,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.phys.AABB;
 import org.joml.Quaternionf;
 
 public class MatrixRenderer<T extends NatureCoreBlockEntity> extends RitualRenderer<T> {
@@ -65,5 +66,11 @@ public class MatrixRenderer<T extends NatureCoreBlockEntity> extends RitualRende
 		this.glass.render(pose, vc, light, overlay);
 		pose.popPose();
 		pose.popPose();
+	}
+
+	@Override
+	public AABB getRenderBoundingBox(T be) {
+		var pos = be.getBlockPos();
+		return new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, pos.getY() + 2, pos.getZ() + 1);
 	}
 }
