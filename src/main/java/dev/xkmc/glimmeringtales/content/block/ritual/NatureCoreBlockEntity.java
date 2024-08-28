@@ -32,13 +32,14 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 
 	private final MatrixAnimationState animation = new MatrixAnimationState();
 
+	public NatureCoreBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+		super(type, pos, state);
+	}
+
 	public float getTime(float pTick) {
 		return animation.getTime(pTick);
 	}
 
-	public NatureCoreBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
-		super(type, pos, state);
-	}
 
 	@Override
 	public void tick() {
