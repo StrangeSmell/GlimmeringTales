@@ -47,7 +47,7 @@ public class FlameSpells {
 			.build(GlimmeringTales.loc("hell_mark")).cost(160)
 			.damageVanilla(() -> new DamageType("onFire", 0, DamageEffects.BURNING), DamageTypeTags.IS_FIRE)
 			.spell(ctx -> new SpellAction(flameBurst(ctx),
-					GTItems.HELL_MARK.get(), 200,
+					GTItems.HELL_MARK.asItem(), 200,
 					SpellCastType.INSTANT, SpellTriggerType.TARGET_POS
 			)).lang("Hell Mark").desc(
 					"[Ranged] Form a flame circle",
@@ -59,7 +59,7 @@ public class FlameSpells {
 			.build(GlimmeringTales.loc("lava_burst")).cost(10, 30)
 			.damageVanilla(() -> new DamageType("explosion", 0.1f), DamageTypeTags.IS_EXPLOSION)
 			.spell(ctx -> new SpellAction(earthquake(ctx),
-					GTItems.LAVA_BURST.get(), 300,
+					GTItems.LAVA_BURST.asItem(), 300,
 					SpellCastType.CHARGE, SpellTriggerType.HORIZONTAL_FACING
 			)).lang("Lava Burst").desc(
 					"[Charge] Cause several bursts in the front",

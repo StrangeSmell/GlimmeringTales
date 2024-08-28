@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.init.reg;
 
+import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
@@ -23,6 +24,8 @@ import dev.xkmc.glimmeringtales.init.data.GTTagGen;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
+import dev.xkmc.l2core.init.reg.varitem.VarHolder;
+import dev.xkmc.l2core.init.reg.varitem.VarItemInit;
 import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import dev.xkmc.l2modularblock.core.DelegateBlock;
 import net.minecraft.client.renderer.block.model.BlockModel;
@@ -30,7 +33,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -54,7 +56,10 @@ public class GTItems {
 			.buildL2CreativeTab("glimmeringtales", "Glimmering Tales", e ->
 					e.icon(GTItems.CRYSTAL_EARTH::asStack));
 
-	public static final List<ItemEntry<? extends IWandCoreItem>> CORES = new ArrayList<>();
+	public static final VarItemInit<AttributeCurioItem> CURIOS;
+	public static final VarItemInit<SpellRuneItem> SPELLS;
+
+	public static final List<Supplier<? extends IWandCoreItem>> CORES = new ArrayList<>();
 	public static final List<ItemEntry<? extends WandHandleItem>> HANDLES = new ArrayList<>();
 
 	public static final ItemEntry<SpellCoreItem> CRYSTAL_NATURE,
@@ -72,7 +77,7 @@ public class GTItems {
 	public static final ItemEntry<RuneWandItem> WAND;
 	public static final ItemEntry<WandHandleItem> WOOD_WAND, GOLD_WAND;
 
-	public static final ItemEntry<AttributeCurioItem>
+	public static final VarHolder<AttributeCurioItem>
 			CHARM_OF_STRENGTH, CHARM_OF_CAPACITY;
 
 	public static final ItemEntry<BlockRuneItem>
@@ -82,7 +87,7 @@ public class GTItems {
 			RUNE_SNOW, RUNE_ICE, RUNE_PACKED_ICE, RUNE_BLUE_ICE, RUNE_POWDER_SNOW,
 			RUNE_THUNDER;
 
-	public static final ItemEntry<SpellRuneItem>
+	public static final VarHolder<SpellRuneItem>
 			HELL_MARK, LAVA_BURST, WINTER_STORM, SNOW_TORNADO;
 
 	public static final BlockEntry<DelegateBlock> CLAY_CARPET, FAKE_STONE,
@@ -96,6 +101,24 @@ public class GTItems {
 	public static final DCVal<Holder<Item>> WAND_HANDLE = DC.registry("handle", BuiltInRegistries.ITEM);
 
 	static {
+
+		CURIOS = VarItemInit.setup(GlimmeringTales.REGISTRATE, GlimmeringTales.loc("curios"),
+				e -> new AttributeCurioItem(new Item.Properties().stacksTo(1).fireResistant()),
+				(rl, b) -> b.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
+		);
+
+		SPELLS = VarItemInit.setup(GlimmeringTales.REGISTRATE, GlimmeringTales.loc("spell_runes"),
+				e -> new SpellRuneItem(new Item.Properties().fireResistant(), e),
+				(rl, b) -> b.tag(GTTagGen.CORE)
+						.lang("Rune: " + RegistrateLangProvider.toEnglishName(rl.getPath()))
+						.model((ctx, pvd) -> {
+							pvd.generated(ctx, pvd.modLoc("item/spell/" + ctx.getName()));
+							pvd.getBuilder(ctx.getName() + "_core").parent(
+											new ModelFile.UncheckedModelFile(pvd.modLoc("custom/rune_core")))
+									.texture("all", pvd.modLoc("item/spell/" + ctx.getName()))
+									.renderType("cutout");
+						})
+		);
 
 		{
 			CRYSTAL_NATURE = core("crystal_of_nature");
@@ -221,10 +244,10 @@ public class GTItems {
 
 			RUNE_THUNDER = rune("thunder", STRUCK_LOG::get, "Rune: Thunder");
 
-			HELL_MARK = spell("hell_mark", "Rune: Hell Mark");
-			LAVA_BURST = spell("lava_burst", "Rune: Lava Burst");
-			WINTER_STORM = spell("winter_storm", "Rune: Winter Storm");
-			SNOW_TORNADO = spell("snow_tornado", "Rune: Snow Tornado");
+			HELL_MARK = spell("hell_mark");
+			LAVA_BURST = spell("lava_burst");
+			WINTER_STORM = spell("winter_storm");
+			SNOW_TORNADO = spell("snow_tornado");
 		}
 
 		{
@@ -298,19 +321,9 @@ public class GTItems {
 		return ans;
 	}
 
-	private static ItemEntry<SpellRuneItem> spell(String id, String name) {
-		var ans = GlimmeringTales.REGISTRATE.item(id, p ->
-						new SpellRuneItem(p.fireResistant(), GlimmeringTales.loc(id)))
-				.model((ctx, pvd) -> {
-					pvd.generated(ctx, pvd.modLoc("item/spell/" + ctx.getName()));
-					pvd.getBuilder(ctx.getName() + "_core").parent(
-									new ModelFile.UncheckedModelFile(pvd.modLoc("custom/rune_core")))
-							.texture("all", pvd.modLoc("item/spell/" + ctx.getName()))
-							.renderType("cutout");
-				})
-				.tag(GTTagGen.CORE)
-				.lang(name).register();
-		CORES.add(ans);
+	private static VarHolder<SpellRuneItem> spell(String id) {
+		var ans = SPELLS.add(new VarHolder<>(id, (rl, b) -> b));
+		CORES.add(() -> ans.item().get());
 		return ans;
 	}
 
@@ -332,13 +345,10 @@ public class GTItems {
 		return ans;
 	}
 
-	private static ItemEntry<AttributeCurioItem> charm(String id, AttributeData data) {
-		return GlimmeringTales.REGISTRATE.item(id,
-						p -> new AttributeCurioItem(p.stacksTo(1).fireResistant()))
-				.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
+	private static VarHolder<AttributeCurioItem> charm(String id, AttributeData data) {
+		return CURIOS.add(new VarHolder<>(id, (rl, b) -> b
 				.dataMap(GTRegistries.ITEM_ATTR.reg(), data)
-				.tag(GTTagGen.curio("charm"), GTTagGen.UNIQUE)
-				.register();
+				.tag(GTTagGen.curio("charm"), GTTagGen.UNIQUE)));
 	}
 
 	private static BlockEntry<DelegateBlock> magma(String id) {
