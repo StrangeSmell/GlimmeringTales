@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:charm_of_nature"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:charm_of_life"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_life"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:totemic_gold_ingot"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:totemic_gold_ingot"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:totemic_gold_ingot"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:bamboo"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:bamboo"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:bamboo"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:bamboo"
+      }
+    }
+  ],
+  "time": 100
+}

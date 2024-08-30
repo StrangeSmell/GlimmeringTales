@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:charm_of_nature"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:charm_of_flame"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_flame"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:soul_flame"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:soul_flame"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:soul_flame"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    }
+  ],
+  "time": 100
+}

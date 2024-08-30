@@ -152,6 +152,33 @@ public class GTItems {
 		CHARM_OF_REGENERATION("charm", AttributeData.of(
 				AttributeData.add(GTRegistries.MANA_REGEN, 0.5)
 		)),
+		CHARM_OF_NATURE("charm", AttributeData.of(
+				AttributeData.base(GTRegistries.MANA_REGEN, 0.1)
+		)),
+		CHARM_OF_EARTH("charm", AttributeData.of(
+				AttributeData.base(GTRegistries.MANA_REGEN, 0.1),
+				AttributeData.add(L2DamageTracker.REDUCTION, -0.2)
+		)),
+		CHARM_OF_LIFE("charm", AttributeData.of(
+				AttributeData.base(GTRegistries.MANA_REGEN, 0.1),
+				AttributeData.add(L2DamageTracker.REGEN, 0.5)
+		)),
+		CHARM_OF_FLAME("charm", AttributeData.of(
+				AttributeData.add(L2DamageTracker.FIRE_FACTOR, 1),
+				AttributeData.add(L2DamageTracker.EXPLOSION_FACTOR, 1)
+		)),
+		CHARM_OF_SNOW("charm", AttributeData.of(
+				AttributeData.add(L2DamageTracker.REDUCTION, -0.1),
+				AttributeData.add(L2DamageTracker.FREEZING_FACTOR, 1)
+		)),
+		CHARM_OF_OCEAN("charm", AttributeData.of(
+				AttributeData.base(GTRegistries.MANA_REGEN, 0.1),
+				AttributeData.add(L2DamageTracker.MAGIC_FACTOR, 0.5)
+		)),
+		CHARM_OF_THUNDER("charm", AttributeData.of(
+				AttributeData.base(GTRegistries.MANA_REGEN, 0.2),
+				AttributeData.add(L2DamageTracker.LIGHTNING_FACTOR, 1)
+		)),
 		;
 
 

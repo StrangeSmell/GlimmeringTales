@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:charm_of_nature"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:charm_of_earth"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_earth"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:explosion_shard"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:explosion_shard"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:explosion_shard"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:netherite_scrap"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:netherite_scrap"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:netherite_scrap"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:netherite_scrap"
+      }
+    }
+  ],
+  "time": 100
+}

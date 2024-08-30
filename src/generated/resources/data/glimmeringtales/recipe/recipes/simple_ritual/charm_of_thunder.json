@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:charm_of_nature"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:charm_of_thunder"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_thunder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:storm_core"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:storm_core"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:storm_core"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:captured_wind"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:captured_wind"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:captured_wind"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:captured_wind"
+      }
+    }
+  ],
+  "time": 100
+}

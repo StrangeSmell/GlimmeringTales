@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_charm_of_nature": {
+      "conditions": {
+        "items": [
+          {
+            "items": "glimmeringtales:charm_of_nature"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "glimmeringtales:charm_of_thunder"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_charm_of_nature"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "glimmeringtales:charm_of_thunder"
+    ]
+  }
+}

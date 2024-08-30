@@ -7,6 +7,7 @@ import dev.xkmc.glimmeringtales.content.recipe.ritual.SimpleRitualRecipeBuilder;
 import dev.xkmc.glimmeringtales.content.recipe.thunder.StrikeBlockRecipeBuilder;
 import dev.xkmc.glimmeringtales.content.recipe.thunder.StrikeItemRecipeBuilder;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
+import dev.xkmc.l2complements.init.materials.LCMats;
 import dev.xkmc.l2complements.init.registrate.LCItems;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -153,7 +154,56 @@ public class GTRecipeGen {
 					.side(GTItems.CRYSTAL_NATURE, 3)
 					.side(GTItems.STRUCK_LOG, 4)
 					.save(pvd);
+		}
 
+		{
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GTItems.Curios.CHARM_OF_NATURE)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+					.pattern("LNS").pattern("NDN").pattern("LNL")
+					.define('S', Items.STRING)
+					.define('D', Items.DIAMOND)
+					.define('N', GTItems.CRYSTAL_NATURE)
+					.define('L', Items.LAPIS_LAZULI)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.Curios.CHARM_OF_NATURE, GTItems.Curios.CHARM_OF_EARTH)::unlockedBy, GTItems.Curios.CHARM_OF_NATURE.asItem())
+					.side(GTItems.CRYSTAL_EARTH, 1)
+					.side(LCItems.EXPLOSION_SHARD, 3)
+					.side(Items.NETHERITE_SCRAP, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.Curios.CHARM_OF_NATURE, GTItems.Curios.CHARM_OF_LIFE)::unlockedBy, GTItems.Curios.CHARM_OF_NATURE.asItem())
+					.side(GTItems.CRYSTAL_LIFE, 1)
+					.side(LCMats.TOTEMIC_GOLD.getIngot(), 3)
+					.side(Items.BAMBOO, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.Curios.CHARM_OF_NATURE, GTItems.Curios.CHARM_OF_FLAME)::unlockedBy, GTItems.Curios.CHARM_OF_NATURE.asItem())
+					.side(GTItems.CRYSTAL_FLAME, 1)
+					.side(LCItems.SOUL_FLAME, 3)
+					.side(Items.BLAZE_POWDER, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.Curios.CHARM_OF_NATURE, GTItems.Curios.CHARM_OF_SNOW)::unlockedBy, GTItems.Curios.CHARM_OF_NATURE.asItem())
+					.side(GTItems.CRYSTAL_WINTERSTORM, 1)
+					.side(LCItems.HARD_ICE, 3)
+					.side(Items.BLUE_ICE, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.Curios.CHARM_OF_NATURE, GTItems.Curios.CHARM_OF_OCEAN)::unlockedBy, GTItems.Curios.CHARM_OF_NATURE.asItem())
+					.side(GTItems.CRYSTAL_OCEAN, 1)
+					.side(LCMats.POSEIDITE.getIngot(), 3)
+					.side(Items.NAUTILUS_SHELL, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.Curios.CHARM_OF_NATURE, GTItems.Curios.CHARM_OF_THUNDER)::unlockedBy, GTItems.Curios.CHARM_OF_NATURE.asItem())
+					.side(GTItems.CRYSTAL_THUNDER, 1)
+					.side(LCItems.STORM_CORE, 3)
+					.side(LCItems.CAPTURED_WIND, 4)
+					.save(pvd);
+		}
+
+		{
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_OCEAN, GTItems.Curios.CHARM_OF_STRENGTH)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
 					.side(GTItems.CRYSTAL_NATURE, 2)
 					.side(Items.AMETHYST_SHARD, 2)

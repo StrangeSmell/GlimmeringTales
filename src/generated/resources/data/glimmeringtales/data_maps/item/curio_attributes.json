@@ -9,6 +9,71 @@
         }
       ]
     },
+    "glimmeringtales:charm_of_earth": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:mana_regen",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        },
+        {
+          "attribute": "l2damagetracker:damage_reduction",
+          "operation": "ADD_VALUE",
+          "value": -0.2
+        }
+      ]
+    },
+    "glimmeringtales:charm_of_flame": {
+      "list": [
+        {
+          "attribute": "l2damagetracker:fire_damage",
+          "operation": "ADD_VALUE",
+          "value": 1.0
+        },
+        {
+          "attribute": "l2damagetracker:explosion_damage",
+          "operation": "ADD_VALUE",
+          "value": 1.0
+        }
+      ]
+    },
+    "glimmeringtales:charm_of_life": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:mana_regen",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        },
+        {
+          "attribute": "l2damagetracker:regen",
+          "operation": "ADD_VALUE",
+          "value": 0.5
+        }
+      ]
+    },
+    "glimmeringtales:charm_of_nature": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:mana_regen",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        }
+      ]
+    },
+    "glimmeringtales:charm_of_ocean": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:mana_regen",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        },
+        {
+          "attribute": "l2damagetracker:magic_damage",
+          "operation": "ADD_VALUE",
+          "value": 0.5
+        }
+      ]
+    },
     "glimmeringtales:charm_of_regeneration": {
       "list": [
         {
@@ -18,12 +83,40 @@
         }
       ]
     },
+    "glimmeringtales:charm_of_snow": {
+      "list": [
+        {
+          "attribute": "l2damagetracker:damage_reduction",
+          "operation": "ADD_VALUE",
+          "value": -0.1
+        },
+        {
+          "attribute": "l2damagetracker:freezing_damage",
+          "operation": "ADD_VALUE",
+          "value": 1.0
+        }
+      ]
+    },
     "glimmeringtales:charm_of_strength": {
       "list": [
         {
           "attribute": "l2damagetracker:magic_damage",
           "operation": "ADD_VALUE",
           "value": 0.5
+        }
+      ]
+    },
+    "glimmeringtales:charm_of_thunder": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:mana_regen",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.2
+        },
+        {
+          "attribute": "l2damagetracker:lightning_damage",
+          "operation": "ADD_VALUE",
+          "value": 1.0
         }
       ]
     },
