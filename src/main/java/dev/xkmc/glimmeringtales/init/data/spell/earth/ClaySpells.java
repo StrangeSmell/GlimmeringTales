@@ -14,8 +14,10 @@ import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.logic.ListLogic;
 import dev.xkmc.l2magic.content.engine.predicate.BlockTestCondition;
 import dev.xkmc.l2magic.content.engine.predicate.SurfaceBelowCondition;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
@@ -35,6 +37,11 @@ public class ClaySpells {
 
 	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.GRAVEL_HIT,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
 				new SetBlock(GTItems.CLAY_CARPET.getDefaultState()),
 				new ScheduleTick(IntVariable.of("rand(80,120)"), GTItems.CLAY_CARPET.get())
 		)).circular(

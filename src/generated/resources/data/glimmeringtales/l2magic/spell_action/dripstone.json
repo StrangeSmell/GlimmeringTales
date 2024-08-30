@@ -1,74 +1,85 @@
 {
   "action": {
-    "type": "l2magic:block_in_range",
-    "child": {
-      "type": "l2magic:if",
-      "action": {
-        "type": "l2magic:move",
-        "child": {
-          "type": "l2magic:custom_projectile",
-          "bypassEntity": true,
-          "bypassWall": false,
-          "config": "glimmeringtales:dripstone",
-          "life": "20",
-          "params": {},
-          "speed": "0.8"
-        },
-        "modifiers": [
-          {
-            "type": "l2magic:offset",
-            "x": "0",
-            "y": "-0.45",
-            "z": "0"
-          },
-          {
-            "type": "l2magic:direction",
-            "x": "0",
-            "y": "1",
-            "z": "0"
-          }
-        ]
+    "type": "l2magic:list",
+    "children": [
+      {
+        "type": "l2magic:sound",
+        "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
+        "sound": "minecraft:block.pointed_dripstone.land",
+        "volume": "1"
       },
-      "predicate": {
-        "type": "l2magic:and",
-        "list": [
-          {
-            "type": "l2magic:or",
-            "list": [
+      {
+        "type": "l2magic:block_in_range",
+        "child": {
+          "type": "l2magic:if",
+          "action": {
+            "type": "l2magic:move",
+            "child": {
+              "type": "l2magic:custom_projectile",
+              "bypassEntity": true,
+              "bypassWall": false,
+              "config": "glimmeringtales:dripstone",
+              "life": "20",
+              "params": {},
+              "speed": "0.8"
+            },
+            "modifiers": [
               {
-                "type": "l2magic:surface_below",
-                "face": "FULL"
+                "type": "l2magic:offset",
+                "x": "0",
+                "y": "-0.45",
+                "z": "0"
               },
               {
-                "type": "l2magic:move",
-                "child": {
-                  "type": "l2magic:block",
-                  "block": "minecraft:pointed_dripstone"
-                },
-                "modifiers": [
-                  {
-                    "type": "l2magic:offset",
-                    "x": "0",
-                    "y": "-1",
-                    "z": "0"
-                  }
-                ]
+                "type": "l2magic:direction",
+                "x": "0",
+                "y": "1",
+                "z": "0"
               }
             ]
           },
-          {
-            "type": "l2magic:not",
-            "child": {
-              "type": "l2magic:block_test",
-              "test": "BLOCKS_MOTION"
-            }
+          "predicate": {
+            "type": "l2magic:and",
+            "list": [
+              {
+                "type": "l2magic:or",
+                "list": [
+                  {
+                    "type": "l2magic:surface_below",
+                    "face": "FULL"
+                  },
+                  {
+                    "type": "l2magic:move",
+                    "child": {
+                      "type": "l2magic:block",
+                      "block": "minecraft:pointed_dripstone"
+                    },
+                    "modifiers": [
+                      {
+                        "type": "l2magic:offset",
+                        "x": "0",
+                        "y": "-1",
+                        "z": "0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "l2magic:not",
+                "child": {
+                  "type": "l2magic:block_test",
+                  "test": "BLOCKS_MOTION"
+                }
+              }
+            ]
           }
-        ]
+        },
+        "delayPerBlock": "2",
+        "plane": false,
+        "range": "2"
       }
-    },
-    "delayPerBlock": "2",
-    "plane": false,
-    "range": "2"
+    ]
   },
   "cast_type": "INSTANT",
   "icon": "glimmeringtales:dripstone",

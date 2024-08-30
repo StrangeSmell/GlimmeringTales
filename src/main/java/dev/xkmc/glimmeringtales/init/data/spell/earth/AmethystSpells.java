@@ -15,6 +15,7 @@ import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2complements.init.registrate.LCEffects;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.iterator.LoopIterator;
+import dev.xkmc.l2magic.content.engine.logic.ListLogic;
 import dev.xkmc.l2magic.content.engine.modifier.ForwardOffsetModifier;
 import dev.xkmc.l2magic.content.engine.modifier.OffsetModifier;
 import dev.xkmc.l2magic.content.engine.modifier.RotationModifier;
@@ -22,6 +23,7 @@ import dev.xkmc.l2magic.content.engine.modifier.SetDirectionModifier;
 import dev.xkmc.l2magic.content.engine.particle.DustParticleInstance;
 import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.variable.ColorVariable;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
@@ -30,9 +32,11 @@ import dev.xkmc.l2magic.content.entity.engine.CustomProjectileShoot;
 import dev.xkmc.l2magic.content.entity.motion.SimpleMotion;
 import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageType;
 
+import java.util.List;
 import java.util.Map;
 
 public class AmethystSpells {
@@ -78,7 +82,13 @@ public class AmethystSpells {
 	public static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		int phi = 7;
 		int theta = 24;
-		return new LoopIterator(
+		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.AMETHYST_BLOCK_BREAK,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
+				new LoopIterator(
 				IntVariable.of("" + phi),
 				new LoopIterator(
 						IntVariable.of("" + theta),
@@ -95,7 +105,8 @@ public class AmethystSpells {
 		).move(
 				OffsetModifier.of("0", "0.55", "0"),
 				SetDirectionModifier.of("1", "0", "0")
-		);
+		)));
+
 	}
 
 }

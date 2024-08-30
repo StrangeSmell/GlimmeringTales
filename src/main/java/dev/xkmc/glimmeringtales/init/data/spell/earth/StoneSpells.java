@@ -12,8 +12,10 @@ import dev.xkmc.l2magic.content.engine.block.SetBlock;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.logic.ListLogic;
 import dev.xkmc.l2magic.content.engine.predicate.BlockTestCondition;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
+import net.minecraft.sounds.SoundEvents;
 import net.neoforged.neoforge.common.Tags;
 
 import java.util.List;
@@ -33,6 +35,11 @@ public class StoneSpells {
 
 	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.STONE_PLACE,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
 				new SetBlock(GTItems.FAKE_STONE.getDefaultState()),
 				new ScheduleTick(IntVariable.of("rand(180,220)"), GTItems.FAKE_STONE.get())
 		)).circular(

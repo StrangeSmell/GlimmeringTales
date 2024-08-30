@@ -22,9 +22,11 @@ import dev.xkmc.l2magic.content.engine.modifier.RotationModifier;
 import dev.xkmc.l2magic.content.engine.particle.SimpleParticleInstance;
 import dev.xkmc.l2magic.content.engine.selector.ApproxBallSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
@@ -43,6 +45,11 @@ public class HaySpell {
 
 	private static ConfiguredEngine<?> procreation(NatureSpellBuilder ctx, double r, double y, double size) {
 		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.PLAYER_LEVELUP,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
 				new ProcessorEngine(SelectionType.ALL,
 						new ApproxBallSelector(
 								DoubleVariable.of(r + "")
