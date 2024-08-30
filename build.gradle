@@ -188,8 +188,11 @@ dependencies {
     implementation "vazkii.patchouli:Patchouli:${patchouli_ver}"
 
     compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
-    dataRuntimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
-    commonRuntimeOnly "curse.maven:cloth-config-348521:5623420"
-    commonRuntimeOnly "curse.maven:accessories-938917:5669937"
-    commonRuntimeOnly "curse.maven:accessories-cc-layer-1005683:5669968"
+
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
+
+    //dataRuntimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
+    //commonRuntimeOnly "curse.maven:cloth-config-348521:5623420"
+    //commonRuntimeOnly "curse.maven:accessories-938917:5669937"
+    //commonRuntimeOnly "curse.maven:accessories-cc-layer-1005683:5669968"
 }

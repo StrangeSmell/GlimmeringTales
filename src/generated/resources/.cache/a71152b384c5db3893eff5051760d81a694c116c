@@ -1,4 +1,4 @@
-// 1.21.1	2024-08-30T10:03:31.251073	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
+// 1.21.1	2024-08-30T11:17:00.981601	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
 f628b87d75a2e2a6c5157d17ef22b26cb8b260eb assets/glimmeringtales/blockstates/bamboo.json
 4132de47f0c0e042aadf759876c94ea0a1d95cd2 assets/glimmeringtales/blockstates/clay_carpet.json
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
@@ -244,7 +244,7 @@ cefe3bfcfa52af92534d2ad858924afb381fd00e data/glimmeringtales/damage_type/dripst
 df31d5e800298c017c5d911f29bfd019f5ef0115 data/glimmeringtales/data_maps/block/block_melt.json
 4e2f062182eaf5e40776fcf58d56dc3a1136ad69 data/glimmeringtales/data_maps/block/block_replace.json
 06ba19a4ea7741ce007236ed9288ce32cd765e98 data/glimmeringtales/data_maps/block/block_spell.json
-1f7dde05cb87be9095458fb1b9537a614f1aa9cf data/glimmeringtales/data_maps/item/curio_attributes.json
+89145212c1c7dcea4d999f928061dfe8f991bccd data/glimmeringtales/data_maps/item/curio_attributes.json
 0584b6b6d4d46a8e52786db25e1def51b89f7c4f data/glimmeringtales/data_maps/item/element_affinity.json
 4d8346c1eacefb4f3e46e5c5b62f121c9eb795fd data/glimmeringtales/data_maps/item/rune_block.json
 290fa3c30d0c2f69d6a713c61866cb52ebbe1fed data/glimmeringtales/glimmeringtales/spell/amethyst.json
@@ -368,6 +368,7 @@ eefb8b26df5cbb778776e856d2c817526bb2b457 data/glimmeringtales/tags/block/vine.js
 c87247b9345c88e25a867788749f1b09bcba5db5 data/glimmeringtales/tags/item/core.json
 d8b58e10ba2bbc42f36abcc5983c44b87f4f7566 data/glimmeringtales/tags/item/crystal.json
 9d9e5daf56a70a783193d15fb8d076e914798554 data/glimmeringtales/tags/item/unique_curios.json
+31d186cc62feed24d1dbfa7df0a75248c1efa15c data/l2damagetracker/tags/attribute/percentage.json
 394d14dbc5425dd8e03e9a445f5e1b7304b2a1c2 data/l2tabs/data_maps/attribute/attribute_entry.json
 ef0507da819d40fd56142e3a90c7e96c7439fe5c data/minecraft/tags/block/crops.json
 01e188932772855becc360e42d9ddfad4332de28 data/minecraft/tags/block/logs_that_burn.json

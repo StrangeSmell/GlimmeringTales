@@ -115,37 +115,37 @@ public class GTItems {
 				AttributeData.add(GTRegistries.SNOW.attr(), 0.1)
 		)),
 		RING_OF_EARTH("ring", AttributeData.of(
-				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
-				AttributeData.add(GTRegistries.EARTH.attr(), 0.25)
+				AttributeData.base(GTRegistries.MAX_MANA, 0.2),
+				AttributeData.add(GTRegistries.EARTH.attr(), 0.5)
 		)),
 		RING_OF_LIFE("ring", AttributeData.of(
-				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
-				AttributeData.add(GTRegistries.LIFE.attr(), 0.25)
+				AttributeData.base(GTRegistries.MAX_MANA, 0.2),
+				AttributeData.add(GTRegistries.LIFE.attr(), 0.5)
 		)),
 		RING_OF_FLAME("ring", AttributeData.of(
-				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
-				AttributeData.add(GTRegistries.FLAME.attr(), 0.25)
+				AttributeData.base(GTRegistries.MAX_MANA, 0.2),
+				AttributeData.add(GTRegistries.FLAME.attr(), 0.5)
 		)),
 		RING_OF_SNOW("ring", AttributeData.of(
-				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
-				AttributeData.add(GTRegistries.SNOW.attr(), 0.25)
+				AttributeData.base(GTRegistries.MAX_MANA, 0.2),
+				AttributeData.add(GTRegistries.SNOW.attr(), 0.5)
 		)),
 		RING_OF_OCEAN("ring", AttributeData.of(
-				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
-				AttributeData.add(GTRegistries.OCEAN.attr(), 0.25)
+				AttributeData.base(GTRegistries.MAX_MANA, 0.2),
+				AttributeData.add(GTRegistries.OCEAN.attr(), 0.5)
 		)),
 		RING_OF_THUNDER("ring", AttributeData.of(
-				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
-				AttributeData.add(GTRegistries.THUNDER.attr(), 0.25)
+				AttributeData.base(GTRegistries.MAX_MANA, 0.3),
+				AttributeData.add(GTRegistries.THUNDER.attr(), 0.5)
 		)),
 		CHARM_OF_STRENGTH("charm", AttributeData.of(
-				AttributeData.add(L2DamageTracker.MAGIC_FACTOR, 0.25)
+				AttributeData.add(L2DamageTracker.MAGIC_FACTOR, 0.5)
 		)),
 		CHARM_OF_CAPACITY("charm", AttributeData.of(
-				AttributeData.base(GTRegistries.MAX_MANA, 0.25)
+				AttributeData.base(GTRegistries.MAX_MANA, 0.5)
 		)),
 		CHARM_OF_REGENERATION("charm", AttributeData.of(
-				AttributeData.add(GTRegistries.MANA_REGEN, 0.25)
+				AttributeData.add(GTRegistries.MANA_REGEN, 0.5)
 		)),
 		;
 

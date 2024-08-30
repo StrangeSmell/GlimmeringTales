@@ -21,6 +21,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -45,7 +46,7 @@ public class GTRegistries {
 			GlimmeringTales.REG.dataMap("curio_attributes", Registries.ITEM, AttributeData.class);
 
 	public static final Holder<Attribute> MAX_MANA = reg("max_mana", 400, 1000000, "Max Mana");
-	public static final Holder<Attribute> MANA_REGEN = reg("mana_regen", 20, 1000000, "Mana Regen");
+	public static final Holder<Attribute> MANA_REGEN = reg("mana_regen", 20, 1000000, "Mana Regen", L2DamageTracker.PERCENTAGE);
 
 	public static final ElemEntry LIFE = reg("life", ChatFormatting.GREEN);
 	public static final ElemEntry EARTH = reg("earth", ChatFormatting.GOLD);
@@ -61,13 +62,15 @@ public class GTRegistries {
 	public static final MatcherSwapType SWAP = new RuneSwapType();
 
 	private static ElemEntry reg(String id, ChatFormatting color) {
-		var attr = reg(id + "_affinity", 0, 1000, RegistrateLangProvider.toEnglishName(id + "_affinity"));
+		var attr = reg(id + "_affinity", 0, 1000,
+				RegistrateLangProvider.toEnglishName(id + "_affinity"), L2DamageTracker.PERCENTAGE);
 		return new ElemEntry(GlimmeringTales.REGISTRATE.generic(ELEMENT, id, () -> new SpellElement(color, attr))
 				.defaultLang().register(), attr);
 	}
 
-	public static SimpleEntry<Attribute> reg(String id, double def, double max, String name) {
-		return L2DamageTracker.regWrapped(GlimmeringTales.REGISTRATE, id, def, 0, max, name);
+	@SafeVarargs
+	public static SimpleEntry<Attribute> reg(String id, double def, double max, String name, TagKey<Attribute>... tags) {
+		return L2DamageTracker.regWrapped(GlimmeringTales.REGISTRATE, id, def, 0, max, name, tags);
 	}
 
 	public static void register() {
