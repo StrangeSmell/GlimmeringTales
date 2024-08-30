@@ -45,8 +45,8 @@ public class GTRegistries {
 	public static final DataMapReg<Item, AttributeData> ITEM_ATTR =
 			GlimmeringTales.REG.dataMap("curio_attributes", Registries.ITEM, AttributeData.class);
 
-	public static final Holder<Attribute> MAX_MANA = reg("max_mana", 400, 1000000, "Max Mana");
-	public static final Holder<Attribute> MANA_REGEN = reg("mana_regen", 20, 1000000, "Mana Regen");
+	public static final SimpleEntry<Attribute> MAX_MANA = reg("max_mana", 400, 1000000, "Max Mana");
+	public static final SimpleEntry<Attribute> MANA_REGEN = reg("mana_regen", 20, 1000000, "Mana Regen");
 
 	public static final ElemEntry LIFE = reg("life", ChatFormatting.GREEN);
 	public static final ElemEntry EARTH = reg("earth", ChatFormatting.GOLD);

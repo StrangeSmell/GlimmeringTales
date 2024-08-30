@@ -15,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
@@ -156,5 +157,10 @@ public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, Fast
 		var handle = getHandle(stack);
 		list.add(Component.translatable(handle.getDescriptionId()).append(": "));
 		handle.appendAffinityDesc(level, list);
+	}
+
+	@Override
+	public @Nullable EquipmentSlot getEquipmentSlot(ItemStack stack) {
+		return null;
 	}
 }

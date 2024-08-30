@@ -1,4 +1,4 @@
-// 1.21.1	2024-08-30T16:30:11.752364	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Patchouli Provider, Tags (damage_type), Tags (worldgen/structure)]
+// 1.21.1	2024-08-30T20:55:29.350038	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
 f628b87d75a2e2a6c5157d17ef22b26cb8b260eb assets/glimmeringtales/blockstates/bamboo.json
 4132de47f0c0e042aadf759876c94ea0a1d95cd2 assets/glimmeringtales/blockstates/clay_carpet.json
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
@@ -311,7 +311,7 @@ c20ef280fe33910fd31e5a1aa12b3ba57e8c774a data/glimmeringtales/l2magic/spell_acti
 31ca76a53cb3fc2c4a31250dc848da7320755905 data/glimmeringtales/l2magic/spell_action/ice.json
 09cab88c3a967f7ec2ce208521f300acc2ee1db5 data/glimmeringtales/l2magic/spell_action/lava_burst.json
 ad9a83354d249e43dddc90f5b5346e06310cba29 data/glimmeringtales/l2magic/spell_action/magma.json
-de7eb0cdd18b71677e97c1975fe552c69c9ed83f data/glimmeringtales/l2magic/spell_action/netherrack.json
+fe5f3f4bf5b13e041509d921e3bd5a3165c89039 data/glimmeringtales/l2magic/spell_action/netherrack.json
 44ecef2b20f1589be059abf5d5abf40f48c3e703 data/glimmeringtales/l2magic/spell_action/packed_ice.json
 915838107ec89ac6f318f2b02765a77b74167c7d data/glimmeringtales/l2magic/spell_action/powder_snow.json
 87c072c13fb05b331bd1744a69f84a2aba5a9cd2 data/glimmeringtales/l2magic/spell_action/procreation.json

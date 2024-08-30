@@ -11,7 +11,14 @@ import net.minecraft.world.entity.player.Player;
 public class PlayerManaCapability extends PlayerCapabilityTemplate<PlayerManaCapability> {
 
 	@SerialField
-	private double mana;
+	private double mana = GTRegistries.MAX_MANA.get().getDefaultValue();
+
+	@Override
+	public void onClone(Player player, boolean isWasDeath) {
+		if (isWasDeath) {
+			mana = player.getAttributeValue(GTRegistries.MAX_MANA);
+		}
+	}
 
 	@Override
 	public void tick(Player player) {
@@ -36,8 +43,9 @@ public class PlayerManaCapability extends PlayerCapabilityTemplate<PlayerManaCap
 			return false;
 		}
 		mana -= consume;
-		if (player instanceof ServerPlayer sp)
+		if (player instanceof ServerPlayer sp) {
 			GTRegistries.MANA.type().network.toClient(sp);
+		}
 		return true;
 	}
 
