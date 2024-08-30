@@ -28,6 +28,8 @@ public class GTDamageTypeGen extends DamageTypeAndTagsGen {
 
 	public static final TagKey<DamageType> SPELL = TagKey.create(Registries.DAMAGE_TYPE, GlimmeringTales.loc("spells"));
 
+	public static final ResourceKey<DamageType> THUNDER = ResourceKey.create(Registries.DAMAGE_TYPE, GlimmeringTales.loc("lightning"));
+
 	@SafeVarargs
 	public static TagKey<DamageType>[] magic(TagKey<DamageType>... tags) {
 		return MathHelper.merge(tags, Tags.DamageTypes.IS_MAGIC, DamageTypeTags.BYPASSES_ARMOR);
@@ -38,17 +40,19 @@ public class GTDamageTypeGen extends DamageTypeAndTagsGen {
 		return MathHelper.merge(tags, DamageTypeTags.IS_FREEZING, DamageTypeTags.NO_KNOCKBACK, DamageTypeTags.BYPASSES_ARMOR);
 	}
 
-
 	protected final List<DamageTypeWrapper> list = new ArrayList<>();
 
 	public GTDamageTypeGen(L2Registrate reg) {
 		super(reg);
+		genDamage(THUNDER, () -> new DamageType("lightningBolt", 0.1F),
+				GTRegistries.THUNDER.get().damgeTag(), DamageTypeTags.IS_LIGHTNING, DamageTypeTags.NO_KNOCKBACK
+		);
+
 		for (var e : NatureSpellGenRegistry.LIST) {
 			e.registerDamage(this);
 		}
 		DamageTypeRoot.configureGeneration(Set.of(L2DamageTracker.MODID, GlimmeringTales.MODID), GlimmeringTales.MODID, list);
 	}
-
 
 	@SafeVarargs
 	public final void genDamage(ResourceKey<DamageType> id, Supplier<DamageType> def, TagKey<DamageType>... tags) {

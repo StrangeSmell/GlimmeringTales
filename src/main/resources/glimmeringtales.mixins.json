@@ -4,6 +4,7 @@
   "package": "dev.xkmc.glimmeringtales.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+	"EntityMixin"
   ],
   "client": [
   ],
