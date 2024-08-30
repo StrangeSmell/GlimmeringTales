@@ -2,10 +2,10 @@ package dev.xkmc.glimmeringtales.init.data.spell.snow;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTTagGen;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
@@ -35,8 +35,8 @@ public class SnowSpells {
 			.build(GlimmeringTales.loc("snow")).cost(40)
 			.damageFreeze()
 			.projectile(SnowSpells::proj)
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_SNOW, 1030))
-			.block((b, e) -> b.add(GTTagGen.SNOW, BlockSpell.cost(e)))
+			.block(SnowSpells::gen, GTItems.RUNE_SNOW, RuneBlock::of,
+					(b, e) -> b.add(GTTagGen.SNOW, BlockSpell.cost(e)))
 			.lang("Snowball Festival").desc(
 					"[Block] Splash snowballs everywhere",
 					"Create a semisphere of snowballs, dealing %s",

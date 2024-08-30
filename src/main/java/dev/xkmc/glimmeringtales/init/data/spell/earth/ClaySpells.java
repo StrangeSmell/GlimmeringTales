@@ -2,6 +2,7 @@ package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
@@ -23,10 +24,10 @@ public class ClaySpells {
 
 	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH.get()
 			.build(GlimmeringTales.loc("clay")).cost(20)
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_CLAY, 1020))
-			.block((b, e) -> b.add(Blocks.CLAY, BlockSpell.of(e)))
-			.block((b, e) -> b.add(GTItems.CLAY_CARPET, BlockSpell.of(e)))
-			.lang("Clay Overflow").desc(
+			.block(ClaySpells::gen, GTItems.RUNE_CLAY, RuneBlock::of,
+					(b, e) -> b.add(Blocks.CLAY, BlockSpell.of(e)),
+					(b, e) -> b.add(GTItems.CLAY_CARPET, BlockSpell.of(e))
+			).lang("Clay Overflow").desc(
 					"[Block] Form a circular carpet to trap entities",
 					"Create a circular field of clay carpet lasting 5 seconds to immobilize entities",
 					SpellTooltipData.of()

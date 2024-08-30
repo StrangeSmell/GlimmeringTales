@@ -2,9 +2,9 @@ package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
@@ -42,8 +42,8 @@ public class SandSpells {
 			.damageCustom(s -> new DamageType(s, 0.1f),
 					"%s is buried by sandstorm", "%s is buried by %s's sandstorm",
 					DamageTypeTags.IS_PROJECTILE)
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_SAND, 1040))
-			.block((b, e) -> b.add(BlockTags.SAND, BlockSpell.of(e)))
+			.block(SandSpells::gen, GTItems.RUNE_SAND, RuneBlock::of,
+					(b, e) -> b.add(BlockTags.SAND, BlockSpell.of(e)))
 			.lang("Sandstorm").desc(
 					"[Block] Create sandstorm trapping enemies",
 					"Create a sand tornado, trapping enemies touched, dealing %s, and inflict %s",

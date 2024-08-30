@@ -5,6 +5,6 @@
   },
   "cast_type": "INSTANT",
   "icon": "glimmeringtales:thunder",
-  "order": 1040,
+  "order": 1020,
   "trigger_type": "TARGET_POS"
 }

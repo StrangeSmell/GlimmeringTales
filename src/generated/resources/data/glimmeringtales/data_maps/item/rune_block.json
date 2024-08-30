@@ -1,0 +1,130 @@
+{
+  "values": {
+    "glimmeringtales:amethyst": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:amethyst",
+      "targetLiquid": false
+    },
+    "glimmeringtales:bamboo": {
+      "allowSelf": false,
+      "noBlockOffset": 1,
+      "spell": "glimmeringtales:bamboo",
+      "targetLiquid": false
+    },
+    "glimmeringtales:blue_ice": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:blue_ice",
+      "targetLiquid": true
+    },
+    "glimmeringtales:cactus": {
+      "allowSelf": false,
+      "noBlockOffset": 1,
+      "spell": "glimmeringtales:cactus",
+      "targetLiquid": false
+    },
+    "glimmeringtales:clay": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:clay",
+      "targetLiquid": false
+    },
+    "glimmeringtales:dripstone": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:dripstone",
+      "targetLiquid": false
+    },
+    "glimmeringtales:flower": {
+      "allowSelf": false,
+      "noBlockOffset": 1,
+      "spell": "glimmeringtales:flower",
+      "targetLiquid": false
+    },
+    "glimmeringtales:gravel": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:gravel",
+      "targetLiquid": false
+    },
+    "glimmeringtales:hay_bale": {
+      "allowSelf": false,
+      "noBlockOffset": 1,
+      "spell": "glimmeringtales:procreation",
+      "targetLiquid": false
+    },
+    "glimmeringtales:ice": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:ice",
+      "targetLiquid": true
+    },
+    "glimmeringtales:magma": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:magma",
+      "targetLiquid": false
+    },
+    "glimmeringtales:netherrack": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:netherrack",
+      "targetLiquid": false
+    },
+    "glimmeringtales:packed_ice": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:packed_ice",
+      "targetLiquid": true
+    },
+    "glimmeringtales:powder_snow": {
+      "allowSelf": false,
+      "noBlockOffset": 1,
+      "spell": "glimmeringtales:powder_snow",
+      "targetLiquid": false
+    },
+    "glimmeringtales:quartz": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:quartz",
+      "targetLiquid": false
+    },
+    "glimmeringtales:sand": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:sand",
+      "targetLiquid": false
+    },
+    "glimmeringtales:snow": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:snow",
+      "targetLiquid": false
+    },
+    "glimmeringtales:soul_sand": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:soul_sand",
+      "targetLiquid": false
+    },
+    "glimmeringtales:stone": {
+      "allowSelf": true,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:stone",
+      "targetLiquid": false
+    },
+    "glimmeringtales:thunder": {
+      "allowSelf": false,
+      "noBlockOffset": 1,
+      "spell": "glimmeringtales:thunder",
+      "targetLiquid": false
+    },
+    "glimmeringtales:vine": {
+      "allowSelf": false,
+      "noBlockOffset": 1,
+      "spell": "glimmeringtales:vine",
+      "targetLiquid": false
+    }
+  }
+}

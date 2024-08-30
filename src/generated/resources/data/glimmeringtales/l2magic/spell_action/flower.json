@@ -6,7 +6,7 @@
     "radius": "3"
   },
   "cast_type": "INSTANT",
-  "icon": "minecraft:allium",
-  "order": 1030,
+  "icon": "glimmeringtales:flower",
+  "order": 1011,
   "trigger_type": "TARGET_POS"
 }

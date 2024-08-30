@@ -45,7 +45,7 @@
     ]
   },
   "cast_type": "INSTANT",
-  "icon": "minecraft:bamboo",
-  "order": 1040,
+  "icon": "glimmeringtales:bamboo",
+  "order": 1010,
   "trigger_type": "TARGET_POS"
 }

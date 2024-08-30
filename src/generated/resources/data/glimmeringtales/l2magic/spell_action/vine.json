@@ -48,7 +48,7 @@
     ]
   },
   "cast_type": "INSTANT",
-  "icon": "minecraft:vine",
-  "order": 1030,
+  "icon": "glimmeringtales:vine",
+  "order": 1007,
   "trigger_type": "TARGET_POS"
 }

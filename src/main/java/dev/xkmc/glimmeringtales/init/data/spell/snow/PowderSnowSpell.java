@@ -2,9 +2,9 @@ package dev.xkmc.glimmeringtales.init.data.spell.snow;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2complements.init.registrate.LCEffects;
@@ -28,7 +28,6 @@ import dev.xkmc.l2magic.content.particle.engine.CustomParticleInstance;
 import dev.xkmc.l2magic.content.particle.engine.RenderTypePreset;
 import dev.xkmc.l2magic.content.particle.engine.SimpleParticleData;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.Blocks;
 
@@ -39,8 +38,8 @@ public class PowderSnowSpell {
 	public static final NatureSpellBuilder BUILDER = GTRegistries.SNOW.get()
 			.build(GlimmeringTales.loc("powder_snow")).cost(60)
 			.damageFreeze()
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_POWDER_SNOW, 1040))
-			.block((b, e) -> b.add(Blocks.POWDER_SNOW, BlockSpell.costOff(e)))
+			.block(PowderSnowSpell::gen, GTItems.RUNE_POWDER_SNOW, RuneBlock::offset,
+					(b, e) -> b.add(Blocks.POWDER_SNOW, BlockSpell.cost(e)))
 			.lang("Snow Storm").desc(
 					"[Block] Create snow storm trapping enemies",
 					"Create a snow tornado, trapping enemies touched, dealing %s, and inflict %s",

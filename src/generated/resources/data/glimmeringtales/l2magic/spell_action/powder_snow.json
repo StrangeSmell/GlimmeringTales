@@ -122,6 +122,6 @@
   },
   "cast_type": "INSTANT",
   "icon": "glimmeringtales:powder_snow",
-  "order": 1040,
+  "order": 1016,
   "trigger_type": "TARGET_POS"
 }

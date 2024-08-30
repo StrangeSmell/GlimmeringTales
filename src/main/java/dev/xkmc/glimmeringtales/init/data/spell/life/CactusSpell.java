@@ -2,10 +2,11 @@ package dev.xkmc.glimmeringtales.init.data.spell.life;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.content.engine.render.CrossRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
+import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.iterator.LoopIterator;
@@ -25,7 +26,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.Map;
@@ -38,8 +38,8 @@ public class CactusSpell {
 					"%s is pierced by %s with cactus thorn",
 					DamageTypeTags.IS_PROJECTILE)
 			.projectile(CactusSpell::proj)
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), Items.CACTUS, 1030))
-			.block((b, e) -> b.add(Blocks.CACTUS, BlockSpell.costOff(e)))
+			.block(CactusSpell::gen, GTItems.RUNE_CACTUS, RuneBlock::offset,
+					(b, e) -> b.add(Blocks.CACTUS, BlockSpell.cost(e)))
 			.lang("Cactus").desc(
 					"[Block] Splash cactus spikes",
 					"Shoot cactus spikes forming a circle, dealing %s ",

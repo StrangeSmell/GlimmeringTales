@@ -2,9 +2,9 @@ package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.block.ScheduleTick;
@@ -22,10 +22,10 @@ public class StoneSpells {
 
 	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH.get()
 			.build(GlimmeringTales.loc("stone")).cost(20)
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_STONE, 1040))
-			.block((b, e) -> b.add(Tags.Blocks.STONES, BlockSpell.self(e)))
-			.block((b, e) -> b.add(GTItems.FAKE_STONE, BlockSpell.self(e)))
-			.lang("Stone Cliff").desc(
+			.block(StoneSpells::gen, GTItems.RUNE_STONE, RuneBlock::self,
+					(b, e) -> b.add(Tags.Blocks.STONES, BlockSpell.of(e)),
+					(b, e) -> b.add(GTItems.FAKE_STONE, BlockSpell.of(e))
+			).lang("Stone Cliff").desc(
 					"[Block] Create temporary stone floor",
 					"Create a circular stone floor lasting 5 seconds",
 					SpellTooltipData.of()

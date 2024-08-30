@@ -170,6 +170,6 @@
   },
   "cast_type": "INSTANT",
   "icon": "glimmeringtales:gravel",
-  "order": 1060,
+  "order": 1005,
   "trigger_type": "TARGET_POS"
 }

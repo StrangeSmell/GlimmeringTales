@@ -2,9 +2,9 @@ package dev.xkmc.glimmeringtales.init.data.spell.snow;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2complements.init.registrate.LCEffects;
@@ -46,10 +46,10 @@ public class IceSpells {
 
 	public static final NatureSpellBuilder ICE = GTRegistries.SNOW.get()
 			.build(GlimmeringTales.loc("ice")).cost(40).damageFreeze()
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx, ICE_DMG, ICE_DUR), GTItems.RUNE_ICE, 1040))
-			.block((b, e) -> b.add(Blocks.ICE, BlockSpell.liquid(e)))
-			.block((b, e) -> b.add(Blocks.FROSTED_ICE, BlockSpell.liquid(e)))
-			.lang("Freeze").desc(
+			.block(ctx -> gen(ctx, ICE_DMG, ICE_DUR), GTItems.RUNE_ICE, RuneBlock::liquid,
+					(b, e) -> b.add(Blocks.ICE, BlockSpell.of(e)),
+					(b, e) -> b.add(Blocks.FROSTED_ICE, BlockSpell.of(e))
+			).lang("Freeze").desc(
 					"[Block] Freeze nearby water and entity",
 					"Freeze water / flowing water into frost ice, then inflict %s and %s to enemies in range",
 					SpellTooltipData.damageAndEffect()
@@ -57,8 +57,8 @@ public class IceSpells {
 
 	public static final NatureSpellBuilder PACK_ICE = GTRegistries.SNOW.get()
 			.build(GlimmeringTales.loc("packed_ice")).cost(60).damageFreeze()
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx, PACK_DMG, PACK_DUR), GTItems.RUNE_PACKED_ICE, 1040))
-			.block((b, e) -> b.add(Blocks.PACKED_ICE, BlockSpell.liquid(e)))
+			.block(ctx -> gen(ctx, PACK_DMG, PACK_DUR), GTItems.RUNE_PACKED_ICE, RuneBlock::liquid,
+					(b, e) -> b.add(Blocks.PACKED_ICE, BlockSpell.of(e)))
 			.lang("Freeze II").desc(
 					"[Block] Freeze nearby water and entity",
 					"Freeze water / flowing water into frost ice, then inflict %s and %s to enemies in range",
@@ -67,8 +67,8 @@ public class IceSpells {
 
 	public static final NatureSpellBuilder BLUE_ICE = GTRegistries.SNOW.get()
 			.build(GlimmeringTales.loc("blue_ice")).cost(80).damageFreeze()
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx, BLUE_DMG, BLUE_DUR), GTItems.RUNE_BLUE_ICE, 1040))
-			.block((b, e) -> b.add(Blocks.BLUE_ICE, BlockSpell.liquid(e)))
+			.block(ctx -> gen(ctx, BLUE_DMG, BLUE_DUR), GTItems.RUNE_BLUE_ICE, RuneBlock::liquid,
+					(b, e) -> b.add(Blocks.BLUE_ICE, BlockSpell.of(e)))
 			.lang("Freeze III").desc(
 					"[Block] Freeze nearby water and entity",
 					"Freeze water / flowing water into frost ice, then inflict %s and %s to enemies in range",

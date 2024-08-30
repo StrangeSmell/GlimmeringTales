@@ -2,9 +2,9 @@ package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2complements.init.registrate.LCEffects;
@@ -44,8 +44,8 @@ public class GravelSpells {
 			.damageCustom(s -> new DamageType(s, 0.1f),
 					"%s is scratched to death by flint", "%s is scratched to death by %s with flint",
 					DamageTypeTags.IS_PROJECTILE)
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_GRAVEL, 1060))
-			.block((b, e) -> b.add(Tags.Blocks.GRAVELS, BlockSpell.of(e)))
+			.block(GravelSpells::gen, GTItems.RUNE_GRAVEL, RuneBlock::of,
+					(b, e) -> b.add(Tags.Blocks.GRAVELS, BlockSpell.of(e)))
 			.lang("Flint Storm").desc(
 					"[Block] Create flint storm",
 					"Create a flint storm, dealing %s, and inflict %s",

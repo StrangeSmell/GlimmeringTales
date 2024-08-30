@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.content.item.rune;
 
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.l2magic.content.engine.context.SpellContext;
 import dev.xkmc.l2magic.content.engine.helper.Orientation;
 import io.netty.util.internal.ThreadLocalRandom;
@@ -39,7 +40,7 @@ public record BlockSpellContext(SpellContext ctx, BlockState state, BlockPos pos
 
 
 	@Nullable
-	public static BlockSpellContext entitySpellContext(LivingEntity user, int distance, BlockSpell spell) {
+	public static BlockSpellContext entitySpellContext(LivingEntity user, int distance, RuneBlock spell) {
 		Level level = user.level();
 		Vec3 start = user.getEyePosition();
 		Vec3 forward = SpellContext.getForward(user);

@@ -33,6 +33,6 @@
   },
   "cast_type": "INSTANT",
   "icon": "glimmeringtales:stone",
-  "order": 1040,
+  "order": 1006,
   "trigger_type": "TARGET_POS"
 }

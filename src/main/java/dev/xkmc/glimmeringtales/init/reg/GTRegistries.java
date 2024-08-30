@@ -35,6 +35,8 @@ public class GTRegistries {
 			GlimmeringTales.REG.dataMap("block_spell", Registries.BLOCK, BlockSpell.class);
 	public static final DataMapReg<Item, ElementAffinity> AFFINITY =
 			GlimmeringTales.REG.dataMap("element_affinity", Registries.ITEM, ElementAffinity.class);
+	public static final DataMapReg<Item, RuneBlock> RUNE_BLOCK =
+			GlimmeringTales.REG.dataMap("rune_block", Registries.ITEM, RuneBlock.class);
 	public static final DataMapReg<Block, BlockReplace> REPLACE =
 			GlimmeringTales.REG.dataMap("block_replace", Registries.BLOCK, BlockReplace.class);
 	public static final DataMapReg<Block, BlockReplace> MELT =

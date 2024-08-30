@@ -2,10 +2,10 @@ package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.content.engine.render.VerticalRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
@@ -42,10 +42,10 @@ public class DripstoneSpells {
 					"%s is pierced by stalagmite", "%s is pierced by %s's stalagmite",
 					DamageTypeTags.IS_PROJECTILE)
 			.projectile(DripstoneSpells::proj)
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_DRIPSTONE, 1010))
-			.block((b, e) -> b.add(Blocks.DRIPSTONE_BLOCK, BlockSpell.of(e)))
-			.block((b, e) -> b.add(Blocks.POINTED_DRIPSTONE, BlockSpell.cost(e)))
-			.lang("Stalactite Burst").desc(
+			.block(DripstoneSpells::gen, GTItems.RUNE_DRIPSTONE, RuneBlock::of,
+					(b, e) -> b.add(Blocks.DRIPSTONE_BLOCK, BlockSpell.of(e)),
+					(b, e) -> b.add(Blocks.POINTED_DRIPSTONE, BlockSpell.cost(e))
+			).lang("Stalactite Burst").desc(
 					"[Block] Shoot stalagmite spikes from ground",
 					"Shoot stalagmite spikes from ground to pierce entities, dealing %s and inflict %s",
 					SpellTooltipData.damageAndEffect()

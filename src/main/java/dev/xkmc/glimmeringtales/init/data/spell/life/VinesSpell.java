@@ -2,10 +2,11 @@ package dev.xkmc.glimmeringtales.init.data.spell.life;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTTagGen;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
+import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.iterator.LoopIterator;
@@ -20,7 +21,6 @@ import dev.xkmc.l2magic.content.engine.selector.SelectionType;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
@@ -32,8 +32,8 @@ public class VinesSpell {
 			.damageCustom(msg -> new DamageType(msg, 1f),
 					"%s is choked vines",
 					"%s is choked by %s with vines")
-			.spell(ctx -> NatureSpellEntry.ofBlock(vine(ctx, 4, 0.3), Items.VINE, 1030))
-			.block((b, e) -> b.add(GTTagGen.VINE, BlockSpell.costOff(e)))
+			.block(ctx -> vine(ctx, 4, 0.3), GTItems.RUNE_VINE, RuneBlock::offset,
+					(b, e) -> b.add(GTTagGen.VINE, BlockSpell.cost(e)))
 			.lang("Vine").desc(
 					"[Block] Pull enemies to center",
 					"Pull surrounding enemies toward target position, dealing %s",

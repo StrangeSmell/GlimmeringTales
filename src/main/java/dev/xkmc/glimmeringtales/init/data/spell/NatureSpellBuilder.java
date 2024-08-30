@@ -5,11 +5,13 @@ import dev.xkmc.glimmeringtales.content.core.description.SpellTooltip;
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTDamageTypeGen;
 import dev.xkmc.l2core.util.MathHelper;
 import dev.xkmc.l2magic.content.engine.context.DataGenContext;
+import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
 import dev.xkmc.l2magic.content.entity.core.ProjectileConfig;
 import dev.xkmc.l2magic.init.data.DataGenCachedHolder;
@@ -20,6 +22,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageEffects;
 import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.DataMapProvider;
 
@@ -31,6 +35,12 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class NatureSpellBuilder extends NatureSpellEntry {
+
+	private static int order = 1000;
+
+	private static int getOrder() {
+		return order++;
+	}
 
 	private final ResourceLocation id;
 	private final SpellElement elem;
@@ -44,8 +54,10 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 	private Function<NatureSpellBuilder, SpellAction> spellFactory;
 	private Function<Holder<SpellAction>, NatureSpell> natureFactory;
 	private Function<ResourceLocation, String> langFactory;
+	private Function<Holder<NatureSpell>, RuneBlock> runeFactory;
 	private SpellDamageEntry damageEntry;
 	private SpellDesc desc;
+	private ItemLike icon;
 
 	private DataGenContext cache;
 
@@ -96,8 +108,17 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 		return this;
 	}
 
-	public NatureSpellBuilder block(BiConsumer<BlockSpellBuilder, Holder<NatureSpell>> cons) {
-		this.blockFactories.add(cons);
+	@SafeVarargs
+	public final NatureSpellBuilder block(
+			Function<NatureSpellBuilder, ConfiguredEngine<?>> action, ItemLike icon,
+			Function<Holder<NatureSpell>, RuneBlock> item,
+			BiConsumer<BlockSpellBuilder, Holder<NatureSpell>>... cons
+	) {
+		spell = spell(id);
+		this.icon = icon;
+		this.spellFactory = ctx -> ofBlock(action.apply(ctx), icon, getOrder());
+		this.runeFactory = item;
+		this.blockFactories.addAll(List.of(cons));
 		return this;
 	}
 
@@ -138,6 +159,12 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 		for (var e : blockFactories) {
 			e.accept(b, nature);
 		}
+	}
+
+	@Override
+	public void regRune(DataMapProvider.Builder<RuneBlock, Item> item) {
+		if (runeFactory != null)
+			item.add(icon.asItem().builtInRegistryHolder(), runeFactory.apply(nature), false);
 	}
 
 	@Override

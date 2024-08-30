@@ -34,7 +34,7 @@
     ]
   },
   "cast_type": "INSTANT",
-  "icon": "minecraft:wheat",
-  "order": 1030,
+  "icon": "glimmeringtales:hay_bale",
+  "order": 1008,
   "trigger_type": "TARGET_POS"
 }

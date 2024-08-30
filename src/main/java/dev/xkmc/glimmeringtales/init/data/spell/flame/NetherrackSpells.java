@@ -2,9 +2,9 @@ package dev.xkmc.glimmeringtales.init.data.spell.flame;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
@@ -20,7 +20,6 @@ import dev.xkmc.l2magic.content.engine.selector.SelectionType;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageEffects;
 import net.minecraft.world.damagesource.DamageType;
@@ -34,8 +33,8 @@ public class NetherrackSpells {
 			.build(GlimmeringTales.loc("netherrack")).cost(60)
 			.damageVanilla(() -> new DamageType("inFire", 0, DamageEffects.BURNING),
 					DamageTypeTags.IS_FIRE)
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_NETHERRACK, 1040))
-			.block((b, e) -> b.add(Blocks.NETHERRACK, BlockSpell.of(e)))
+			.block(NetherrackSpells::gen, GTItems.RUNE_NETHERRACK, RuneBlock::of,
+					(b, e) -> b.add(Blocks.NETHERRACK, BlockSpell.of(e)))
 			.lang("Fire Spark").desc(
 					"[Block] burn enemies in a small area",
 					"Create flame sparks and inflict %s",

@@ -2,10 +2,10 @@ package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTTagGen;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.block.ScheduleTick;
@@ -24,8 +24,8 @@ public class QuartzSpells {
 
 	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH.get()
 			.build(GlimmeringTales.loc("quartz")).cost(40)
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_QUARTZ, 1050))
-			.block((b, e) -> b.add(GTTagGen.QUARTZ, BlockSpell.of(e)))
+			.block(QuartzSpells::gen, GTItems.RUNE_QUARTZ, RuneBlock::of,
+					(b, e) -> b.add(GTTagGen.QUARTZ, BlockSpell.of(e)))
 			.lang("Crystalization").desc(
 					"[Block] Create a temorary glass shell",
 					"Create a spherical glass shell lasting for 5 seconds",

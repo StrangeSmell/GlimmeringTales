@@ -2,10 +2,12 @@ package dev.xkmc.glimmeringtales.init.data.spell.life;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.content.engine.processor.ProcreationProcessor;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
+import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.context.DataGenContext;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
@@ -31,8 +33,8 @@ import java.util.List;
 public class HaySpell {
 	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE.get()
 			.build(GlimmeringTales.loc("procreation")).cost(40)
-			.spell(ctx -> NatureSpellEntry.ofBlock(procreation(ctx, 4, 1.5, 1), Items.WHEAT, 1030))
-			.block((b, e) -> b.add(Blocks.HAY_BLOCK, BlockSpell.costOff(e)))
+			.block(ctx -> procreation(ctx, 4, 1.5, 1), GTItems.RUNE_HAYBALE, RuneBlock::offset,
+					(b, e) -> b.add(Blocks.HAY_BLOCK, BlockSpell.cost(e)))
 			.lang("Procreation").desc(
 					"[Block] Breed nearby animals",
 					"Feed all nearby animals",

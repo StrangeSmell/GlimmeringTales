@@ -2,6 +2,7 @@ package dev.xkmc.glimmeringtales.content.item.rune;
 
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
 import dev.xkmc.glimmeringtales.init.data.GTConfigs;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
@@ -21,16 +22,12 @@ import java.util.function.Supplier;
 
 public class BlockRuneItem extends Item implements IBlockSpellItem {
 
-	private final Supplier<Block> block;
-
-	public BlockRuneItem(Properties properties, Supplier<Block> block) {
+	public BlockRuneItem(Properties properties) {
 		super(properties);
-		this.block = block;
 	}
 
-	public Optional<BlockSpell> getSpell(RegistryAccess access) {
-		return Optional.ofNullable(GTRegistries.BLOCK.get(access,
-				BuiltInRegistries.BLOCK.wrapAsHolder(block.get())));
+	public Optional<RuneBlock> getSpell(RegistryAccess access) {
+		return Optional.ofNullable(GTRegistries.RUNE_BLOCK.get(access, builtInRegistryHolder()));
 	}
 
 	@Override

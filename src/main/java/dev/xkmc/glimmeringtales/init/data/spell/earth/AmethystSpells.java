@@ -2,6 +2,7 @@ package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.content.engine.processor.StackingEffectProcessor;
 import dev.xkmc.glimmeringtales.content.engine.render.CrossRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
@@ -43,8 +44,8 @@ public class AmethystSpells {
 					"%s is pierced by %s with amethyst shards",
 					DamageTypeTags.IS_PROJECTILE)
 			.projectile(AmethystSpells::proj)
-			.spell(ctx -> NatureSpellEntry.ofBlock(gen(ctx), GTItems.RUNE_AMETHYST, 1030))
-			.block((b, e) -> b.add(GTTagGen.AMETHYST, BlockSpell.cost(e)))
+			.block(AmethystSpells::gen, GTItems.RUNE_AMETHYST, RuneBlock::of,
+					(b, e) -> b.add(GTTagGen.AMETHYST, BlockSpell.cost(e)))
 			.lang("Scattering Amethyst").desc(
 					"[Block] Splash amethyst shards",
 					"Create a semisphere of amethyst shards, dealing %s and stack %s",

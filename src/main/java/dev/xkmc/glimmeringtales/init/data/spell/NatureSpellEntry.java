@@ -3,6 +3,7 @@ package dev.xkmc.glimmeringtales.init.data.spell;
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.init.data.GTDamageTypeGen;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
@@ -18,6 +19,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.DataMapProvider;
@@ -49,6 +51,9 @@ public abstract class NatureSpellEntry extends SpellDataGenEntry {
 	public abstract void regBlock(DataMapProvider.Builder<BlockSpell, Block> builder);
 
 	public void registerDamage(GTDamageTypeGen gen) {
+
 	}
 
+	public void regRune(DataMapProvider.Builder<RuneBlock, Item> item) {
+	}
 }

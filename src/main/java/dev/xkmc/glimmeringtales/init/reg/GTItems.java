@@ -38,7 +38,6 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -59,6 +58,7 @@ public class GTItems {
 					e.icon(GTItems.CRYSTAL_EARTH::asStack));
 
 	public static final VarItemInit<AttributeCurioItem> CURIOS;
+	public static final VarItemInit<BlockRuneItem> RUNES;
 	public static final VarItemInit<SpellRuneItem> SPELLS;
 
 	public static final List<Supplier<? extends IWandCoreItem>> CORES = new ArrayList<>();
@@ -79,7 +79,7 @@ public class GTItems {
 	public static final ItemEntry<RuneWandItem> WAND;
 	public static final ItemEntry<WandHandleItem> WOOD_WAND, GOLD_WAND;
 
-	public static final ItemEntry<BlockRuneItem>
+	public static final VarHolder<BlockRuneItem>
 			RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE, RUNE_HAYBALE,
 			RUNE_SAND, RUNE_GRAVEL, RUNE_QUARTZ, RUNE_CLAY, RUNE_STONE, RUNE_DRIPSTONE, RUNE_AMETHYST,
 			RUNE_MAGMA, RUNE_NETHERRACK, RUNE_SOUL_SAND,
@@ -204,7 +204,9 @@ public class GTItems {
 			RESONATOR = GlimmeringTales.REGISTRATE.item("amethyst_resonator", p ->
 							new AmethystResonator(p.stacksTo(1)))
 					.register();
+		}
 
+		{
 			RITUAL_ALTAR = GlimmeringTales.REGISTRATE.block("ritual_altar", p ->
 							DelegateBlock.newBaseBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).lightLevel(s -> 11)
 									.noOcclusion(), RitualBlock.ITEM, RitualBlock.LINK, RitualBlock.SIDE))
@@ -239,19 +241,6 @@ public class GTItems {
 		}
 
 		{
-
-
-			CURIOS = VarItemInit.setup(GlimmeringTales.REGISTRATE, GlimmeringTales.loc("curios"),
-					e -> new AttributeCurioItem(new Item.Properties().stacksTo(1).fireResistant()),
-					(rl, b) -> b.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
-							.lang(RegistrateLangProvider.toEnglishName(rl.getPath()))
-			);
-
-			Curios.register();
-
-		}
-
-		{
 			WAND = GlimmeringTales.REGISTRATE.item("wand",
 							p -> new RuneWandItem(p.stacksTo(1).fireResistant()))
 					.model((ctx, pvd) -> pvd.getBuilder(ctx.getName())
@@ -268,36 +257,26 @@ public class GTItems {
 
 		}
 
-		{
-
-			RUNE_BAMBOO = rune("bamboo", () -> Blocks.BAMBOO, "Rune: Bamboo");
-			RUNE_CACTUS = rune("cactus", () -> Blocks.CACTUS, "Rune: Cactus");
-			RUNE_FLOWER = rune("flower", () -> Blocks.POPPY, "Rune: Flower");
-			RUNE_VINE = rune("vine", () -> Blocks.VINE, "Rune: Vine");
-			RUNE_HAYBALE = rune("hay_bale", () -> Blocks.HAY_BLOCK, "Rune: Hay Bale");
-
-			RUNE_SAND = rune("sand", () -> Blocks.SAND, "Rune: Sand");
-			RUNE_GRAVEL = rune("gravel", () -> Blocks.GRAVEL, "Rune: Gravel");
-			RUNE_CLAY = rune("clay", () -> Blocks.CLAY, "Rune: Clay");
-			RUNE_STONE = rune("stone", () -> Blocks.STONE, "Rune: Stone");
-			RUNE_QUARTZ = rune("quartz", () -> Blocks.QUARTZ_BLOCK, "Rune: Quartz");
-			RUNE_DRIPSTONE = rune("dripstone", () -> Blocks.DRIPSTONE_BLOCK, "Rune: Stalactite");
-			RUNE_AMETHYST = rune("amethyst", () -> Blocks.AMETHYST_BLOCK, "Rune: Amethyst");
-
-			RUNE_MAGMA = rune("magma", () -> Blocks.MAGMA_BLOCK, "Rune: Magma Block");
-			RUNE_NETHERRACK = rune("netherrack", () -> Blocks.NETHERRACK, "Rune: Netherrack");
-			RUNE_SOUL_SAND = rune("soul_sand", () -> Blocks.SOUL_SAND, "Rune: Soul Sand");
-
-			RUNE_SNOW = rune("snow", () -> Blocks.SNOW_BLOCK, "Rune: Snow");
-			RUNE_POWDER_SNOW = rune("powder_snow", () -> Blocks.POWDER_SNOW, "Rune: Powder Snow");
-			RUNE_ICE = rune("ice", () -> Blocks.ICE, "Rune: Ice");
-			RUNE_PACKED_ICE = rune("packed_ice", () -> Blocks.PACKED_ICE, "Rune: Packed Ice");
-			RUNE_BLUE_ICE = rune("blue_ice", () -> Blocks.BLUE_ICE, "Rune: Blue Ice");
-
-			RUNE_THUNDER = rune("thunder", STRUCK_LOG::get, "Rune: Thunder");
-		}
 
 		{
+
+			CURIOS = VarItemInit.setup(GlimmeringTales.REGISTRATE, GlimmeringTales.loc("curios"),
+					e -> new AttributeCurioItem(new Item.Properties().stacksTo(1).fireResistant()),
+					(rl, b) -> b.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
+							.lang(RegistrateLangProvider.toEnglishName(rl.getPath()))
+			);
+
+			RUNES = VarItemInit.setup(GlimmeringTales.REGISTRATE, GlimmeringTales.loc("block_runes"),
+					e -> new BlockRuneItem(new Item.Properties().fireResistant()),
+					(rl, b) -> b.tag(GTTagGen.CORE).model((ctx, pvd) -> {
+						pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName()));
+						pvd.getBuilder(ctx.getName() + "_core").parent(
+										new ModelFile.UncheckedModelFile(pvd.modLoc("custom/rune_core")))
+								.texture("all", pvd.modLoc("item/rune/" + ctx.getName()))
+								.renderType("cutout");
+					})
+			);
+
 			SPELLS = VarItemInit.setup(GlimmeringTales.REGISTRATE, GlimmeringTales.loc("spell_runes"),
 					e -> new SpellRuneItem(new Item.Properties().fireResistant(), e),
 					(rl, b) -> b.tag(GTTagGen.CORE)
@@ -310,6 +289,39 @@ public class GTItems {
 										.renderType("cutout");
 							})
 			);
+
+
+			Curios.register();
+
+		}
+
+		{
+
+			RUNE_BAMBOO = rune("bamboo", "Rune: Bamboo");
+			RUNE_CACTUS = rune("cactus", "Rune: Cactus");
+			RUNE_FLOWER = rune("flower", "Rune: Flower");
+			RUNE_VINE = rune("vine", "Rune: Vine");
+			RUNE_HAYBALE = rune("hay_bale", "Rune: Hay Bale");
+
+			RUNE_SAND = rune("sand", "Rune: Sand");
+			RUNE_GRAVEL = rune("gravel", "Rune: Gravel");
+			RUNE_CLAY = rune("clay", "Rune: Clay");
+			RUNE_STONE = rune("stone", "Rune: Stone");
+			RUNE_QUARTZ = rune("quartz", "Rune: Quartz");
+			RUNE_DRIPSTONE = rune("dripstone", "Rune: Stalactite");
+			RUNE_AMETHYST = rune("amethyst", "Rune: Amethyst");
+
+			RUNE_MAGMA = rune("magma", "Rune: Magma Block");
+			RUNE_NETHERRACK = rune("netherrack", "Rune: Netherrack");
+			RUNE_SOUL_SAND = rune("soul_sand", "Rune: Soul Sand");
+
+			RUNE_SNOW = rune("snow", "Rune: Snow");
+			RUNE_POWDER_SNOW = rune("powder_snow", "Rune: Powder Snow");
+			RUNE_ICE = rune("ice", "Rune: Ice");
+			RUNE_PACKED_ICE = rune("packed_ice", "Rune: Packed Ice");
+			RUNE_BLUE_ICE = rune("blue_ice", "Rune: Blue Ice");
+
+			RUNE_THUNDER = rune("thunder", "Rune: Thunder");
 
 			HELL_MARK = spell("hell_mark");
 			LAVA_BURST = spell("lava_burst");
@@ -372,18 +384,8 @@ public class GTItems {
 		return ans;
 	}
 
-	private static ItemEntry<BlockRuneItem> rune(String id, Supplier<Block> block, String name) {
-		var ans = GlimmeringTales.REGISTRATE.item(id, p ->
-						new BlockRuneItem(p.fireResistant(), block))
-				.model((ctx, pvd) -> {
-					pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName()));
-					pvd.getBuilder(ctx.getName() + "_core").parent(
-									new ModelFile.UncheckedModelFile(pvd.modLoc("custom/rune_core")))
-							.texture("all", pvd.modLoc("item/rune/" + ctx.getName()))
-							.renderType("cutout");
-				})
-				.tag(GTTagGen.CORE)
-				.lang(name).register();
+	private static VarHolder<BlockRuneItem> rune(String id, String name) {
+		var ans = RUNES.add(new VarHolder<>(id, (rl, b) -> b.lang(name)));
 		CORES.add(ans);
 		return ans;
 	}
