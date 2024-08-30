@@ -1,4 +1,4 @@
-// 1.21.1	2024-08-30T13:54:02.343724	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Patchouli Provider, Tags (damage_type), Tags (worldgen/structure)]
+// 1.21.1	2024-08-30T14:10:23.11303	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
 f628b87d75a2e2a6c5157d17ef22b26cb8b260eb assets/glimmeringtales/blockstates/bamboo.json
 4132de47f0c0e042aadf759876c94ea0a1d95cd2 assets/glimmeringtales/blockstates/clay_carpet.json
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
@@ -382,7 +382,7 @@ eefb8b26df5cbb778776e856d2c817526bb2b457 data/glimmeringtales/tags/block/vine.js
 c87247b9345c88e25a867788749f1b09bcba5db5 data/glimmeringtales/tags/item/core.json
 d8b58e10ba2bbc42f36abcc5983c44b87f4f7566 data/glimmeringtales/tags/item/crystal.json
 72139af5614934d98dde64c3c875be9bb6122443 data/glimmeringtales/tags/item/unique_curios.json
-31d186cc62feed24d1dbfa7df0a75248c1efa15c data/l2damagetracker/tags/attribute/percentage.json
+e20925232ba5499f9feed27a8692891db6738aca data/l2damagetracker/tags/attribute/percentage.json
 394d14dbc5425dd8e03e9a445f5e1b7304b2a1c2 data/l2tabs/data_maps/attribute/attribute_entry.json
 ef0507da819d40fd56142e3a90c7e96c7439fe5c data/minecraft/tags/block/crops.json
 01e188932772855becc360e42d9ddfad4332de28 data/minecraft/tags/block/logs_that_burn.json
