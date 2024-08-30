@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "N": {
+      "item": "glimmeringtales:crystal_of_nature"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GNG",
+    "GGG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "glimmeringtales:golden_ring"
+  }
+}

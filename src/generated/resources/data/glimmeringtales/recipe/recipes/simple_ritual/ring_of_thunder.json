@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:golden_ring"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:ring_of_thunder"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_thunder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:struck_log"
+      }
+    }
+  ],
+  "time": 100
+}

@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:golden_ring"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:ring_of_snow"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_winterstorm"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blue_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blue_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blue_ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blue_ice"
+      }
+    }
+  ],
+  "time": 100
+}

@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:golden_ring"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:ring_of_flame"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_flame"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    }
+  ],
+  "time": 100
+}

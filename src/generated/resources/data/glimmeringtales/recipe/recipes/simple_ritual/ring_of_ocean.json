@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:golden_ring"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:ring_of_ocean"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_ocean"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:nautilus_shell"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:nautilus_shell"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:nautilus_shell"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:nautilus_shell"
+      }
+    }
+  ],
+  "time": 100
+}

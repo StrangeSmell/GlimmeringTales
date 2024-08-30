@@ -1,4 +1,4 @@
-// 1.21.1	2024-08-30T09:42:40.348431	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Patchouli Provider, Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
+// 1.21.1	2024-08-30T10:03:31.251073	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
 f628b87d75a2e2a6c5157d17ef22b26cb8b260eb assets/glimmeringtales/blockstates/bamboo.json
 4132de47f0c0e042aadf759876c94ea0a1d95cd2 assets/glimmeringtales/blockstates/clay_carpet.json
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
@@ -128,6 +128,7 @@ f650deb643d3ad79bbe8a722c24f5b9f3ca13057 data/curios/tags/item/ring.json
 c428489b9830ffdbfb7499ac57e465f307533924 data/glimmeringtales/advancement/recipes/misc/depleted_crystal_of_flame.json
 aa675587bf109ef0a0dcba62c8c4c9b2f77457b2 data/glimmeringtales/advancement/recipes/misc/depleted_crystal_of_winterstorm.json
 597048ea1f999fae0aa87002728921e9649b4fce data/glimmeringtales/advancement/recipes/misc/gold_wand.json
+a3bd6526fe0e9e80b0435767850082e1c5cc6dae data/glimmeringtales/advancement/recipes/misc/golden_ring.json
 412de3c6aa49864d0b6908fb8909f04664184a5d data/glimmeringtales/advancement/recipes/misc/ritual_altar.json
 61512b90524938e7ef9da9e8f1dbe1d4d322d268 data/glimmeringtales/advancement/recipes/misc/ritual_matrix.json
 4b2cb677ea5aa317eb7222a9e02b83385b6f3d2d data/glimmeringtales/advancement/recipes/misc/wood_wand.json
@@ -136,6 +137,7 @@ d0e9889cb92d1db5dd291585f3f8f89d1b6ebf90 data/glimmeringtales/advancement/recipe
 8182d593703d884b8afe0ee676241631346de5a4 data/glimmeringtales/advancement/recipes/simple_ritual/blue_ice.json
 f3f5eaaa507a5c30a944956462a9af47e915a678 data/glimmeringtales/advancement/recipes/simple_ritual/cactus.json
 e36f2934a9de5cbf45245c603eee5b9ced6c0130 data/glimmeringtales/advancement/recipes/simple_ritual/charm_of_capacity.json
+1ddb0d45281cf25bc5e0f77e6b34854b70adb8eb data/glimmeringtales/advancement/recipes/simple_ritual/charm_of_regeneration.json
 eb99105d5490109531e8f8d198b5fd466b627acd data/glimmeringtales/advancement/recipes/simple_ritual/charm_of_strength.json
 a1520b293c3473b43db2023dd5116b66d032a2a4 data/glimmeringtales/advancement/recipes/simple_ritual/clay.json
 20d68fc29a8c5056c81b05d0f2155977517ad7ed data/glimmeringtales/advancement/recipes/simple_ritual/crystal_of_ocean.json
@@ -152,6 +154,14 @@ e4d1b2a4d10fa20bb07d08e469f9ff7c97055d22 data/glimmeringtales/advancement/recipe
 ba18ddb015b911b599b94d1338d1b237fade889b data/glimmeringtales/advancement/recipes/simple_ritual/packed_ice.json
 c662ffc8ebda36addfcea00bccd7c98f6de4d0bd data/glimmeringtales/advancement/recipes/simple_ritual/powder_snow.json
 221423d56d43d0bf159900b204388a40a1d64d34 data/glimmeringtales/advancement/recipes/simple_ritual/quartz.json
+026e67702a998ad7adfba7931290af2773042979 data/glimmeringtales/advancement/recipes/simple_ritual/ring_of_earth.json
+7f8a93ae27782c5033d28a300f9e0deda73c84f4 data/glimmeringtales/advancement/recipes/simple_ritual/ring_of_flame.json
+fd758fe77d503fcc4cdcd036ad29204927951097 data/glimmeringtales/advancement/recipes/simple_ritual/ring_of_life.json
+b463d4ad90b2be29ff3b7cd0a1d50762bdc2a14d data/glimmeringtales/advancement/recipes/simple_ritual/ring_of_nature.json
+a7242f01a97dc909781cf8eebc9c7132ba2b09d7 data/glimmeringtales/advancement/recipes/simple_ritual/ring_of_ocean.json
+69f2260ff4c7106187b29298eb73865da5294f13 data/glimmeringtales/advancement/recipes/simple_ritual/ring_of_regeneration.json
+4ae7cdc22233eb344263b46d1aeaddffe458df11 data/glimmeringtales/advancement/recipes/simple_ritual/ring_of_snow.json
+51baca0fa89393fc6a948f3b53513fe91a7a9e76 data/glimmeringtales/advancement/recipes/simple_ritual/ring_of_thunder.json
 8d60599be6b7fc276dd7161d8c475344277efcad data/glimmeringtales/advancement/recipes/simple_ritual/sand.json
 1194c370152a7b1dd6cad3e17fc7f1722a40504a data/glimmeringtales/advancement/recipes/simple_ritual/snow.json
 8a06142a8ec8c36c103051ed3efc3e0a0ca7e833 data/glimmeringtales/advancement/recipes/simple_ritual/snow_tornado.json
@@ -234,7 +244,7 @@ cefe3bfcfa52af92534d2ad858924afb381fd00e data/glimmeringtales/damage_type/dripst
 df31d5e800298c017c5d911f29bfd019f5ef0115 data/glimmeringtales/data_maps/block/block_melt.json
 4e2f062182eaf5e40776fcf58d56dc3a1136ad69 data/glimmeringtales/data_maps/block/block_replace.json
 06ba19a4ea7741ce007236ed9288ce32cd765e98 data/glimmeringtales/data_maps/block/block_spell.json
-7624f68c3454bf564eeedde4dbe6e15edbdbc2ac data/glimmeringtales/data_maps/item/curio_attributes.json
+1f7dde05cb87be9095458fb1b9537a614f1aa9cf data/glimmeringtales/data_maps/item/curio_attributes.json
 0584b6b6d4d46a8e52786db25e1def51b89f7c4f data/glimmeringtales/data_maps/item/element_affinity.json
 4d8346c1eacefb4f3e46e5c5b62f121c9eb795fd data/glimmeringtales/data_maps/item/rune_block.json
 290fa3c30d0c2f69d6a713c61866cb52ebbe1fed data/glimmeringtales/glimmeringtales/spell/amethyst.json
@@ -300,11 +310,13 @@ d83263c3acb6da09c67982d78fc3f59c1a3a43b4 data/glimmeringtales/recipe/amethyst_re
 769408493d16e190195564ad76e28e2d15655c2c data/glimmeringtales/recipe/depleted_crystal_of_flame.json
 ec8498ebd0180f621228c65a2f0bc52fcd801f00 data/glimmeringtales/recipe/depleted_crystal_of_winterstorm.json
 56ea4e5a49aa214e4b2595e7929f86288beb8e68 data/glimmeringtales/recipe/gold_wand.json
+918e116635178adf75199536a7f1eefff4c834d7 data/glimmeringtales/recipe/golden_ring.json
 3b2589273d44ef25eb86ba02be00d09240ca7528 data/glimmeringtales/recipe/recipes/simple_ritual/amethyst.json
 1ba9904d568b6b076101841d3c41795e767bab05 data/glimmeringtales/recipe/recipes/simple_ritual/bamboo.json
 dfdd0809fa705121b4867ef79f8e8f966976335d data/glimmeringtales/recipe/recipes/simple_ritual/blue_ice.json
 54e7eb25e4453a471d55a4ed5f7cf293a123f33f data/glimmeringtales/recipe/recipes/simple_ritual/cactus.json
 f872125531afabe02bbc16f193bdaca7af9b64c0 data/glimmeringtales/recipe/recipes/simple_ritual/charm_of_capacity.json
+02be276b3f80df3625165fdd9751b061037ba43d data/glimmeringtales/recipe/recipes/simple_ritual/charm_of_regeneration.json
 26b8467e8d4c93fabf759ff8b019cdf004ee4f58 data/glimmeringtales/recipe/recipes/simple_ritual/charm_of_strength.json
 ec5a89b61e4bd42279ef9fc27eacb9906dafdda6 data/glimmeringtales/recipe/recipes/simple_ritual/clay.json
 57170a6ef00356598438662745fe6b8d7996cc86 data/glimmeringtales/recipe/recipes/simple_ritual/crystal_of_ocean.json
@@ -321,6 +333,14 @@ f66c31772ed7f3d32a78858017601c6d3e01aa38 data/glimmeringtales/recipe/recipes/sim
 b65bf08949b864abee1d4fd1622a790e5cd04bc6 data/glimmeringtales/recipe/recipes/simple_ritual/packed_ice.json
 ba8a3862b2c57d5bfa0eaa9a4372be505b094ee6 data/glimmeringtales/recipe/recipes/simple_ritual/powder_snow.json
 21472230bb4d8c01347f7627aab71d2df62f3031 data/glimmeringtales/recipe/recipes/simple_ritual/quartz.json
+a63292b808b215f3406219f2424e180916f7e4bd data/glimmeringtales/recipe/recipes/simple_ritual/ring_of_earth.json
+56f1532f4f76bc4fdaf407d8c71fe12d0f4dfdb5 data/glimmeringtales/recipe/recipes/simple_ritual/ring_of_flame.json
+a59693bc2d54d7f1b03d4034b4eae5a183d525e0 data/glimmeringtales/recipe/recipes/simple_ritual/ring_of_life.json
+0a616ceac4682407c00f4f1b65c1260a5d1d3b17 data/glimmeringtales/recipe/recipes/simple_ritual/ring_of_nature.json
+56313c54783f14de52edb48e81aeaf9076ca3f93 data/glimmeringtales/recipe/recipes/simple_ritual/ring_of_ocean.json
+5168f43bd0f13a5a69d050473ad8953a5f8eafa0 data/glimmeringtales/recipe/recipes/simple_ritual/ring_of_regeneration.json
+7ca1d92ee9fb4c04ca098297f404d2058f2797ee data/glimmeringtales/recipe/recipes/simple_ritual/ring_of_snow.json
+21d9bd71c04b2656e839031824d0d244e139a6b5 data/glimmeringtales/recipe/recipes/simple_ritual/ring_of_thunder.json
 55a5c5d915a0980e3eab3551d855a7296107cc01 data/glimmeringtales/recipe/recipes/simple_ritual/sand.json
 4f0af8521cd466961c25d6db849091155e81758e data/glimmeringtales/recipe/recipes/simple_ritual/snow.json
 02205586fdf11e19d3319baf899d06eb7ed85426 data/glimmeringtales/recipe/recipes/simple_ritual/snow_tornado.json

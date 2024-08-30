@@ -5,7 +5,7 @@
         {
           "attribute": "glimmeringtales:max_mana",
           "operation": "ADD_MULTIPLIED_BASE",
-          "value": 0.5
+          "value": 0.25
         }
       ]
     },
@@ -14,7 +14,7 @@
         {
           "attribute": "glimmeringtales:mana_regen",
           "operation": "ADD_VALUE",
-          "value": 0.5
+          "value": 0.25
         }
       ]
     },
@@ -23,7 +23,7 @@
         {
           "attribute": "l2damagetracker:magic_damage",
           "operation": "ADD_VALUE",
-          "value": 0.5
+          "value": 0.25
         }
       ]
     },
@@ -46,7 +46,7 @@
         {
           "attribute": "glimmeringtales:earth_affinity",
           "operation": "ADD_VALUE",
-          "value": 0.1
+          "value": 0.25
         }
       ]
     },
@@ -60,7 +60,7 @@
         {
           "attribute": "glimmeringtales:flame_affinity",
           "operation": "ADD_VALUE",
-          "value": 0.1
+          "value": 0.25
         }
       ]
     },
@@ -74,7 +74,7 @@
         {
           "attribute": "glimmeringtales:life_affinity",
           "operation": "ADD_VALUE",
-          "value": 0.1
+          "value": 0.25
         }
       ]
     },
@@ -117,7 +117,7 @@
         {
           "attribute": "glimmeringtales:ocean_affinity",
           "operation": "ADD_VALUE",
-          "value": 0.1
+          "value": 0.25
         }
       ]
     },
@@ -145,7 +145,7 @@
         {
           "attribute": "glimmeringtales:snow_affinity",
           "operation": "ADD_VALUE",
-          "value": 0.1
+          "value": 0.25
         }
       ]
     },
@@ -159,7 +159,7 @@
         {
           "attribute": "glimmeringtales:thunder_affinity",
           "operation": "ADD_VALUE",
-          "value": 0.1
+          "value": 0.25
         }
       ]
     }
