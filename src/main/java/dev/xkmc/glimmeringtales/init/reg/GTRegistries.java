@@ -1,8 +1,8 @@
 package dev.xkmc.glimmeringtales.init.reg;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
+import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.glimmeringtales.content.capability.PlayerManaCapability;
-import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.*;
 import dev.xkmc.glimmeringtales.content.item.curio.AttributeData;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneSwapType;
@@ -11,6 +11,7 @@ import dev.xkmc.l2backpack.content.quickswap.type.MatcherSwapType;
 import dev.xkmc.l2core.capability.player.PlayerCapabilityNetworkHandler;
 import dev.xkmc.l2core.init.reg.datapack.DataMapReg;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
+import dev.xkmc.l2core.init.reg.registrate.LegacyHolder;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.AttReg;
 import dev.xkmc.l2core.init.reg.simple.AttVal;
@@ -44,12 +45,12 @@ public class GTRegistries {
 	public static final Holder<Attribute> MAX_MANA = reg("max_mana", 400, 1000000, "Max Mana");
 	public static final Holder<Attribute> MANA_REGEN = reg("mana_regen", 20, 1000000, "Mana Regen");
 
-	public static final SimpleEntry<SpellElement> LIFE = reg("life", ChatFormatting.GREEN);
-	public static final SimpleEntry<SpellElement> EARTH = reg("earth", ChatFormatting.GOLD);
-	public static final SimpleEntry<SpellElement> FLAME = reg("flame", ChatFormatting.RED);
-	public static final SimpleEntry<SpellElement> SNOW = reg("snow", ChatFormatting.AQUA);
-	public static final SimpleEntry<SpellElement> OCEAN = reg("ocean", ChatFormatting.DARK_AQUA);
-	public static final SimpleEntry<SpellElement> THUNDER = reg("thunder", ChatFormatting.YELLOW);
+	public static final ElemEntry LIFE = reg("life", ChatFormatting.GREEN);
+	public static final ElemEntry EARTH = reg("earth", ChatFormatting.GOLD);
+	public static final ElemEntry FLAME = reg("flame", ChatFormatting.RED);
+	public static final ElemEntry SNOW = reg("snow", ChatFormatting.AQUA);
+	public static final ElemEntry OCEAN = reg("ocean", ChatFormatting.DARK_AQUA);
+	public static final ElemEntry THUNDER = reg("thunder", ChatFormatting.YELLOW);
 
 	public static final AttReg ATT = AttReg.of(GlimmeringTales.REG);
 	public static final AttVal.PlayerVal<PlayerManaCapability> MANA = ATT.player("mana",
@@ -57,10 +58,10 @@ public class GTRegistries {
 
 	public static final MatcherSwapType SWAP = new RuneSwapType();
 
-	private static SimpleEntry<SpellElement> reg(String id, ChatFormatting color) {
+	private static ElemEntry reg(String id, ChatFormatting color) {
 		var attr = reg(id + "_affinity", 0, 1000, RegistrateLangProvider.toEnglishName(id + "_affinity"));
-		return new SimpleEntry<>(GlimmeringTales.REGISTRATE.generic(ELEMENT, id, () -> new SpellElement(color, attr))
-				.defaultLang().register());
+		return new ElemEntry(GlimmeringTales.REGISTRATE.generic(ELEMENT, id, () -> new SpellElement(color, attr))
+				.defaultLang().register(), attr);
 	}
 
 	public static SimpleEntry<Attribute> reg(String id, double def, double max, String name) {
@@ -69,5 +70,39 @@ public class GTRegistries {
 
 	public static void register() {
 	}
+
+	public record ElemEntry(
+			RegistryEntry<SpellElement, SpellElement> val,
+			SimpleEntry<Attribute> attr
+	) implements LegacyHolder<SpellElement> {
+
+		public ResourceKey<SpellElement> key() {
+			return val.getKey();
+		}
+
+		public SpellElement get() {
+			return val.get();
+		}
+
+		@Override
+		public Holder<SpellElement> holder() {
+			return val;
+		}
+
+		@Override
+		public int hashCode() {
+			return key().hashCode();
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj) return true;
+			return obj instanceof Holder<?> h &&
+					h.kind() == Kind.REFERENCE &&
+					key().equals(h.getKey());
+		}
+
+	}
+
 
 }

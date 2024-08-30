@@ -1,7 +1,6 @@
 package dev.xkmc.glimmeringtales.init.data;
 
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
-import dev.xkmc.l2backpack.init.L2Backpack;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.entity.EntityType;
@@ -18,7 +17,7 @@ public class GTSlotGen extends CuriosDataProvider {
 
 	@Override
 	public void generate(HolderLookup.Provider provider, ExistingFileHelper existingFileHelper) {
-		createEntities("player").addEntities(EntityType.PLAYER).addSlots("charm");
+		createEntities("player").addEntities(EntityType.PLAYER).addSlots("charm", "ring");
 	}
 
 }

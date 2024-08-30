@@ -100,13 +100,13 @@ public class GTRecipeGen {
 		// curios
 		{
 
-			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_OCEAN, GTItems.CHARM_OF_STRENGTH)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_OCEAN, GTItems.Curios.CHARM_OF_STRENGTH)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
 					.side(GTItems.CRYSTAL_NATURE, 2)
 					.side(Items.AMETHYST_SHARD, 2)
 					.side(Items.GOLD_INGOT, 4)
 					.save(pvd);
 
-			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.CHARM_OF_CAPACITY)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.Curios.CHARM_OF_CAPACITY)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
 					.side(GTItems.CRYSTAL_NATURE, 2)
 					.side(Items.AMETHYST_SHARD, 2)
 					.side(Items.GOLD_INGOT, 4)

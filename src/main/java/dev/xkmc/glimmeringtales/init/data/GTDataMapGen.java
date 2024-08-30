@@ -24,12 +24,12 @@ public class GTDataMapGen {
 			var builder = pvd.builder(L2Tabs.ATTRIBUTE_ENTRY.reg());
 			attr(builder, GTRegistries.MAX_MANA.getKey(), false, 13100);
 			attr(builder, GTRegistries.MANA_REGEN.getKey(), false, 13200);
-			attr(builder, GTRegistries.LIFE.get().getAffinity().getKey(), true, 13310);
-			attr(builder, GTRegistries.EARTH.get().getAffinity().getKey(), true, 13320);
-			attr(builder, GTRegistries.FLAME.get().getAffinity().getKey(), true, 13330);
-			attr(builder, GTRegistries.SNOW.get().getAffinity().getKey(), true, 13340);
-			attr(builder, GTRegistries.OCEAN.get().getAffinity().getKey(), true, 13350);
-			attr(builder, GTRegistries.THUNDER.get().getAffinity().getKey(), true, 13360);
+			attr(builder, GTRegistries.LIFE.attr().getKey(), true, 13310);
+			attr(builder, GTRegistries.EARTH.attr().getKey(), true, 13320);
+			attr(builder, GTRegistries.FLAME.attr().getKey(), true, 13330);
+			attr(builder, GTRegistries.SNOW.attr().getKey(), true, 13340);
+			attr(builder, GTRegistries.OCEAN.attr().getKey(), true, 13350);
+			attr(builder, GTRegistries.THUNDER.attr().getKey(), true, 13360);
 		}
 		// affinity
 		{

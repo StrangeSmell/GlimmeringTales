@@ -37,6 +37,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
@@ -48,6 +49,7 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Supplier;
 
 public class GTItems {
@@ -77,9 +79,6 @@ public class GTItems {
 	public static final ItemEntry<RuneWandItem> WAND;
 	public static final ItemEntry<WandHandleItem> WOOD_WAND, GOLD_WAND;
 
-	public static final VarHolder<AttributeCurioItem>
-			CHARM_OF_STRENGTH, CHARM_OF_CAPACITY;
-
 	public static final ItemEntry<BlockRuneItem>
 			RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE, RUNE_HAYBALE,
 			RUNE_SAND, RUNE_GRAVEL, RUNE_QUARTZ, RUNE_CLAY, RUNE_STONE, RUNE_DRIPSTONE, RUNE_AMETHYST,
@@ -99,6 +98,74 @@ public class GTItems {
 
 	public static final DCVal<Integer> PROGRESS = DC.intVal("progress");
 	public static final DCVal<Holder<Item>> WAND_HANDLE = DC.registry("handle", BuiltInRegistries.ITEM);
+
+	public enum Curios implements ItemLike {
+		GOLDEN_RING("ring", AttributeData.of(
+				GTRegistries.MAX_MANA, 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE
+		)),
+		RING_OF_REGENERATION("ring", AttributeData.of(
+				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
+				AttributeData.add(GTRegistries.MANA_REGEN, 0.2)
+		)),
+		RING_OF_NATURE("ring", AttributeData.of(
+				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
+				AttributeData.add(GTRegistries.EARTH.attr(), 0.1),
+				AttributeData.add(GTRegistries.LIFE.attr(), 0.1),
+				AttributeData.add(GTRegistries.FLAME.attr(), 0.1),
+				AttributeData.add(GTRegistries.SNOW.attr(), 0.1)
+		)),
+		RING_OF_EARTH("ring", AttributeData.of(
+				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
+				AttributeData.add(GTRegistries.EARTH.attr(), 0.1)
+		)),
+		RING_OF_LIFE("ring", AttributeData.of(
+				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
+				AttributeData.add(GTRegistries.LIFE.attr(), 0.1)
+		)),
+		RING_OF_FLAME("ring", AttributeData.of(
+				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
+				AttributeData.add(GTRegistries.FLAME.attr(), 0.1)
+		)),
+		RING_OF_SNOW("ring", AttributeData.of(
+				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
+				AttributeData.add(GTRegistries.SNOW.attr(), 0.1)
+		)),
+		RING_OF_OCEAN("ring", AttributeData.of(
+				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
+				AttributeData.add(GTRegistries.OCEAN.attr(), 0.1)
+		)),
+		RING_OF_THUNDER("ring", AttributeData.of(
+				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
+				AttributeData.add(GTRegistries.THUNDER.attr(), 0.1)
+		)),
+		CHARM_OF_STRENGTH("charm", AttributeData.of(
+				AttributeData.add(L2DamageTracker.MAGIC_FACTOR, 0.5)
+		)),
+		CHARM_OF_CAPACITY("charm", AttributeData.of(
+				AttributeData.base(GTRegistries.MAX_MANA, 0.5)
+		)),
+		CHARM_OF_REGENERATION("charm", AttributeData.of(
+				AttributeData.add(GTRegistries.MANA_REGEN, 0.5)
+		)),
+		;
+
+
+		public final VarHolder<AttributeCurioItem> item;
+
+		Curios(String part, AttributeData data) {
+			item = curio(name().toLowerCase(Locale.ROOT), part, data);
+		}
+
+		@Override
+		public Item asItem() {
+			return item.asItem();
+		}
+
+		private static void register() {
+
+		}
+
+	}
 
 	static {
 
@@ -180,14 +247,7 @@ public class GTItems {
 							.lang(RegistrateLangProvider.toEnglishName(rl.getPath()))
 			);
 
-
-			CHARM_OF_STRENGTH = charm("charm_of_strength", AttributeData.of(
-					L2DamageTracker.MAGIC_FACTOR, 0.25, AttributeModifier.Operation.ADD_VALUE
-			));
-
-			CHARM_OF_CAPACITY = charm("charm_of_capacity", AttributeData.of(
-					GTRegistries.MAX_MANA, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE
-			));
+			Curios.register();
 
 		}
 
@@ -352,10 +412,10 @@ public class GTItems {
 		return ans;
 	}
 
-	private static VarHolder<AttributeCurioItem> charm(String id, AttributeData data) {
+	private static VarHolder<AttributeCurioItem> curio(String id, String part, AttributeData data) {
 		return CURIOS.add(new VarHolder<>(id, (rl, b) -> b
 				.dataMap(GTRegistries.ITEM_ATTR.reg(), data)
-				.tag(GTTagGen.curio("charm"), GTTagGen.UNIQUE)));
+				.tag(GTTagGen.curio(part), GTTagGen.UNIQUE)));
 	}
 
 	private static BlockEntry<DelegateBlock> magma(String id) {

@@ -5,7 +5,16 @@
         {
           "attribute": "glimmeringtales:max_mana",
           "operation": "ADD_MULTIPLIED_BASE",
-          "value": 0.25
+          "value": 0.5
+        }
+      ]
+    },
+    "glimmeringtales:charm_of_regeneration": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:mana_regen",
+          "operation": "ADD_VALUE",
+          "value": 0.5
         }
       ]
     },
@@ -14,7 +23,143 @@
         {
           "attribute": "l2damagetracker:magic_damage",
           "operation": "ADD_VALUE",
-          "value": 0.25
+          "value": 0.5
+        }
+      ]
+    },
+    "glimmeringtales:golden_ring": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:max_mana",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        }
+      ]
+    },
+    "glimmeringtales:ring_of_earth": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:max_mana",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        },
+        {
+          "attribute": "glimmeringtales:earth_affinity",
+          "operation": "ADD_VALUE",
+          "value": 0.1
+        }
+      ]
+    },
+    "glimmeringtales:ring_of_flame": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:max_mana",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        },
+        {
+          "attribute": "glimmeringtales:flame_affinity",
+          "operation": "ADD_VALUE",
+          "value": 0.1
+        }
+      ]
+    },
+    "glimmeringtales:ring_of_life": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:max_mana",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        },
+        {
+          "attribute": "glimmeringtales:life_affinity",
+          "operation": "ADD_VALUE",
+          "value": 0.1
+        }
+      ]
+    },
+    "glimmeringtales:ring_of_nature": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:max_mana",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        },
+        {
+          "attribute": "glimmeringtales:earth_affinity",
+          "operation": "ADD_VALUE",
+          "value": 0.1
+        },
+        {
+          "attribute": "glimmeringtales:life_affinity",
+          "operation": "ADD_VALUE",
+          "value": 0.1
+        },
+        {
+          "attribute": "glimmeringtales:flame_affinity",
+          "operation": "ADD_VALUE",
+          "value": 0.1
+        },
+        {
+          "attribute": "glimmeringtales:snow_affinity",
+          "operation": "ADD_VALUE",
+          "value": 0.1
+        }
+      ]
+    },
+    "glimmeringtales:ring_of_ocean": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:max_mana",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        },
+        {
+          "attribute": "glimmeringtales:ocean_affinity",
+          "operation": "ADD_VALUE",
+          "value": 0.1
+        }
+      ]
+    },
+    "glimmeringtales:ring_of_regeneration": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:max_mana",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        },
+        {
+          "attribute": "glimmeringtales:mana_regen",
+          "operation": "ADD_VALUE",
+          "value": 0.2
+        }
+      ]
+    },
+    "glimmeringtales:ring_of_snow": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:max_mana",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        },
+        {
+          "attribute": "glimmeringtales:snow_affinity",
+          "operation": "ADD_VALUE",
+          "value": 0.1
+        }
+      ]
+    },
+    "glimmeringtales:ring_of_thunder": {
+      "list": [
+        {
+          "attribute": "glimmeringtales:max_mana",
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.1
+        },
+        {
+          "attribute": "glimmeringtales:thunder_affinity",
+          "operation": "ADD_VALUE",
+          "value": 0.1
         }
       ]
     }
