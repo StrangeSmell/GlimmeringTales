@@ -172,6 +172,18 @@ public class GTRecipeGen {
 					.side(Items.GOLD_INGOT, 4)
 					.save(pvd);
 
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_OCEAN, GTItems.GLOVE_OF_SORCERER)::unlockedBy, GTItems.CRYSTAL_OCEAN.get())
+					.side(GTItems.CRYSTAL_NATURE, 2)
+					.side(Items.DRAGON_BREATH, 2)
+					.side(LCItems.SOUL_FLAME, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_THUNDER, GTItems.GLOVE_OF_ABYSS)::unlockedBy, GTItems.CRYSTAL_THUNDER.get())
+					.side(GTItems.CRYSTAL_NATURE, 2)
+					.side(LCItems.VOID_EYE, 2)
+					.side(LCItems.RESONANT_FEATHER, 4)
+					.save(pvd);
+
 		}
 
 		// wand

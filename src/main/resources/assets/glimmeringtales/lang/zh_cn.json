@@ -42,6 +42,8 @@
   "item.glimmeringtales.ring_of_regeneration": "魔灵戒指",
   "item.glimmeringtales.ring_of_snow": "风雪戒指",
   "item.glimmeringtales.ring_of_thunder": "雷霆戒指",
+  "item.glimmeringtales.glove_of_abyss": "深渊手套",
+  "item.glimmeringtales.glove_of_sorcerer": "虚化手套",
 
   "item.glimmeringtales.wand": "法杖",
   "item.glimmeringtales.gold_wand": "金杖柄",
@@ -97,6 +99,8 @@
   "glimmeringtales.tooltip.spell": "%s - [%s]",
   "glimmeringtales.overlay.destroy": "消耗目标方块",
   "glimmeringtales.overlay.mana": "魔力: %s / %s",
+  "glimmeringtales.tooltip.glove_magic": "把所有法术的伤害转化为魔法伤害",
+  "glimmeringtales.tooltip.glove_abyss": "让所有法术的伤害获得深渊属性",
 
   "glimmeringtales.desc.damage": "伤害",
   "glimmeringtales.desc.damage_number": "%s点",

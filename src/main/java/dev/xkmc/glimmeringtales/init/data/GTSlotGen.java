@@ -17,7 +17,7 @@ public class GTSlotGen extends CuriosDataProvider {
 
 	@Override
 	public void generate(HolderLookup.Provider provider, ExistingFileHelper existingFileHelper) {
-		createEntities("player").addEntities(EntityType.PLAYER).addSlots("charm", "ring");
+		createEntities("player").addEntities(EntityType.PLAYER).addSlots("charm", "ring", "hands");
 	}
 
 }

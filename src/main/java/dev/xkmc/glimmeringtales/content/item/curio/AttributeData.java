@@ -21,6 +21,10 @@ public record AttributeData(ArrayList<Entry> list) {
 		return new Entry(attribute, value, AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
 	}
 
+	public static Entry total(Holder<Attribute> attribute, double value) {
+		return new Entry(attribute, value, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+	}
+
 	public static Entry entry(Holder<Attribute> attribute, double value, AttributeModifier.Operation operation) {
 		return new Entry(attribute, value, operation);
 	}

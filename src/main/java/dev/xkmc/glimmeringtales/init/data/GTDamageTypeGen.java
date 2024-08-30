@@ -3,6 +3,7 @@ package dev.xkmc.glimmeringtales.init.data;
 import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellGenRegistry;
+import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import dev.xkmc.l2core.util.MathHelper;
 import dev.xkmc.l2damagetracker.contents.damage.DamageTypeRoot;
@@ -10,6 +11,7 @@ import dev.xkmc.l2damagetracker.contents.damage.DamageTypeWrapper;
 import dev.xkmc.l2damagetracker.contents.damage.DefaultDamageState;
 import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import dev.xkmc.l2damagetracker.init.data.DamageTypeAndTagsGen;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.DamageTypeTags;
@@ -23,6 +25,8 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 public class GTDamageTypeGen extends DamageTypeAndTagsGen {
+
+	public static final TagKey<DamageType> SPELL = TagKey.create(Registries.DAMAGE_TYPE, GlimmeringTales.loc("spells"));
 
 	@SafeVarargs
 	public static TagKey<DamageType>[] magic(TagKey<DamageType>... tags) {
@@ -69,6 +73,11 @@ public class GTDamageTypeGen extends DamageTypeAndTagsGen {
 		DamageTypeRoot.generateAll();
 		for (DamageTypeWrapper wrapper : list) {
 			wrapper.gen(pvd::addTag);
+		}
+		var spell = pvd.addTag(SPELL);
+		for (var e : GTRegistries.ELEMENT.reg()) {
+			pvd.addTag(e.damgeTag());
+			spell.addTag(e.damgeTag());
 		}
 	}
 

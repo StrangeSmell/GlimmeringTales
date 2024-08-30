@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_ocean"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:glove_of_sorcerer"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:dragon_breath"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:dragon_breath"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:soul_flame"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:soul_flame"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:soul_flame"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:soul_flame"
+      }
+    }
+  ],
+  "time": 100
+}

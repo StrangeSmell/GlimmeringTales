@@ -9,6 +9,7 @@ import dev.xkmc.glimmeringtales.content.block.misc.*;
 import dev.xkmc.glimmeringtales.content.block.ritual.*;
 import dev.xkmc.glimmeringtales.content.item.curio.AttributeCurioItem;
 import dev.xkmc.glimmeringtales.content.item.curio.AttributeData;
+import dev.xkmc.glimmeringtales.content.item.curio.DamageTypeCurioItem;
 import dev.xkmc.glimmeringtales.content.item.materials.AmethystResonator;
 import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
 import dev.xkmc.glimmeringtales.content.item.rune.BlockRuneItem;
@@ -20,12 +21,15 @@ import dev.xkmc.glimmeringtales.content.item.wand.RuneWandItem;
 import dev.xkmc.glimmeringtales.content.item.wand.WandHandleItem;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTConfigs;
+import dev.xkmc.glimmeringtales.init.data.GTDamageStates;
+import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.data.GTTagGen;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
 import dev.xkmc.l2core.init.reg.varitem.VarHolder;
 import dev.xkmc.l2core.init.reg.varitem.VarItemInit;
+import dev.xkmc.l2damagetracker.contents.damage.DefaultDamageState;
 import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import dev.xkmc.l2modularblock.core.DelegateBlock;
 import net.minecraft.client.renderer.block.model.BlockModel;
@@ -33,7 +37,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -78,6 +81,8 @@ public class GTItems {
 
 	public static final ItemEntry<RuneWandItem> WAND;
 	public static final ItemEntry<WandHandleItem> WOOD_WAND, GOLD_WAND;
+
+	public static final ItemEntry<DamageTypeCurioItem> GLOVE_OF_SORCERER, GLOVE_OF_ABYSS;
 
 	public static final VarHolder<BlockRuneItem>
 			RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE, RUNE_HAYBALE,
@@ -257,6 +262,27 @@ public class GTItems {
 
 		}
 
+		{
+			GLOVE_OF_SORCERER = GlimmeringTales.REGISTRATE.item("glove_of_sorcerer",
+							p -> new DamageTypeCurioItem(p.stacksTo(1).fireResistant(),
+									GTDamageStates.MAGIC, GTLang.TOOLTIP_MAGIC))
+					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
+					.tag(GTTagGen.curio("hands"), GTTagGen.UNIQUE)
+					.dataMap(GTRegistries.ITEM_ATTR.reg(), AttributeData.of(
+							AttributeData.add(L2DamageTracker.MAGIC_FACTOR, 0.25)
+					)).lang("Glove of Sorcerer")
+					.register();
+
+			GLOVE_OF_ABYSS = GlimmeringTales.REGISTRATE.item("glove_of_abyss",
+							p -> new DamageTypeCurioItem(p.stacksTo(1).fireResistant(),
+									DefaultDamageState.BYPASS_MAGIC, GTLang.TOOLTIP_ABYSS))
+					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
+					.tag(GTTagGen.curio("hands"), GTTagGen.UNIQUE)
+					.dataMap(GTRegistries.ITEM_ATTR.reg(), AttributeData.of(
+							AttributeData.total(GTRegistries.MANA_REGEN, -0.5)
+					)).lang("Glove of Abyss")
+					.register();
+		}
 
 		{
 

@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_thunder"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:glove_of_abyss"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:crystal_of_nature"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:void_eye"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:void_eye"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:resonant_feather"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:resonant_feather"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:resonant_feather"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:resonant_feather"
+      }
+    }
+  ],
+  "time": 100
+}

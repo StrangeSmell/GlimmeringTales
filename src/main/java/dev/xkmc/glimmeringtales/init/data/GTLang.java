@@ -14,6 +14,8 @@ public enum GTLang {
 	TOOLTIP_COST("tooltip.cost", "Spell cost: %s", 1),
 	TOOLTIP_COST_CONT("tooltip.cost_cont", "%s per tick", 1),
 	TOOLTIP_COST_CAPPED("tooltip.cost_capped", "%s per tick, at most %s", 2),
+	TOOLTIP_MAGIC("tooltip.glove_magic","Convert all spell damage to magic damage",0),
+	TOOLTIP_ABYSS("tooltip.glove_abyss","Infuse all spell damage with abyss damage",0),
 
 	OVERLAY_DESTROY("overlay.destroy", "Consume target block", 0),
 	OVERLAY_MANA("overlay.mana", "Mana: %s / %s", 2),
