@@ -143,27 +143,24 @@ public class FlameSpells {
 						DoubleVariable.of("1"),
 						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
-				new SoundInstance(
-						SoundEvents.STONE_BREAK,
-						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
-				),
-				new PredicateLogic(BooleanVariable.of("Power==0"),
-				new RingRandomIterator(
-						DoubleVariable.of("0.5"),
-						DoubleVariable.of("1"),
-						DoubleVariable.of("-180"),
-						DoubleVariable.of("180"),
-						IntVariable.of("5*min(TickUsing/10,3)"),
-						new SimpleParticleInstance(
-								ParticleTypes.SMALL_FLAME,
-								DoubleVariable.of("0.3")
-						).move(RotationModifier.of("135", "rand(-15*min(floor(TickUsing/10),3),0)"),
-								ForwardOffsetModifier.of("-4")
-						), null
-				),
-				earthquakeStart(ctx)
-		)));
+				new PredicateLogic(
+						BooleanVariable.of("Power==0"),
+						new RingRandomIterator(
+								DoubleVariable.of("0.5"),
+								DoubleVariable.of("1"),
+								DoubleVariable.of("-180"),
+								DoubleVariable.of("180"),
+								IntVariable.of("5*min(TickUsing/10,3)"),
+								new SimpleParticleInstance(
+										ParticleTypes.SMALL_FLAME,
+										DoubleVariable.of("0.3")
+								).move(RotationModifier.of("135", "rand(-15*min(floor(TickUsing/10),3),0)"),
+										ForwardOffsetModifier.of("-4")
+								), null
+						),
+						earthquakeStart(ctx)
+				)
+		));
 	}
 
 	private static ConfiguredEngine<?> earthquakeStart(NatureSpellBuilder ctx) {
@@ -174,6 +171,11 @@ public class FlameSpells {
 						new LoopIterator(
 								IntVariable.of("3+i*2"),
 								new ListLogic(List.of(
+										new SoundInstance(
+												SoundEvents.GENERIC_EXPLODE.value(),
+												DoubleVariable.of("1"),
+												DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+										),
 										star(2, 0.2).move(RotationModifier.of("rand(0,360)")),
 										new ProcessorEngine(SelectionType.ENEMY,
 												new ApproxCylinderSelector(

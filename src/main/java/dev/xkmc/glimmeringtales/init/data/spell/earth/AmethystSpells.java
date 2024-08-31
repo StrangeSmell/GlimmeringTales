@@ -8,7 +8,6 @@ import dev.xkmc.glimmeringtales.content.engine.render.CrossRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTTagGen;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellEntry;
 import dev.xkmc.glimmeringtales.init.reg.GTEngine;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
@@ -89,23 +88,24 @@ public class AmethystSpells {
 						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
 				new LoopIterator(
-				IntVariable.of("" + phi),
-				new LoopIterator(
-						IntVariable.of("" + theta),
-						new CustomProjectileShoot(
-								DoubleVariable.of("1"), ctx.proj,
-								IntVariable.of("100"),
-								false, true,
-								Map.of()
-						).move(new RotationModifier(
-								DoubleVariable.of(360 / theta + "*j"),
-								DoubleVariable.of(90 / phi + "*(i+0.5)")
-						)), "j"
-				), "i"
-		).move(
-				OffsetModifier.of("0", "0.55", "0"),
-				SetDirectionModifier.of("1", "0", "0")
-		)));
+						IntVariable.of("" + phi),
+						new LoopIterator(
+								IntVariable.of("" + theta),
+								new CustomProjectileShoot(
+										DoubleVariable.of("1"), ctx.proj,
+										IntVariable.of("100"),
+										false, true,
+										Map.of()
+								).move(new RotationModifier(
+										DoubleVariable.of(360 / theta + "*j"),
+										DoubleVariable.of(90 / phi + "*(i+0.5)")
+								)), "j"
+						), "i"
+				).move(
+						OffsetModifier.of("0", "0.55", "0"),
+						SetDirectionModifier.of("1", "0", "0")
+				)
+		));
 
 	}
 

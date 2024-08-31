@@ -67,10 +67,13 @@ public class FreezingSpells {
 
 	private static ConfiguredEngine<?> winterStorm(NatureSpellBuilder ctx, double r, double y, double size) {
 		return new ListLogic(List.of(
-				new SoundInstance(
-						SoundEvents.SNOW_HIT,
-						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				new PredicateLogic(
+						BooleanVariable.of("TickUsing%2==0"),
+						new SoundInstance(
+								SoundEvents.SNOW_HIT,
+								DoubleVariable.of("1"),
+								DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						), null
 				),
 				new PredicateLogic(
 						BooleanVariable.of("TickUsing>=10"),
@@ -126,10 +129,13 @@ public class FreezingSpells {
 		String radius = ir + "+TickCount*" + vsp * rate;
 		String angle = w / (vsp * rate) + "*(log(" + radius + ")+log(" + ir + "))";
 		return new ListLogic(List.of(
-				new SoundInstance(
-						SoundEvents.SNOW_PLACE,
-						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				new PredicateLogic(
+						BooleanVariable.of("TickUsing%2==0"),
+						new SoundInstance(
+								SoundEvents.SNOW_PLACE,
+								DoubleVariable.of("1"),
+								DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						), null
 				),
 				new PredicateLogic(
 						BooleanVariable.of("TickUsing>=10"),

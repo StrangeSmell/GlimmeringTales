@@ -9,7 +9,7 @@ import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 public class GTCurioItem extends Item implements ICurioItem {
 
-	private static boolean ENABLE_UNIQUE_CHECK = false;//TODO
+	private static final boolean ENABLE_UNIQUE_CHECK = false;//TODO
 
 	public GTCurioItem(Properties properties) {
 		super(properties);

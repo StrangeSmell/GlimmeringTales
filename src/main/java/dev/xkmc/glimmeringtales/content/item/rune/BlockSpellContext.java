@@ -1,6 +1,5 @@
 package dev.xkmc.glimmeringtales.content.item.rune;
 
-import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.l2magic.content.engine.context.SpellContext;
 import dev.xkmc.l2magic.content.engine.helper.Orientation;

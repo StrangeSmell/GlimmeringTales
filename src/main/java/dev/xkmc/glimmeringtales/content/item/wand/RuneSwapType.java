@@ -7,7 +7,6 @@ import dev.xkmc.l2backpack.content.quickswap.type.MatcherSwapType;
 import dev.xkmc.l2backpack.init.data.LBConfig;
 import dev.xkmc.l2itemselector.overlay.SelectionSideBar;
 import dev.xkmc.l2itemselector.overlay.TextBox;
-import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -44,13 +43,13 @@ public class RuneSwapType extends MatcherSwapType {
 		boolean selected = entry.selected();
 		ItemStack core = token.getStack();
 		ItemStack wand = token.token().stack();
-		ResourceLocation TEX ;
-		String s =RuneWandItem.getHandle(wand).getDescriptionId();
-		if(s.equals("item.glimmeringtales.gold_wand")){
+		ResourceLocation TEX;
+		String s = RuneWandItem.getHandle(wand).getDescriptionId();
+		if (s.equals("item.glimmeringtales.gold_wand")) {
 			TEX = GOLD;
-		}  else if(s.equals("item.glimmeringtales.wood_wand")){
+		} else if (s.equals("item.glimmeringtales.wood_wand")) {
 			TEX = WOOD;
-		}else{
+		} else {
 			TEX = COPPER;
 		}
 

@@ -93,23 +93,23 @@ public class DripstoneSpells {
 						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
 				new CustomProjectileShoot(
-				DoubleVariable.of("0.8"),
-				ctx.proj,
-				IntVariable.of("20"),
-				false, true,
-				Map.of()
-		).move(OffsetModifier.of("0", "-0.45", "0"),
-				SetDirectionModifier.UP).circular(
-				DoubleVariable.of("2"),
-				DoubleVariable.of("2"),
-				false, null,
-				new OrPredicate(List.of(
-						SurfaceBelowCondition.full(),
-						BlockMatchCondition.of(Blocks.POINTED_DRIPSTONE)
-								.move(OffsetModifier.BELOW)
-				)),
-				BlockTestCondition.Type.BLOCKS_MOTION.get().invert()
-		)));
+						DoubleVariable.of("0.8"),
+						ctx.proj,
+						IntVariable.of("20"),
+						false, true,
+						Map.of()
+				).move(OffsetModifier.of("0", "-0.45", "0"),
+						SetDirectionModifier.UP).circular(
+						DoubleVariable.of("2"),
+						DoubleVariable.of("2"),
+						false, null,
+						new OrPredicate(List.of(
+								SurfaceBelowCondition.full(),
+								BlockMatchCondition.of(Blocks.POINTED_DRIPSTONE)
+										.move(OffsetModifier.BELOW)
+						)),
+						BlockTestCondition.Type.BLOCKS_MOTION.get().invert()
+				)));
 
 	}
 
