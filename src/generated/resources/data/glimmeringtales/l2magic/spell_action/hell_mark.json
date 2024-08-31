@@ -3,6 +3,12 @@
     "type": "l2magic:list",
     "children": [
       {
+        "type": "l2magic:sound",
+        "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
+        "sound": "minecraft:item.firecharge.use",
+        "volume": "1"
+      },
+      {
         "type": "l2magic:move",
         "child": {
           "type": "l2magic:list",

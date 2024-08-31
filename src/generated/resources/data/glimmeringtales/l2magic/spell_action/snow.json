@@ -1,52 +1,63 @@
 {
   "action": {
-    "type": "l2magic:move",
-    "child": {
-      "type": "l2magic:iterate",
-      "child": {
-        "type": "l2magic:random",
+    "type": "l2magic:list",
+    "children": [
+      {
+        "type": "l2magic:sound",
+        "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
+        "sound": "minecraft:block.snow.break",
+        "volume": "1"
+      },
+      {
+        "type": "l2magic:move",
         "child": {
           "type": "l2magic:iterate",
           "child": {
-            "type": "l2magic:move",
+            "type": "l2magic:random",
             "child": {
-              "type": "l2magic:custom_projectile",
-              "bypassEntity": true,
-              "bypassWall": false,
-              "config": "glimmeringtales:snow",
-              "life": "100",
-              "params": {},
-              "speed": "1"
+              "type": "l2magic:iterate",
+              "child": {
+                "type": "l2magic:move",
+                "child": {
+                  "type": "l2magic:custom_projectile",
+                  "bypassEntity": true,
+                  "bypassWall": false,
+                  "config": "glimmeringtales:snow",
+                  "life": "100",
+                  "params": {},
+                  "speed": "1"
+                },
+                "modifiers": [
+                  {
+                    "type": "l2magic:rotate",
+                    "degree": "30*j+r0*360",
+                    "vertical": "7*(i+0.5)"
+                  }
+                ]
+              },
+              "index": "j",
+              "step": "12"
             },
-            "modifiers": [
-              {
-                "type": "l2magic:rotate",
-                "degree": "30*j+r0*360",
-                "vertical": "7*(i+0.5)"
-              }
-            ]
+            "count": 1,
+            "name": "r"
           },
-          "index": "j",
+          "index": "i",
           "step": "12"
         },
-        "count": 1,
-        "name": "r"
-      },
-      "index": "i",
-      "step": "12"
-    },
-    "modifiers": [
-      {
-        "type": "l2magic:offset",
-        "x": "0",
-        "y": "0.55",
-        "z": "0"
-      },
-      {
-        "type": "l2magic:direction",
-        "x": "1",
-        "y": "0",
-        "z": "0"
+        "modifiers": [
+          {
+            "type": "l2magic:offset",
+            "x": "0",
+            "y": "0.55",
+            "z": "0"
+          },
+          {
+            "type": "l2magic:direction",
+            "x": "1",
+            "y": "0",
+            "z": "0"
+          }
+        ]
       }
     ]
   },

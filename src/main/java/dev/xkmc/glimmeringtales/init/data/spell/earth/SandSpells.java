@@ -20,6 +20,7 @@ import dev.xkmc.l2magic.content.engine.processor.PushProcessor;
 import dev.xkmc.l2magic.content.engine.processor.SetDeltaProcessor;
 import dev.xkmc.l2magic.content.engine.selector.ApproxCylinderSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.variable.ColorVariable;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
@@ -27,6 +28,7 @@ import dev.xkmc.l2magic.content.entity.motion.MovePosMotion;
 import dev.xkmc.l2magic.content.particle.engine.CustomParticleInstance;
 import dev.xkmc.l2magic.content.particle.engine.DustParticleData;
 import dev.xkmc.l2magic.content.particle.engine.RenderTypePreset;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
@@ -117,9 +119,16 @@ public class SandSpells {
 						), null
 				)
 		));
+		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.SAND_BREAK,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
+				new DelayedIterator(IntVariable.of("80"), IntVariable.of("1"), tick, null)
+						.move(OffsetModifier.ABOVE)
+		));
 
-		return new DelayedIterator(IntVariable.of("80"), IntVariable.of("1"), tick, null)
-				.move(OffsetModifier.ABOVE);
 	}
 
 

@@ -1,36 +1,47 @@
 {
   "action": {
-    "type": "l2magic:block_in_range",
-    "child": {
-      "type": "l2magic:if",
-      "action": {
-        "type": "glimmeringtales:melt_block",
-        "tick": "rand(180,220)"
+    "type": "l2magic:list",
+    "children": [
+      {
+        "type": "l2magic:sound",
+        "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
+        "sound": "minecraft:item.bucket.fill_lava",
+        "volume": "1"
       },
-      "predicate": {
-        "type": "l2magic:and",
-        "list": [
-          {
-            "type": "l2magic:move",
-            "child": {
-              "type": "l2magic:block_test",
-              "test": "REPLACEABLE"
-            },
-            "modifiers": [
+      {
+        "type": "l2magic:block_in_range",
+        "child": {
+          "type": "l2magic:if",
+          "action": {
+            "type": "glimmeringtales:melt_block",
+            "tick": "rand(180,220)"
+          },
+          "predicate": {
+            "type": "l2magic:and",
+            "list": [
               {
-                "type": "l2magic:offset",
-                "x": "0",
-                "y": "1",
-                "z": "0"
+                "type": "l2magic:move",
+                "child": {
+                  "type": "l2magic:block_test",
+                  "test": "REPLACEABLE"
+                },
+                "modifiers": [
+                  {
+                    "type": "l2magic:offset",
+                    "x": "0",
+                    "y": "1",
+                    "z": "0"
+                  }
+                ]
               }
             ]
           }
-        ]
+        },
+        "delayPerBlock": "2",
+        "plane": false,
+        "range": "6"
       }
-    },
-    "delayPerBlock": "2",
-    "plane": false,
-    "range": "6"
+    ]
   },
   "cast_type": "INSTANT",
   "icon": "glimmeringtales:magma",

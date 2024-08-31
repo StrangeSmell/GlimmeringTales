@@ -21,6 +21,7 @@ import dev.xkmc.l2magic.content.engine.processor.PushProcessor;
 import dev.xkmc.l2magic.content.engine.processor.SetDeltaProcessor;
 import dev.xkmc.l2magic.content.engine.selector.ApproxCylinderSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import dev.xkmc.l2magic.content.entity.motion.MovePosMotion;
@@ -28,6 +29,7 @@ import dev.xkmc.l2magic.content.particle.engine.CustomParticleInstance;
 import dev.xkmc.l2magic.content.particle.engine.RenderTypePreset;
 import dev.xkmc.l2magic.content.particle.engine.SimpleParticleData;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.Blocks;
 
@@ -97,7 +99,13 @@ public class PowderSnowSpell {
 				)
 		).move(NormalOffsetModifier.of("rand(" + (-vsp) + "," + vsp + ")"));
 
-		var tick = new ListLogic(List.of(damage,
+		var tick = new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.POWDER_SNOW_HIT,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
+				damage,
 				new DelayedIterator(
 						IntVariable.of("10"),
 						IntVariable.of("1"),

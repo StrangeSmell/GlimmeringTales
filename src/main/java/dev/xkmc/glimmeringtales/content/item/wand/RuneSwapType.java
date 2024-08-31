@@ -45,7 +45,7 @@ public class RuneSwapType extends MatcherSwapType {
 		ItemStack core = token.getStack();
 		ItemStack wand = token.token().stack();
 		ResourceLocation TEX ;
-		String s =((TranslatableContents)wand.getItem().getName(wand).getContents()).getKey();
+		String s =RuneWandItem.getHandle(wand).getDescriptionId();
 		if(s.equals("item.glimmeringtales.gold_wand")){
 			TEX = GOLD;
 		}  else if(s.equals("item.glimmeringtales.wood_wand")){

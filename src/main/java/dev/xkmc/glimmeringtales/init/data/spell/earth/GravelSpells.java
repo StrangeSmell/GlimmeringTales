@@ -21,6 +21,7 @@ import dev.xkmc.l2magic.content.engine.processor.EffectProcessor;
 import dev.xkmc.l2magic.content.engine.processor.SetDeltaProcessor;
 import dev.xkmc.l2magic.content.engine.selector.ApproxCylinderSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.variable.BooleanVariable;
 import dev.xkmc.l2magic.content.engine.variable.ColorVariable;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
@@ -28,6 +29,7 @@ import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import dev.xkmc.l2magic.content.entity.motion.MovePosMotion;
 import dev.xkmc.l2magic.content.particle.engine.*;
 import dev.xkmc.l2magic.content.particle.render.SpriteGeom;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageType;
@@ -124,6 +126,11 @@ public class GravelSpells {
 
 
 		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.GRAVEL_BREAK,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
 				new DelayedIterator(IntVariable.of("18"), IntVariable.of("2"), damage, null),
 				new DelayedIterator(IntVariable.of("30"), IntVariable.of("1"), tick, null)
 		)).move(OffsetModifier.ABOVE);

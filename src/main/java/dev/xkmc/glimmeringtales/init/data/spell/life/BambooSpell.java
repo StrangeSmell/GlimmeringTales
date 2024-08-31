@@ -14,9 +14,11 @@ import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.logic.ListLogic;
 import dev.xkmc.l2magic.content.engine.modifier.OffsetModifier;
 import dev.xkmc.l2magic.content.engine.predicate.BlockTestCondition;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.variable.BooleanVariable;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
+import net.minecraft.sounds.SoundEvents;
 
 import java.util.List;
 
@@ -33,6 +35,11 @@ public class BambooSpell {
 
 	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.BAMBOO_PLACE,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
 				new SetBlock(GTItems.FAKE_BAMBOO.getDefaultState()),
 				new ScheduleTick(IntVariable.of("rand(180,220)"), GTItems.FAKE_BAMBOO.get())
 		)).circular(
