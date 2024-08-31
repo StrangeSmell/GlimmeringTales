@@ -86,7 +86,7 @@ public class AmethystSpells {
 				new SoundInstance(
 						SoundEvents.AMETHYST_BLOCK_BREAK,
 						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						DoubleVariable.of("0.8+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
 				new LoopIterator(
 				IntVariable.of("" + phi),

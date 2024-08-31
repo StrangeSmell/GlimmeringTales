@@ -90,7 +90,7 @@ public class DripstoneSpells {
 				new SoundInstance(
 						SoundEvents.POINTED_DRIPSTONE_LAND,
 						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						DoubleVariable.of("rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
 				new CustomProjectileShoot(
 				DoubleVariable.of("0.8"),

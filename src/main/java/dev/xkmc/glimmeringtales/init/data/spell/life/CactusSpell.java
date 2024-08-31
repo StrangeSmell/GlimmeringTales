@@ -58,9 +58,9 @@ public class CactusSpell {
 		int theta = 120;
 		return new ListLogic(List.of(
 				new SoundInstance(
-						SoundEvents.ARROW_HIT,
+						SoundEvents.WIND_CHARGE_BURST.value(),
 						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						DoubleVariable.of("5+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
 				new LoopIterator(
 				IntVariable.of("" + theta),

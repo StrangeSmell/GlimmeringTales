@@ -68,7 +68,7 @@ public class FreezingSpells {
 	private static ConfiguredEngine<?> winterStorm(NatureSpellBuilder ctx, double r, double y, double size) {
 		return new ListLogic(List.of(
 				new SoundInstance(
-						SoundEvents.SNOW_HIT,
+						SoundEvents.BREEZE_IDLE_GROUND,
 						DoubleVariable.of("1"),
 						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
@@ -127,7 +127,7 @@ public class FreezingSpells {
 		String angle = w / (vsp * rate) + "*(log(" + radius + ")+log(" + ir + "))";
 		return new ListLogic(List.of(
 				new SoundInstance(
-						SoundEvents.SNOW_PLACE,
+						SoundEvents.BREEZE_SLIDE,
 						DoubleVariable.of("1"),
 						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),

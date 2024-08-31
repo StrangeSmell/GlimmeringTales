@@ -39,7 +39,7 @@ public class ClaySpells {
 		return new ListLogic(List.of(
 				new SoundInstance(
 						SoundEvents.GRAVEL_HIT,
-						DoubleVariable.of("1"),
+						DoubleVariable.of("0.5"),
 						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
 				new SetBlock(GTItems.CLAY_CARPET.getDefaultState()),

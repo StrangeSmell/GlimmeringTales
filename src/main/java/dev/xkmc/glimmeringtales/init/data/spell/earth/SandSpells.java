@@ -121,9 +121,9 @@ public class SandSpells {
 		));
 		return new ListLogic(List.of(
 				new SoundInstance(
-						SoundEvents.SAND_BREAK,
+						SoundEvents.BREEZE_IDLE_GROUND,
 						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						DoubleVariable.of("1+rand(-0.5,0.2)+rand(-0.5,0.2)")
 				),
 				new DelayedIterator(IntVariable.of("80"), IntVariable.of("1"), tick, null)
 						.move(OffsetModifier.ABOVE)
