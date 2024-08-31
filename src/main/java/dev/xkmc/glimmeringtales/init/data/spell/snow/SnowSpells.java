@@ -10,6 +10,7 @@ import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.iterator.LoopIterator;
+import dev.xkmc.l2magic.content.engine.logic.ListLogic;
 import dev.xkmc.l2magic.content.engine.logic.RandomVariableLogic;
 import dev.xkmc.l2magic.content.engine.modifier.ForwardOffsetModifier;
 import dev.xkmc.l2magic.content.engine.modifier.OffsetModifier;
@@ -18,6 +19,7 @@ import dev.xkmc.l2magic.content.engine.modifier.SetDirectionModifier;
 import dev.xkmc.l2magic.content.engine.particle.SimpleParticleInstance;
 import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import dev.xkmc.l2magic.content.entity.core.ProjectileConfig;
@@ -26,7 +28,9 @@ import dev.xkmc.l2magic.content.entity.motion.SimpleMotion;
 import dev.xkmc.l2magic.content.entity.renderer.OrientedRenderData;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 
+import java.util.List;
 import java.util.Map;
 
 public class SnowSpells {
@@ -63,7 +67,13 @@ public class SnowSpells {
 	public static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		int phi = 12;
 		int theta = 12;
-		return new LoopIterator(
+		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.SNOW_BREAK,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
+				new LoopIterator(
 				IntVariable.of("" + phi),
 				new RandomVariableLogic("r", 1,
 						new LoopIterator(
@@ -82,7 +92,8 @@ public class SnowSpells {
 		).move(
 				OffsetModifier.of("0", "0.55", "0"),
 				SetDirectionModifier.of("1", "0", "0")
-		);
+		)));
+
 	}
 
 }

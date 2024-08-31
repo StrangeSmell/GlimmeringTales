@@ -1,9 +1,20 @@
 {
   "action": {
-    "type": "glimmeringtales:effect_cloud",
-    "duration": "10",
-    "effect": "minecraft:healing",
-    "radius": "3"
+    "type": "l2magic:list",
+    "children": [
+      {
+        "type": "l2magic:sound",
+        "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
+        "sound": "minecraft:block.beacon.activate",
+        "volume": "1"
+      },
+      {
+        "type": "glimmeringtales:effect_cloud",
+        "duration": "10",
+        "effect": "minecraft:healing",
+        "radius": "3"
+      }
+    ]
   },
   "cast_type": "INSTANT",
   "icon": "glimmeringtales:flower",

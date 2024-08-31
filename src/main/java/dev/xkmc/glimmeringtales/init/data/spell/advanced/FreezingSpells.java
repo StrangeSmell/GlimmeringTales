@@ -21,6 +21,7 @@ import dev.xkmc.l2magic.content.engine.processor.PushProcessor;
 import dev.xkmc.l2magic.content.engine.selector.ArcCubeSelector;
 import dev.xkmc.l2magic.content.engine.selector.LinearCubeSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
 import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
 import dev.xkmc.l2magic.content.engine.spell.SpellTriggerType;
@@ -32,6 +33,7 @@ import dev.xkmc.l2magic.content.particle.engine.CustomParticleInstance;
 import dev.xkmc.l2magic.content.particle.engine.RenderTypePreset;
 import dev.xkmc.l2magic.content.particle.engine.SimpleParticleData;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 
 import java.util.List;
@@ -65,6 +67,11 @@ public class FreezingSpells {
 
 	private static ConfiguredEngine<?> winterStorm(NatureSpellBuilder ctx, double r, double y, double size) {
 		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.SNOW_HIT,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
 				new PredicateLogic(
 						BooleanVariable.of("TickUsing>=10"),
 						new ProcessorEngine(SelectionType.ENEMY,
@@ -119,6 +126,11 @@ public class FreezingSpells {
 		String radius = ir + "+TickCount*" + vsp * rate;
 		String angle = w / (vsp * rate) + "*(log(" + radius + ")+log(" + ir + "))";
 		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.SNOW_PLACE,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
 				new PredicateLogic(
 						BooleanVariable.of("TickUsing>=10"),
 						new ProcessorEngine(SelectionType.ENEMY,

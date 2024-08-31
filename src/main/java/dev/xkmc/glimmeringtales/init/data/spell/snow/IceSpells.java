@@ -26,9 +26,11 @@ import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.processor.EffectProcessor;
 import dev.xkmc.l2magic.content.engine.selector.ApproxBallSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
@@ -78,6 +80,11 @@ public class IceSpells {
 	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx, DoubleVariable dmg, IntVariable dur) {
 		var range = "5";
 		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.POWDER_SNOW_PLACE,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
 				new DelayedIterator(
 						IntVariable.of(range),
 						IntVariable.of("2"),

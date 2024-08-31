@@ -10,8 +10,13 @@ import dev.xkmc.glimmeringtales.init.reg.GTEngine;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
+import dev.xkmc.l2magic.content.engine.logic.ListLogic;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.Blocks;
+
+import java.util.List;
 
 public class ThunderSpells {
 
@@ -27,7 +32,14 @@ public class ThunderSpells {
 			);
 
 	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
-		return new LightningInstance(DoubleVariable.of("10"));
+		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.TRIDENT_THUNDER.value(),
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
+				new LightningInstance(DoubleVariable.of("10"))));
+
 	}
 
 

@@ -18,8 +18,10 @@ import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.processor.PushProcessor;
 import dev.xkmc.l2magic.content.engine.selector.BoxSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.level.block.Blocks;
 
@@ -42,6 +44,11 @@ public class VinesSpell {
 
 	private static ConfiguredEngine<?> vine(NatureSpellBuilder ctx, double radius, double step) {
 		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.VINE_STEP,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
 				new ProcessorEngine(
 						SelectionType.ENEMY,
 						new BoxSelector(

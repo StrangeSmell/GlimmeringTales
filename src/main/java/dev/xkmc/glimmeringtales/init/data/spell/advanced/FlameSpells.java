@@ -26,6 +26,7 @@ import dev.xkmc.l2magic.content.engine.processor.PropertyProcessor;
 import dev.xkmc.l2magic.content.engine.processor.PushProcessor;
 import dev.xkmc.l2magic.content.engine.selector.ApproxCylinderSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
+import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
 import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
 import dev.xkmc.l2magic.content.engine.spell.SpellTriggerType;
@@ -33,6 +34,7 @@ import dev.xkmc.l2magic.content.engine.variable.BooleanVariable;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageEffects;
 import net.minecraft.world.damagesource.DamageType;
@@ -72,6 +74,11 @@ public class FlameSpells {
 
 	private static ConfiguredEngine<?> flameBurst(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.FIRECHARGE_USE,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
 				star(4, 0.3).move(
 						new SetDirectionModifier(
 								DoubleVariable.of("1"),
@@ -130,7 +137,18 @@ public class FlameSpells {
 	}
 
 	private static ConfiguredEngine<?> earthquake(NatureSpellBuilder ctx) {
-		return new PredicateLogic(BooleanVariable.of("Power==0"),
+		return new ListLogic(List.of(
+				new SoundInstance(
+						SoundEvents.FIRECHARGE_USE,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
+				new SoundInstance(
+						SoundEvents.STONE_BREAK,
+						DoubleVariable.of("1"),
+						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				),
+				new PredicateLogic(BooleanVariable.of("Power==0"),
 				new RingRandomIterator(
 						DoubleVariable.of("0.5"),
 						DoubleVariable.of("1"),
@@ -145,7 +163,7 @@ public class FlameSpells {
 						), null
 				),
 				earthquakeStart(ctx)
-		);
+		)));
 	}
 
 	private static ConfiguredEngine<?> earthquakeStart(NatureSpellBuilder ctx) {

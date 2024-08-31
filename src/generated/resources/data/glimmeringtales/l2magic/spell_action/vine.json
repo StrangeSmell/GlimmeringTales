@@ -3,6 +3,12 @@
     "type": "l2magic:list",
     "children": [
       {
+        "type": "l2magic:sound",
+        "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
+        "sound": "minecraft:block.vine.step",
+        "volume": "1"
+      },
+      {
         "type": "l2magic:processor",
         "processors": [
           {

@@ -1,7 +1,18 @@
 {
   "action": {
-    "type": "glimmeringtales:thunder",
-    "damage": "10"
+    "type": "l2magic:list",
+    "children": [
+      {
+        "type": "l2magic:sound",
+        "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
+        "sound": "minecraft:item.trident.thunder",
+        "volume": "1"
+      },
+      {
+        "type": "glimmeringtales:thunder",
+        "damage": "10"
+      }
+    ]
   },
   "cast_type": "INSTANT",
   "icon": "glimmeringtales:thunder",

@@ -1,42 +1,53 @@
 {
   "action": {
-    "type": "l2magic:move",
-    "child": {
-      "type": "l2magic:iterate",
-      "child": {
+    "type": "l2magic:list",
+    "children": [
+      {
+        "type": "l2magic:sound",
+        "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
+        "sound": "minecraft:entity.arrow.hit",
+        "volume": "1"
+      },
+      {
         "type": "l2magic:move",
         "child": {
-          "type": "l2magic:custom_projectile",
-          "bypassEntity": true,
-          "bypassWall": false,
-          "config": "glimmeringtales:cactus",
-          "life": "rand(8,12)",
-          "params": {},
-          "speed": "1"
+          "type": "l2magic:iterate",
+          "child": {
+            "type": "l2magic:move",
+            "child": {
+              "type": "l2magic:custom_projectile",
+              "bypassEntity": true,
+              "bypassWall": false,
+              "config": "glimmeringtales:cactus",
+              "life": "rand(8,12)",
+              "params": {},
+              "speed": "1"
+            },
+            "modifiers": [
+              {
+                "type": "l2magic:rotate",
+                "degree": "3*j",
+                "vertical": "0"
+              }
+            ]
+          },
+          "index": "j",
+          "step": "120"
         },
         "modifiers": [
           {
-            "type": "l2magic:rotate",
-            "degree": "3*j",
-            "vertical": "0"
+            "type": "l2magic:offset",
+            "x": "0",
+            "y": "0.55",
+            "z": "0"
+          },
+          {
+            "type": "l2magic:direction",
+            "x": "1",
+            "y": "0",
+            "z": "0"
           }
         ]
-      },
-      "index": "j",
-      "step": "120"
-    },
-    "modifiers": [
-      {
-        "type": "l2magic:offset",
-        "x": "0",
-        "y": "0.55",
-        "z": "0"
-      },
-      {
-        "type": "l2magic:direction",
-        "x": "1",
-        "y": "0",
-        "z": "0"
       }
     ]
   },
