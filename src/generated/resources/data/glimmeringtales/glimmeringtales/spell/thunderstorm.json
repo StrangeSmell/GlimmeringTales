@@ -1,0 +1,14 @@
+{
+  "cost": 100,
+  "elem": "glimmeringtales:thunder",
+  "maxConsumeTick": 0,
+  "spell": "glimmeringtales:thunderstorm",
+  "tooltip": {
+    "list": [
+      {
+        "id": "glimmeringtales:thunder",
+        "reg": "l2magic:configured_engine"
+      }
+    ]
+  }
+}

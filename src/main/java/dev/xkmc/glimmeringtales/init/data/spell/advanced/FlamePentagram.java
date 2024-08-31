@@ -43,7 +43,7 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
-public class FlameSpells {
+public class FlamePentagram {
 
 	public static final NatureSpellBuilder HM = GTRegistries.FLAME.get()
 			.build(GlimmeringTales.loc("hell_mark")).cost(160)

@@ -1,0 +1,77 @@
+{
+  "action": {
+    "type": "l2magic:list",
+    "children": [
+      {
+        "type": "l2magic:sound",
+        "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
+        "sound": "minecraft:entity.generic.explode",
+        "volume": "2"
+      },
+      {
+        "type": "l2magic:iterate_delayed",
+        "child": {
+          "type": "l2magic:processor",
+          "processors": [
+            {
+              "type": "l2magic:damage",
+              "damage": "10",
+              "damage_type": "glimmeringtales:earthquake",
+              "indirect": true,
+              "positioned": false
+            }
+          ],
+          "selector": {
+            "type": "l2magic:ball",
+            "r": "i+1"
+          },
+          "target": "ENEMY_NO_FAMILY"
+        },
+        "delay": "2",
+        "index": "i",
+        "step": "6"
+      },
+      {
+        "type": "l2magic:block_in_range",
+        "child": {
+          "type": "l2magic:if",
+          "action": {
+            "type": "l2magic:knock_block",
+            "damagePerBlock": "2",
+            "maxDamage": "20",
+            "speed": "1"
+          },
+          "predicate": {
+            "type": "l2magic:and",
+            "list": [
+              "i_r>1.5",
+              {
+                "type": "l2magic:move",
+                "child": {
+                  "type": "l2magic:block_test",
+                  "test": "REPLACEABLE"
+                },
+                "modifiers": [
+                  {
+                    "type": "l2magic:offset",
+                    "x": "0",
+                    "y": "1",
+                    "z": "0"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "delayPerBlock": "2",
+        "plane": false,
+        "range": "6",
+        "variable": "i"
+      }
+    ]
+  },
+  "cast_type": "INSTANT",
+  "icon": "glimmeringtales:earthquake",
+  "order": 2000,
+  "trigger_type": "SELF_POS"
+}

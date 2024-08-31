@@ -1,0 +1,37 @@
+{
+  "action": {
+    "type": "l2magic:list",
+    "children": [
+      {
+        "type": "l2magic:sound",
+        "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
+        "sound": "minecraft:item.trident.thunder",
+        "volume": "1"
+      },
+      {
+        "type": "l2magic:processor",
+        "processors": [
+          {
+            "type": "l2magic:cast_at",
+            "child": {
+              "type": "glimmeringtales:thunder",
+              "damage": "10"
+            },
+            "dir": "UP",
+            "pos": "BOTTOM"
+          }
+        ],
+        "selector": {
+          "type": "l2magic:cylinder",
+          "r": "6",
+          "y": "3"
+        },
+        "target": "ENEMY_NO_FAMILY"
+      }
+    ]
+  },
+  "cast_type": "INSTANT",
+  "icon": "glimmeringtales:thunderstorm",
+  "order": 2002,
+  "trigger_type": "TARGET_POS"
+}

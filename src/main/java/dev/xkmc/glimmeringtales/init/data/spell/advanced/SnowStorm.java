@@ -38,7 +38,7 @@ import net.minecraft.util.Mth;
 
 import java.util.List;
 
-public class FreezingSpells {
+public class SnowStorm {
 
 	public static final NatureSpellBuilder WS = GTRegistries.SNOW.get()
 			.build(GlimmeringTales.loc("winter_storm")).cost(5).damageFreeze()

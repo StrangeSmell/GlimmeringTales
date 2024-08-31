@@ -1,6 +1,8 @@
 {
   "values": [
     "glimmeringtales:lava_burst",
+    "glimmeringtales:earthquake",
+    "glimmeringtales:earthquake-bypass_magic",
     "glimmeringtales:lava_burst-bypass_magic"
   ]
 }
