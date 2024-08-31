@@ -43,7 +43,7 @@ public record NatureSpell(
 		list.add(GTLang.TOOLTIP_SPELL.get(lang().withStyle(ChatFormatting.GOLD),
 				elem.coloredDesc()).withStyle(ChatFormatting.GRAY));
 		Component val = Component.literal(consume + "").withStyle(ChatFormatting.BLUE);
-		list.add(GTLang.TOOLTIP_COST.get(val).withStyle(ChatFormatting.GRAY));
+		list.add(GTLang.TOOLTIP_COST.get(val).withStyle(ChatFormatting.YELLOW));
 		return consume;
 	}
 
@@ -101,32 +101,36 @@ public record NatureSpell(
 		var cval = Component.literal("" + val).withStyle(cost > val ? ChatFormatting.RED :
 				val < max ? ChatFormatting.GREEN : ChatFormatting.AQUA);
 		var cmax = Component.literal("" + max).withStyle(ChatFormatting.AQUA);
-		list.add(GTLang.OVERLAY_MANA.get(cval, cmax).withStyle(ChatFormatting.GRAY));
+		list.add(GTLang.OVERLAY_MANA.get(cval, cmax).withStyle(ChatFormatting.LIGHT_PURPLE));
 	}
 
 	public static void runeItemBlockDesc(Holder<NatureSpell> spell, Level level, List<Component> list) {
 		spell.value().blockRuneDesc(level, list, 1);
-		var desc = SpellTooltip.get(level, spell);
+		var desc = SpellTooltip.get(level, spell.value());
 		list.add(desc.format(spell.unwrapKey().orElseThrow()));
 	}
 
 	public static void runeItemSpellDesc(Holder<NatureSpell> spell, Level level, List<Component> list) {
 		spell.value().spellRuneDesc(level, list, 1);
-		var desc = SpellTooltip.get(level, spell);
+		var desc = SpellTooltip.get(level, spell.value());
 		list.add(desc.format(spell.unwrapKey().orElseThrow()));
 	}
 
-	public List<Component> getSpellCastTooltip(Player player, ItemStack wand) {
+	public static List<Component> getSpellCastTooltip(Holder<NatureSpell> spell, Player player, ItemStack wand) {
 		List<Component> list = new ArrayList<>();
-		int cost = spellRuneDesc(player.level(), list, DefaultAffinity.INS.getFinalAffinity(elem(), player, wand));
-		addMana(list, player, cost);
+		var val = DefaultAffinity.INS.getFinalAffinity(spell.value().elem(), player, wand);
+		int cost = spell.value().spellRuneDesc(player.level(), list, val);
+		SpellTooltip.get(player.level(), spell.value()).brief(spell.unwrapKey().orElseThrow(), list);
+		spell.value().addMana(list, player, cost);
 		return list;
 	}
 
-	public List<Component> getBlockCastTooltip(Player player, ItemStack wand, IAffinityProvider aff) {
+	public static List<Component> getBlockCastTooltip(Holder<NatureSpell> spell, Player player, ItemStack wand, IAffinityProvider aff) {
 		List<Component> list = new ArrayList<>();
-		int cost = blockRuneDesc(player.level(), list, aff.getFinalAffinity(elem(), player, wand));
-		addMana(list, player, cost);
+		var val = aff.getFinalAffinity(spell.value().elem(), player, wand);
+		int cost = spell.value().blockRuneDesc(player.level(), list, val);
+		SpellTooltip.get(player.level(), spell.value()).brief(spell.unwrapKey().orElseThrow(), list);
+		spell.value().addMana(list, player, cost);
 		return list;
 	}
 

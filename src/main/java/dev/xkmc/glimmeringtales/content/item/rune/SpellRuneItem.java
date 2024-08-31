@@ -41,7 +41,7 @@ public class SpellRuneItem extends Item implements IWandCoreItem {
 	@Override
 	public List<Component> getCastTooltip(Player player, ItemStack wand, ItemStack core) {
 		var spell = player.level().registryAccess().holder(id);
-		return spell.map(e -> e.value().getSpellCastTooltip(player, wand)).orElseGet(List::of);
+		return spell.map(e -> NatureSpell.getSpellCastTooltip(e, player, wand)).orElseGet(List::of);
 	}
 
 	@Override
