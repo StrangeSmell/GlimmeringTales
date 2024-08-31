@@ -85,9 +85,9 @@ public class AmethystPenetration {
 				),
 				new RingIterator(
 						DoubleVariable.of("0.5"),
-						DoubleVariable.of("-30"),
-						DoubleVariable.of("30"),
-						IntVariable.of("7"),
+						DoubleVariable.of("-15"),
+						DoubleVariable.of("15"),
+						IntVariable.of("21"),
 						true,
 						new CustomProjectileShoot(
 								DoubleVariable.of("1"), ctx.proj,
@@ -95,7 +95,7 @@ public class AmethystPenetration {
 								false, true,
 								Map.of()
 						), null
-				).move(OffsetModifier.of("0", "-0.1", "0"))
+				).move(ForwardOffsetModifier.of("-1"), OffsetModifier.of("0", "-0.1", "0"))
 		));
 
 	}

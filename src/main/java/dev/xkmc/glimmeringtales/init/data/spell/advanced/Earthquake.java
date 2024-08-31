@@ -63,10 +63,12 @@ public class Earthquake {
 								List.of(new DamageProcessor(ctx.damage(), INIT, true, false))
 						), "i"
 				),
-				new KnockBlock(DoubleVariable.of("1"), DMG, MAX).circular(
-						DoubleVariable.of("6"), DoubleVariable.of("2"), false, "i",
+				new KnockBlock(DoubleVariable.of("1"), DMG, MAX).delay(IntVariable.of("i_r*2")).circular(
+						DoubleVariable.of("6"), DoubleVariable.of("0"), false, "i",
 						BooleanVariable.of("i_r>1.5"),
-						BlockTestCondition.Type.REPLACEABLE.get().move(OffsetModifier.ABOVE))//TODO no entity
+						BlockTestCondition.Type.BLOCKS_MOTION.get(),
+						BlockTestCondition.Type.PUSHABLE.get(),
+						BlockTestCondition.Type.REPLACEABLE.get().move(OffsetModifier.ABOVE))
 		));
 
 	}

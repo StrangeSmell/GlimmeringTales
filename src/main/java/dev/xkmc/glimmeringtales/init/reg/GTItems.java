@@ -111,7 +111,7 @@ public class GTItems {
 		)),
 		RING_OF_REGENERATION("ring", AttributeData.of(
 				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
-				AttributeData.add(GTRegistries.MANA_REGEN, 0.2)
+				AttributeData.base(GTRegistries.MANA_REGEN, 0.3)
 		)),
 		RING_OF_NATURE("ring", AttributeData.of(
 				AttributeData.base(GTRegistries.MAX_MANA, 0.1),

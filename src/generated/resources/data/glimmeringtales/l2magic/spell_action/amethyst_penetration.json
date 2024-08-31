@@ -21,13 +21,17 @@
             "params": {},
             "speed": "1"
           },
-          "count": "7",
-          "maxAngle": "30",
+          "count": "21",
+          "maxAngle": "15",
           "maxInclusive": true,
-          "minAngle": "-30",
+          "minAngle": "-15",
           "radius": "0.5"
         },
         "modifiers": [
+          {
+            "type": "l2magic:forward",
+            "distance": "-1"
+          },
           {
             "type": "l2magic:offset",
             "x": "0",

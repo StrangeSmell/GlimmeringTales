@@ -36,15 +36,27 @@
         "child": {
           "type": "l2magic:if",
           "action": {
-            "type": "l2magic:knock_block",
-            "damagePerBlock": "2",
-            "maxDamage": "20",
-            "speed": "1"
+            "type": "l2magic:delay",
+            "child": {
+              "type": "l2magic:knock_block",
+              "damagePerBlock": "2",
+              "maxDamage": "20",
+              "speed": "1"
+            },
+            "tick": "i_r*2"
           },
           "predicate": {
             "type": "l2magic:and",
             "list": [
               "i_r>1.5",
+              {
+                "type": "l2magic:block_test",
+                "test": "BLOCKS_MOTION"
+              },
+              {
+                "type": "l2magic:block_test",
+                "test": "PUSHABLE"
+              },
               {
                 "type": "l2magic:move",
                 "child": {
@@ -63,7 +75,7 @@
             ]
           }
         },
-        "delayPerBlock": "2",
+        "delayPerBlock": "0",
         "plane": false,
         "range": "6",
         "variable": "i"
