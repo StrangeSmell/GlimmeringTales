@@ -150,7 +150,7 @@ public class GTItems {
 				AttributeData.base(GTRegistries.MAX_MANA, 0.5)
 		)),
 		CHARM_OF_REGENERATION("charm", AttributeData.of(
-				AttributeData.add(GTRegistries.MANA_REGEN, 0.5)
+				AttributeData.base(GTRegistries.MANA_REGEN, 0.5)
 		)),
 		CHARM_OF_NATURE("charm", AttributeData.of(
 				AttributeData.base(GTRegistries.MANA_REGEN, 0.1)

@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.content.item.wand;
 
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.l2backpack.content.quickswap.common.EntryRenderContext;
 import dev.xkmc.l2backpack.content.quickswap.entry.ISwapEntry;
 import dev.xkmc.l2backpack.content.quickswap.type.MatcherSwapType;
@@ -25,7 +26,7 @@ public class RuneSwapType extends MatcherSwapType {
 
 	@Override
 	public boolean activePopup() {
-		return LBConfig.CLIENT.popupArrowOnSwitch.get();
+		return LBConfig.CLIENT.popupToolOnSwitch.get();
 	}
 
 	@Override
@@ -44,10 +45,10 @@ public class RuneSwapType extends MatcherSwapType {
 		ItemStack core = token.getStack();
 		ItemStack wand = token.token().stack();
 		ResourceLocation TEX;
-		String s = RuneWandItem.getHandle(wand).getDescriptionId();
-		if (s.equals("item.glimmeringtales.gold_wand")) {
+		var s = RuneWandItem.getHandle(wand);
+		if (s == GTItems.GOLD_WAND.get()) {
 			TEX = GOLD;
-		} else if (s.equals("item.glimmeringtales.wood_wand")) {
+		} else if (s == GTItems.WOOD_WAND.get()) {
 			TEX = WOOD;
 		} else {
 			TEX = COPPER;
