@@ -53,7 +53,7 @@ public class GlimmeringTales {
 		GTEngine.register();
 	}
 
-	private static void initHandlers(){
+	private static void initHandlers() {
 		Handlers.registerReg(NatureSpell.class, GTRegistries.SPELL);
 		Handlers.registerReg(SpellAction.class, EngineRegistry.SPELL);
 		Handlers.enableVanilla(Wrappers.cast(ProcessorType.class), EngineRegistry.PROCESSOR.registry().get());

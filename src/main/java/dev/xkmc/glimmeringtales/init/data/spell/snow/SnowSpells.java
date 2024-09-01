@@ -74,25 +74,25 @@ public class SnowSpells {
 						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
 				new LoopIterator(
-				IntVariable.of("" + phi),
-				new RandomVariableLogic("r", 1,
-						new LoopIterator(
-								IntVariable.of("" + theta),
-								new CustomProjectileShoot(
-										DoubleVariable.of("1"), ctx.proj,
-										IntVariable.of("100"),
-										false, true,
-										Map.of()
-								).move(new RotationModifier(
-										DoubleVariable.of(360 / theta + "*j+r0*360"),
-										DoubleVariable.of(90 / phi + "*(i+0.5)")
-								)), "j"
-						)
-				), "i"
-		).move(
-				OffsetModifier.of("0", "0.55", "0"),
-				SetDirectionModifier.of("1", "0", "0")
-		)));
+						IntVariable.of("" + phi),
+						new RandomVariableLogic("r", 1,
+								new LoopIterator(
+										IntVariable.of("" + theta),
+										new CustomProjectileShoot(
+												DoubleVariable.of("1"), ctx.proj,
+												IntVariable.of("100"),
+												false, true,
+												Map.of()
+										).move(new RotationModifier(
+												DoubleVariable.of(360 / theta + "*j+r0*360"),
+												DoubleVariable.of(90 / phi + "*(i+0.5)")
+										)), "j"
+								)
+						), "i"
+				).move(
+						OffsetModifier.of("0", "0.55", "0"),
+						SetDirectionModifier.of("1", "0", "0")
+				)));
 
 	}
 

@@ -78,7 +78,7 @@
       "list": [
         {
           "attribute": "glimmeringtales:mana_regen",
-          "operation": "ADD_VALUE",
+          "operation": "ADD_MULTIPLIED_BASE",
           "value": 0.5
         }
       ]
@@ -241,8 +241,8 @@
         },
         {
           "attribute": "glimmeringtales:mana_regen",
-          "operation": "ADD_VALUE",
-          "value": 0.2
+          "operation": "ADD_MULTIPLIED_BASE",
+          "value": 0.3
         }
       ]
     },

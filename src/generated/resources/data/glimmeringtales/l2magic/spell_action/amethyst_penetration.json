@@ -1,0 +1,49 @@
+{
+  "action": {
+    "type": "l2magic:list",
+    "children": [
+      {
+        "type": "l2magic:sound",
+        "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
+        "sound": "minecraft:block.amethyst_block.break",
+        "volume": "1"
+      },
+      {
+        "type": "l2magic:move",
+        "child": {
+          "type": "l2magic:iterate_arc",
+          "child": {
+            "type": "l2magic:custom_projectile",
+            "bypassEntity": true,
+            "bypassWall": false,
+            "config": "glimmeringtales:amethyst_penetration",
+            "life": "60",
+            "params": {},
+            "speed": "1"
+          },
+          "count": "21",
+          "maxAngle": "15",
+          "maxInclusive": true,
+          "minAngle": "-15",
+          "radius": "0.5"
+        },
+        "modifiers": [
+          {
+            "type": "l2magic:forward",
+            "distance": "-1"
+          },
+          {
+            "type": "l2magic:offset",
+            "x": "0",
+            "y": "-0.1",
+            "z": "0"
+          }
+        ]
+      }
+    ]
+  },
+  "cast_type": "INSTANT",
+  "icon": "glimmeringtales:amethyst_penetration",
+  "order": 2000,
+  "trigger_type": "FACING_FRONT"
+}

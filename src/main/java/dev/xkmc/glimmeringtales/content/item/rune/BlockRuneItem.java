@@ -1,6 +1,5 @@
 package dev.xkmc.glimmeringtales.content.item.rune;
 
-import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
@@ -14,11 +13,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.block.Block;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 public class BlockRuneItem extends Item implements IBlockSpellItem {
 
@@ -33,7 +30,7 @@ public class BlockRuneItem extends Item implements IBlockSpellItem {
 	@Override
 	public List<Component> getCastTooltip(Player player, ItemStack wand, ItemStack core) {
 		var spell = getSpell(player.level().registryAccess());
-		return spell.map(e -> e.spell().value().getBlockCastTooltip(player, wand, DefaultAffinity.INS)).orElseGet(List::of);
+		return spell.map(e -> NatureSpell.getBlockCastTooltip(e.spell(), player, wand, DefaultAffinity.INS)).orElseGet(List::of);
 	}
 
 	@Override

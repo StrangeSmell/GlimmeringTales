@@ -92,7 +92,8 @@ public class GTItems {
 			RUNE_THUNDER;
 
 	public static final VarHolder<SpellRuneItem>
-			HELL_MARK, LAVA_BURST, WINTER_STORM, SNOW_TORNADO;
+			HELL_MARK, LAVA_BURST, WINTER_STORM, SNOW_TORNADO,
+			AMETHYST_PENETRATION, EARTHQUAKE, THUNDERSTORM;
 
 	public static final BlockEntry<DelegateBlock> CLAY_CARPET, FAKE_STONE,
 			MAGMA_STONE, MAGMA_DEEPSLATE, MAGMA_NETHERRACK;
@@ -110,7 +111,7 @@ public class GTItems {
 		)),
 		RING_OF_REGENERATION("ring", AttributeData.of(
 				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
-				AttributeData.add(GTRegistries.MANA_REGEN, 0.2)
+				AttributeData.base(GTRegistries.MANA_REGEN, 0.3)
 		)),
 		RING_OF_NATURE("ring", AttributeData.of(
 				AttributeData.base(GTRegistries.MAX_MANA, 0.1),
@@ -150,7 +151,7 @@ public class GTItems {
 				AttributeData.base(GTRegistries.MAX_MANA, 0.5)
 		)),
 		CHARM_OF_REGENERATION("charm", AttributeData.of(
-				AttributeData.add(GTRegistries.MANA_REGEN, 0.5)
+				AttributeData.base(GTRegistries.MANA_REGEN, 0.5)
 		)),
 		CHARM_OF_NATURE("charm", AttributeData.of(
 				AttributeData.base(GTRegistries.MANA_REGEN, 0.1)
@@ -380,6 +381,9 @@ public class GTItems {
 			LAVA_BURST = spell("lava_burst");
 			WINTER_STORM = spell("winter_storm");
 			SNOW_TORNADO = spell("snow_tornado");
+			AMETHYST_PENETRATION = spell("amethyst_penetration");
+			EARTHQUAKE = spell("earthquake");
+			THUNDERSTORM = spell("thunderstorm");
 		}
 
 		{

@@ -1,5 +1,5 @@
 {
-  "cost": 10,
+  "cost": 5,
   "elem": "glimmeringtales:snow",
   "maxConsumeTick": 0,
   "spell": "glimmeringtales:snow_tornado",

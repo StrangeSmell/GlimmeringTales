@@ -1,7 +1,6 @@
 package dev.xkmc.glimmeringtales.init.data.spell;
 
-import dev.xkmc.glimmeringtales.init.data.spell.advanced.FlameSpells;
-import dev.xkmc.glimmeringtales.init.data.spell.advanced.FreezingSpells;
+import dev.xkmc.glimmeringtales.init.data.spell.advanced.*;
 import dev.xkmc.glimmeringtales.init.data.spell.earth.*;
 import dev.xkmc.glimmeringtales.init.data.spell.flame.MagmaSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.flame.NetherrackSpells;
@@ -56,8 +55,11 @@ public class NatureSpellGenRegistry {
 
 		// advanced
 		LIST.addAll(List.of(
-				FlameSpells.HM, FlameSpells.LB,
-				FreezingSpells.WS, FreezingSpells.ST
+				FlamePentagram.HM, FlamePentagram.LB,
+				SnowStorm.WS, SnowStorm.ST,
+				AmethystPenetration.BUILDER,
+				Earthquake.BUILDER,
+				Thunderstorm.BUILDER
 		));
 	}
 

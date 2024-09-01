@@ -11,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 public record SpellTooltipData(ArrayList<Entry> list) {
@@ -48,7 +49,15 @@ public record SpellTooltipData(ArrayList<Entry> list) {
 		return Component.translatable(detail(rl), objs).withStyle(ChatFormatting.GRAY);
 	}
 
-	private static <T extends IExtended<T>> Component format(ExtensionHolder<T> type, SpellTooltip data) {
+	public void brief(ResourceLocation rl, List<Component> ans, SpellTooltip data) {
+		ans.add(Component.empty());
+		ans.add(Component.translatable(brief(rl)).withStyle(ChatFormatting.GRAY));
+		for (var e : list()) {
+			ans.add(Component.literal("=> ").append(format(e.type(), data)).withStyle(ChatFormatting.GRAY));
+		}
+	}
+
+	public static <T extends IExtended<T>> Component format(ExtensionHolder<T> type, SpellTooltip data) {
 		var ext = type.get(Component.class);
 		return ext == null ? Component.literal("???") : ext.process(data.get(type).getFirst());
 	}

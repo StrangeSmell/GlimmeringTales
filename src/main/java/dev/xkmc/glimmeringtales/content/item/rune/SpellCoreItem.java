@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.content.item.rune;
 
 import dev.xkmc.glimmeringtales.content.core.spell.ElementAffinity;
+import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.item.materials.LightningImmuneItem;
 import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
 import dev.xkmc.glimmeringtales.init.data.GTConfigs;
@@ -56,7 +57,7 @@ public class SpellCoreItem extends LightningImmuneItem implements IBlockSpellIte
 		var nature = spell.spell().value();
 		var aff = getAffinity(player.level());
 		if (aff == null || !aff.affinity().containsKey(nature.elem())) return List.of();
-		var ans = spell.spell().value().getBlockCastTooltip(player, wand, aff);
+		var ans = NatureSpell.getBlockCastTooltip(spell.spell(), player, wand, aff);
 		if (spell.breakBlock()) {
 			ans.add(GTLang.OVERLAY_DESTROY.get().withStyle(ChatFormatting.RED));
 		}

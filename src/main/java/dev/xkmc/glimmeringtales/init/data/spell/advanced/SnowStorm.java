@@ -38,10 +38,10 @@ import net.minecraft.util.Mth;
 
 import java.util.List;
 
-public class FreezingSpells {
+public class SnowStorm {
 
 	public static final NatureSpellBuilder WS = GTRegistries.SNOW.get()
-			.build(GlimmeringTales.loc("winter_storm")).cost(10).damageFreeze()
+			.build(GlimmeringTales.loc("winter_storm")).cost(5).damageFreeze()
 			.spell(ctx -> new SpellAction(winterStorm(ctx, 4, 1.5, 1),
 					GTItems.WINTER_STORM.asItem(), 100,
 					SpellCastType.CONTINUOUS, SpellTriggerType.SELF_POS
@@ -52,7 +52,7 @@ public class FreezingSpells {
 			);
 
 	public static final NatureSpellBuilder ST = GTRegistries.SNOW.get()
-			.build(GlimmeringTales.loc("snow_tornado")).cost(10).damageFreeze()
+			.build(GlimmeringTales.loc("snow_tornado")).cost(5).damageFreeze()
 			.spell(ctx -> new SpellAction(tornado(ctx),
 					GTItems.SNOW_TORNADO.asItem(), 100,
 					SpellCastType.CONTINUOUS, SpellTriggerType.FACING_FRONT
@@ -67,10 +67,13 @@ public class FreezingSpells {
 
 	private static ConfiguredEngine<?> winterStorm(NatureSpellBuilder ctx, double r, double y, double size) {
 		return new ListLogic(List.of(
-				new SoundInstance(
-						SoundEvents.BREEZE_IDLE_GROUND,
-						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				new PredicateLogic(
+						BooleanVariable.of("TickUsing%2==0"),
+						new SoundInstance(
+								SoundEvents.SNOW_HIT,
+								DoubleVariable.of("1"),
+								DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						), null
 				),
 				new PredicateLogic(
 						BooleanVariable.of("TickUsing>=10"),
@@ -126,10 +129,13 @@ public class FreezingSpells {
 		String radius = ir + "+TickCount*" + vsp * rate;
 		String angle = w / (vsp * rate) + "*(log(" + radius + ")+log(" + ir + "))";
 		return new ListLogic(List.of(
-				new SoundInstance(
-						SoundEvents.BREEZE_SLIDE,
-						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+				new PredicateLogic(
+						BooleanVariable.of("TickUsing%2==0"),
+						new SoundInstance(
+								SoundEvents.SNOW_PLACE,
+								DoubleVariable.of("1"),
+								DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						), null
 				),
 				new PredicateLogic(
 						BooleanVariable.of("TickUsing>=10"),

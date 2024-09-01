@@ -9,7 +9,6 @@ import dev.xkmc.l2magic.content.engine.extension.IExtended;
 import dev.xkmc.l2magic.content.engine.helper.EngineHelper;
 import dev.xkmc.l2magic.content.entity.engine.CustomProjectileShoot;
 import dev.xkmc.l2serial.util.Wrappers;
-import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
@@ -21,9 +20,9 @@ public class SpellTooltip {
 
 	private static final IdentityHashMap<Verifiable, SpellTooltip> CACHE = new IdentityHashMap<>();
 
-	public static SpellTooltip get(Level level, Holder<NatureSpell> spell) {
-		var action = spell.value().spell().value().action();
-		var data = spell.value().tooltip();
+	public static SpellTooltip get(Level level, NatureSpell spell) {
+		var action = spell.spell().value().action();
+		var data = spell.tooltip();
 		if (CACHE.containsKey(action)) {
 			var e = CACHE.get(action);
 			if (e.spell != action || e.components != data) {
@@ -88,6 +87,10 @@ public class SpellTooltip {
 		return components.format(key.location(), this);
 	}
 
+	public void brief(ResourceKey<NatureSpell> key, List<Component> list) {
+		components.brief(key.location(), list, this);
+	}
+
 	public void verify() {
 		for (int i = 0; i < components.list().size(); i++) {
 			var type = components.list().get(i).type();
@@ -95,4 +98,5 @@ public class SpellTooltip {
 			ext.process(Wrappers.cast(get(type).getFirst()));
 		}
 	}
+
 }
