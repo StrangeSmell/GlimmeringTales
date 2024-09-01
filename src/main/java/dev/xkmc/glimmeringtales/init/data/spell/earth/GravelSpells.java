@@ -130,13 +130,21 @@ public class GravelSpells {
 						new SoundInstance(
 								SoundEvents.BREEZE_IDLE_GROUND,
 								DoubleVariable.of("1"),
-								DoubleVariable.of("0.5+rand(-0.5,0.2)+rand(-0.5,0.2)")
+								DoubleVariable.of("0.7+rand(-0.5,0.2)+rand(-0.5,0.2)")
+						),
+
+						null),
+				new DelayedIterator(IntVariable.of("30"), IntVariable.of("1"),
+						new SoundInstance(
+								SoundEvents.BREEZE_IDLE_GROUND,
+								DoubleVariable.of("1"),
+								DoubleVariable.of("0.7+rand(-0.5,0.2)+rand(-0.5,0.2)")
 						),
 
 						null),
 
 				new DelayedIterator(IntVariable.of("18"), IntVariable.of("2"), damage, null),
-				new DelayedIterator(IntVariable.of("30"), IntVariable.of("1"), tick, null)
+				new DelayedIterator(IntVariable.of("22"), IntVariable.of("2"), tick, null)
 		)).move(OffsetModifier.ABOVE);
 	}
 

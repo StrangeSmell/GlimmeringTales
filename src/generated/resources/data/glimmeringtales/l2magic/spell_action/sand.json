@@ -3,10 +3,15 @@
     "type": "l2magic:list",
     "children": [
       {
-        "type": "l2magic:sound",
-        "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
-        "sound": "minecraft:block.sand.break",
-        "volume": "1"
+        "type": "l2magic:iterate_delayed",
+        "child": {
+          "type": "l2magic:sound",
+          "pitch": "1+rand(-0.5,0.2)+rand(-0.5,0.2)",
+          "sound": "minecraft:entity.breeze.idle_ground",
+          "volume": "1"
+        },
+        "delay": "2",
+        "step": "30"
       },
       {
         "type": "l2magic:move",
@@ -129,7 +134,7 @@
             ]
           },
           "delay": "1",
-          "step": "80"
+          "step": "90"
         },
         "modifiers": [
           {
