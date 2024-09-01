@@ -70,8 +70,10 @@ public record NatureSpell(
 		int consume = Math.max(MIN_MANA_COST, (int) Math.round(cost / affinity));
 		list.add(GTLang.TOOLTIP_SPELL.get(lang().withStyle(ChatFormatting.GOLD),
 				elem.coloredDesc()).withStyle(ChatFormatting.GRAY));
-		Component val = Component.literal(consume + "").withStyle(ChatFormatting.BLUE);
-		list.add(GTLang.TOOLTIP_COST.get(val).withStyle(ChatFormatting.YELLOW));
+		Component mval = Component.literal(consume + "").withStyle(ChatFormatting.BLUE);
+		list.add(GTLang.TOOLTIP_COST.get(mval).withStyle(ChatFormatting.YELLOW));
+		Component fval = Component.literal(focus + "").withStyle(ChatFormatting.BLUE);
+		list.add(GTLang.TOOLTIP_FOCUS.get(fval).withStyle(ChatFormatting.YELLOW));
 		return consume;
 	}
 
@@ -92,19 +94,26 @@ public record NatureSpell(
 			}
 		}
 		list.add(GTLang.TOOLTIP_COST.get(val).withStyle(ChatFormatting.YELLOW));
+		Component fval = Component.literal(focus + "").withStyle(ChatFormatting.BLUE);
+		list.add(GTLang.TOOLTIP_FOCUS.get(fval).withStyle(ChatFormatting.YELLOW));
 		return consume;
 	}
 
-	private static void addMana(List<Component> list, Player player, int cost) {
+	private static void addMana(List<Component> list, Player player, int cost, int focus) {
 		var mana = GTRegistries.MANA.type().getExisting(player).orElse(null);
 		if (mana == null) return;
-		int max = (int) player.getAttributeValue(GTRegistries.MAX_MANA);
-		int val = (int) mana.getMana();
-		var cval = Component.literal("" + val).withStyle(cost > val ? ChatFormatting.RED :
-				val < max ? ChatFormatting.GREEN : ChatFormatting.AQUA);
-		var cmax = Component.literal("" + max).withStyle(ChatFormatting.AQUA);
-		//TODO focus cost
-		list.add(GTLang.OVERLAY_MANA.get(cval, cmax).withStyle(ChatFormatting.LIGHT_PURPLE));
+		int mmax = (int) player.getAttributeValue(GTRegistries.MAX_MANA);
+		int mval = (int) mana.getMana();
+		int fmax = (int) player.getAttributeValue(GTRegistries.MAX_FOCUS);
+		int fval = (int) mana.getFocus();
+		var cmval = Component.literal("" + mval).withStyle(cost > mval ? ChatFormatting.RED :
+				mval < mmax ? ChatFormatting.GREEN : ChatFormatting.AQUA);
+		var cmmax = Component.literal("" + mmax).withStyle(ChatFormatting.AQUA);
+		var cfval = Component.literal("" + fval).withStyle(focus > fval ? ChatFormatting.RED :
+				fval < fmax ? ChatFormatting.GREEN : ChatFormatting.AQUA);
+		var cfmax = Component.literal("" + fmax).withStyle(ChatFormatting.AQUA);
+		list.add(GTLang.OVERLAY_MANA.get(cmval, cmmax).withStyle(ChatFormatting.LIGHT_PURPLE));
+		list.add(GTLang.OVERLAY_FOCUS.get(cfval, cfmax).withStyle(ChatFormatting.LIGHT_PURPLE));
 	}
 
 	public static void runeItemBlockDesc(Holder<NatureSpell> spell, Level level, List<Component> list) {
@@ -124,7 +133,7 @@ public record NatureSpell(
 		var val = DefaultAffinity.INS.getFinalAffinity(spell.value().elem(), player, wand);
 		int cost = spell.value().spellRuneDesc(player.level(), list, val);
 		SpellTooltip.get(player.level(), spell.value()).brief(spell.unwrapKey().orElseThrow(), list);
-		addMana(list, player, cost);
+		addMana(list, player, cost, spell.value().focus);
 		return list;
 	}
 
@@ -133,7 +142,7 @@ public record NatureSpell(
 		var val = aff.getFinalAffinity(spell.value().elem(), player, wand);
 		int cost = spell.value().blockRuneDesc(player.level(), list, val);
 		SpellTooltip.get(player.level(), spell.value()).brief(spell.unwrapKey().orElseThrow(), list);
-		addMana(list, player, cost);
+		addMana(list, player, cost, spell.value().focus);
 		return list;
 	}
 
