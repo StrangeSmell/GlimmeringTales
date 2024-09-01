@@ -98,13 +98,24 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 		return this;
 	}
 
+	@Deprecated(forRemoval = true)
 	public NatureSpellBuilder cost(int cost) {
 		return cost(cost, 0);
 	}
 
+	@Deprecated(forRemoval = true)
 	public NatureSpellBuilder cost(int cost, int max) {
+		return focusAndCost(10, cost, max);
+	}
+
+	public NatureSpellBuilder focusAndCost(int focus, int cost) {
+		return focusAndCost(focus, cost, 0);
+	}
+
+	public NatureSpellBuilder focusAndCost(int focus, int cost, int max) {
 		nature = nature(id);
-		this.natureFactory = e -> new NatureSpell(e, elem, cost, max, desc == null ? warnEmpty() : desc.data);
+		this.natureFactory = e -> new NatureSpell(e, elem, focus, cost, max,
+				desc == null ? warnEmpty() : desc.data);
 		return this;
 	}
 

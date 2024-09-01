@@ -7,7 +7,6 @@ import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 
@@ -24,16 +23,19 @@ public class SpellCastingOverlay implements LayeredDraw.Layer {
 		if (player == null) return;
 		var mana = GTRegistries.MANA.type().getExisting(player).orElse(null);
 		if (mana == null) return;
-		int max = (int) player.getAttributeValue(GTRegistries.MAX_MANA);
-		int val = (int) mana.getMana();
+		int maxMana = (int) player.getAttributeValue(GTRegistries.MAX_MANA);
+		int valMana = (int) mana.getMana();
+		int maxFocus = (int) player.getAttributeValue(GTRegistries.MAX_FOCUS);
+		int valFocus = (int) mana.getFocus();
 		if (player.getItemInHand(InteractionHand.MAIN_HAND).is(GTItems.WAND) ||
 				player.getItemInHand(InteractionHand.OFF_HAND).is(GTItems.WAND) ||
-				val < max) {
+				valMana < maxMana || valFocus < maxFocus) {
 			int w = g.guiWidth();
 			int h = g.guiHeight();
 			g.blitSprite(FRAME, (w - FW) / 2, (int) (h * 0.625) - FH / 2, FW, FH);
-			TextureAtlasSprite bar = Minecraft.getInstance().getGuiSprites().getSprite(BAR);
-			g.blitSprite(BAR, W, H, 0, 0, (w - W) / 2, (int) (h * 0.625) - H / 2, 0, W * val / max, H);
+
+			g.blitSprite(BAR, W, H, 0, 0, (w - W) / 2, (int) (h * 0.625) - H / 2, 0, W * valMana / maxMana, 1);
+			g.blitSprite(BAR, W, H, 0, 1, (w - W) / 2, (int) (h * 0.625) - H / 2 + 1, 0, W * valFocus / maxFocus, 1);
 
 
 		}

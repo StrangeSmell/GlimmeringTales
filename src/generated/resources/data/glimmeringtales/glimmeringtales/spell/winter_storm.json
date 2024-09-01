@@ -1,6 +1,7 @@
 {
   "cost": 5,
   "elem": "glimmeringtales:snow",
+  "focus": 10,
   "maxConsumeTick": 0,
   "spell": "glimmeringtales:winter_storm",
   "tooltip": {

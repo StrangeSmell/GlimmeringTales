@@ -23,7 +23,8 @@ public class GTDataMapGen {
 		{
 			var builder = pvd.builder(L2Tabs.ATTRIBUTE_ENTRY.reg());
 			attr(builder, GTRegistries.MAX_MANA.getKey(), false, 13100);
-			attr(builder, GTRegistries.MANA_REGEN.getKey(), false, 13200);
+			attr(builder, GTRegistries.MANA_REGEN.getKey(), false, 13110);
+			attr(builder, GTRegistries.MAX_FOCUS.getKey(), false, 13120);
 			attr(builder, GTRegistries.LIFE.attr().getKey(), true, 13310);
 			attr(builder, GTRegistries.EARTH.attr().getKey(), true, 13320);
 			attr(builder, GTRegistries.FLAME.attr().getKey(), true, 13330);

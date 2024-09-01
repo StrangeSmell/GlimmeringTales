@@ -24,7 +24,7 @@ import java.util.List;
 public record NatureSpell(
 		Holder<SpellAction> spell,
 		SpellElement elem,
-		int cost, int maxConsumeTick,
+		int focus, int cost, int maxConsumeTick,
 		SpellTooltipData tooltip
 ) {
 
@@ -77,8 +77,8 @@ public record NatureSpell(
 		}
 		if (user instanceof Player player) {
 			var mana = GTRegistries.MANA.type().getOrCreate(player);
-			if (simulate) return mana.getMana() >= cost;
-			if (!mana.consume(player, consume)) {
+			if (simulate) return mana.getMana() >= cost && mana.getFocus() >= focus;
+			if (!mana.consume(player, focus, consume)) {
 				if (!user.level().isClientSide() && (
 						spell.value().castType() == SpellCastType.CONTINUOUS ||
 								spell.value().castType() == SpellCastType.CHARGE && charging

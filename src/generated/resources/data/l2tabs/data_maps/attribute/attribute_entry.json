@@ -17,7 +17,12 @@
     },
     "glimmeringtales:mana_regen": {
       "intrinsic": 0.0,
-      "order": 13200,
+      "order": 13110,
+      "usePercent": false
+    },
+    "glimmeringtales:max_focus": {
+      "intrinsic": 0.0,
+      "order": 13120,
       "usePercent": false
     },
     "glimmeringtales:max_mana": {

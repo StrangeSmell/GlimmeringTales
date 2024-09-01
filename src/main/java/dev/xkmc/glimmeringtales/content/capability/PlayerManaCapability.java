@@ -13,10 +13,14 @@ public class PlayerManaCapability extends PlayerCapabilityTemplate<PlayerManaCap
 	@SerialField
 	private double mana = GTRegistries.MAX_MANA.get().getDefaultValue();
 
+	@SerialField
+	private double focus = GTRegistries.MAX_FOCUS.get().getDefaultValue();
+
 	@Override
 	public void onClone(Player player, boolean isWasDeath) {
 		if (isWasDeath) {
 			mana = player.getAttributeValue(GTRegistries.MAX_MANA);
+			focus = GTRegistries.MAX_FOCUS.get().getDefaultValue();
 		}
 	}
 
@@ -32,21 +36,34 @@ public class PlayerManaCapability extends PlayerCapabilityTemplate<PlayerManaCap
 				GTRegistries.MANA.type().network.toClient(sp);
 			}
 		}
+		double maxFocus = player.getAttributeValue(GTRegistries.MAX_FOCUS);
+		if (focus > maxFocus) focus = maxFocus;
+		if (!(focus >= 0)) focus = 0;
+		if (focus < maxFocus) {
+			focus = Math.min(maxFocus, focus + 1);
+			if (focus == maxFocus && player instanceof ServerPlayer sp) {
+				GTRegistries.MANA.type().network.toClient(sp);
+			}
+		}
 	}
 
 	public double getMana() {
 		return mana;
 	}
 
-	public boolean consume(Player player, double consume) {
-		if (consume > mana) {
+	public boolean consume(Player player, double focus, double mana) {
+		if (focus > this.focus || mana > this.mana) {
 			return false;
 		}
-		mana -= consume;
+		this.focus -= focus;
+		this.mana -= mana;
 		if (player instanceof ServerPlayer sp) {
 			GTRegistries.MANA.type().network.toClient(sp);
 		}
 		return true;
 	}
 
+	public double getFocus() {
+		return focus;
+	}
 }
