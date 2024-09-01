@@ -89,6 +89,7 @@ public class GTItems {
 			RUNE_SAND, RUNE_GRAVEL, RUNE_QUARTZ, RUNE_CLAY, RUNE_STONE, RUNE_DRIPSTONE, RUNE_AMETHYST,
 			RUNE_MAGMA, RUNE_NETHERRACK, RUNE_SOUL_SAND,
 			RUNE_SNOW, RUNE_ICE, RUNE_PACKED_ICE, RUNE_BLUE_ICE, RUNE_POWDER_SNOW,
+			RUNE_SPONGE, RUNE_CORAL_REEF,
 			RUNE_THUNDER;
 
 	public static final VarHolder<SpellRuneItem>
@@ -375,15 +376,18 @@ public class GTItems {
 			RUNE_PACKED_ICE = rune("packed_ice", "Rune: Packed Ice");
 			RUNE_BLUE_ICE = rune("blue_ice", "Rune: Blue Ice");
 
+			RUNE_SPONGE = rune("sponge", "Rune: Sponge"); //TODO recipe
+			RUNE_CORAL_REEF = rune("coral_reef", "Rune: Coral Reef"); //TODO recipe
+
 			RUNE_THUNDER = rune("thunder", "Rune: Thunder");
 
 			HELL_MARK = spell("hell_mark");
 			LAVA_BURST = spell("lava_burst");
 			WINTER_STORM = spell("winter_storm");
 			SNOW_TORNADO = spell("snow_tornado");
-			AMETHYST_PENETRATION = spell("amethyst_penetration");
-			EARTHQUAKE = spell("earthquake");
-			THUNDERSTORM = spell("thunderstorm");
+			AMETHYST_PENETRATION = spell("amethyst_penetration"); //TODO recipe
+			EARTHQUAKE = spell("earthquake"); //TODO recipe
+			THUNDERSTORM = spell("thunderstorm"); //TODO recipe
 		}
 
 		{

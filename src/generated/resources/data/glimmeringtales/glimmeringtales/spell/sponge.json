@@ -1,0 +1,10 @@
+{
+  "cost": 40,
+  "elem": "glimmeringtales:ocean",
+  "focus": 10,
+  "maxConsumeTick": 0,
+  "spell": "glimmeringtales:sponge",
+  "tooltip": {
+    "list": []
+  }
+}

@@ -1,7 +1,7 @@
 {
   "cost": 100,
   "elem": "glimmeringtales:thunder",
-  "focus": 10,
+  "focus": 60,
   "maxConsumeTick": 0,
   "spell": "glimmeringtales:thunderstorm",
   "tooltip": {

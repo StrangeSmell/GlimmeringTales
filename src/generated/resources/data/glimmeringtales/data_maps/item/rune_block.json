@@ -30,6 +30,12 @@
       "spell": "glimmeringtales:clay",
       "targetLiquid": false
     },
+    "glimmeringtales:coral_reef": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:coral_reef",
+      "targetLiquid": false
+    },
     "glimmeringtales:dripstone": {
       "allowSelf": false,
       "noBlockOffset": 0,
@@ -107,6 +113,12 @@
       "noBlockOffset": 0,
       "spell": "glimmeringtales:soul_sand",
       "targetLiquid": false
+    },
+    "glimmeringtales:sponge": {
+      "allowSelf": false,
+      "noBlockOffset": 0,
+      "spell": "glimmeringtales:sponge",
+      "targetLiquid": true
     },
     "glimmeringtales:stone": {
       "allowSelf": true,

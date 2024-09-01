@@ -9,6 +9,36 @@
         "volume": "1"
       },
       {
+        "type": "l2magic:iterate",
+        "child": {
+          "type": "l2magic:move",
+          "child": {
+            "type": "l2magic:particle",
+            "particle": "minecraft:end_rod",
+            "speed": "0"
+          },
+          "modifiers": [
+            {
+              "type": "l2magic:direction",
+              "x": "1",
+              "y": "0",
+              "z": "0"
+            },
+            {
+              "type": "l2magic:rotate",
+              "degree": "i*6",
+              "vertical": "10"
+            },
+            {
+              "type": "l2magic:forward",
+              "distance": "6"
+            }
+          ]
+        },
+        "index": "i",
+        "step": "60"
+      },
+      {
         "type": "l2magic:processor",
         "processors": [
           {

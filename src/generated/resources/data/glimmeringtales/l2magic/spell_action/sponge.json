@@ -5,17 +5,19 @@
       {
         "type": "l2magic:sound",
         "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
-        "sound": "minecraft:item.trident.thunder",
+        "sound": "minecraft:block.sponge.absorb",
         "volume": "1"
       },
       {
-        "type": "glimmeringtales:thunder",
-        "damage": "10"
+        "type": "glimmeringtales:remove_liquid",
+        "depth": "6",
+        "fluid": "minecraft:water",
+        "limit": "65"
       }
     ]
   },
   "cast_type": "INSTANT",
-  "icon": "glimmeringtales:thunder",
-  "order": 1022,
+  "icon": "glimmeringtales:sponge",
+  "order": 1020,
   "trigger_type": "TARGET_POS"
 }

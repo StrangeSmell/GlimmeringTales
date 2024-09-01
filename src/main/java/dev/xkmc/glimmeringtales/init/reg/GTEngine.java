@@ -15,11 +15,14 @@ public class GTEngine {
 	private static final EngineReg REG = new EngineReg(GlimmeringTales.REGISTRATE);
 
 
-	public static final Val<ProcessorType<StackingEffectProcessor>> EP_STACK = REG.reg("stacking", () -> StackingEffectProcessor.CODEC);
 	public static final Val<EngineType<EffectCloudInstance>> EFFECT_CLOUD = REG.reg("effect_cloud", () -> EffectCloudInstance.CODEC);
 	public static final Val<EngineType<MeltBlockInstance>> MELT_BLOCK = REG.reg("melt_block", () -> MeltBlockInstance.CODEC);
 	public static final Val<EngineType<LightningInstance>> THUNDER = REG.reg("thunder", () -> LightningInstance.CODEC);
+	public static final Val<EngineType<RemoveLiquidInstance>> SPONGE = REG.reg("remove_liquid", () -> RemoveLiquidInstance.CODEC);
+
+	public static final Val<ProcessorType<StackingEffectProcessor>> EP_STACK = REG.reg("stacking", () -> StackingEffectProcessor.CODEC);
 	public static final Val<ProcessorType<ProcreationProcessor>> PROCREATION = REG.reg("procreation", () -> ProcreationProcessor.CODEC);
+
 	public static final Val<ProjectileRenderType<VerticalRenderData>> PR_VERTICAL = REG.reg("vertical", () -> VerticalRenderData.CODEC);
 	public static final Val<ProjectileRenderType<CrossRenderData>> PR_CROSS = REG.reg("cross", () -> CrossRenderData.CODEC);
 

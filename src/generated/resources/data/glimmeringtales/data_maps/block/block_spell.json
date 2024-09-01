@@ -32,6 +32,10 @@
       "breakBlock": true,
       "spell": "glimmeringtales:vine"
     },
+    "#minecraft:corals": {
+      "breakBlock": true,
+      "spell": "glimmeringtales:coral_reef"
+    },
     "#minecraft:flowers": {
       "breakBlock": true,
       "spell": "glimmeringtales:flower"
@@ -107,6 +111,14 @@
     "minecraft:powder_snow": {
       "breakBlock": true,
       "spell": "glimmeringtales:powder_snow"
+    },
+    "minecraft:sponge": {
+      "breakBlock": false,
+      "spell": "glimmeringtales:sponge"
+    },
+    "minecraft:wet_sponge": {
+      "breakBlock": false,
+      "spell": "glimmeringtales:sponge"
     }
   }
 }

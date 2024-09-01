@@ -6,6 +6,8 @@ import dev.xkmc.glimmeringtales.init.data.spell.flame.MagmaSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.flame.NetherrackSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.flame.SoulSandSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.life.*;
+import dev.xkmc.glimmeringtales.init.data.spell.ocean.CoralReefSpell;
+import dev.xkmc.glimmeringtales.init.data.spell.ocean.SpongeSpell;
 import dev.xkmc.glimmeringtales.init.data.spell.snow.IceSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.snow.PowderSnowSpell;
 import dev.xkmc.glimmeringtales.init.data.spell.snow.SnowSpells;
@@ -45,11 +47,16 @@ public class NatureSpellGenRegistry {
 				MagmaSpells.BUILDER,
 				NetherrackSpells.BUILDER,
 				SoulSandSpells.BUILDER,
+
 				SnowSpells.BUILDER,
 				PowderSnowSpell.BUILDER,
 				IceSpells.ICE,
 				IceSpells.PACK_ICE,
 				IceSpells.BLUE_ICE,
+
+				SpongeSpell.BUILDER,
+				CoralReefSpell.BUILDER,
+
 				ThunderSpells.BUILDER
 		));
 

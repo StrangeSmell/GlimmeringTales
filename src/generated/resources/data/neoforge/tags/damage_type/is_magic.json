@@ -1,6 +1,7 @@
 {
   "values": [
     "glimmeringtales:soul_sand",
+    "glimmeringtales:coral_reef",
     "glimmeringtales:amethyst-magic",
     "glimmeringtales:amethyst-bypass_magic-magic",
     "glimmeringtales:amethyst_penetration-magic",
@@ -9,6 +10,9 @@
     "glimmeringtales:blue_ice-bypass_magic-magic",
     "glimmeringtales:cactus-magic",
     "glimmeringtales:cactus-bypass_magic-magic",
+    "glimmeringtales:coral_reef-magic",
+    "glimmeringtales:coral_reef-bypass_magic",
+    "glimmeringtales:coral_reef-bypass_magic-magic",
     "glimmeringtales:dripstone-magic",
     "glimmeringtales:dripstone-bypass_magic-magic",
     "glimmeringtales:earthquake-magic",

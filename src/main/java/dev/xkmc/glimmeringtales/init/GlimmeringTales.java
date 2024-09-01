@@ -5,6 +5,7 @@ import dev.xkmc.glimmeringtales.content.block.altar.BaseRitualBlockEntity;
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipRegistry;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.init.data.*;
+import dev.xkmc.glimmeringtales.init.data.spell.GTSpells;
 import dev.xkmc.glimmeringtales.init.reg.GTEngine;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;

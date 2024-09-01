@@ -33,40 +33,6 @@ public record NatureSpell(
 
 	public static final Codec<NatureSpell> CODEC = new CodecAdaptor<>(NatureSpell.class);
 
-	public MutableComponent lang() {
-		return Component.translatable(SpellAction.lang(spell().unwrapKey().orElseThrow().location()));
-	}
-
-	public int blockRuneDesc(Level level, List<Component> list, double affinity) {
-		if (affinity < MIN_AFFINITY) affinity = MIN_AFFINITY;
-		int consume = Math.max(MIN_MANA_COST, (int) Math.round(cost / affinity));
-		list.add(GTLang.TOOLTIP_SPELL.get(lang().withStyle(ChatFormatting.GOLD),
-				elem.coloredDesc()).withStyle(ChatFormatting.GRAY));
-		Component val = Component.literal(consume + "").withStyle(ChatFormatting.BLUE);
-		list.add(GTLang.TOOLTIP_COST.get(val).withStyle(ChatFormatting.YELLOW));
-		return consume;
-	}
-
-	public int spellRuneDesc(Level level, List<Component> list, double affinity) {
-		if (affinity < MIN_AFFINITY) affinity = MIN_AFFINITY;
-		int consume = Math.max(MIN_MANA_COST, (int) Math.round(cost / affinity));
-		list.add(GTLang.TOOLTIP_SPELL.get(lang().withStyle(ChatFormatting.GOLD),
-				elem.coloredDesc()).withStyle(ChatFormatting.GRAY));
-		list.add(spell().value().castType().desc());
-		list.add(spell().value().triggerType().desc());
-		Component val = Component.literal(consume + "").withStyle(ChatFormatting.BLUE);
-		if (spell().value().castType() != SpellCastType.INSTANT) {
-			if (maxConsumeTick <= 0) {
-				val = GTLang.TOOLTIP_COST_CONT.get(val).withStyle(ChatFormatting.GRAY);
-			} else {
-				Component max = Component.literal(consume * maxConsumeTick + "").withStyle(ChatFormatting.BLUE);
-				val = GTLang.TOOLTIP_COST_CAPPED.get(val, max).withStyle(ChatFormatting.GRAY);
-			}
-		}
-		list.add(GTLang.TOOLTIP_COST.get(val).withStyle(ChatFormatting.YELLOW));
-		return consume;
-	}
-
 	public boolean consumeMana(LivingEntity user, ItemStack stack, double affinity, int useTick, boolean charging, boolean simulate) {
 		if (affinity < MIN_AFFINITY) affinity = MIN_AFFINITY;
 		double consume = Math.max(MIN_MANA_COST, cost / affinity);
@@ -93,7 +59,43 @@ public record NatureSpell(
 		return true;
 	}
 
-	private void addMana(List<Component> list, Player player, int cost) {
+	// ------ Tooltip ------
+
+	private MutableComponent lang() {
+		return Component.translatable(SpellAction.lang(spell().unwrapKey().orElseThrow().location()));
+	}
+
+	private int blockRuneDesc(Level level, List<Component> list, double affinity) {
+		if (affinity < MIN_AFFINITY) affinity = MIN_AFFINITY;
+		int consume = Math.max(MIN_MANA_COST, (int) Math.round(cost / affinity));
+		list.add(GTLang.TOOLTIP_SPELL.get(lang().withStyle(ChatFormatting.GOLD),
+				elem.coloredDesc()).withStyle(ChatFormatting.GRAY));
+		Component val = Component.literal(consume + "").withStyle(ChatFormatting.BLUE);
+		list.add(GTLang.TOOLTIP_COST.get(val).withStyle(ChatFormatting.YELLOW));
+		return consume;
+	}
+
+	private int spellRuneDesc(Level level, List<Component> list, double affinity) {
+		if (affinity < MIN_AFFINITY) affinity = MIN_AFFINITY;
+		int consume = Math.max(MIN_MANA_COST, (int) Math.round(cost / affinity));
+		list.add(GTLang.TOOLTIP_SPELL.get(lang().withStyle(ChatFormatting.GOLD),
+				elem.coloredDesc()).withStyle(ChatFormatting.GRAY));
+		list.add(spell().value().castType().desc());
+		list.add(spell().value().triggerType().desc());
+		Component val = Component.literal(consume + "").withStyle(ChatFormatting.BLUE);
+		if (spell().value().castType() != SpellCastType.INSTANT) {
+			if (maxConsumeTick <= 0) {
+				val = GTLang.TOOLTIP_COST_CONT.get(val).withStyle(ChatFormatting.GRAY);
+			} else {
+				Component max = Component.literal(consume * maxConsumeTick + "").withStyle(ChatFormatting.BLUE);
+				val = GTLang.TOOLTIP_COST_CAPPED.get(val, max).withStyle(ChatFormatting.GRAY);
+			}
+		}
+		list.add(GTLang.TOOLTIP_COST.get(val).withStyle(ChatFormatting.YELLOW));
+		return consume;
+	}
+
+	private static void addMana(List<Component> list, Player player, int cost) {
 		var mana = GTRegistries.MANA.type().getExisting(player).orElse(null);
 		if (mana == null) return;
 		int max = (int) player.getAttributeValue(GTRegistries.MAX_MANA);
@@ -101,6 +103,7 @@ public record NatureSpell(
 		var cval = Component.literal("" + val).withStyle(cost > val ? ChatFormatting.RED :
 				val < max ? ChatFormatting.GREEN : ChatFormatting.AQUA);
 		var cmax = Component.literal("" + max).withStyle(ChatFormatting.AQUA);
+		//TODO focus cost
 		list.add(GTLang.OVERLAY_MANA.get(cval, cmax).withStyle(ChatFormatting.LIGHT_PURPLE));
 	}
 
@@ -121,7 +124,7 @@ public record NatureSpell(
 		var val = DefaultAffinity.INS.getFinalAffinity(spell.value().elem(), player, wand);
 		int cost = spell.value().spellRuneDesc(player.level(), list, val);
 		SpellTooltip.get(player.level(), spell.value()).brief(spell.unwrapKey().orElseThrow(), list);
-		spell.value().addMana(list, player, cost);
+		addMana(list, player, cost);
 		return list;
 	}
 
@@ -130,7 +133,7 @@ public record NatureSpell(
 		var val = aff.getFinalAffinity(spell.value().elem(), player, wand);
 		int cost = spell.value().blockRuneDesc(player.level(), list, val);
 		SpellTooltip.get(player.level(), spell.value()).brief(spell.unwrapKey().orElseThrow(), list);
-		spell.value().addMana(list, player, cost);
+		addMana(list, player, cost);
 		return list;
 	}
 
