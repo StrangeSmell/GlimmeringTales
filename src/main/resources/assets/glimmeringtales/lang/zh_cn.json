@@ -127,6 +127,7 @@
   "glimmeringtales.desc.lightning": "雷电",
   "glimmeringtales.desc.magic": "魔法",
   "glimmeringtales.desc.projectile": "弹射物",
+  "glimmeringtales.desc.falling_block": "坠落方块",
   "glimmeringtales.desc.space": "",
 
   "glimmeringtales.jei.strike_block": "雷击方块",
@@ -260,8 +261,8 @@
   "nature_spell.glimmeringtales.amethyst_penetration.detail": "Shoot amethyst shards in a fan area in front of you, dealing %s and stack %s",
   "nature_spell.glimmeringtales.coral_reef.brief": "[Block] Create bubbles to attack nearby entities",
   "nature_spell.glimmeringtales.coral_reef.detail": "For all entities in range, create bubble attack dealing %s",
-  "nature_spell.glimmeringtales.earthquake.brief": "[Surrounding] Create earthquake, throw blocks around you into air",
-  "nature_spell.glimmeringtales.earthquake.detail": "Throw blocks around you into the air, dealing %s damage",
+  "nature_spell.glimmeringtales.earthquake.brief": "[Surrounding] Shake the ground and throw blocks into air",
+  "nature_spell.glimmeringtales.earthquake.detail": "Create earthquake dealing dealing %s, then throw blocks around you into the air that deals %s on fall",
   "nature_spell.glimmeringtales.sponge.brief": "[Block] Absorb water nearby",
   "nature_spell.glimmeringtales.sponge.detail": "Absorb water nearby, equivalent to range of water",
   "nature_spell.glimmeringtales.thunderstorm.brief": "[Ranged] Create a thunderstorm striking entities",

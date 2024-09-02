@@ -15,9 +15,6 @@ import net.minecraft.world.item.ItemStack;
 import java.util.List;
 
 public class RuneSwapType extends MatcherSwapType {
-	private static final ResourceLocation COPPER = GlimmeringTales.loc("copper_frame");
-	private static final ResourceLocation GOLD = GlimmeringTales.loc("gold_frame");
-	private static final ResourceLocation WOOD = GlimmeringTales.loc("wood_frame");
 	private static final ResourceLocation SELECTED = GlimmeringTales.loc("selected");
 
 	public RuneSwapType() {
@@ -44,16 +41,8 @@ public class RuneSwapType extends MatcherSwapType {
 		boolean selected = entry.selected();
 		ItemStack core = token.getStack();
 		ItemStack wand = token.token().stack();
-		ResourceLocation TEX;
 		var s = RuneWandItem.getHandle(wand);
-		if (s == GTItems.GOLD_WAND.get()) {
-			TEX = GOLD;
-		} else if (s == GTItems.WOOD_WAND.get()) {
-			TEX = WOOD;
-		} else {
-			TEX = COPPER;
-		}
-
+		ResourceLocation TEX = s.getFrame();
 		int i = entry.i();
 		int size = 9;
 		int h = ctx.g().guiHeight();

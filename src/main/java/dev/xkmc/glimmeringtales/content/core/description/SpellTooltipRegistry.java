@@ -4,6 +4,7 @@ import dev.xkmc.glimmeringtales.content.engine.processor.LightningInstance;
 import dev.xkmc.glimmeringtales.content.engine.processor.StackingEffectProcessor;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.reg.GTEngine;
+import dev.xkmc.l2magic.content.engine.block.KnockBlock;
 import dev.xkmc.l2magic.content.engine.extension.Extension;
 import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.processor.EffectProcessor;
@@ -19,11 +20,14 @@ import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffect;
 import net.neoforged.neoforge.common.Tags;
 
+import java.util.OptionalDouble;
+
 public class SpellTooltipRegistry {
 
 	public static void init() {
 		EngineRegistry.DAMAGE.get().add(new DamageTooltip());
 		EngineRegistry.EFFECT.get().add(new EffectTooltip());
+		EngineRegistry.KNOCK_BLOCK.get().add(new FallingTooltip());
 		GTEngine.EP_STACK.get().add(new StackingTooltip());
 		GTEngine.THUNDER.get().add(new LightningTooltip());
 	}
@@ -58,6 +62,32 @@ public class SpellTooltipRegistry {
 			if (type.is(key)) {
 				ans.append(lang.get().withStyle(formatting)).append(GTLang.DESC_SPACE.get());
 			}
+		}
+
+	}
+
+	static class FallingTooltip extends Tooltip<KnockBlock> {
+
+		@Override
+		public Component process(KnockBlock e) {
+			var dpb = e.damagePerBlock().exp().getAsConstant();
+			var max = e.maxDamage().exp().getAsConstant();
+			var spe = e.speed().exp().getAsConstant();
+			OptionalDouble dmg = OptionalDouble.empty();
+			if (dpb.isPresent() && spe.isPresent() && max.isPresent()) {
+				double v0 = spe.getAsDouble();
+				double g = 0.04;
+				double f = 0.02;
+				double p = g / f;
+				double t = Math.log((v0 / p + 1)) / f;
+				double h = (v0 - g * t) / f;
+				dmg = OptionalDouble.of(Math.min(max.getAsDouble(), dpb.getAsDouble() * (h - 1)));
+			}
+			MutableComponent ans = dmg.isEmpty() ? Component.empty() : GTLang.DESC_DMG.get(
+					Component.literal((int) dmg.getAsDouble() + "").withStyle(ChatFormatting.DARK_AQUA)
+			).append(GTLang.DESC_SPACE.get());
+			ans.append(GTLang.DESC_FALLING_BLOCK.get().withStyle(ChatFormatting.RED)).append(GTLang.DESC_SPACE.get());
+			return ans.append(GTLang.DESC_DAMAGE.get());
 		}
 
 	}

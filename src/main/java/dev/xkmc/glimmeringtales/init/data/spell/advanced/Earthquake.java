@@ -31,21 +31,21 @@ import java.util.List;
 public class Earthquake {
 
 	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH.get()
-			.build(GlimmeringTales.loc("earthquake")).cost(20)
+			.build(GlimmeringTales.loc("earthquake")).focusAndCost(40, 80)
 			.damageCustom(e -> new DamageType(e, 0.1f),
 					"%s is killed by earthquake", "%s is killed by %s using earthquake",
 					DamageTypeTags.IS_EXPLOSION
 			).spell(ctx -> new SpellAction(gen(ctx), GTItems.EARTHQUAKE.get(),
 					2000, SpellCastType.INSTANT, SpellTriggerType.SELF_POS)
 			).lang("Earthquake").desc(
-					"[Surrounding] Create earthquake, throw blocks around you into air",
-					"Throw blocks around you into the air, dealing %s damage",
-					SpellTooltipData.damage()//TODO falling block damage
+					"[Surrounding] Shake the ground and throw blocks into air",
+					"Create earthquake dealing dealing %s, then throw blocks around you into the air that deals %s on fall",
+					SpellTooltipData.damageAndFalling()
 			);
 
 	private static final DoubleVariable DMG = DoubleVariable.of("2");
 	private static final DoubleVariable INIT = DoubleVariable.of("10");
-	private static final DoubleVariable MAX = DoubleVariable.of("20");
+	private static final DoubleVariable MAX = DoubleVariable.of("30");
 
 	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(

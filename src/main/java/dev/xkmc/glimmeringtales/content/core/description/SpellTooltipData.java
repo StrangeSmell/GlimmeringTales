@@ -20,6 +20,10 @@ public record SpellTooltipData(ArrayList<Entry> list) {
 		return of(EngineRegistry.DAMAGE);
 	}
 
+	public static SpellTooltipData damageAndFalling() {
+		return of(EngineRegistry.DAMAGE, EngineRegistry.KNOCK_BLOCK);
+	}
+
 	public static SpellTooltipData damageAndEffect() {
 		return of(EngineRegistry.DAMAGE, EngineRegistry.EFFECT);
 	}

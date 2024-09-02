@@ -40,7 +40,7 @@
             "child": {
               "type": "l2magic:knock_block",
               "damagePerBlock": "2",
-              "maxDamage": "20",
+              "maxDamage": "30",
               "speed": "1"
             },
             "tick": "i_r*2"

@@ -5,6 +5,7 @@ import dev.xkmc.glimmeringtales.content.item.curio.DamageTypeCurioItem;
 import dev.xkmc.glimmeringtales.init.data.GTDamageTypeGen;
 import dev.xkmc.l2damagetracker.contents.attack.AttackListener;
 import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
+import dev.xkmc.l2damagetracker.contents.attack.DamageData;
 import dev.xkmc.l2damagetracker.contents.damage.DamageState;
 import dev.xkmc.l2damagetracker.contents.damage.DamageTypeRoot;
 
@@ -25,6 +26,18 @@ public class GTAttackListener implements AttackListener {
 				}
 			}
 		}
+	}
+
+	@Override
+	public boolean onAttack(DamageData.Attack data) {
+		var attacker = data.getAttacker();
+		if (attacker == null) return false;
+		if (data.getSource().is(GTDamageTypeGen.SPELL)) {
+			return attacker == data.getTarget() ||
+					attacker.isAlliedTo(data.getTarget()) ||
+					data.getTarget().isAlliedTo(attacker);
+		}
+		return false;
 	}
 
 }

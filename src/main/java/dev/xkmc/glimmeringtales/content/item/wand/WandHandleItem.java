@@ -7,6 +7,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -61,6 +62,10 @@ public class WandHandleItem extends Item {
 	@Nullable
 	public ElementAffinity getAffinity(Level level) {
 		return GTRegistries.AFFINITY.get(level.registryAccess(), builtInRegistryHolder());
+	}
+
+	public ResourceLocation getFrame() {
+		return BuiltInRegistries.ITEM.getKey(this);
 	}
 
 }

@@ -30,6 +30,7 @@ public enum GTLang {
 	DESC_PROJECTILE("desc.projectile", "Projectile", 0),
 	DESC_LIGHTNING("desc.lightning", "Lightning", 0),
 	DESC_MAGIC("desc.magic", "Magic", 0),
+	DESC_FALLING_BLOCK("desc.falling_block", "Falling Block", 0),
 	DESC_SPACE("desc.space", " ", 0),
 	DESC_DMG("desc.damage_number", "%s", 1),
 

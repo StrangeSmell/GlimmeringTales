@@ -29,7 +29,7 @@ public class WandCraftRecipe extends AbstractShapedRecipe<WandCraftRecipe> {
 		}
 		ItemStack ans = getResultItem(pvd);
 		if (!core.isEmpty()) {
-			BaseBagItem.setItems(ans, List.of(ans));
+			BaseBagItem.setItems(ans, List.of(core));
 		}
 		return ans;
 	}

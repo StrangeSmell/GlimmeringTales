@@ -1,7 +1,7 @@
 {
-  "cost": 20,
+  "cost": 80,
   "elem": "glimmeringtales:earth",
-  "focus": 10,
+  "focus": 40,
   "maxConsumeTick": 0,
   "spell": "glimmeringtales:earthquake",
   "tooltip": {
@@ -9,6 +9,10 @@
       {
         "id": "l2magic:damage",
         "reg": "l2magic:processor"
+      },
+      {
+        "id": "l2magic:knock_block",
+        "reg": "l2magic:configured_engine"
       }
     ]
   }
