@@ -5,10 +5,26 @@
       "type": "l2magic:list",
       "children": [
         {
-          "type": "l2magic:sound",
-          "pitch": "1+rand(-0.1,0.1)+rand(-0.1,0.1)",
-          "sound": "minecraft:block.gravel.break",
-          "volume": "1"
+          "type": "l2magic:iterate_delayed",
+          "child": {
+            "type": "l2magic:sound",
+            "pitch": "0.7+rand(-0.5,0.2)+rand(-0.5,0.2)",
+            "sound": "minecraft:entity.breeze.idle_ground",
+            "volume": "1"
+          },
+          "delay": "5",
+          "step": "5"
+        },
+        {
+          "type": "l2magic:iterate_delayed",
+          "child": {
+            "type": "l2magic:sound",
+            "pitch": "0.7+rand(-0.5,0.2)+rand(-0.5,0.2)",
+            "sound": "minecraft:entity.breeze.idle_ground",
+            "volume": "1"
+          },
+          "delay": "1",
+          "step": "30"
         },
         {
           "type": "l2magic:iterate_delayed",
@@ -160,8 +176,8 @@
             "delay": "1",
             "step": "10"
           },
-          "delay": "1",
-          "step": "30"
+          "delay": "2",
+          "step": "22"
         }
       ]
     },

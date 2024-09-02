@@ -83,7 +83,7 @@ public class IceSpells {
 				new SoundInstance(
 						SoundEvents.POWDER_SNOW_PLACE,
 						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						DoubleVariable.of("2+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
 				new DelayedIterator(
 						IntVariable.of(range),
