@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "patchouli"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "glimmeringtales:crystal_of_nature"
+    }
+  ],
+  "result": {
+    "components": {
+      "patchouli:book": "glimmeringtales:glimmering_fate"
+    },
+    "count": 1,
+    "id": "patchouli:guide_book"
+  }
+}

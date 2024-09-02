@@ -1,4 +1,4 @@
-// 1.21.1	2024-09-02T20:58:46.442347	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
+// 1.21.1	2024-09-02T22:06:59.128094	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
 f628b87d75a2e2a6c5157d17ef22b26cb8b260eb assets/glimmeringtales/blockstates/bamboo.json
 4132de47f0c0e042aadf759876c94ea0a1d95cd2 assets/glimmeringtales/blockstates/clay_carpet.json
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
@@ -10,8 +10,8 @@ ddfce448f766edb3356cc5dd2284a9a7cfc6a3f5 assets/glimmeringtales/blockstates/magm
 fdbebae44714d98419aec779d5098b1c641a6e87 assets/glimmeringtales/blockstates/ritual_matrix.json
 43659f4204dda1cd8d54c14e50db5852bc3bd9c6 assets/glimmeringtales/blockstates/stone.json
 9d9680dcac3f408484cc24fce5ff36d4e2670ce5 assets/glimmeringtales/blockstates/struck_log.json
-8cda95ddbabdbe4a3427a423586026f73b0ccdd4 assets/glimmeringtales/lang/en_ud.json
-f9c739a607abf0eb09bc95f3d789bdd2cfec43e6 assets/glimmeringtales/lang/en_us.json
+f972d42f9da78add4e1bbbc0a730d94e3095dc5e assets/glimmeringtales/lang/en_ud.json
+dc84f41ead54105d0ca44ec0e23ca3ec9fd6785a assets/glimmeringtales/lang/en_us.json
 15f496a19c47d83933b652959371e73ad2143d9c assets/glimmeringtales/models/block/bamboo.json
 2d01c131bfac139379038cddb736636a9627c548 assets/glimmeringtales/models/block/clay_carpet.json
 a8bf80e58d57d3c05f21fcaa3f797e25109c3fd0 assets/glimmeringtales/models/block/crystal_vine_0.json
@@ -40,6 +40,7 @@ bed4229c41662307c2ea502d75526ec551128915 assets/glimmeringtales/models/item/amet
 7e86221c56883ffedce9254a08c02848c3661401 assets/glimmeringtales/models/item/bamboo_core.json
 15787396b7e0ae33e05c5676a1833677de14ba32 assets/glimmeringtales/models/item/blue_ice.json
 8c90b0690c2df36f3b671106f1b661c9555eacd4 assets/glimmeringtales/models/item/blue_ice_core.json
+90a6a94b06073b930c481b8b51ceca1a277abd72 assets/glimmeringtales/models/item/book.json
 b56ed86dba4737afdd55af29e3d03cdf3c5a8d47 assets/glimmeringtales/models/item/cactus.json
 9fa67d5d21a698c6941499bd906f2332f3a223b2 assets/glimmeringtales/models/item/cactus_core.json
 65c09ba9036f3789267f31e6248a32ede1006629 assets/glimmeringtales/models/item/charm_of_capacity.json
@@ -150,6 +151,7 @@ d4416c07e4ff32d0f6414968de3ade150a225eb5 data/curios/tags/item/charm.json
 f452588765c5a63b8e6b75fed0cfb64bcd693d60 data/curios/tags/item/hands.json
 f650deb643d3ad79bbe8a722c24f5b9f3ca13057 data/curios/tags/item/ring.json
 69dedd9985f3d60efb17550037a2b7199023095a data/glimmeringtales/advancement/recipes/misc/amethyst_resonator.json
+f7c6cba7040c6949187bcfc435796cbba11a0d78 data/glimmeringtales/advancement/recipes/misc/book.json
 53637b6f3f5e414031abe19dffad9edea4c7dc56 data/glimmeringtales/advancement/recipes/misc/charm_of_nature.json
 7a41145fe85f33ad0aa364bfb041a776a30f0e4f data/glimmeringtales/advancement/recipes/misc/crystal_vine.json
 c428489b9830ffdbfb7499ac57e465f307533924 data/glimmeringtales/advancement/recipes/misc/depleted_crystal_of_flame.json
@@ -375,7 +377,10 @@ efa083ada4cd89b6750ff95ff0ecede3a59fa965 data/glimmeringtales/loot_table/blocks/
 54e06087fcf8da4353a7f57814f4ac512a4454b0 data/glimmeringtales/loot_table/blocks/ritual_altar.json
 91bbf8e0ac3f24ccb245d8ba73923a50f0f830bc data/glimmeringtales/loot_table/blocks/ritual_matrix.json
 5ea5b78c89eac1d66fffffa10e371b40061141bd data/glimmeringtales/loot_table/blocks/struck_log.json
+af921c28e8bb301e3b41628c1fb06c2469483676 data/glimmeringtales/loot_table/glimmering_fate.json
+7d62bcbef379d27af19164e5b30791d0e8eeacdb data/glimmeringtales/patchouli_books/glimmering_fate/book.json
 d83263c3acb6da09c67982d78fc3f59c1a3a43b4 data/glimmeringtales/recipe/amethyst_resonator.json
+9b66d8552d01a0d0af01689c4778dd21a6c720aa data/glimmeringtales/recipe/book.json
 358f9d56e9d1b0deb0a552851b4804c4ac694868 data/glimmeringtales/recipe/charm_of_nature.json
 6a2b299e9337dfb06cc012193ad10123242d2c76 data/glimmeringtales/recipe/crystal_vine.json
 769408493d16e190195564ad76e28e2d15655c2c data/glimmeringtales/recipe/depleted_crystal_of_flame.json

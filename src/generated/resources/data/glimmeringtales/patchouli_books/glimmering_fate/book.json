@@ -1,0 +1,8 @@
+{
+  "creative_tab": "l2core:glimmeringtales",
+  "landing_text": "patchouli.glimmeringtales.landing",
+  "model": "glimmeringtales:book",
+  "name": "patchouli.glimmeringtales.title",
+  "use_resource_pack": true,
+  "version": 1
+}

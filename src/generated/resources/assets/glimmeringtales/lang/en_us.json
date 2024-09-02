@@ -219,6 +219,8 @@
   "nature_spell.glimmeringtales.vine.detail": "Pull surrounding enemies toward target position, dealing %s",
   "nature_spell.glimmeringtales.winter_storm.brief": "[Continuous] Create a circle of storm",
   "nature_spell.glimmeringtales.winter_storm.detail": "Continuous Attack: Create a circle of storm, dealing %s, inflict %s, and push enemies away",
+  "patchouli.glimmeringtales.landing": "Welcome to Glimmering Tales, a nature-themed magic mod",
+  "patchouli.glimmeringtales.title": "Glimmering Tales Guide",
   "spell_action.glimmeringtales.amethyst": "Scattering Amethyst",
   "spell_action.glimmeringtales.amethyst_penetration": "Amethyst Penetration",
   "spell_action.glimmeringtales.bamboo": "Bamboo",

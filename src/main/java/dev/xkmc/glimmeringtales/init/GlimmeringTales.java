@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.init;
 
 import com.tterrag.registrate.providers.ProviderType;
+import dev.xkmc.glimmeringtales.compat.PatchouliCompat;
 import dev.xkmc.glimmeringtales.content.block.altar.BaseRitualBlockEntity;
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipRegistry;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
@@ -23,6 +24,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -33,6 +35,7 @@ import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import vazkii.patchouli.api.PatchouliAPI;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(GlimmeringTales.MODID)
@@ -52,6 +55,9 @@ public class GlimmeringTales {
 		GTItems.register();
 		GTRecipes.register();
 		GTEngine.register();
+		if (ModList.get().isLoaded(PatchouliAPI.MOD_ID)) {
+			PatchouliCompat.gen();
+		}
 	}
 
 	private static void initHandlers() {
@@ -99,6 +105,7 @@ public class GlimmeringTales {
 		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTDataMapGen::genMap);
 		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, GTTagGen::genItemTag);
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, GTTagGen::genBlockTag);
+		REGISTRATE.addDataGenerator(ProviderType.ADVANCEMENT, GTAdvGen::genAdvancements);
 		var init = REGISTRATE.getDataGenInitializer();
 		REGISTRATE.addDataGenerator(ProviderType.LANG, GTSpells::addLang);
 		new GTDamageTypeGen(REGISTRATE).generate();
