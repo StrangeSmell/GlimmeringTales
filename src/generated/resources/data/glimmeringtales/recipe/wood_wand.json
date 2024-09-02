@@ -6,7 +6,7 @@
       "item": "minecraft:stick"
     },
     "O": {
-      "tag": "glimmeringtales:crystal"
+      "item": "glimmeringtales:crystal_of_nature"
     }
   },
   "pattern": [

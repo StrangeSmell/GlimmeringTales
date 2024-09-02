@@ -43,6 +43,17 @@
         "glimmeringtales:earth": 0.25
       }
     },
+    "glimmeringtales:life_wand": {
+      "affinity": {
+        "glimmeringtales:life": 0.5
+      }
+    },
+    "glimmeringtales:ocean_wand": {
+      "affinity": {
+        "glimmeringtales:ocean": 0.25,
+        "glimmeringtales:thunder": 0.25
+      }
+    },
     "glimmeringtales:wood_wand": {
       "affinity": {
         "glimmeringtales:life": 0.25

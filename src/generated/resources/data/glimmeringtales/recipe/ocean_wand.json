@@ -3,22 +3,22 @@
   "category": "misc",
   "key": {
     "I": {
-      "item": "minecraft:gold_ingot"
+      "item": "l2complements:poseidite_ingot"
     },
     "O": {
       "item": "glimmeringtales:crystal_of_nature"
     },
-    "R": {
-      "item": "minecraft:redstone"
+    "V": {
+      "item": "minecraft:prismarine_crystals"
     }
   },
   "pattern": [
-    " RO",
-    "RIR",
-    "IR "
+    " VO",
+    "VIV",
+    "IV "
   ],
   "result": {
     "count": 1,
-    "id": "glimmeringtales:gold_wand"
+    "id": "glimmeringtales:ocean_wand"
   }
 }

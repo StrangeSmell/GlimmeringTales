@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_earth"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:amethyst_penetration"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:amethyst"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:amethyst"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:amethyst"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:amethyst"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:explosion_shard"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:explosion_shard"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:explosion_shard"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:explosion_shard"
+      }
+    }
+  ],
+  "time": 100
+}

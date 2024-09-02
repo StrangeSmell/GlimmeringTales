@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_thunder"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:thunderstorm"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:ice"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:coral_reef"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:thunder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:thunder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:poseidite_ingot"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:poseidite_ingot"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:poseidite_ingot"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:poseidite_ingot"
+      }
+    }
+  ],
+  "time": 100
+}

@@ -2,23 +2,26 @@
   "type": "glimmeringtales:wand_craft",
   "category": "misc",
   "key": {
+    "G": {
+      "item": "l2complements:totemic_gold_ingot"
+    },
     "I": {
-      "item": "minecraft:gold_ingot"
+      "item": "minecraft:bamboo"
     },
     "O": {
       "item": "glimmeringtales:crystal_of_nature"
     },
-    "R": {
-      "item": "minecraft:redstone"
+    "V": {
+      "item": "minecraft:vine"
     }
   },
   "pattern": [
-    " RO",
-    "RIR",
-    "IR "
+    " VO",
+    "VGV",
+    "IV "
   ],
   "result": {
     "count": 1,
-    "id": "glimmeringtales:gold_wand"
+    "id": "glimmeringtales:life_wand"
   }
 }

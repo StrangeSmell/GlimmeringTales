@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_ocean"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:sponge"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "minecraft:sponge"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:sponge"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:sponge"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:sponge"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:sponge"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:sponge"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:sponge"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:sponge"
+      }
+    }
+  ],
+  "time": 100
+}

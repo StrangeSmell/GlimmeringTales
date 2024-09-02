@@ -1,0 +1,7 @@
+{
+  "parent": "glimmeringtales:custom/life_wand",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "glimmeringtales:item/wand/life_wand"
+  }
+}

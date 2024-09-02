@@ -98,7 +98,7 @@ public class GTRecipeGen {
 					.save(pvd);
 		}
 
-		// curios
+		// ring
 		{
 
 			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GTItems.Curios.GOLDEN_RING)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
@@ -156,6 +156,7 @@ public class GTRecipeGen {
 					.save(pvd);
 		}
 
+		// elemental charm
 		{
 
 			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GTItems.Curios.CHARM_OF_NATURE)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
@@ -203,6 +204,7 @@ public class GTRecipeGen {
 					.save(pvd);
 		}
 
+		// misc curios
 		{
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_OCEAN, GTItems.Curios.CHARM_OF_STRENGTH)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
 					.side(GTItems.CRYSTAL_NATURE, 2)
@@ -240,15 +242,30 @@ public class GTRecipeGen {
 		{
 			unlock(pvd, new WandRecipeBuilder(GTItems.WOOD_WAND, 1)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
 					.pattern("  O").pattern(" I ").pattern("I  ")
-					.define('O', GTTagGen.CRYSTAL)
+					.define('O', GTItems.CRYSTAL_NATURE)
 					.define('I', Items.STICK)
 					.save(pvd);
 
+			unlock(pvd, new WandRecipeBuilder(GTItems.LIFE_WAND, 1)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+					.pattern(" VO").pattern("VGV").pattern("IV ")
+					.define('O', GTItems.CRYSTAL_NATURE)
+					.define('G', LCMats.TOTEMIC_GOLD.getIngot())
+					.define('I', Items.BAMBOO)
+					.define('V', Items.VINE)
+					.save(pvd);
+
 			unlock(pvd, new WandRecipeBuilder(GTItems.GOLD_WAND, 1)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
-					.pattern("  O").pattern("RI ").pattern("IR ")
-					.define('O', GTTagGen.CRYSTAL)
+					.pattern(" RO").pattern("RIR").pattern("IR ")
+					.define('O', GTItems.CRYSTAL_NATURE)
 					.define('I', Items.GOLD_INGOT)
 					.define('R', Items.REDSTONE)
+					.save(pvd);
+
+			unlock(pvd, new WandRecipeBuilder(GTItems.OCEAN_WAND, 1)::unlockedBy, GTItems.CRYSTAL_NATURE.get())
+					.pattern(" VO").pattern("VIV").pattern("IV ")
+					.define('O', GTItems.CRYSTAL_NATURE)
+					.define('I', LCMats.POSEIDITE.getIngot())
+					.define('V', Items.PRISMARINE_CRYSTALS)
 					.save(pvd);
 		}
 
@@ -315,7 +332,7 @@ public class GTRecipeGen {
 
 		}
 
-		// flame, snow, thunder
+		// flame
 		{
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.RUNE_MAGMA)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
@@ -333,6 +350,10 @@ public class GTRecipeGen {
 					.side(Items.SOUL_SOIL, 4)
 					.save(pvd);
 
+		}
+
+		// snow
+		{
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.RUNE_SNOW)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
 					.side(Items.SNOW_BLOCK, 4)
 					.side(Items.SNOWBALL, 4)
@@ -356,12 +377,29 @@ public class GTRecipeGen {
 					.save(pvd);
 		}
 
-		// spells
+		// ocean, thunder
 		{
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_OCEAN, GTItems.RUNE_SPONGE)::unlockedBy, GTItems.CRYSTAL_OCEAN.get())
+					.side(Items.SPONGE, 8)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_OCEAN, GTItems.RUNE_CORAL_REEF)::unlockedBy, GTItems.CRYSTAL_OCEAN.get())
+					.side(Items.BRAIN_CORAL_BLOCK, 1)
+					.side(Items.BUBBLE_CORAL_BLOCK, 1)
+					.side(Items.FIRE_CORAL_BLOCK, 1)
+					.side(Items.HORN_CORAL_BLOCK, 1)
+					.side(Items.TUBE_CORAL_BLOCK, 1)
+					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_THUNDER, GTItems.RUNE_THUNDER)::unlockedBy, GTItems.CRYSTAL_THUNDER.get())
 					.side(GTItems.STRUCK_LOG, 8)
 					.save(pvd);
+		}
+
+		// spells
+		{
+
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.HELL_MARK)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
 					.side(GTItems.RUNE_NETHERRACK, 1)
@@ -390,6 +428,26 @@ public class GTRecipeGen {
 					.side(LCItems.HARD_ICE, 2)
 					.side(Items.SNOW_BLOCK, 4)
 					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.AMETHYST_PENETRATION)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
+					.side(GTItems.RUNE_AMETHYST, 4)
+					.side(LCItems.EXPLOSION_SHARD, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.EARTHQUAKE)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
+					.side(GTItems.RUNE_STONE, 1)
+					.side(GTItems.RUNE_GRAVEL, 1)
+					.side(LCItems.BLACKSTONE_CORE, 2)
+					.side(Items.ANVIL, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_THUNDER, GTItems.THUNDERSTORM)::unlockedBy, GTItems.CRYSTAL_THUNDER.get())
+					.side(GTItems.RUNE_ICE, 1)
+					.side(GTItems.RUNE_CORAL_REEF, 1)
+					.side(GTItems.RUNE_THUNDER, 2)
+					.side(LCMats.POSEIDITE.getIngot(), 4)
+					.save(pvd);
+
 		}
 
 	}

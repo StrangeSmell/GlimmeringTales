@@ -80,7 +80,7 @@ public class GTItems {
 	public static final BlockEntityEntry<NatureCoreBlockEntity> MATRIX_BE;
 
 	public static final ItemEntry<RuneWandItem> WAND;
-	public static final ItemEntry<WandHandleItem> WOOD_WAND, GOLD_WAND;
+	public static final ItemEntry<WandHandleItem> WOOD_WAND, LIFE_WAND, GOLD_WAND, OCEAN_WAND;
 
 	public static final ItemEntry<DamageTypeCurioItem> GLOVE_OF_SORCERER, GLOVE_OF_ABYSS;
 
@@ -287,7 +287,9 @@ public class GTItems {
 					.register();
 
 			WOOD_WAND = handle("wood_wand", 0.25f, 0.75f, "Wooden");
+			LIFE_WAND = handle("life_wand", 0.25f, 0.87f, "Bamboo");
 			GOLD_WAND = handle("gold_wand", 0.25f, 0.75f, "Golden");
+			OCEAN_WAND = handle("ocean_wand", 0.25f, 0.92f, "Ocean");
 
 		}
 
@@ -376,8 +378,8 @@ public class GTItems {
 			RUNE_PACKED_ICE = rune("packed_ice", "Rune: Packed Ice");
 			RUNE_BLUE_ICE = rune("blue_ice", "Rune: Blue Ice");
 
-			RUNE_SPONGE = rune("sponge", "Rune: Sponge"); //TODO recipe
-			RUNE_CORAL_REEF = rune("coral_reef", "Rune: Coral Reef"); //TODO recipe
+			RUNE_SPONGE = rune("sponge", "Rune: Sponge");
+			RUNE_CORAL_REEF = rune("coral_reef", "Rune: Coral Reef");
 
 			RUNE_THUNDER = rune("thunder", "Rune: Thunder");
 
@@ -385,9 +387,9 @@ public class GTItems {
 			LAVA_BURST = spell("lava_burst");
 			WINTER_STORM = spell("winter_storm");
 			SNOW_TORNADO = spell("snow_tornado");
-			AMETHYST_PENETRATION = spell("amethyst_penetration"); //TODO recipe
-			EARTHQUAKE = spell("earthquake"); //TODO recipe
-			THUNDERSTORM = spell("thunderstorm"); //TODO recipe
+			AMETHYST_PENETRATION = spell("amethyst_penetration");
+			EARTHQUAKE = spell("earthquake");
+			THUNDERSTORM = spell("thunderstorm");
 		}
 
 		{

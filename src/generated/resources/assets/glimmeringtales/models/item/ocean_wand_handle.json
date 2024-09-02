@@ -1,0 +1,7 @@
+{
+  "parent": "glimmeringtales:custom/ocean_wand",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "glimmeringtales:item/wand/ocean_wand"
+  }
+}
