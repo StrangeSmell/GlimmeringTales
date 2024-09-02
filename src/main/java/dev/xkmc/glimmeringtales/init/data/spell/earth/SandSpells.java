@@ -103,7 +103,9 @@ public class SandSpells {
 				)
 		).move(NormalOffsetModifier.of("rand(" + (-vsp) + "," + vsp + ")"));
 
-		var tick = new ListLogic(List.of(damage,
+		var tick = new ListLogic(List.of(
+
+				damage,
 				new DelayedIterator(
 						IntVariable.of("10"),
 						IntVariable.of("1"),
@@ -120,12 +122,13 @@ public class SandSpells {
 				)
 		));
 		return new ListLogic(List.of(
-				new SoundInstance(
-						SoundEvents.SAND_BREAK,
+				new DelayedIterator(IntVariable.of("30"), IntVariable.of("2"),
+						new SoundInstance(
+						SoundEvents.BREEZE_IDLE_GROUND,
 						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
-				),
-				new DelayedIterator(IntVariable.of("80"), IntVariable.of("1"), tick, null)
+						DoubleVariable.of("1+rand(-0.5,0.2)+rand(-0.5,0.2)")
+				), null),
+				new DelayedIterator(IntVariable.of("90"), IntVariable.of("1"), tick, null)
 						.move(OffsetModifier.ABOVE)
 		));
 

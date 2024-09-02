@@ -47,7 +47,7 @@ public class VinesSpell {
 				new SoundInstance(
 						SoundEvents.VINE_STEP,
 						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						DoubleVariable.of("-5+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
 				new ProcessorEngine(
 						SelectionType.ENEMY,

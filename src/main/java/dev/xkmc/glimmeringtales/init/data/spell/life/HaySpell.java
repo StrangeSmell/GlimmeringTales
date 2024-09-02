@@ -46,7 +46,7 @@ public class HaySpell {
 				new SoundInstance(
 						SoundEvents.PLAYER_LEVELUP,
 						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						DoubleVariable.of("5+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
 				new ProcessorEngine(SelectionType.ALL,
 						new ApproxBallSelector(

@@ -52,7 +52,7 @@ public class SoulSandSpells {
 				new SoundInstance(
 						SoundEvents.SOUL_ESCAPE.value(),
 						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						DoubleVariable.of("0.5+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
 				new SoundInstance(
 						SoundEvents.FIRECHARGE_USE,

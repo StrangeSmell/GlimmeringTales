@@ -35,7 +35,7 @@ public class FlowerSpell {
 				new SoundInstance(
 						SoundEvents.BEACON_ACTIVATE,
 						DoubleVariable.of("1"),
-						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
+						DoubleVariable.of("5+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
 				new EffectCloudInstance(
 						Potions.HEALING,
