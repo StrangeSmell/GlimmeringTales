@@ -1,7 +1,7 @@
 package dev.xkmc.glimmeringtales.content.item.rune;
 
 import dev.xkmc.glimmeringtales.content.core.spell.ElementAffinity;
-import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
+import dev.xkmc.glimmeringtales.content.core.spell.SpellInfo;
 import dev.xkmc.glimmeringtales.content.item.materials.LightningImmuneItem;
 import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
 import dev.xkmc.glimmeringtales.init.data.GTConfigs;
@@ -49,19 +49,15 @@ public class SpellCoreItem extends LightningImmuneItem implements IBlockSpellIte
 	}
 
 	@Override
-	public List<Component> getCastTooltip(Player player, ItemStack wand, ItemStack core) {
+	public SpellInfo getSpellInfo(Player player) {
 		var ctx = BlockSpellContext.blockSpellContext(player, range());
-		if (ctx == null) return List.of();
+		if (ctx == null) return SpellInfo.empty();
 		var spell = GTRegistries.BLOCK.get(player.level().registryAccess(), ctx.state().getBlockHolder());
-		if (spell == null) return List.of();
+		if (spell == null) return SpellInfo.empty();
 		var nature = spell.spell().value();
 		var aff = getAffinity(player.level());
-		if (aff == null || !aff.affinity().containsKey(nature.elem())) return List.of();
-		var ans = NatureSpell.getBlockCastTooltip(spell.spell(), player, wand, aff);
-		if (spell.breakBlock()) {
-			ans.add(GTLang.OVERLAY_DESTROY.get().withStyle(ChatFormatting.RED));
-		}
-		return ans;
+		if (aff == null || !aff.affinity().containsKey(nature.elem())) return SpellInfo.empty();
+		return SpellInfo.ofBlock(spell, aff);
 	}
 
 	public boolean castSpell(SpellCastContext user) {

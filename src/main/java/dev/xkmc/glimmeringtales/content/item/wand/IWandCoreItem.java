@@ -1,5 +1,7 @@
 package dev.xkmc.glimmeringtales.content.item.wand;
 
+import dev.xkmc.glimmeringtales.content.core.spell.SpellCost;
+import dev.xkmc.glimmeringtales.content.core.spell.SpellInfo;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -18,6 +20,14 @@ public interface IWandCoreItem {
 
 	ModelResourceLocation model();
 
-	List<Component> getCastTooltip(Player player, ItemStack wand, ItemStack core);
+	SpellInfo getSpellInfo(Player player);
+
+	default List<Component> getCastTooltip(Player player, ItemStack wand, ItemStack core) {
+		return getSpellInfo(player).getCastTooltip(player, wand, core);
+	}
+
+	default SpellCost getCost(Player player, ItemStack wand, ItemStack core) {
+		return getSpellInfo(player).getCost(player, wand);
+	}
 
 }

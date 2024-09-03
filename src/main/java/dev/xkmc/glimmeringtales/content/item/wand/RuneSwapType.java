@@ -1,7 +1,6 @@
 package dev.xkmc.glimmeringtales.content.item.wand;
 
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
-import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.l2backpack.content.quickswap.common.EntryRenderContext;
 import dev.xkmc.l2backpack.content.quickswap.entry.ISwapEntry;
 import dev.xkmc.l2backpack.content.quickswap.type.MatcherSwapType;

@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.content.capability;
 
+import dev.xkmc.glimmeringtales.content.core.spell.SpellCost;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2core.capability.player.PlayerCapabilityTemplate;
 import dev.xkmc.l2serial.serialization.marker.SerialClass;
@@ -51,12 +52,12 @@ public class PlayerManaCapability extends PlayerCapabilityTemplate<PlayerManaCap
 		return mana;
 	}
 
-	public boolean consume(Player player, double focus, double mana) {
-		if (focus > this.focus || mana > this.mana) {
+	public boolean consume(Player player, SpellCost cost) {
+		if (cost.focus() > this.focus || cost.mana() > this.mana) {
 			return false;
 		}
-		this.focus -= focus;
-		this.mana -= mana;
+		this.focus -= cost.focus();
+		this.mana -= cost.mana();
 		if (player instanceof ServerPlayer sp) {
 			GTRegistries.MANA.type().network.toClient(sp);
 		}

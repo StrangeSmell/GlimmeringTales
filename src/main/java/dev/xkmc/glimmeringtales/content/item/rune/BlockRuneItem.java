@@ -1,23 +1,14 @@
 package dev.xkmc.glimmeringtales.content.item.rune;
 
-import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
+import dev.xkmc.glimmeringtales.content.core.spell.SpellInfo;
 import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;
-import dev.xkmc.glimmeringtales.init.data.GTConfigs;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 
-import java.util.List;
 import java.util.Optional;
 
-public class BlockRuneItem extends Item implements IBlockSpellItem {
+public class BlockRuneItem extends BaseRuneItem implements IBlockSpellItem {
 
 	public BlockRuneItem(Properties properties) {
 		super(properties);
@@ -27,22 +18,8 @@ public class BlockRuneItem extends Item implements IBlockSpellItem {
 		return Optional.ofNullable(GTRegistries.RUNE_BLOCK.get(access, builtInRegistryHolder()));
 	}
 
-	@Override
-	public List<Component> getCastTooltip(Player player, ItemStack wand, ItemStack core) {
-		var spell = getSpell(player.level().registryAccess());
-		return spell.map(e -> NatureSpell.getBlockCastTooltip(e.spell(), player, wand, DefaultAffinity.INS)).orElseGet(List::of);
-	}
-
-	@Override
-	public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> list, TooltipFlag flag) {
-		var level = ctx.level();
-		if (level == null) return;
-		getSpell(level.registryAccess()).ifPresent(e -> NatureSpell.runeItemBlockDesc(e.spell(), level, list));
-	}
-
-	@Override
-	public int entityTrace() {
-		return GTConfigs.SERVER.wandInteractionDistance.get();
+	public SpellInfo getSpellInfo(RegistryAccess access) {
+		return SpellInfo.ofRune(getSpell(access).orElse(null));
 	}
 
 	@Override
@@ -53,10 +30,6 @@ public class BlockRuneItem extends Item implements IBlockSpellItem {
 		var ctx = BlockSpellContext.entitySpellContext(user.user(), entityTrace(), spell);
 		if (ctx == null) return false;
 		return execute(spell.spell().value(), ctx.ctx(), user, DefaultAffinity.INS, 0, false);
-	}
-
-	public ModelResourceLocation model() {
-		return ModelResourceLocation.standalone(BuiltInRegistries.ITEM.getKey(this).withPath(e -> "item/" + e + "_core"));
 	}
 
 }
