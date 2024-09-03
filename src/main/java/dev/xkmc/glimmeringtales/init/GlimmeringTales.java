@@ -101,20 +101,19 @@ public class GlimmeringTales {
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void gatherData(GatherDataEvent event) {
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, GTRecipeGen::onRecipeGen);
-		REGISTRATE.addDataGenerator(ProviderType.LANG, GTLang::addTranslations);
-		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTDataMapGen::genMap);
 		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, GTTagGen::genItemTag);
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, GTTagGen::genBlockTag);
+		REGISTRATE.addDataGenerator(ProviderType.LANG, GTLang::addTranslations);
+		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTDataMapGen::genMap);
 		REGISTRATE.addDataGenerator(ProviderType.ADVANCEMENT, GTAdvGen::genAdvancements);
-		var init = REGISTRATE.getDataGenInitializer();
 		REGISTRATE.addDataGenerator(ProviderType.LANG, GTSpells::addLang);
+		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTSpells::genMap);
+		var init = REGISTRATE.getDataGenInitializer();
 		new GTDamageTypeGen(REGISTRATE).generate();
 		init.add(EngineRegistry.PROJECTILE, GTSpells::genProjectiles);
 		init.add(EngineRegistry.SPELL, GTSpells::genSpells);
 		init.add(GTRegistries.SPELL, GTSpells::genNature);
-		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTSpells::genMap);
 		init.addDependency(ProviderType.DATA_MAP, ProviderType.DYNAMIC);
-		REGISTRATE.addDataGenerator(GTTagGen.STRUCTURE, GTTagGen::genStructureTag);
 
 		var gen = event.getGenerator();
 		var run = event.includeServer();

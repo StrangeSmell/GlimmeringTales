@@ -1,0 +1,10 @@
+{
+  "cost": 40,
+  "elem": "glimmeringtales:earth",
+  "focus": 20,
+  "maxConsumeTick": 0,
+  "spell": "glimmeringtales:stone_bridge",
+  "tooltip": {
+    "list": []
+  }
+}

@@ -31,8 +31,6 @@ public class GTTagGen {
 
 	public static final TagKey<Block> FAKE_MAGMA = block("fake_magma");
 
-	public static final TagKey<Structure> ST_AMETHYST = structure("amethyst");
-
 	public static void genItemTag(RegistrateItemTagsProvider pvd) {
 		pvd.addTag(CORE).addTag(CRYSTAL);
 	}
@@ -68,10 +66,6 @@ public class GTTagGen {
 
 	}
 
-	public static void genStructureTag(RegistrateTagsProvider.Impl<Structure> pvd) {
-
-	}
-
 	public static TagKey<Block> block(String id) {
 		return TagKey.create(Registries.BLOCK, GlimmeringTales.loc(id));
 	}
@@ -82,10 +76,6 @@ public class GTTagGen {
 
 	public static TagKey<Item> item(String id) {
 		return TagKey.create(Registries.ITEM, GlimmeringTales.loc(id));
-	}
-
-	public static TagKey<Structure> structure(String id) {
-		return TagKey.create(Registries.STRUCTURE, GlimmeringTales.loc(id));
 	}
 
 }

@@ -64,6 +64,7 @@ public class NatureSpellGenRegistry {
 		LIST.addAll(List.of(
 				FlamePentagram.HM, FlamePentagram.LB,
 				SnowStorm.WS, SnowStorm.ST,
+				StoneBridge.BUILDER,
 				AmethystPenetration.BUILDER,
 				Earthquake.BUILDER,
 				Thunderstorm.BUILDER

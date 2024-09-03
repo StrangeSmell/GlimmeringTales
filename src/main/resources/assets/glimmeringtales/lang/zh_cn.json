@@ -87,6 +87,7 @@
   "item.glimmeringtales.hell_mark": "符石: 狱火烙印",
   "item.glimmeringtales.snow_tornado": "符石: 暴雪旋风",
   "item.glimmeringtales.winter_storm": "符石: 凛冬风暴",
+  "item.glimmeringtales.stone_bridge": "符石: 岩桥",
   "item.glimmeringtales.amethyst_penetration": "符石: 紫晶弧",
   "item.glimmeringtales.earthquake": "符石: 破岩波",
   "item.glimmeringtales.thunderstorm": "符石: 召雷环",
@@ -163,6 +164,7 @@
   "spell_action.glimmeringtales.lava_burst": "地层熔毁",
   "spell_action.glimmeringtales.snow_tornado": "暴雪旋风",
   "spell_action.glimmeringtales.winter_storm": "凛冬风暴",
+  "spell_action.glimmeringtales.stone_bridge": "岩桥",
   "spell_action.glimmeringtales.amethyst_penetration": "紫晶弧",
   "spell_action.glimmeringtales.earthquake": "破岩波",
   "spell_action.glimmeringtales.thunderstorm": "召雷环",
@@ -266,5 +268,9 @@
   "nature_spell.glimmeringtales.sponge.brief": "[Block] Absorb water nearby",
   "nature_spell.glimmeringtales.sponge.detail": "Absorb water nearby, equivalent to range of water",
   "nature_spell.glimmeringtales.thunderstorm.brief": "[Ranged] Create a thunderstorm striking entities",
-  "nature_spell.glimmeringtales.thunderstorm.detail": "Create a lightning strike on all entities in target area, inflicting %s multiple times"
+  "nature_spell.glimmeringtales.thunderstorm.detail": "Create a lightning strike on all entities in target area, inflicting %s multiple times",
+  "nature_spell.glimmeringtales.stone_bridge.brief": "[Forward] Create a temporary stone bridge",
+  "nature_spell.glimmeringtales.stone_bridge.detail": "Create a stone bridge extending forward lasting for 5 seconds",
+  "patchouli.glimmeringtales.landing": "Welcome to Glimmering Tales, a nature-themed magic mod",
+  "patchouli.glimmeringtales.title": "Glimmering Tales Guide"
 }
