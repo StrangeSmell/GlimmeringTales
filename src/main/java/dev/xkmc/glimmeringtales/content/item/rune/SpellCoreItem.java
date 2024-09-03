@@ -51,12 +51,12 @@ public class SpellCoreItem extends LightningImmuneItem implements IBlockSpellIte
 	@Override
 	public SpellInfo getSpellInfo(Player player) {
 		var ctx = BlockSpellContext.blockSpellContext(player, range());
-		if (ctx == null) return SpellInfo.empty();
+		if (ctx == null) return SpellInfo.EMPTY;
 		var spell = GTRegistries.BLOCK.get(player.level().registryAccess(), ctx.state().getBlockHolder());
-		if (spell == null) return SpellInfo.empty();
+		if (spell == null) return SpellInfo.EMPTY;
 		var nature = spell.spell().value();
 		var aff = getAffinity(player.level());
-		if (aff == null || !aff.affinity().containsKey(nature.elem())) return SpellInfo.empty();
+		if (aff == null || !aff.affinity().containsKey(nature.elem())) return SpellInfo.EMPTY;
 		return SpellInfo.ofBlock(spell, aff);
 	}
 

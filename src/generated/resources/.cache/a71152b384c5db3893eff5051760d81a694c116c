@@ -1,4 +1,4 @@
-// 1.21.1	2024-09-03T10:39:48.334848	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Patchouli Provider, Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
+// 1.21.1	2024-09-03T20:02:11.061417	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
 f628b87d75a2e2a6c5157d17ef22b26cb8b260eb assets/glimmeringtales/blockstates/bamboo.json
 4132de47f0c0e042aadf759876c94ea0a1d95cd2 assets/glimmeringtales/blockstates/clay_carpet.json
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
@@ -212,6 +212,7 @@ a7242f01a97dc909781cf8eebc9c7132ba2b09d7 data/glimmeringtales/advancement/recipe
 13fddd301b48fbc857204d6526a2706a9e316a9a data/glimmeringtales/advancement/recipes/simple_ritual/soul_sand.json
 91f958df1adc94018809263748fcdc0f04898d51 data/glimmeringtales/advancement/recipes/simple_ritual/sponge.json
 4a44b71e07769b979bac376cbfd3cb2df03f054e data/glimmeringtales/advancement/recipes/simple_ritual/stone.json
+ed363ecf7184b25383d5c4b88041c888961283a3 data/glimmeringtales/advancement/recipes/simple_ritual/stone_bridge.json
 a971f21687aa08bb116d0939161d91c541e7c6cc data/glimmeringtales/advancement/recipes/simple_ritual/thunder.json
 2d64c6a257760b7aa4219313d30d8638d9a4acf6 data/glimmeringtales/advancement/recipes/simple_ritual/thunderstorm.json
 46de7f5cd119afb4cbc4e2415a8014de1fd95cbc data/glimmeringtales/advancement/recipes/simple_ritual/vine.json
@@ -320,9 +321,9 @@ d4ea480e29402ed43b0fa01aea260e3fe7357510 data/glimmeringtales/glimmeringtales/sp
 4360086b476a3a290d3b4815a6176dc80fcc4fb3 data/glimmeringtales/glimmeringtales/spell/earthquake.json
 b0907cd913bf01615e372cc11a5615c7dac2d675 data/glimmeringtales/glimmeringtales/spell/flower.json
 45821a5ddbc0b974fe0c2e82de26f3576c3203c8 data/glimmeringtales/glimmeringtales/spell/gravel.json
-0bc3db8c6084c354e1a98f52d78a2000bbfe59ec data/glimmeringtales/glimmeringtales/spell/hell_mark.json
+df76b5945303dd5c274e50c75426556c99f6b6bd data/glimmeringtales/glimmeringtales/spell/hell_mark.json
 09badf314ef5db5960d3dd1ab26be2fab51dc529 data/glimmeringtales/glimmeringtales/spell/ice.json
-8459764478753815645dad713029e01112b8b9b4 data/glimmeringtales/glimmeringtales/spell/lava_burst.json
+44e99c130cb4defe10a752895be041012b368c7b data/glimmeringtales/glimmeringtales/spell/lava_burst.json
 73fbe36d8b294247801a5c411d1286f788c7e25a data/glimmeringtales/glimmeringtales/spell/magma.json
 4867ef5c315158ce8588efa5bb9680625df735b9 data/glimmeringtales/glimmeringtales/spell/netherrack.json
 80cf1c69041f0d28523fbd970a82530c82692d16 data/glimmeringtales/glimmeringtales/spell/packed_ice.json
@@ -331,7 +332,7 @@ da4812dc260360330aa8d30dac843a27130a4be1 data/glimmeringtales/glimmeringtales/sp
 ea4ee0ad6aaad16c9203f31b8b4e4cbbc362a34a data/glimmeringtales/glimmeringtales/spell/quartz.json
 8d9ad76fb52945dad7629170b0a07a99045a83a2 data/glimmeringtales/glimmeringtales/spell/sand.json
 e0d5645468ddab833dd96af6c2d43b002581a119 data/glimmeringtales/glimmeringtales/spell/snow.json
-40386e1769608e14350b029ad3522ccd30c2d918 data/glimmeringtales/glimmeringtales/spell/snow_tornado.json
+cc0f0e7cdfacef8d8045f438f6201a17f5231c5f data/glimmeringtales/glimmeringtales/spell/snow_tornado.json
 20f93aed0bff12c5e8ccde5441c945de23e18652 data/glimmeringtales/glimmeringtales/spell/soul_sand.json
 3227b9dfddd4eaa194285a7b247bb333d0bc468f data/glimmeringtales/glimmeringtales/spell/sponge.json
 aeadfbfd4d17fa20f5b9f1374a6d24ddab5da445 data/glimmeringtales/glimmeringtales/spell/stone.json
@@ -339,7 +340,7 @@ e89f5a5b9818e5085031f1f56a167704641b1ce5 data/glimmeringtales/glimmeringtales/sp
 50357e97e78bde791c8e11e18211eaa7e0620f46 data/glimmeringtales/glimmeringtales/spell/thunder.json
 d4026cf5683b3c09999744ada2638269108bc2d8 data/glimmeringtales/glimmeringtales/spell/thunderstorm.json
 88216a68b241a0b70162e51304e8caeadab45d8e data/glimmeringtales/glimmeringtales/spell/vine.json
-e8c02feeef3cf61d4842327638d6a638805c42df data/glimmeringtales/glimmeringtales/spell/winter_storm.json
+483085923696f4a2ee4a8b925932a1f8bd24bf51 data/glimmeringtales/glimmeringtales/spell/winter_storm.json
 ec4117432860f593478ec88f7ad4ee28c1d004ba data/glimmeringtales/l2magic/projectile/amethyst.json
 42e4d7ce997a620b209c103af63c04bfcfcfcbb8 data/glimmeringtales/l2magic/projectile/amethyst_penetration.json
 69adf6efbb9fe56dd751af3a9a7c0d6d6f22776e data/glimmeringtales/l2magic/projectile/cactus.json
@@ -440,6 +441,7 @@ a59693bc2d54d7f1b03d4034b4eae5a183d525e0 data/glimmeringtales/recipe/recipes/sim
 d5edb5de7903ff68e95d5b65ad5b67d7b1a0ee1d data/glimmeringtales/recipe/recipes/simple_ritual/soul_sand.json
 9eaead6472fb3d51a80ea92c428cd030769b6cfb data/glimmeringtales/recipe/recipes/simple_ritual/sponge.json
 1e118a219b82ae14dc20d934ab37504b9f2359e8 data/glimmeringtales/recipe/recipes/simple_ritual/stone.json
+267c993baeaeb634fbbfd54cca2873c274dcb67c data/glimmeringtales/recipe/recipes/simple_ritual/stone_bridge.json
 245215ffa2185e41c3fc172830f50c9e85763c11 data/glimmeringtales/recipe/recipes/simple_ritual/thunder.json
 30ac70fbfba8b6e6a09f85492f55c4f7ae6abadd data/glimmeringtales/recipe/recipes/simple_ritual/thunderstorm.json
 1116717fbd34356198c5e2a06a146dcb758a89fa data/glimmeringtales/recipe/recipes/simple_ritual/vine.json

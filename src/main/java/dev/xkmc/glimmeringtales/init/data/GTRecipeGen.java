@@ -429,6 +429,11 @@ public class GTRecipeGen {
 					.side(Items.SNOW_BLOCK, 4)
 					.save(pvd);
 
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.STONE_BRIDGE)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
+					.side(GTItems.RUNE_STONE, 1)
+					.side(Items.STONE, 7)
+					.save(pvd);
+
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.AMETHYST_PENETRATION)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
 					.side(GTItems.RUNE_AMETHYST, 4)
 					.side(LCItems.EXPLOSION_SHARD, 4)

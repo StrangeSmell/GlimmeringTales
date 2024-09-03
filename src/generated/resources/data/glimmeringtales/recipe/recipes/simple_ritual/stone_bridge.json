@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_earth"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:stone_bridge"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:stone"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:stone"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:stone"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:stone"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:stone"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:stone"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:stone"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:stone"
+      }
+    }
+  ],
+  "time": 100
+}
