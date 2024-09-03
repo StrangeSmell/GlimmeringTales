@@ -1,0 +1,23 @@
+{
+  "cost": 5,
+  "elem": "glimmeringtales:ocean",
+  "focus": 3,
+  "maxConsumeTick": 0,
+  "spell": "glimmeringtales:ocean_shelter",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      },
+      {
+        "id": "l2magic:effect",
+        "reg": "l2magic:processor"
+      },
+      {
+        "id": "l2magic:effect",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
+}

@@ -94,7 +94,8 @@ public class GTItems {
 
 	public static final VarHolder<SpellRuneItem>
 			HELL_MARK, LAVA_BURST, WINTER_STORM, SNOW_TORNADO,
-			STONE_BRIDGE, AMETHYST_PENETRATION, EARTHQUAKE, THUNDERSTORM;
+			STONE_BRIDGE, AMETHYST_PENETRATION, EARTHQUAKE,
+			OCEAN_SHELTER, THUNDERSTORM;
 
 	public static final BlockEntry<DelegateBlock> CLAY_CARPET, FAKE_STONE,
 			MAGMA_STONE, MAGMA_DEEPSLATE, MAGMA_NETHERRACK;
@@ -390,6 +391,7 @@ public class GTItems {
 			STONE_BRIDGE = spell("stone_bridge");
 			AMETHYST_PENETRATION = spell("amethyst_penetration");
 			EARTHQUAKE = spell("earthquake");
+			OCEAN_SHELTER = spell("ocean_shelter");
 			THUNDERSTORM = spell("thunderstorm");
 		}
 

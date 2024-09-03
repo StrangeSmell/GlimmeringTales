@@ -91,6 +91,7 @@
   "item.glimmeringtales.amethyst_penetration": "符石: 紫晶弧",
   "item.glimmeringtales.earthquake": "符石: 破岩波",
   "item.glimmeringtales.thunderstorm": "符石: 召雷环",
+  "item.glimmeringtales.ocean_shelter": "符石: 深海守护",
 
   "block.glimmeringtales.struck_log": "雷焰木",
   "block.glimmeringtales.ritual_altar": "仪式祭坛",
@@ -168,6 +169,7 @@
   "spell_action.glimmeringtales.amethyst_penetration": "紫晶弧",
   "spell_action.glimmeringtales.earthquake": "破岩波",
   "spell_action.glimmeringtales.thunderstorm": "召雷环",
+  "spell_action.glimmeringtales.ocean_shelter": "深海守护",
 
   "glimmeringtales.configuration.title": "微光纪事 - 配置",
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.client.toml": "微光纪事 - 客户端配置",
@@ -259,6 +261,8 @@
   "death.attack.glimmeringtales.coral_reef.player": "%s is drowned by %s's coral magic",
   "death.attack.glimmeringtales.earthquake": "%s is killed by earthquake",
   "death.attack.glimmeringtales.earthquake.player": "%s is killed by %s using earthquake",
+  "death.attack.glimmeringtales.ocean_shelter": "%s is drowned by magical bubbles",
+  "death.attack.glimmeringtales.ocean_shelter.player": "%s is drowned by %s with magical bubbles",
   "nature_spell.glimmeringtales.amethyst_penetration.brief": "[Forward] Shoot several amethyst shards forward",
   "nature_spell.glimmeringtales.amethyst_penetration.detail": "Shoot amethyst shards in a fan area in front of you, dealing %s and stack %s",
   "nature_spell.glimmeringtales.coral_reef.brief": "[Block] Create bubbles to attack nearby entities",
@@ -271,6 +275,8 @@
   "nature_spell.glimmeringtales.thunderstorm.detail": "Create a lightning strike on all entities in target area, inflicting %s multiple times",
   "nature_spell.glimmeringtales.stone_bridge.brief": "[Forward] Create a temporary stone bridge",
   "nature_spell.glimmeringtales.stone_bridge.detail": "Create a stone bridge extending forward lasting for 5 seconds",
+  "nature_spell.glimmeringtales.ocean_shelter.brief": "[Continuous] Shoot bubbles that hurt enemies and heal allies",
+  "nature_spell.glimmeringtales.ocean_shelter.detail": "Continuously shoot bubbles forward lasting 5 seconds, dealing %s, inflict %s to enemies, and give %s to allies",
   "patchouli.glimmeringtales.landing": "Welcome to Glimmering Tales, a nature-themed magic mod",
   "patchouli.glimmeringtales.title": "Glimmering Tales Guide"
 }

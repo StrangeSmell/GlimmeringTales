@@ -46,24 +46,26 @@ public record SpellTooltipData(ArrayList<Entry> list) {
 	}
 
 	public Component format(ResourceLocation rl, SpellTooltip data) {
+		SpellDataStack stack = data.asStack();
 		Object[] objs = new Object[list.size()];
 		for (int i = 0; i < list.size(); i++) {
-			objs[i] = format(list.get(i).type(), data);
+			objs[i] = format(list.get(i).type(), stack);
 		}
 		return Component.translatable(detail(rl), objs).withStyle(ChatFormatting.GRAY);
 	}
 
 	public void brief(ResourceLocation rl, List<Component> ans, SpellTooltip data) {
+		SpellDataStack stack = data.asStack();
 		ans.add(Component.empty());
 		ans.add(Component.translatable(brief(rl)).withStyle(ChatFormatting.GRAY));
 		for (var e : list()) {
-			ans.add(Component.literal("=> ").append(format(e.type(), data)).withStyle(ChatFormatting.GRAY));
+			ans.add(Component.literal("=> ").append(format(e.type(), stack)).withStyle(ChatFormatting.GRAY));
 		}
 	}
 
-	public static <T extends IExtended<T>> Component format(ExtensionHolder<T> type, SpellTooltip data) {
+	public static <T extends IExtended<T>> Component format(ExtensionHolder<T> type, SpellDataStack data) {
 		var ext = type.get(Component.class);
-		return ext == null ? Component.literal("???") : ext.process(data.get(type).getFirst());
+		return ext == null ? Component.literal("???") : ext.process(data.get(type));
 	}
 
 	public record Entry(ResourceLocation reg, ResourceLocation id) {

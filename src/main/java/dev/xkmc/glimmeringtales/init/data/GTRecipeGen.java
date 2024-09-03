@@ -446,6 +446,14 @@ public class GTRecipeGen {
 					.side(Items.ANVIL, 4)
 					.save(pvd);
 
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_OCEAN, GTItems.OCEAN_SHELTER)::unlockedBy, GTItems.CRYSTAL_OCEAN.get())
+					.side(GTItems.RUNE_CORAL_REEF, 1)
+					.side(GTItems.RUNE_SPONGE, 1)
+					.side(GTItems.RUNE_FLOWER, 1)
+					.side(GTItems.RUNE_VINE, 1)
+					.side(Items.SEA_LANTERN, 4)
+					.save(pvd);
+
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_THUNDER, GTItems.THUNDERSTORM)::unlockedBy, GTItems.CRYSTAL_THUNDER.get())
 					.side(GTItems.RUNE_ICE, 1)
 					.side(GTItems.RUNE_CORAL_REEF, 1)

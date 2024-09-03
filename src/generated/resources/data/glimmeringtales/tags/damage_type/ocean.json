@@ -1,8 +1,12 @@
 {
   "values": [
     "glimmeringtales:coral_reef",
+    "glimmeringtales:ocean_shelter",
     "glimmeringtales:coral_reef-magic",
     "glimmeringtales:coral_reef-bypass_magic",
-    "glimmeringtales:coral_reef-bypass_magic-magic"
+    "glimmeringtales:coral_reef-bypass_magic-magic",
+    "glimmeringtales:ocean_shelter-magic",
+    "glimmeringtales:ocean_shelter-bypass_magic",
+    "glimmeringtales:ocean_shelter-bypass_magic-magic"
   ]
 }

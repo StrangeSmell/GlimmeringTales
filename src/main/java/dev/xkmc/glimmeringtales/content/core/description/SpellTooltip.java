@@ -78,11 +78,6 @@ public class SpellTooltip {
 		}
 	}
 
-	public <T extends IExtended<T>> List<T> get(ExtensionHolder<T> type) {
-		var ans = map.get(type);
-		return ans == null ? List.of() : Wrappers.cast(ans);
-	}
-
 	public Component format(ResourceKey<NatureSpell> key) {
 		return components.format(key.location(), this);
 	}
@@ -92,11 +87,20 @@ public class SpellTooltip {
 	}
 
 	public void verify() {
+		SpellDataStack stack = asStack();
 		for (int i = 0; i < components.list().size(); i++) {
 			var type = components.list().get(i).type();
 			var ext = type.get(Component.class);
-			ext.process(Wrappers.cast(get(type).getFirst()));
+			ext.process(Wrappers.cast(stack.get(type)));
 		}
+	}
+
+	public SpellDataStack asStack() {
+		LinkedHashMap<ExtensionHolder<?>, Queue<IExtended<?>>> ans = new LinkedHashMap<>();
+		for (var ent : map.entrySet()) {
+			ans.put(ent.getKey(), new ArrayDeque<>(ent.getValue()));
+		}
+		return new SpellDataStack(ans);
 	}
 
 }

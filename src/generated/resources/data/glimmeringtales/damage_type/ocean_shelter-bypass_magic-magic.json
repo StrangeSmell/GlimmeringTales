@@ -1,0 +1,6 @@
+{
+  "effects": "drowning",
+  "exhaustion": 0.1,
+  "message_id": "glimmeringtales.ocean_shelter",
+  "scaling": "when_caused_by_living_non_player"
+}

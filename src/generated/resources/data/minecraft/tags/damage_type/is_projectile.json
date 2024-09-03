@@ -6,11 +6,13 @@
     "glimmeringtales:gravel",
     "glimmeringtales:cactus",
     "glimmeringtales:amethyst_penetration",
+    "glimmeringtales:ocean_shelter",
     "glimmeringtales:amethyst-bypass_magic",
     "glimmeringtales:amethyst_penetration-bypass_magic",
     "glimmeringtales:cactus-bypass_magic",
     "glimmeringtales:dripstone-bypass_magic",
     "glimmeringtales:gravel-bypass_magic",
+    "glimmeringtales:ocean_shelter-bypass_magic",
     "glimmeringtales:sand-bypass_magic"
   ]
 }

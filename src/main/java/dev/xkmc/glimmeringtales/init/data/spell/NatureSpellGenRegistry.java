@@ -62,11 +62,14 @@ public class NatureSpellGenRegistry {
 
 		// advanced
 		LIST.addAll(List.of(
-				FlamePentagram.HM, FlamePentagram.LB,
-				SnowStorm.WS, SnowStorm.ST,
+				FlamePentagram.HELL_MARK,
+				FlamePentagram.LAVA_BURST,
+				SnowStorm.WINTER_STORM,
+				SnowStorm.SNOW_TORNADO,
 				StoneBridge.BUILDER,
 				AmethystPenetration.BUILDER,
 				Earthquake.BUILDER,
+				OceanShelter.BUILDER,
 				Thunderstorm.BUILDER
 		));
 	}
