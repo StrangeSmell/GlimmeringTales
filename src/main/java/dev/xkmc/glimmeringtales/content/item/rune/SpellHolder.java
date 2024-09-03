@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.content.item.rune;
 
+import dev.xkmc.glimmeringtales.content.core.spell.DefaultAffinity;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.item.wand.ISpellHolder;
 import dev.xkmc.glimmeringtales.content.item.wand.SpellCastContext;

@@ -61,10 +61,13 @@ public class RuneSwapType extends MatcherSwapType {
 				};
 				box.renderLongText(ctx.font(), List.of(core.getHoverName()));
 				if (core.getItem() instanceof IWandCoreItem item) {
-					TextBox desc = i <= 5 ?
-							new TextBox(ctx.g(), 0, 1, 20, h / 2, w / 4) :
-							new TextBox(ctx.g(), 2, 1, w - 20, h / 2, w / 4);
-					desc.renderLongText(ctx.font(), item.getCastTooltip(player, wand, core));
+					var text = item.getSpellInfo(player).getCastTooltip(player, wand, core);
+					if (!text.isEmpty()) {
+						TextBox desc = i <= 5 ?
+								new TextBox(ctx.g(), 0, 1, 20, h / 2, w / 4) :
+								new TextBox(ctx.g(), 2, 1, w - 20, h / 2, w / 4);
+						desc.renderLongText(ctx.font(), text);
+					}
 				}
 			}
 		}

@@ -1,7 +1,4 @@
-package dev.xkmc.glimmeringtales.content.item.rune;
-
-import dev.xkmc.glimmeringtales.content.core.spell.IAffinityProvider;
-import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
+package dev.xkmc.glimmeringtales.content.core.spell;
 
 public record DefaultAffinity() implements IAffinityProvider {
 

@@ -1,9 +1,7 @@
 package dev.xkmc.glimmeringtales.content.core.spell;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltip;
-import dev.xkmc.glimmeringtales.content.item.rune.DefaultAffinity;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
-import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;

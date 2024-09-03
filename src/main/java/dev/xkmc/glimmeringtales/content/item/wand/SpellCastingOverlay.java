@@ -45,7 +45,7 @@ public class SpellCastingOverlay implements LayeredDraw.Layer {
 			var core = RuneWandItem.getCore(wand);
 			var cost = SpellCost.ZERO;
 			if (core.getItem() instanceof IWandCoreItem item) {
-				cost = item.getCost(player, wand, core);
+				cost = item.getSpellInfo(player).getCost(player, wand);
 			}
 			blitSprite(g, cost.focus() > valFocus ? RED : BAR, 0, 0, x0 - W / 2, y0 - H / 2, (float) (valFocus / maxFocus), .5f);
 			blitSprite(g, cost.mana() > valMana ? RED : BAR, 0, .5f, x0 - W / 2, y0 - H / 2 + 1, (float) (valMana / maxMana), .5f);
