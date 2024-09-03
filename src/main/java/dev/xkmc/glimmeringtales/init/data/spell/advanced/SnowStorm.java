@@ -70,7 +70,7 @@ public class SnowStorm {
 				new PredicateLogic(
 						BooleanVariable.of("TickUsing%2==0"),
 						new SoundInstance(
-								SoundEvents.SNOW_HIT,
+								SoundEvents.BREEZE_IDLE_GROUND,
 								DoubleVariable.of("1"),
 								DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
 						), null
@@ -132,7 +132,7 @@ public class SnowStorm {
 				new PredicateLogic(
 						BooleanVariable.of("TickUsing%2==0"),
 						new SoundInstance(
-								SoundEvents.SNOW_PLACE,
+								SoundEvents.BREEZE_SLIDE,
 								DoubleVariable.of("1"),
 								DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
 						), null
