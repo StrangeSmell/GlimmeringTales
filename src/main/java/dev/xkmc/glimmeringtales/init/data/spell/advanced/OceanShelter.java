@@ -1,9 +1,11 @@
 package dev.xkmc.glimmeringtales.init.data.spell.advanced;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
-import dev.xkmc.glimmeringtales.content.engine.processor.PassiveHealInstnace;
+import dev.xkmc.glimmeringtales.content.engine.filter.InvulFrameFilter;
+import dev.xkmc.glimmeringtales.content.engine.processor.PassiveHealProcessor;
 import dev.xkmc.glimmeringtales.content.engine.render.AnimatedRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.glimmeringtales.init.data.GTDamageTypeGen;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.reg.GTEngine;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
@@ -14,6 +16,7 @@ import dev.xkmc.l2magic.content.engine.logic.ProcessorEngine;
 import dev.xkmc.l2magic.content.engine.modifier.RotationModifier;
 import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.processor.EffectProcessor;
+import dev.xkmc.l2magic.content.engine.processor.FilteredProcessor;
 import dev.xkmc.l2magic.content.engine.selector.BoxSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
 import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
@@ -28,7 +31,6 @@ import dev.xkmc.l2magic.content.entity.motion.SimpleMotion;
 import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageEffects;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffects;
@@ -43,9 +45,9 @@ public class OceanShelter {
 			.damageCustom(msg -> new DamageType(msg, 0.1f, DamageEffects.DROWNING),
 					"%s is drowned by magical bubbles",
 					"%s is drowned by %s with magical bubbles",
-					DamageTypeTags.IS_PROJECTILE)
+					GTDamageTypeGen.magic())
 			.projectile(OceanShelter::proj)
-			.spell(ctx -> new SpellAction(gen(ctx), GTItems.AMETHYST_PENETRATION.get(),
+			.spell(ctx -> new SpellAction(gen(ctx), GTItems.OCEAN_SHELTER.get(),
 					2000, SpellCastType.CONTINUOUS, SpellTriggerType.FACING_FRONT))
 			.lang("Ocean Shelter").desc(
 					"[Continuous] Shoot bubbles that hurt enemies and heal allies",
@@ -53,7 +55,7 @@ public class OceanShelter {
 					SpellTooltipData.of(EngineRegistry.DAMAGE, EngineRegistry.EFFECT, GTEngine.HEAL, EngineRegistry.EFFECT)
 			);
 
-	private static final DoubleVariable DMG = DoubleVariable.of("8");
+	private static final DoubleVariable DMG = DoubleVariable.of("4");
 	private static final ResourceLocation TEX = GlimmeringTales.loc("textures/spell/bubble.png");
 
 	public static ProjectileConfig proj(NatureSpellBuilder ctx) {
@@ -62,16 +64,19 @@ public class OceanShelter {
 						new ProcessorEngine(
 								SelectionType.ENEMY_NO_FAMILY,
 								new BoxSelector(DoubleVariable.of("1"), DoubleVariable.of("1"), true),
-								List.of(
-										new DamageProcessor(ctx.damage(), DMG, true, true),
-										new EffectProcessor(MobEffects.WEAKNESS, IntVariable.of("100"), IntVariable.of("1"), true, true)
-								)
+								List.of(new FilteredProcessor(
+										new InvulFrameFilter(IntVariable.of("5")),
+										List.of(
+												new DamageProcessor(ctx.damage(), DMG, true, true),
+												new EffectProcessor(MobEffects.WEAKNESS, IntVariable.of("100"), IntVariable.of("1"), true, true)),
+										List.of()
+								))
 						),
 						new ProcessorEngine(
 								SelectionType.ALLY_AND_FAMILY,
 								new BoxSelector(DoubleVariable.of("1"), DoubleVariable.of("1"), true),
 								List.of(
-										new PassiveHealInstnace(IntVariable.of("10"), DoubleVariable.of("1")),
+										new PassiveHealProcessor(IntVariable.of("10"), DoubleVariable.of("1")),
 										new EffectProcessor(MobEffects.CONDUIT_POWER, IntVariable.of("100"), IntVariable.of("0"), true, true)
 								)
 						)

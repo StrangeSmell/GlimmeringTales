@@ -126,7 +126,7 @@
 
   "glimmeringtales.desc.damage": "伤害",
   "glimmeringtales.desc.damage_number": "%s点",
-  "glimmeringtales.desc.heal": "恢复",
+  "glimmeringtales.desc.heal": "每秒恢复%s",
   "glimmeringtales.desc.hp": "血量",
   "glimmeringtales.desc.fire": "火焰",
   "glimmeringtales.desc.explosion": "爆炸",

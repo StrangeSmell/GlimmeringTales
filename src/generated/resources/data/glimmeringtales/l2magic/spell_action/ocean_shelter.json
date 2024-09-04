@@ -30,7 +30,7 @@
     ]
   },
   "cast_type": "CONTINUOUS",
-  "icon": "glimmeringtales:amethyst_penetration",
+  "icon": "glimmeringtales:ocean_shelter",
   "order": 2000,
   "trigger_type": "FACING_FRONT"
 }

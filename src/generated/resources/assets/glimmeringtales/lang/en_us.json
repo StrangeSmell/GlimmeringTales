@@ -70,7 +70,7 @@
   "glimmeringtales.desc.falling_block": "Falling Block",
   "glimmeringtales.desc.fire": "Fire",
   "glimmeringtales.desc.freezing": "Freezing",
-  "glimmeringtales.desc.heal": "Restore",
+  "glimmeringtales.desc.heal": "Restore %s every second",
   "glimmeringtales.desc.hp": "HP",
   "glimmeringtales.desc.lightning": "Lightning",
   "glimmeringtales.desc.magic": "Magic",

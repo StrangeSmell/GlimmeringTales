@@ -1,7 +1,7 @@
 package dev.xkmc.glimmeringtales.content.core.description;
 
-import dev.xkmc.glimmeringtales.content.engine.processor.LightningInstance;
-import dev.xkmc.glimmeringtales.content.engine.processor.PassiveHealInstnace;
+import dev.xkmc.glimmeringtales.content.engine.instance.LightningInstance;
+import dev.xkmc.glimmeringtales.content.engine.processor.PassiveHealProcessor;
 import dev.xkmc.glimmeringtales.content.engine.processor.StackingEffectProcessor;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.reg.GTEngine;
@@ -131,19 +131,19 @@ public class SpellTooltipRegistry {
 
 	}
 
-	static class HealTooltip extends Tooltip<PassiveHealInstnace> {
+	static class HealTooltip extends Tooltip<PassiveHealProcessor> {
 
 		@Override
-		public Component process(PassiveHealInstnace e) {
+		public Component process(PassiveHealProcessor e) {
 			var dur = e.interval().exp().getAsConstant();
 			var val = e.heal().exp().getAsConstant();
 			MutableComponent comp = GTLang.HP.get();
 			if (dur.isPresent() && val.isPresent()) {
 				int ans = (int) (20 * val.getAsDouble() / dur.getAsDouble());
-				comp = Component.literal(ans + "").withStyle(ChatFormatting.AQUA)
+				comp = Component.empty().append(Component.literal(ans + "").withStyle(ChatFormatting.AQUA))
 						.append(GTLang.DESC_SPACE.get()).append(comp);
 			}
-			return GTLang.DESC_HEAL.get().append(GTLang.DESC_SPACE.get()).append(comp).withStyle(ChatFormatting.GRAY);
+			return GTLang.DESC_HEAL.get(comp).withStyle(ChatFormatting.GRAY);
 		}
 
 	}

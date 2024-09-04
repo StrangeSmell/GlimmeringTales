@@ -1,4 +1,4 @@
-package dev.xkmc.glimmeringtales.content.engine.processor;
+package dev.xkmc.glimmeringtales.content.engine.instance;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

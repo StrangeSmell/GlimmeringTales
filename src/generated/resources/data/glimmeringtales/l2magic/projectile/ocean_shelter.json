@@ -21,19 +21,29 @@
         "type": "l2magic:processor",
         "processors": [
           {
-            "type": "l2magic:damage",
-            "damage": "8",
-            "damage_type": "glimmeringtales:ocean_shelter",
-            "indirect": true,
-            "positioned": true
-          },
-          {
-            "type": "l2magic:effect",
-            "ambient": true,
-            "amplifier": "1",
-            "duration": "100",
-            "effect": "minecraft:weakness",
-            "visible": true
+            "type": "l2magic:filtered",
+            "action": [
+              {
+                "type": "l2magic:damage",
+                "damage": "4",
+                "damage_type": "glimmeringtales:ocean_shelter",
+                "indirect": true,
+                "positioned": true
+              },
+              {
+                "type": "l2magic:effect",
+                "ambient": true,
+                "amplifier": "1",
+                "duration": "100",
+                "effect": "minecraft:weakness",
+                "visible": true
+              }
+            ],
+            "fallback": [],
+            "filter": {
+              "type": "glimmeringtales:invulnerability_frame",
+              "frame": "5"
+            }
           }
         ],
         "selector": {

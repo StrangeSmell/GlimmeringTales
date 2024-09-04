@@ -12,18 +12,18 @@ import net.minecraft.world.entity.LivingEntity;
 
 import java.util.Collection;
 
-public record PassiveHealInstnace(
+public record PassiveHealProcessor(
 		IntVariable interval,
 		DoubleVariable heal
-) implements SimpleServerProcessor<PassiveHealInstnace> {
+) implements SimpleServerProcessor<PassiveHealProcessor> {
 
-	public static final MapCodec<PassiveHealInstnace> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
+	public static final MapCodec<PassiveHealProcessor> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
 			IntVariable.codec("interval", e -> e.interval),
 			DoubleVariable.codec("heal", e -> e.heal)
-	).apply(i, PassiveHealInstnace::new));
+	).apply(i, PassiveHealProcessor::new));
 
 	@Override
-	public ProcessorType<PassiveHealInstnace> type() {
+	public ProcessorType<PassiveHealProcessor> type() {
 		return GTEngine.HEAL.get();
 	}
 

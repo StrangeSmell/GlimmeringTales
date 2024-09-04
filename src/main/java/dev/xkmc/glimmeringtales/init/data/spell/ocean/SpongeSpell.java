@@ -3,7 +3,7 @@ package dev.xkmc.glimmeringtales.init.data.spell.ocean;
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
-import dev.xkmc.glimmeringtales.content.engine.processor.RemoveLiquidInstance;
+import dev.xkmc.glimmeringtales.content.engine.instance.RemoveLiquidInstance;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;

@@ -25,7 +25,7 @@ public enum GTLang {
 	OVERLAY_FOCUS("overlay.focus", "Focus: %s / %s", 2),
 
 	DESC_DAMAGE("desc.damage", "Damage", 0),
-	DESC_HEAL("desc.heal", "Restore", 0),
+	DESC_HEAL("desc.heal", "Restore %s every second", 1),
 	HP("desc.hp", "HP", 0),
 	DESC_FIRE("desc.fire", "Fire", 0),
 	DESC_EXPLOSION("desc.explosion", "Explosion", 0),

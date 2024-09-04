@@ -3,7 +3,7 @@ package dev.xkmc.glimmeringtales.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.xkmc.glimmeringtales.content.engine.processor.LightningInstance;
+import dev.xkmc.glimmeringtales.content.engine.instance.LightningInstance;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
