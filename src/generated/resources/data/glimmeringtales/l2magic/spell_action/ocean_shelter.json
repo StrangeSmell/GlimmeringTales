@@ -15,7 +15,7 @@
           "bypassEntity": true,
           "bypassWall": false,
           "config": "glimmeringtales:ocean_shelter",
-          "life": "rand(180,220)",
+          "life": "rand(90,110)",
           "params": {},
           "speed": "rand(0.38,0.42)"
         },

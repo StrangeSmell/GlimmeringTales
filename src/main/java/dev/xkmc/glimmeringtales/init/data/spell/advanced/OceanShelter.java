@@ -1,9 +1,11 @@
 package dev.xkmc.glimmeringtales.init.data.spell.advanced;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
+import dev.xkmc.glimmeringtales.content.engine.processor.PassiveHealInstnace;
 import dev.xkmc.glimmeringtales.content.engine.render.AnimatedRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
+import dev.xkmc.glimmeringtales.init.reg.GTEngine;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
@@ -23,7 +25,6 @@ import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import dev.xkmc.l2magic.content.entity.core.ProjectileConfig;
 import dev.xkmc.l2magic.content.entity.engine.CustomProjectileShoot;
 import dev.xkmc.l2magic.content.entity.motion.SimpleMotion;
-import dev.xkmc.l2magic.content.entity.renderer.OrientedRenderData;
 import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -48,8 +49,8 @@ public class OceanShelter {
 					2000, SpellCastType.CONTINUOUS, SpellTriggerType.FACING_FRONT))
 			.lang("Ocean Shelter").desc(
 					"[Continuous] Shoot bubbles that hurt enemies and heal allies",
-					"Continuously shoot bubbles forward lasting 5 seconds, dealing %s, inflict %s to enemies, and give %s to allies",
-					SpellTooltipData.of(EngineRegistry.DAMAGE, EngineRegistry.EFFECT, EngineRegistry.EFFECT)
+					"Continuously shoot bubbles forward lasting 5 seconds. Bubble deals %s and inflicts %s to enemies. Bubble %s and gives %s to allies",
+					SpellTooltipData.of(EngineRegistry.DAMAGE, EngineRegistry.EFFECT, GTEngine.HEAL, EngineRegistry.EFFECT)
 			);
 
 	private static final DoubleVariable DMG = DoubleVariable.of("8");
@@ -70,13 +71,14 @@ public class OceanShelter {
 								SelectionType.ALLY_AND_FAMILY,
 								new BoxSelector(DoubleVariable.of("1"), DoubleVariable.of("1"), true),
 								List.of(
+										new PassiveHealInstnace(IntVariable.of("10"), DoubleVariable.of("1")),
 										new EffectProcessor(MobEffects.CONDUIT_POWER, IntVariable.of("100"), IntVariable.of("0"), true, true)
 								)
 						)
 				)))
 				.size(DoubleVariable.of("0.25"))
 				.motion(new SimpleMotion(DoubleVariable.of("0.04"), DoubleVariable.ZERO))
-				.renderer(new AnimatedRenderData(TEX))
+				.renderer(new AnimatedRenderData(TEX, 0.3, 4))
 				.build();
 	}
 
@@ -90,7 +92,7 @@ public class OceanShelter {
 				new CustomProjectileShoot(
 						DoubleVariable.of("rand(0.38,0.42)"),
 						ctx.proj,
-						IntVariable.of("rand(180,220)"),
+						IntVariable.of("rand(90,110)"),
 						false, true,
 						Map.of()
 				).move(RotationModifier.of("rand(-3,3)", "rand(-3,3)"))

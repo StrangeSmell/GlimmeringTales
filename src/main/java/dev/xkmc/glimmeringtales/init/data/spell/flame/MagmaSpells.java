@@ -30,7 +30,7 @@ public class MagmaSpells {
 					(b, e) -> b.add(GTTagGen.FAKE_MAGMA, BlockSpell.of(e))
 			).lang("Meltdown").desc(
 					"[Block] Melts stones into magma temporarily",
-					"Melts stone, deep slate, and netherrack in a circular area for 5 seconds",
+					"Melts stone, deep slate, and netherrack in a circular area for 10 seconds",
 					SpellTooltipData.of()
 			);
 

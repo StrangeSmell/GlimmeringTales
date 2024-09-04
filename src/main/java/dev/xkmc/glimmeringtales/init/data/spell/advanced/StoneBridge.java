@@ -33,7 +33,7 @@ public class StoneBridge {
 					2000, SpellCastType.INSTANT, SpellTriggerType.HORIZONTAL_FACING)
 			).lang("Stone Bridge").desc(
 					"[Forward] Create a temporary stone bridge",
-					"Create a stone bridge extending forward lasting for 5 seconds",
+					"Create a stone bridge extending forward lasting for 10 seconds",
 					SpellTooltipData.of()
 			);
 

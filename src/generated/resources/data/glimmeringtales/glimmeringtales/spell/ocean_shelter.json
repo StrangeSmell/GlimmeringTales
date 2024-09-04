@@ -15,6 +15,10 @@
         "reg": "l2magic:processor"
       },
       {
+        "id": "glimmeringtales:heal_interval",
+        "reg": "l2magic:processor"
+      },
+      {
         "id": "l2magic:effect",
         "reg": "l2magic:processor"
       }

@@ -30,7 +30,7 @@ public class QuartzSpells {
 					(b, e) -> b.add(GTTagGen.QUARTZ, BlockSpell.of(e)))
 			.lang("Crystalization").desc(
 					"[Block] Create a temorary glass shell",
-					"Create a spherical glass shell lasting for 5 seconds",
+					"Create a spherical glass shell lasting for 10 seconds",
 					SpellTooltipData.of()
 			);
 

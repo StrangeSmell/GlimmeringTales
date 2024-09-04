@@ -29,7 +29,7 @@ public class BambooSpell {
 					(b, e) -> b.add(GTTagGen.BAMBOO, BlockSpell.of(e)))
 			.lang("Bamboo").desc(
 					"[Block] Generate a bamboo cage",
-					"Generate a spherical cage of bamboo lasting 5 seconds",
+					"Generate a spherical cage of bamboo lasting 10 seconds",
 					SpellTooltipData.of()
 			);
 

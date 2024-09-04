@@ -59,6 +59,7 @@ public class GTDamageTypeGen extends DamageTypeAndTagsGen {
 		var root = new DamageTypeRoot(GlimmeringTales.MODID, id, List.of(tags), (type) -> def.get());
 		new DamageTypeHolder(id, def.get()).add(tags);
 		root.add(DefaultDamageState.BYPASS_MAGIC);
+		root.add(DefaultDamageState.BYPASS_COOLDOWN);
 		root.add(GTDamageStates.MAGIC);
 	}
 

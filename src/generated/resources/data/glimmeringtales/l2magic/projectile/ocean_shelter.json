@@ -9,6 +9,8 @@
   "params": [],
   "renderer": {
     "type": "glimmeringtales:animated",
+    "initial": 0.3,
+    "rate": 4.0,
     "texture": "glimmeringtales:textures/spell/bubble.png"
   },
   "size": "0.25",
@@ -45,6 +47,11 @@
       {
         "type": "l2magic:processor",
         "processors": [
+          {
+            "type": "glimmeringtales:heal_interval",
+            "heal": "1",
+            "interval": "10"
+          },
           {
             "type": "l2magic:effect",
             "ambient": true,

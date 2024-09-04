@@ -23,6 +23,7 @@ public class GTEngine {
 
 	public static final Val<ProcessorType<StackingEffectProcessor>> EP_STACK = REG.reg("stacking", () -> StackingEffectProcessor.CODEC);
 	public static final Val<ProcessorType<ProcreationProcessor>> PROCREATION = REG.reg("procreation", () -> ProcreationProcessor.CODEC);
+	public static final Val<ProcessorType<PassiveHealInstnace>> HEAL = REG.reg("heal_interval", () -> PassiveHealInstnace.CODEC);
 
 	public static final Val<ProjectileRenderType<VerticalRenderData>> PR_VERTICAL = REG.reg("vertical", () -> VerticalRenderData.CODEC);
 	public static final Val<ProjectileRenderType<CrossRenderData>> PR_CROSS = REG.reg("cross", () -> CrossRenderData.CODEC);

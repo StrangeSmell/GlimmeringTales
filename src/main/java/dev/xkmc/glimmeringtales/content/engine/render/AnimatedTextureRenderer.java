@@ -9,7 +9,8 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.resources.ResourceLocation;
 
 public record AnimatedTextureRenderer(
-		ResourceLocation texture
+		ResourceLocation texture,
+		double initial, double rate
 ) implements ProjectileRenderer {
 
 	@Override
@@ -22,7 +23,7 @@ public record AnimatedTextureRenderer(
 		pose.pushPose();
 		pose.translate(0.0F, e.getBbHeight() / 2.0F, 0.0F);
 		float p = 1f * e.tickCount / e.lifetime();
-		float scale = 0.3f + 0.7f * Math.min(1, p / 0.25f);
+		float scale = (float) (1 - (1 - initial) * Math.exp(-rate * p));
 		pose.scale(scale, scale, scale);
 		new LMProjectileType(texture).create(r, e, pose, pTick);
 		pose.popPose();

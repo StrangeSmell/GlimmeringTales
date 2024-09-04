@@ -29,7 +29,7 @@ public class StoneSpells {
 					(b, e) -> b.add(GTItems.FAKE_STONE, BlockSpell.of(e))
 			).lang("Stone Cliff").desc(
 					"[Block] Create temporary stone floor",
-					"Create a circular stone floor lasting 5 seconds",
+					"Create a circular stone floor lasting 10 seconds",
 					SpellTooltipData.of()
 			);
 

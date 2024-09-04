@@ -82,7 +82,7 @@ public class GTItems {
 	public static final ItemEntry<RuneWandItem> WAND;
 	public static final ItemEntry<WandHandleItem> WOOD_WAND, LIFE_WAND, GOLD_WAND, OCEAN_WAND;
 
-	public static final ItemEntry<DamageTypeCurioItem> GLOVE_OF_SORCERER, GLOVE_OF_ABYSS;
+	public static final ItemEntry<DamageTypeCurioItem> GLOVE_OF_SORCERER, GLOVE_OF_ABYSS, GLOVE_OF_OCEAN;
 
 	public static final VarHolder<BlockRuneItem>
 			RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE, RUNE_HAYBALE,
@@ -313,6 +313,16 @@ public class GTItems {
 					.dataMap(GTRegistries.ITEM_ATTR.reg(), AttributeData.of(
 							AttributeData.total(GTRegistries.MANA_REGEN, -0.5)
 					)).lang("Glove of Abyss")
+					.register();
+
+			GLOVE_OF_OCEAN = GlimmeringTales.REGISTRATE.item("glove_of_ocean",
+							p -> new DamageTypeCurioItem(p.stacksTo(1).fireResistant(),
+									GTDamageStates.MAGIC, GTLang.TOOLTIP_MAGIC))//TODO
+					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
+					.tag(GTTagGen.curio("hands"), GTTagGen.UNIQUE)
+					.dataMap(GTRegistries.ITEM_ATTR.reg(), AttributeData.of(
+							AttributeData.add(L2DamageTracker.MAGIC_FACTOR, 0.25)
+					)).lang("Glove of Ocean")
 					.register();
 		}
 
