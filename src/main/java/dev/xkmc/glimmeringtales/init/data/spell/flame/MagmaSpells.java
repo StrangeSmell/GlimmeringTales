@@ -23,7 +23,7 @@ import java.util.List;
 
 public class MagmaSpells {
 
-	public static final NatureSpellBuilder BUILDER = GTRegistries.FLAME.get()
+	public static final NatureSpellBuilder BUILDER = GTRegistries.FLAME
 			.build(GlimmeringTales.loc("magma")).cost(20)
 			.block(MagmaSpells::gen, GTItems.RUNE_MAGMA, RuneBlock::of,
 					(b, e) -> b.add(Blocks.MAGMA_BLOCK, BlockSpell.of(e)),

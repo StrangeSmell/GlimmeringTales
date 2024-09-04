@@ -31,7 +31,7 @@ import java.util.List;
 
 public class NetherrackSpells {
 
-	public static final NatureSpellBuilder BUILDER = GTRegistries.FLAME.get()
+	public static final NatureSpellBuilder BUILDER = GTRegistries.FLAME
 			.build(GlimmeringTales.loc("netherrack")).cost(60)
 			.damageVanilla(() -> new DamageType("inFire", 0, DamageEffects.BURNING),
 					DamageTypeTags.IS_FIRE)

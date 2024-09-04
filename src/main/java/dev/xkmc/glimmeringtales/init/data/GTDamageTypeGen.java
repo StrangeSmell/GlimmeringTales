@@ -45,7 +45,7 @@ public class GTDamageTypeGen extends DamageTypeAndTagsGen {
 	public GTDamageTypeGen(L2Registrate reg) {
 		super(reg);
 		genDamage(THUNDER, () -> new DamageType("lightningBolt", 0.1F),
-				GTRegistries.THUNDER.get().damgeTag(), DamageTypeTags.IS_LIGHTNING, DamageTypeTags.NO_KNOCKBACK
+				GTRegistries.THUNDER.damgeTag(), DamageTypeTags.IS_LIGHTNING, DamageTypeTags.NO_KNOCKBACK
 		);
 
 		for (var e : NatureSpellGenRegistry.LIST) {

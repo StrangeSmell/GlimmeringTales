@@ -21,7 +21,7 @@ import java.util.List;
 
 public class SpongeSpell {
 
-	public static final NatureSpellBuilder BUILDER = GTRegistries.OCEAN.get()
+	public static final NatureSpellBuilder BUILDER = GTRegistries.OCEAN
 			.build(GlimmeringTales.loc("sponge")).focusAndCost(10, 40)
 			.block(SpongeSpell::gen, GTItems.RUNE_SPONGE, RuneBlock::liquid,
 					(b, e) -> b.add(Blocks.SPONGE, BlockSpell.of(e)),

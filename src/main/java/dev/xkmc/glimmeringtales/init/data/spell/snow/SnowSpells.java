@@ -35,7 +35,7 @@ import java.util.Map;
 
 public class SnowSpells {
 
-	public static final NatureSpellBuilder BUILDER = GTRegistries.SNOW.get()
+	public static final NatureSpellBuilder BUILDER = GTRegistries.SNOW
 			.build(GlimmeringTales.loc("snow")).cost(40)
 			.damageFreeze()
 			.projectile(SnowSpells::proj)

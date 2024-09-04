@@ -41,7 +41,7 @@ import java.util.function.BiFunction;
 
 public class GravelSpells {
 
-	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH.get()
+	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH
 			.build(GlimmeringTales.loc("gravel")).cost(20)
 			.damageCustom(s -> new DamageType(s, 0.1f),
 					"%s is scratched to death by flint", "%s is scratched to death by %s with flint",

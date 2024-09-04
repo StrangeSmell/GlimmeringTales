@@ -31,7 +31,7 @@ import java.util.List;
 
 public class Thunderstorm {
 
-	public static final NatureSpellBuilder BUILDER = GTRegistries.THUNDER.get()
+	public static final NatureSpellBuilder BUILDER = GTRegistries.THUNDER
 			.build(GlimmeringTales.loc("thunderstorm")).focusAndCost(60, 100)
 			.spell(ctx -> new SpellAction(gen(ctx), GTItems.THUNDERSTORM.get(), 2002,
 					SpellCastType.INSTANT, SpellTriggerType.TARGET_POS)

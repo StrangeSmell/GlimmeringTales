@@ -31,7 +31,7 @@ import net.minecraft.world.level.block.Blocks;
 import java.util.List;
 
 public class HaySpell {
-	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE.get()
+	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE
 			.build(GlimmeringTales.loc("procreation")).cost(40)
 			.block(ctx -> procreation(ctx, 4, 1.5, 1), GTItems.RUNE_HAYBALE, RuneBlock::offset,
 					(b, e) -> b.add(Blocks.HAY_BLOCK, BlockSpell.cost(e)))

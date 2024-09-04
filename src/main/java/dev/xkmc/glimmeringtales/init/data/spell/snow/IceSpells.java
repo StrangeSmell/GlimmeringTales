@@ -46,7 +46,7 @@ public class IceSpells {
 	private static final DoubleVariable BLUE_DMG = DoubleVariable.of("6");
 	private static final IntVariable BLUE_DUR = IntVariable.of("300");
 
-	public static final NatureSpellBuilder ICE = GTRegistries.SNOW.get()
+	public static final NatureSpellBuilder ICE = GTRegistries.SNOW
 			.build(GlimmeringTales.loc("ice")).cost(40).damageFreeze()
 			.block(ctx -> gen(ctx, ICE_DMG, ICE_DUR), GTItems.RUNE_ICE, RuneBlock::liquid,
 					(b, e) -> b.add(Blocks.ICE, BlockSpell.of(e)),
@@ -57,7 +57,7 @@ public class IceSpells {
 					SpellTooltipData.damageAndEffect()
 			);
 
-	public static final NatureSpellBuilder PACK_ICE = GTRegistries.SNOW.get()
+	public static final NatureSpellBuilder PACK_ICE = GTRegistries.SNOW
 			.build(GlimmeringTales.loc("packed_ice")).cost(60).damageFreeze()
 			.block(ctx -> gen(ctx, PACK_DMG, PACK_DUR), GTItems.RUNE_PACKED_ICE, RuneBlock::liquid,
 					(b, e) -> b.add(Blocks.PACKED_ICE, BlockSpell.of(e)))
@@ -67,7 +67,7 @@ public class IceSpells {
 					SpellTooltipData.damageAndEffect()
 			);
 
-	public static final NatureSpellBuilder BLUE_ICE = GTRegistries.SNOW.get()
+	public static final NatureSpellBuilder BLUE_ICE = GTRegistries.SNOW
 			.build(GlimmeringTales.loc("blue_ice")).cost(80).damageFreeze()
 			.block(ctx -> gen(ctx, BLUE_DMG, BLUE_DUR), GTItems.RUNE_BLUE_ICE, RuneBlock::liquid,
 					(b, e) -> b.add(Blocks.BLUE_ICE, BlockSpell.of(e)))

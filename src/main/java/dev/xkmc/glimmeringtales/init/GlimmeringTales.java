@@ -5,6 +5,7 @@ import dev.xkmc.glimmeringtales.compat.PatchouliCompat;
 import dev.xkmc.glimmeringtales.content.block.altar.BaseRitualBlockEntity;
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipRegistry;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
+import dev.xkmc.glimmeringtales.events.GTAttackListener;
 import dev.xkmc.glimmeringtales.init.data.*;
 import dev.xkmc.glimmeringtales.init.data.spell.GTSpells;
 import dev.xkmc.glimmeringtales.init.reg.GTEngine;
@@ -15,6 +16,7 @@ import dev.xkmc.l2backpack.content.common.BaseBagItemHandler;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import dev.xkmc.l2core.init.reg.simple.Reg;
 import dev.xkmc.l2core.serial.config.PacketHandlerWithConfig;
+import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2magic.content.engine.core.ProcessorType;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
 import dev.xkmc.l2magic.init.registrate.EngineRegistry;
@@ -49,6 +51,7 @@ public class GlimmeringTales {
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final Reg REG = new Reg(MODID);
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
+	public static GTDamageTypeGen DMG_GEN;
 
 	public GlimmeringTales() {
 		GTRegistries.register();
@@ -58,6 +61,7 @@ public class GlimmeringTales {
 		if (ModList.get().isLoaded(PatchouliAPI.MOD_ID)) {
 			PatchouliCompat.gen();
 		}
+		DMG_GEN = new GTDamageTypeGen(REGISTRATE);
 	}
 
 	private static void initHandlers() {
@@ -70,6 +74,7 @@ public class GlimmeringTales {
 	@SubscribeEvent
 	public static void setup(final FMLCommonSetupEvent event) {
 		event.enqueueWork(GlimmeringTales::initHandlers);
+		AttackEventHandler.register(3943, new GTAttackListener());
 	}
 
 	@SubscribeEvent
@@ -109,7 +114,7 @@ public class GlimmeringTales {
 		REGISTRATE.addDataGenerator(ProviderType.LANG, GTSpells::addLang);
 		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, GTSpells::genMap);
 		var init = REGISTRATE.getDataGenInitializer();
-		new GTDamageTypeGen(REGISTRATE).generate();
+		DMG_GEN.generate();
 		init.add(EngineRegistry.PROJECTILE, GTSpells::genProjectiles);
 		init.add(EngineRegistry.SPELL, GTSpells::genSpells);
 		init.add(GTRegistries.SPELL, GTSpells::genNature);

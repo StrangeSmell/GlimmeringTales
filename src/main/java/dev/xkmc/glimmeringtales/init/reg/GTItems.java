@@ -317,7 +317,7 @@ public class GTItems {
 
 			GLOVE_OF_OCEAN = GlimmeringTales.REGISTRATE.item("glove_of_ocean",
 							p -> new DamageTypeCurioItem(p.stacksTo(1).fireResistant(),
-									e -> e.is(GTRegistries.OCEAN.get().damgeTag()) ? DefaultDamageState.BYPASS_COOLDOWN : null,
+									e -> e.is(GTRegistries.OCEAN.damgeTag()) ? DefaultDamageState.BYPASS_COOLDOWN : null,
 									() -> GTLang.TOOLTIP_COOLDOWN.get(GTRegistries.OCEAN.get().coloredDesc())))
 					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
 					.tag(GTTagGen.curio("hands"), GTTagGen.UNIQUE)
@@ -328,7 +328,7 @@ public class GTItems {
 
 			GLOVE_OF_THUNDER = GlimmeringTales.REGISTRATE.item("glove_of_thunder",
 							p -> new DamageTypeCurioItem(p.stacksTo(1).fireResistant(),
-									e -> e.is(GTRegistries.THUNDER.get().damgeTag()) ? DefaultDamageState.BYPASS_COOLDOWN : null,
+									e -> e.is(GTRegistries.THUNDER.damgeTag()) ? DefaultDamageState.BYPASS_COOLDOWN : null,
 									() -> GTLang.TOOLTIP_COOLDOWN.get(GTRegistries.THUNDER.get().coloredDesc())))
 					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
 					.tag(GTTagGen.curio("hands"), GTTagGen.UNIQUE)

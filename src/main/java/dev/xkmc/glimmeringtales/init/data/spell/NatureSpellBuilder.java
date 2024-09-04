@@ -9,6 +9,8 @@ import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTDamageTypeGen;
+import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
+import dev.xkmc.l2core.init.reg.registrate.LegacyHolder;
 import dev.xkmc.l2core.util.MathHelper;
 import dev.xkmc.l2magic.content.engine.context.DataGenContext;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
@@ -43,7 +45,7 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 	}
 
 	private final ResourceLocation id;
-	private final SpellElement elem;
+	private final GTRegistries.ElemEntry elem;
 
 	public DataGenCachedHolder<ProjectileConfig> proj;
 	public DataGenCachedHolder<SpellAction> spell;
@@ -63,7 +65,7 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 
 	private final List<BiConsumer<BlockSpellBuilder, Holder<NatureSpell>>> blockFactories = new ArrayList<>();
 
-	public NatureSpellBuilder(ResourceLocation id, SpellElement elem) {
+	public NatureSpellBuilder(ResourceLocation id, GTRegistries.ElemEntry elem) {
 		this.id = id;
 		this.elem = elem;
 	}
@@ -114,7 +116,7 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 
 	public NatureSpellBuilder focusAndCost(int focus, int cost, int max) {
 		nature = nature(id);
-		this.natureFactory = e -> new NatureSpell(e, elem, focus, cost, max,
+		this.natureFactory = e -> new NatureSpell(e, elem.get(), focus, cost, max,
 				desc == null ? warnEmpty() : desc.data);
 		return this;
 	}

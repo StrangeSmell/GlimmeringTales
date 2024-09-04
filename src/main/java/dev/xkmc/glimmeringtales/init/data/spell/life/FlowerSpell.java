@@ -20,7 +20,7 @@ import net.minecraft.world.item.alchemy.Potions;
 import java.util.List;
 
 public class FlowerSpell {
-	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE.get()
+	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE
 			.build(GlimmeringTales.loc("flower")).cost(40)
 			.block(FlowerSpell::flower, GTItems.RUNE_FLOWER, RuneBlock::offset,
 					(b, e) -> b.add(BlockTags.FLOWERS, BlockSpell.cost(e)))

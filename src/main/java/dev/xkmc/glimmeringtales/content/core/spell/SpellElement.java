@@ -36,11 +36,6 @@ public class SpellElement extends NamedEntry<SpellElement> {
 		return TagKey.create(Registries.DAMAGE_TYPE, getRegistryName());
 	}
 
-	@DataGenOnly
-	public NatureSpellBuilder build(ResourceLocation id) {
-		return new NatureSpellBuilder(id, this);
-	}
-
 	public int getColor() {
 		var ans = color.getColor();
 		return ans == null ? -1 : ans;

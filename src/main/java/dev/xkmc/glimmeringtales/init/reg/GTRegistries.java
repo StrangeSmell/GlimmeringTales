@@ -7,6 +7,7 @@ import dev.xkmc.glimmeringtales.content.core.spell.*;
 import dev.xkmc.glimmeringtales.content.item.curio.AttributeData;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneSwapType;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
+import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.l2backpack.content.quickswap.type.MatcherSwapType;
 import dev.xkmc.l2core.capability.player.PlayerCapabilityNetworkHandler;
 import dev.xkmc.l2core.init.reg.datapack.DataMapReg;
@@ -15,13 +16,16 @@ import dev.xkmc.l2core.init.reg.registrate.LegacyHolder;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.AttReg;
 import dev.xkmc.l2core.init.reg.simple.AttVal;
+import dev.xkmc.l2core.util.DataGenOnly;
 import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -88,6 +92,15 @@ public class GTRegistries {
 
 		public SpellElement get() {
 			return val.get();
+		}
+
+		@DataGenOnly
+		public NatureSpellBuilder build(ResourceLocation id) {
+			return new NatureSpellBuilder(id, this);
+		}
+
+		public TagKey<DamageType> damgeTag() {
+			return TagKey.create(Registries.DAMAGE_TYPE, val.getId());
 		}
 
 		@Override

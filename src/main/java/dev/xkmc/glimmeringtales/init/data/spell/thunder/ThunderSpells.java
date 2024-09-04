@@ -20,7 +20,7 @@ import java.util.List;
 
 public class ThunderSpells {
 
-	public static final NatureSpellBuilder BUILDER = GTRegistries.THUNDER.get()
+	public static final NatureSpellBuilder BUILDER = GTRegistries.THUNDER
 			.build(GlimmeringTales.loc("thunder")).cost(100)
 			.block(ThunderSpells::gen, GTItems.RUNE_THUNDER, RuneBlock::offset,
 					(b, e) -> b.add(GTItems.STRUCK_LOG, BlockSpell.of(e)),

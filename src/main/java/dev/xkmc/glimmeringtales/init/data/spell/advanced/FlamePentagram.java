@@ -45,7 +45,7 @@ import java.util.List;
 
 public class FlamePentagram {
 
-	public static final NatureSpellBuilder HELL_MARK = GTRegistries.FLAME.get()
+	public static final NatureSpellBuilder HELL_MARK = GTRegistries.FLAME
 			.build(GlimmeringTales.loc("hell_mark")).focusAndCost(40, 160)
 			.damageVanilla(() -> new DamageType("onFire", 0, DamageEffects.BURNING), DamageTypeTags.IS_FIRE)
 			.spell(ctx -> new SpellAction(flameBurst(ctx),
@@ -57,7 +57,7 @@ public class FlamePentagram {
 					SpellTooltipData.damage()
 			);
 
-	public static final NatureSpellBuilder LAVA_BURST = GTRegistries.FLAME.get()
+	public static final NatureSpellBuilder LAVA_BURST = GTRegistries.FLAME
 			.build(GlimmeringTales.loc("lava_burst")).focusAndCost(3, 10, 30)
 			.damageVanilla(() -> new DamageType("explosion", 0.1f), DamageTypeTags.IS_EXPLOSION)
 			.spell(ctx -> new SpellAction(earthquake(ctx),

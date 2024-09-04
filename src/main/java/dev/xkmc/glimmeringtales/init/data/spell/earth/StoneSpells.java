@@ -22,7 +22,7 @@ import java.util.List;
 
 public class StoneSpells {
 
-	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH.get()
+	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH
 			.build(GlimmeringTales.loc("stone")).cost(20)
 			.block(StoneSpells::gen, GTItems.RUNE_STONE, RuneBlock::self,
 					(b, e) -> b.add(Tags.Blocks.STONES, BlockSpell.of(e)),

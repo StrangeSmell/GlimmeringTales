@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 public class CactusSpell {
-	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE.get()
+	public static final NatureSpellBuilder BUILDER = GTRegistries.LIFE
 			.build(GlimmeringTales.loc("cactus")).cost(40)
 			.damageCustom(msg -> new DamageType(msg, 1f),
 					"%s is pierced by cactus thorn",

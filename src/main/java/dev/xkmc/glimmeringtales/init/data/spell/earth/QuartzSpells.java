@@ -24,7 +24,7 @@ import java.util.List;
 
 public class QuartzSpells {
 
-	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH.get()
+	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH
 			.build(GlimmeringTales.loc("quartz")).cost(40)
 			.block(QuartzSpells::gen, GTItems.RUNE_QUARTZ, RuneBlock::of,
 					(b, e) -> b.add(GTTagGen.QUARTZ, BlockSpell.of(e)))
