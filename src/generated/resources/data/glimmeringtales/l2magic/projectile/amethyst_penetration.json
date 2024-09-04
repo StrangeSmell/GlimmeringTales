@@ -23,7 +23,7 @@
   "params": [],
   "renderer": {
     "type": "glimmeringtales:cross",
-    "texture": "glimmeringtales:textures/spell/amethyst.png"
+    "texture": "glimmeringtales:textures/spell/infused_amethyst.png"
   },
   "size": "0.25",
   "tick": {

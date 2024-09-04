@@ -8,7 +8,7 @@
   },
   "params": [],
   "renderer": {
-    "type": "l2magic:simple",
+    "type": "glimmeringtales:animated",
     "texture": "glimmeringtales:textures/spell/bubble.png"
   },
   "size": "0.25",

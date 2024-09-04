@@ -39,7 +39,7 @@ import java.util.Map;
 public class AmethystPenetration {
 
 	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH.get()
-			.build(GlimmeringTales.loc("amethyst_penetration")).cost(40)
+			.build(GlimmeringTales.loc("amethyst_penetration")).focusAndCost(20, 80)
 			.damageCustom(msg -> new DamageType(msg, 0.1f),
 					"%s is pierced by amethyst shards",
 					"%s is pierced by %s with amethyst shards",
@@ -53,7 +53,7 @@ public class AmethystPenetration {
 					SpellTooltipData.of(EngineRegistry.DAMAGE, GTEngine.EP_STACK)
 			);
 
-	private static final ResourceLocation TEX = GlimmeringTales.loc("textures/spell/amethyst.png");
+	private static final ResourceLocation TEX = GlimmeringTales.loc("textures/spell/infused_amethyst.png");
 	private static final DoubleVariable DMG = DoubleVariable.of("12");
 
 	public static ProjectileConfig proj(NatureSpellBuilder ctx) {
@@ -87,7 +87,7 @@ public class AmethystPenetration {
 						DoubleVariable.of("0.5"),
 						DoubleVariable.of("-15"),
 						DoubleVariable.of("15"),
-						IntVariable.of("21"),
+						IntVariable.of("15"),
 						true,
 						new CustomProjectileShoot(
 								DoubleVariable.of("1"), ctx.proj,

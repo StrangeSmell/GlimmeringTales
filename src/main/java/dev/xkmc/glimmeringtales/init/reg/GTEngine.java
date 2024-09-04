@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.init.reg;
 
 import dev.xkmc.glimmeringtales.content.engine.processor.*;
+import dev.xkmc.glimmeringtales.content.engine.render.AnimatedRenderData;
 import dev.xkmc.glimmeringtales.content.engine.render.CrossRenderData;
 import dev.xkmc.glimmeringtales.content.engine.render.VerticalRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
@@ -25,6 +26,7 @@ public class GTEngine {
 
 	public static final Val<ProjectileRenderType<VerticalRenderData>> PR_VERTICAL = REG.reg("vertical", () -> VerticalRenderData.CODEC);
 	public static final Val<ProjectileRenderType<CrossRenderData>> PR_CROSS = REG.reg("cross", () -> CrossRenderData.CODEC);
+	public static final Val<ProjectileRenderType<AnimatedRenderData>> PR_ANIM = REG.reg("animated", () -> AnimatedRenderData.CODEC);
 
 	public static void register() {
 

@@ -1,7 +1,7 @@
 {
-  "cost": 40,
+  "cost": 80,
   "elem": "glimmeringtales:earth",
-  "focus": 10,
+  "focus": 20,
   "maxConsumeTick": 0,
   "spell": "glimmeringtales:amethyst_penetration",
   "tooltip": {
