@@ -18,6 +18,7 @@ public enum GTLang {
 
 	TOOLTIP_MAGIC("item.glove_magic", "Convert all spell damage to magic damage", 0),
 	TOOLTIP_ABYSS("item.glove_abyss", "Infuse all spell damage with abyss damage", 0),
+	TOOLTIP_COOLDOWN("item.glove_cooldown", "[%s] spell damage will bypass damage cooldown", 1),
 
 	OVERLAY_DESTROY("overlay.destroy", "Consume target block", 0),
 	OVERLAY_MANA("overlay.mana", "Mana: %s / %s", 2),

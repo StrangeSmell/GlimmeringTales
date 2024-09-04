@@ -2,52 +2,52 @@
   "type": "glimmeringtales:simple_ritual",
   "core": {
     "ingredient": {
-      "item": "glimmeringtales:crystal_of_thunder"
+      "item": "glimmeringtales:crystal_of_ocean"
     },
     "remainder": {
       "count": 1,
-      "id": "glimmeringtales:glove_of_abyss"
+      "id": "glimmeringtales:glove_of_ocean"
     }
   },
   "list": [
     {
       "ingredient": {
-        "item": "l2complements:warden_bone_shard"
+        "item": "l2complements:captured_wind"
       }
     },
     {
       "ingredient": {
-        "item": "l2complements:warden_bone_shard"
+        "item": "l2complements:captured_wind"
       }
     },
     {
       "ingredient": {
-        "item": "l2complements:void_eye"
+        "item": "minecraft:conduit"
       }
     },
     {
       "ingredient": {
-        "item": "l2complements:void_eye"
+        "item": "minecraft:conduit"
       }
     },
     {
       "ingredient": {
-        "item": "l2complements:resonant_feather"
+        "item": "l2complements:storm_core"
       }
     },
     {
       "ingredient": {
-        "item": "l2complements:resonant_feather"
+        "item": "l2complements:storm_core"
       }
     },
     {
       "ingredient": {
-        "item": "l2complements:resonant_feather"
+        "item": "l2complements:storm_core"
       }
     },
     {
       "ingredient": {
-        "item": "l2complements:resonant_feather"
+        "item": "l2complements:storm_core"
       }
     }
   ],

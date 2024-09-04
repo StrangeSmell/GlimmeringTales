@@ -82,7 +82,7 @@ public class GTItems {
 	public static final ItemEntry<RuneWandItem> WAND;
 	public static final ItemEntry<WandHandleItem> WOOD_WAND, LIFE_WAND, GOLD_WAND, OCEAN_WAND;
 
-	public static final ItemEntry<DamageTypeCurioItem> GLOVE_OF_SORCERER, GLOVE_OF_ABYSS, GLOVE_OF_OCEAN;
+	public static final ItemEntry<DamageTypeCurioItem> GLOVE_OF_SORCERER, GLOVE_OF_ABYSS, GLOVE_OF_OCEAN, GLOVE_OF_THUNDER;
 
 	public static final VarHolder<BlockRuneItem>
 			RUNE_BAMBOO, RUNE_CACTUS, RUNE_FLOWER, RUNE_VINE, RUNE_HAYBALE,
@@ -297,7 +297,7 @@ public class GTItems {
 		{
 			GLOVE_OF_SORCERER = GlimmeringTales.REGISTRATE.item("glove_of_sorcerer",
 							p -> new DamageTypeCurioItem(p.stacksTo(1).fireResistant(),
-									GTDamageStates.MAGIC, GTLang.TOOLTIP_MAGIC))
+									e -> GTDamageStates.MAGIC, GTLang.TOOLTIP_MAGIC::get))
 					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
 					.tag(GTTagGen.curio("hands"), GTTagGen.UNIQUE)
 					.dataMap(GTRegistries.ITEM_ATTR.reg(), AttributeData.of(
@@ -307,7 +307,7 @@ public class GTItems {
 
 			GLOVE_OF_ABYSS = GlimmeringTales.REGISTRATE.item("glove_of_abyss",
 							p -> new DamageTypeCurioItem(p.stacksTo(1).fireResistant(),
-									DefaultDamageState.BYPASS_MAGIC, GTLang.TOOLTIP_ABYSS))
+									e -> DefaultDamageState.BYPASS_MAGIC, GTLang.TOOLTIP_ABYSS::get))
 					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
 					.tag(GTTagGen.curio("hands"), GTTagGen.UNIQUE)
 					.dataMap(GTRegistries.ITEM_ATTR.reg(), AttributeData.of(
@@ -317,12 +317,24 @@ public class GTItems {
 
 			GLOVE_OF_OCEAN = GlimmeringTales.REGISTRATE.item("glove_of_ocean",
 							p -> new DamageTypeCurioItem(p.stacksTo(1).fireResistant(),
-									GTDamageStates.MAGIC, GTLang.TOOLTIP_MAGIC))//TODO
+									e -> e.is(GTRegistries.OCEAN.get().damgeTag()) ? DefaultDamageState.BYPASS_COOLDOWN : null,
+									() -> GTLang.TOOLTIP_COOLDOWN.get(GTRegistries.OCEAN.get().coloredDesc())))
 					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
 					.tag(GTTagGen.curio("hands"), GTTagGen.UNIQUE)
 					.dataMap(GTRegistries.ITEM_ATTR.reg(), AttributeData.of(
 							AttributeData.add(L2DamageTracker.MAGIC_FACTOR, 0.25)
 					)).lang("Glove of Ocean")
+					.register();
+
+			GLOVE_OF_THUNDER = GlimmeringTales.REGISTRATE.item("glove_of_thunder",
+							p -> new DamageTypeCurioItem(p.stacksTo(1).fireResistant(),
+									e -> e.is(GTRegistries.THUNDER.get().damgeTag()) ? DefaultDamageState.BYPASS_COOLDOWN : null,
+									() -> GTLang.TOOLTIP_COOLDOWN.get(GTRegistries.THUNDER.get().coloredDesc())))
+					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
+					.tag(GTTagGen.curio("hands"), GTTagGen.UNIQUE)
+					.dataMap(GTRegistries.ITEM_ATTR.reg(), AttributeData.of(
+							AttributeData.add(L2DamageTracker.LIGHTNING_FACTOR, 0.5)
+					)).lang("Glove of Thunder")
 					.register();
 		}
 

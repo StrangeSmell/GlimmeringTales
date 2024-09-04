@@ -17,11 +17,12 @@ public class GTAttackListener implements AttackListener {
 		if (type == null) return;
 		var attacker = event.getAttacker();
 		var level = attacker.level();
-		if (type.getHolder(level).is(GTDamageTypeGen.SPELL)) {
+		var old = type.getHolder(level);
+		if (old.is(GTDamageTypeGen.SPELL)) {
 			var list = GTCurioCompat.getAll(attacker, DamageTypeCurioItem.class);
 			for (var e : list) {
-				DamageState state = e.getState();
-				if (type.validState(state)) {
+				DamageState state = e.getState(old);
+				if (state != null && type.validState(state)) {
 					event.enable(state);
 				}
 			}

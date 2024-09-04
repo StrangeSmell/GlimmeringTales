@@ -52,6 +52,8 @@
   "item.glimmeringtales.ring_of_thunder": "雷霆戒指",
   "item.glimmeringtales.glove_of_abyss": "深渊手套",
   "item.glimmeringtales.glove_of_sorcerer": "魔化手套",
+  "item.glimmeringtales.glove_of_ocean": "海神手套",
+  "item.glimmeringtales.glove_of_thunder": "雷霆手套",
 
   "item.glimmeringtales.wand": "法杖",
   "item.glimmeringtales.gold_wand": "金杖柄",
@@ -120,6 +122,7 @@
   "glimmeringtales.overlay.focus": "专注: %s / %s",
   "glimmeringtales.item.glove_magic": "把所有法术的伤害转化为魔法伤害",
   "glimmeringtales.item.glove_abyss": "让所有法术的伤害获得深渊属性",
+  "glimmeringtales.item.glove_cooldown": "[%s]法术伤害无视伤害冷却",
 
   "glimmeringtales.desc.damage": "伤害",
   "glimmeringtales.desc.damage_number": "%s点",
@@ -277,7 +280,7 @@
   "nature_spell.glimmeringtales.stone_bridge.brief": "[弹道] 生成临时石桥",
   "nature_spell.glimmeringtales.stone_bridge.detail": "生成一道持续10秒的向前延伸的石桥",
   "nature_spell.glimmeringtales.ocean_shelter.brief": "[持续] 喷射泡泡，伤害敌人并治疗友方",
-  "nature_spell.glimmeringtales.ocean_shelter.detail": "向前方喷射持续5秒的泡泡，造成%s，对敌人造成%s，给予友方%s",
+  "nature_spell.glimmeringtales.ocean_shelter.detail": "向前方喷射持续5秒的泡泡。对敌人：造成%s，施加%s。对友方：%s，给予%s",
 
   "patchouli.glimmeringtales.landing": "欢迎来到以自然为主题的魔法模组《微光纪事》",
   "patchouli.glimmeringtales.title": "微光纪事指南"

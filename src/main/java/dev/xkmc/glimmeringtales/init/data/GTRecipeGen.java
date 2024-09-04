@@ -231,9 +231,21 @@ public class GTRecipeGen {
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_THUNDER, GTItems.GLOVE_OF_ABYSS)::unlockedBy, GTItems.CRYSTAL_THUNDER.get())
-					.side(GTItems.CRYSTAL_NATURE, 2)
+					.side(LCItems.WARDEN_BONE_SHARD, 2)
 					.side(LCItems.VOID_EYE, 2)
 					.side(LCItems.RESONANT_FEATHER, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_OCEAN, GTItems.GLOVE_OF_OCEAN)::unlockedBy, GTItems.CRYSTAL_OCEAN.get())
+					.side(LCItems.CAPTURED_WIND, 2)
+					.side(Items.CONDUIT, 2)
+					.side(LCItems.STORM_CORE, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_THUNDER, GTItems.GLOVE_OF_THUNDER)::unlockedBy, GTItems.CRYSTAL_OCEAN.get())
+					.side(LCMats.POSEIDITE.getIngot(), 2)
+					.side(LCItems.RESONANT_FEATHER, 2)
+					.side(LCItems.STORM_CORE, 4)
 					.save(pvd);
 
 		}

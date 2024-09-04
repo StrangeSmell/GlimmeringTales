@@ -6,28 +6,18 @@
     },
     "remainder": {
       "count": 1,
-      "id": "glimmeringtales:glove_of_abyss"
+      "id": "glimmeringtales:glove_of_thunder"
     }
   },
   "list": [
     {
       "ingredient": {
-        "item": "l2complements:warden_bone_shard"
+        "item": "l2complements:poseidite_ingot"
       }
     },
     {
       "ingredient": {
-        "item": "l2complements:warden_bone_shard"
-      }
-    },
-    {
-      "ingredient": {
-        "item": "l2complements:void_eye"
-      }
-    },
-    {
-      "ingredient": {
-        "item": "l2complements:void_eye"
+        "item": "l2complements:poseidite_ingot"
       }
     },
     {
@@ -42,12 +32,22 @@
     },
     {
       "ingredient": {
-        "item": "l2complements:resonant_feather"
+        "item": "l2complements:storm_core"
       }
     },
     {
       "ingredient": {
-        "item": "l2complements:resonant_feather"
+        "item": "l2complements:storm_core"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:storm_core"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:storm_core"
       }
     }
   ],

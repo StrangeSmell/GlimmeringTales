@@ -49,7 +49,7 @@ public class OceanShelter {
 					2000, SpellCastType.CONTINUOUS, SpellTriggerType.FACING_FRONT))
 			.lang("Ocean Shelter").desc(
 					"[Continuous] Shoot bubbles that hurt enemies and heal allies",
-					"Continuously shoot bubbles forward lasting 5 seconds. Bubble deals %s and inflicts %s to enemies. Bubble %s and gives %s to allies",
+					"Continuously shoot bubbles forward lasting 5 seconds. To enemies, deals %s and inflicts %s. To allies, %s and gives %s",
 					SpellTooltipData.of(EngineRegistry.DAMAGE, EngineRegistry.EFFECT, GTEngine.HEAL, EngineRegistry.EFFECT)
 			);
 
