@@ -5,8 +5,16 @@
     "glimmeringtales:coral_reef-magic",
     "glimmeringtales:coral_reef-bypass_magic",
     "glimmeringtales:coral_reef-bypass_magic-magic",
+    "glimmeringtales:coral_reef-bypass_cooldown",
+    "glimmeringtales:coral_reef-bypass_cooldown-magic",
+    "glimmeringtales:coral_reef-bypass_cooldown-bypass_magic",
+    "glimmeringtales:coral_reef-bypass_cooldown-bypass_magic-magic",
     "glimmeringtales:ocean_shelter-magic",
     "glimmeringtales:ocean_shelter-bypass_magic",
-    "glimmeringtales:ocean_shelter-bypass_magic-magic"
+    "glimmeringtales:ocean_shelter-bypass_magic-magic",
+    "glimmeringtales:ocean_shelter-bypass_cooldown",
+    "glimmeringtales:ocean_shelter-bypass_cooldown-magic",
+    "glimmeringtales:ocean_shelter-bypass_cooldown-bypass_magic",
+    "glimmeringtales:ocean_shelter-bypass_cooldown-bypass_magic-magic"
   ]
 }

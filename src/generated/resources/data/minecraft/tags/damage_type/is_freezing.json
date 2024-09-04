@@ -8,11 +8,25 @@
     "glimmeringtales:winter_storm",
     "glimmeringtales:snow_tornado",
     "glimmeringtales:blue_ice-bypass_magic",
+    "glimmeringtales:blue_ice-bypass_cooldown",
+    "glimmeringtales:blue_ice-bypass_cooldown-bypass_magic",
     "glimmeringtales:ice-bypass_magic",
+    "glimmeringtales:ice-bypass_cooldown",
+    "glimmeringtales:ice-bypass_cooldown-bypass_magic",
     "glimmeringtales:packed_ice-bypass_magic",
+    "glimmeringtales:packed_ice-bypass_cooldown",
+    "glimmeringtales:packed_ice-bypass_cooldown-bypass_magic",
     "glimmeringtales:powder_snow-bypass_magic",
+    "glimmeringtales:powder_snow-bypass_cooldown",
+    "glimmeringtales:powder_snow-bypass_cooldown-bypass_magic",
     "glimmeringtales:snow-bypass_magic",
+    "glimmeringtales:snow-bypass_cooldown",
+    "glimmeringtales:snow-bypass_cooldown-bypass_magic",
     "glimmeringtales:snow_tornado-bypass_magic",
-    "glimmeringtales:winter_storm-bypass_magic"
+    "glimmeringtales:snow_tornado-bypass_cooldown",
+    "glimmeringtales:snow_tornado-bypass_cooldown-bypass_magic",
+    "glimmeringtales:winter_storm-bypass_magic",
+    "glimmeringtales:winter_storm-bypass_cooldown",
+    "glimmeringtales:winter_storm-bypass_cooldown-bypass_magic"
   ]
 }

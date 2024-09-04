@@ -3,6 +3,10 @@
     "glimmeringtales:lightning",
     "glimmeringtales:lightning-magic",
     "glimmeringtales:lightning-bypass_magic",
-    "glimmeringtales:lightning-bypass_magic-magic"
+    "glimmeringtales:lightning-bypass_magic-magic",
+    "glimmeringtales:lightning-bypass_cooldown",
+    "glimmeringtales:lightning-bypass_cooldown-magic",
+    "glimmeringtales:lightning-bypass_cooldown-bypass_magic",
+    "glimmeringtales:lightning-bypass_cooldown-bypass_magic-magic"
   ]
 }

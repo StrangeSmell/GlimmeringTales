@@ -5,8 +5,16 @@
     "glimmeringtales:cactus-magic",
     "glimmeringtales:cactus-bypass_magic",
     "glimmeringtales:cactus-bypass_magic-magic",
+    "glimmeringtales:cactus-bypass_cooldown",
+    "glimmeringtales:cactus-bypass_cooldown-magic",
+    "glimmeringtales:cactus-bypass_cooldown-bypass_magic",
+    "glimmeringtales:cactus-bypass_cooldown-bypass_magic-magic",
     "glimmeringtales:vine-magic",
     "glimmeringtales:vine-bypass_magic",
-    "glimmeringtales:vine-bypass_magic-magic"
+    "glimmeringtales:vine-bypass_magic-magic",
+    "glimmeringtales:vine-bypass_cooldown",
+    "glimmeringtales:vine-bypass_cooldown-magic",
+    "glimmeringtales:vine-bypass_cooldown-bypass_magic",
+    "glimmeringtales:vine-bypass_cooldown-bypass_magic-magic"
   ]
 }

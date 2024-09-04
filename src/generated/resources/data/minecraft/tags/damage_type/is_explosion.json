@@ -3,6 +3,10 @@
     "glimmeringtales:lava_burst",
     "glimmeringtales:earthquake",
     "glimmeringtales:earthquake-bypass_magic",
-    "glimmeringtales:lava_burst-bypass_magic"
+    "glimmeringtales:earthquake-bypass_cooldown",
+    "glimmeringtales:earthquake-bypass_cooldown-bypass_magic",
+    "glimmeringtales:lava_burst-bypass_magic",
+    "glimmeringtales:lava_burst-bypass_cooldown",
+    "glimmeringtales:lava_burst-bypass_cooldown-bypass_magic"
   ]
 }
