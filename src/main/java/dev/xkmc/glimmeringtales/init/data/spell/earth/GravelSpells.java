@@ -126,19 +126,11 @@ public class GravelSpells {
 
 
 		return new ListLogic(List.of(
-				new DelayedIterator(IntVariable.of("5"), IntVariable.of("5"),
-						new SoundInstance(
-								SoundEvents.BREEZE_IDLE_GROUND,
-								DoubleVariable.of("1"),
-								DoubleVariable.of("0.7+rand(-0.5,0.2)+rand(-0.5,0.2)")
-						),
-
-						null),
 				new DelayedIterator(IntVariable.of("30"), IntVariable.of("1"),
 						new SoundInstance(
 								SoundEvents.BREEZE_IDLE_GROUND,
 								DoubleVariable.of("1"),
-								DoubleVariable.of("0.7+rand(-0.5,0.2)+rand(-0.5,0.2)")
+								DoubleVariable.of("0.8+rand(-0.5,0.2)+rand(-0.5,0.2)")
 						),
 
 						null),

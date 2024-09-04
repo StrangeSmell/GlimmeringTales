@@ -3,6 +3,8 @@ package dev.xkmc.glimmeringtales.content.block.altar;
 import dev.xkmc.l2modularblock.mult.UseItemOnBlockMethod;
 import dev.xkmc.l2modularblock.mult.UseWithoutItemBlockMethod;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -26,6 +28,7 @@ public class ClickRitualMethod implements UseItemOnBlockMethod, UseWithoutItemBl
 			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 		if (stack.isEmpty())
 			return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
+		level.playSound(null,pos, SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.BLOCKS,1,1);
 		be.setItem(stack.split(1));
 		return ItemInteractionResult.SUCCESS;
 	}

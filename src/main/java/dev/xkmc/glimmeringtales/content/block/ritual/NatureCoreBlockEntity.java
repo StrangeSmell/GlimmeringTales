@@ -9,6 +9,8 @@ import dev.xkmc.l2serial.serialization.marker.SerialField;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -82,6 +84,9 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 			update = true;
 		}
 		remainTime--;
+		if(remainTime %5==0) {
+			level.playSound(null,this.getBlockPos(), SoundEvents.RESPAWN_ANCHOR_AMBIENT, SoundSource.BLOCKS,1,1);
+		}
 		if (remainTime <= 0) {
 			recipe.assemble(new RitualInput(this, getLinked()), level.registryAccess());
 			laps();
@@ -90,6 +95,7 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 			recipeId = null;
 			recipe = null;
 			update = true;
+			level.playSound(null,this.getBlockPos(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS,3,1);
 		}
 		if (update) {
 			sync();
