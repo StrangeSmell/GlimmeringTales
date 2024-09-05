@@ -2,7 +2,7 @@ package dev.xkmc.glimmeringtales.content.engine.instance;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.xkmc.glimmeringtales.content.entity.GTFallingBlockEntity;
+import dev.xkmc.glimmeringtales.content.entity.misc.GTFallingBlockEntity;
 import dev.xkmc.glimmeringtales.init.reg.GTEngine;
 import dev.xkmc.l2magic.content.engine.block.IBlockProcessor;
 import dev.xkmc.l2magic.content.engine.context.EngineContext;

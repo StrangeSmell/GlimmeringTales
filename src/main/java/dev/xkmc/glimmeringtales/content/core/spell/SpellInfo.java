@@ -5,6 +5,7 @@ import dev.xkmc.glimmeringtales.init.data.GTLang;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -33,7 +34,7 @@ public record SpellInfo(@Nullable Holder<NatureSpell> spell,
 		return new SpellInfo(block.spell(), aff, false, block.breakBlock());
 	}
 
-	public SpellCost getCost(Player player, ItemStack wand) {
+	public SpellCost getCost(LivingEntity player, ItemStack wand) {
 		if (spell == null) return SpellCost.ZERO;
 		var ns = spell.value();
 		return ns.manaCost(affinity().getFinalAffinity(ns.elem(), player, wand));

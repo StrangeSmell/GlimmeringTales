@@ -14,7 +14,6 @@ import net.minecraft.world.item.ItemStack;
 import java.util.List;
 
 public class RuneSwapType extends MatcherSwapType {
-	private static final ResourceLocation SELECTED = GlimmeringTales.loc("selected");
 
 	public RuneSwapType() {
 		super(GlimmeringTales.MODID + "_rune", true);
@@ -41,7 +40,8 @@ public class RuneSwapType extends MatcherSwapType {
 		ItemStack core = token.getStack();
 		ItemStack wand = token.token().stack();
 		var s = RuneWandItem.getHandle(wand);
-		ResourceLocation TEX = s.getFrame();
+		ResourceLocation TEX = s.getFrame().withSuffix("_frame");
+		ResourceLocation SELECTED = s.getFrame().withSuffix("_selected");
 		int i = entry.i();
 		int size = 9;
 		int h = ctx.g().guiHeight();

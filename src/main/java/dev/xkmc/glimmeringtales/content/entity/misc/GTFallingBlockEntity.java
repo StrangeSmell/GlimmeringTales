@@ -1,4 +1,4 @@
-package dev.xkmc.glimmeringtales.content.entity;
+package dev.xkmc.glimmeringtales.content.entity.misc;
 
 import dev.xkmc.glimmeringtales.init.data.GTDamageTypeGen;
 import dev.xkmc.glimmeringtales.init.reg.GTEntities;

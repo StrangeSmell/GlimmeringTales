@@ -1,7 +1,7 @@
 package dev.xkmc.glimmeringtales.init.reg;
 
 import com.tterrag.registrate.util.entry.EntityEntry;
-import dev.xkmc.glimmeringtales.content.entity.GTFallingBlockEntity;
+import dev.xkmc.glimmeringtales.content.entity.misc.GTFallingBlockEntity;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import net.minecraft.client.renderer.entity.FallingBlockRenderer;
 import net.minecraft.world.entity.MobCategory;
