@@ -3,7 +3,6 @@ package dev.xkmc.glimmeringtales.content.entity.hostile;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.item.ItemStack;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
@@ -14,7 +13,7 @@ public abstract class StrafingRangedAttackGoal extends Goal {
 
 	@Nullable
 	private LivingEntity target;
-	private int attackTime = -1;
+	private long nextAttackTimestamp = 0;
 	private int seeTime;
 
 	private boolean strafingClockwise;
@@ -53,7 +52,6 @@ public abstract class StrafingRangedAttackGoal extends Goal {
 		mob.setAggressive(false);
 		target = null;
 		seeTime = 0;
-		attackTime = -1;
 	}
 
 	@Override
@@ -98,6 +96,8 @@ public abstract class StrafingRangedAttackGoal extends Goal {
 				strafingBackwards = true;
 			}
 			mob.getMoveControl().strafe(strafingBackwards ? -1f : 0.5F, strafingClockwise ? 0.5F : -0.5F);
+			if (mob.onGround() && mob.level().getBlockState(mob.blockPosition()).isSolid())
+				mob.getJumpControl().jump();
 			if (mob.getControlledVehicle() instanceof Mob veh) {
 				veh.lookAt(target, 30.0F, 30.0F);
 			}
@@ -106,9 +106,11 @@ public abstract class StrafingRangedAttackGoal extends Goal {
 			this.mob.getLookControl().setLookAt(target, 30.0F, 30.0F);
 		}
 
-		if (--attackTime <= 0) {
+		long timestamp = mob.level().getGameTime();
+
+		if (nextAttackTimestamp <= timestamp) {
 			if (!canSee) return;
-			attackTime = attack(target, seeTime);
+			nextAttackTimestamp = timestamp + attack(target, seeTime);
 		}
 	}
 
