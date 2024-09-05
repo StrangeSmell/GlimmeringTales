@@ -1,4 +1,4 @@
-// 1.21.1	2024-09-05T09:07:33.723229	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
+// 1.21.1	2024-09-05T09:18:38.625423	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
 f628b87d75a2e2a6c5157d17ef22b26cb8b260eb assets/glimmeringtales/blockstates/bamboo.json
 4132de47f0c0e042aadf759876c94ea0a1d95cd2 assets/glimmeringtales/blockstates/clay_carpet.json
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
@@ -425,7 +425,7 @@ c223e5abea28b19378fc231eb4b4bd9cfb72c541 data/glimmeringtales/glimmeringtales/sp
 5d8a9e2c979598a37d526ca0392bfe0633d9b672 data/glimmeringtales/glimmeringtales/spell/clay.json
 5164ad447839e54def1fe89879047dd38090c979 data/glimmeringtales/glimmeringtales/spell/coral_reef.json
 d4ea480e29402ed43b0fa01aea260e3fe7357510 data/glimmeringtales/glimmeringtales/spell/dripstone.json
-4360086b476a3a290d3b4815a6176dc80fcc4fb3 data/glimmeringtales/glimmeringtales/spell/earthquake.json
+3e6982ba561830447315c6518791e7178969707b data/glimmeringtales/glimmeringtales/spell/earthquake.json
 b0907cd913bf01615e372cc11a5615c7dac2d675 data/glimmeringtales/glimmeringtales/spell/flower.json
 45821a5ddbc0b974fe0c2e82de26f3576c3203c8 data/glimmeringtales/glimmeringtales/spell/gravel.json
 df76b5945303dd5c274e50c75426556c99f6b6bd data/glimmeringtales/glimmeringtales/spell/hell_mark.json

@@ -11,7 +11,7 @@
         "reg": "l2magic:processor"
       },
       {
-        "id": "l2magic:knock_block",
+        "id": "glimmeringtales:knock_block",
         "reg": "l2magic:configured_engine"
       }
     ]

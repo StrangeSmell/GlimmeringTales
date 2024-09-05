@@ -1,5 +1,6 @@
 package dev.xkmc.glimmeringtales.content.core.description;
 
+import dev.xkmc.glimmeringtales.init.reg.GTEngine;
 import dev.xkmc.l2core.init.reg.simple.Val;
 import dev.xkmc.l2magic.content.engine.extension.ExtensionHolder;
 import dev.xkmc.l2magic.content.engine.extension.IExtended;
@@ -21,7 +22,7 @@ public record SpellTooltipData(ArrayList<Entry> list) {
 	}
 
 	public static SpellTooltipData damageAndFalling() {
-		return of(EngineRegistry.DAMAGE, EngineRegistry.KNOCK_BLOCK);
+		return of(EngineRegistry.DAMAGE, GTEngine.KNOCK);
 	}
 
 	public static SpellTooltipData damageAndEffect() {

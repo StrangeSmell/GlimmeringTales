@@ -1,11 +1,11 @@
 package dev.xkmc.glimmeringtales.content.core.description;
 
+import dev.xkmc.glimmeringtales.content.engine.instance.GTKnockBlock;
 import dev.xkmc.glimmeringtales.content.engine.instance.LightningInstance;
 import dev.xkmc.glimmeringtales.content.engine.processor.PassiveHealProcessor;
 import dev.xkmc.glimmeringtales.content.engine.processor.StackingEffectProcessor;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.reg.GTEngine;
-import dev.xkmc.l2magic.content.engine.block.KnockBlock;
 import dev.xkmc.l2magic.content.engine.extension.Extension;
 import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.processor.EffectProcessor;
@@ -28,7 +28,7 @@ public class SpellTooltipRegistry {
 	public static void init() {
 		EngineRegistry.DAMAGE.get().add(new DamageTooltip());
 		EngineRegistry.EFFECT.get().add(new EffectTooltip());
-		EngineRegistry.KNOCK_BLOCK.get().add(new FallingTooltip());
+		GTEngine.KNOCK.get().add(new FallingTooltip());
 		GTEngine.EP_STACK.get().add(new StackingTooltip());
 		GTEngine.THUNDER.get().add(new LightningTooltip());
 		GTEngine.HEAL.get().add(new HealTooltip());
@@ -68,10 +68,10 @@ public class SpellTooltipRegistry {
 
 	}
 
-	static class FallingTooltip extends Tooltip<KnockBlock> {
+	static class FallingTooltip extends Tooltip<GTKnockBlock> {
 
 		@Override
-		public Component process(KnockBlock e) {
+		public Component process(GTKnockBlock e) {
 			var dpb = e.damagePerBlock().exp().getAsConstant();
 			var max = e.maxDamage().exp().getAsConstant();
 			var spe = e.speed().exp().getAsConstant();
