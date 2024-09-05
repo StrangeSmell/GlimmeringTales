@@ -3,6 +3,11 @@
   "elem": "glimmeringtales:ocean",
   "focus": 3,
   "maxConsumeTick": 0,
+  "mob": {
+    "idealRange": 6.0,
+    "maxUseTick": 40,
+    "timeFactor": 1.0
+  },
   "spell": "glimmeringtales:ocean_shelter",
   "tooltip": {
     "list": [

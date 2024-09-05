@@ -3,6 +3,11 @@
   "elem": "glimmeringtales:thunder",
   "focus": 60,
   "maxConsumeTick": 0,
+  "mob": {
+    "idealRange": 16.0,
+    "maxUseTick": 40,
+    "timeFactor": 1.0
+  },
   "spell": "glimmeringtales:thunderstorm",
   "tooltip": {
     "list": [

@@ -1,6 +1,8 @@
 package dev.xkmc.glimmeringtales.events;
 
 import dev.xkmc.glimmeringtales.content.block.api.CropGrowListener;
+import dev.xkmc.glimmeringtales.content.entity.hostile.MobCastingConfig;
+import dev.xkmc.glimmeringtales.content.entity.hostile.SpellCastGoal;
 import dev.xkmc.glimmeringtales.content.recipe.thunder.StrikeBlockRecipe;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
@@ -8,8 +10,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
+import net.minecraft.world.entity.ai.goal.RangedBowAttackGoal;
+import net.minecraft.world.entity.ai.goal.RangedCrossbowAttackGoal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LightningRodBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -51,7 +59,22 @@ public class GTServerEventHandler {
 	public static void onEntityAdded(EntityJoinLevelEvent event) {
 		var level = event.getLevel();
 		if (level.isClientSide()) return;
-		if (!(event.getEntity() instanceof LightningBolt ie)) return;
+		if (event.getEntity() instanceof LightningBolt ie)
+			onThunder(level, ie);
+		if (event.getEntity() instanceof Mob mob) {
+			for (var e : mob.goalSelector.getAvailableGoals()) {
+				if (e.getGoal() instanceof RangedAttackGoal ||
+						e.getGoal() instanceof MeleeAttackGoal ||
+						e.getGoal() instanceof RangedBowAttackGoal<?> ||
+						e.getGoal() instanceof RangedCrossbowAttackGoal<?>) {
+					mob.goalSelector.addGoal(e.getPriority(), new SpellCastGoal(mob, MobCastingConfig.DEF));
+					return;
+				}
+			}
+		}
+	}
+
+	private static void onThunder(Level level, LightningBolt ie) {
 		BlockPos pos = BlockPos.containing(ie.position().add(0, -1e-6, 0));
 		BlockState state = level.getBlockState(pos);
 		if (state.isAir()) level.getBlockState(pos = pos.below());

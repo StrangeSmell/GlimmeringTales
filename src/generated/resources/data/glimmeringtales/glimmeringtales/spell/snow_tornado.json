@@ -3,6 +3,11 @@
   "elem": "glimmeringtales:snow",
   "focus": 2,
   "maxConsumeTick": 0,
+  "mob": {
+    "idealRange": 6.0,
+    "maxUseTick": 40,
+    "timeFactor": 1.0
+  },
   "spell": "glimmeringtales:snow_tornado",
   "tooltip": {
     "list": [

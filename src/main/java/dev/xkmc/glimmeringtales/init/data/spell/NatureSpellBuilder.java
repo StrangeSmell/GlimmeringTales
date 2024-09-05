@@ -121,6 +121,15 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 		return this;
 	}
 
+	public NatureSpellBuilder mob(int range, double factor) {
+		return mob(range, factor, 40);
+	}
+
+	public NatureSpellBuilder mob(int range, double factor, int maxTime) {
+		this.mob = new MobCastingData(range, maxTime, factor);
+		return this;
+	}
+
 	@SafeVarargs
 	public final NatureSpellBuilder block(
 			Function<NatureSpellBuilder, ConfiguredEngine<?>> action, ItemLike icon,

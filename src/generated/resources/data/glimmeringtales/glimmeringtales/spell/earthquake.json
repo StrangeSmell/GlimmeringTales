@@ -3,6 +3,11 @@
   "elem": "glimmeringtales:earth",
   "focus": 40,
   "maxConsumeTick": 0,
+  "mob": {
+    "idealRange": 5.0,
+    "maxUseTick": 40,
+    "timeFactor": 1.0
+  },
   "spell": "glimmeringtales:earthquake",
   "tooltip": {
     "list": [

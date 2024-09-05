@@ -32,7 +32,7 @@ import java.util.List;
 public class Earthquake {
 
 	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH
-			.build(GlimmeringTales.loc("earthquake")).focusAndCost(40, 80)
+			.build(GlimmeringTales.loc("earthquake")).focusAndCost(40, 80).mob(5, 1)
 			.damageCustom(e -> new DamageType(e, 0.1f),
 					"%s is killed by earthquake", "%s is killed by %s using earthquake",
 					DamageTypeTags.IS_EXPLOSION

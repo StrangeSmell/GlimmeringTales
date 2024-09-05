@@ -20,7 +20,6 @@ import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import dev.xkmc.l2serial.serialization.custom_handler.Handlers;
 import dev.xkmc.l2serial.util.Wrappers;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
@@ -77,10 +76,12 @@ public class GlimmeringTales {
 
 	@SubscribeEvent
 	public static void onAttribute(EntityAttributeModificationEvent event) {
-		event.add(EntityType.PLAYER, GTRegistries.MAX_MANA);
-		event.add(EntityType.PLAYER, GTRegistries.MANA_REGEN);
-		event.add(EntityType.PLAYER, GTRegistries.MAX_FOCUS);
-		GTRegistries.ELEMENT.reg().holders().forEach(e -> event.add(EntityType.PLAYER, e.value().getAffinity()));
+		for (var e : event.getTypes()) {
+			event.add(e, GTRegistries.MAX_MANA);
+			event.add(e, GTRegistries.MANA_REGEN);
+			event.add(e, GTRegistries.MAX_FOCUS);
+			GTRegistries.ELEMENT.reg().holders().forEach(x -> event.add(e, x.value().getAffinity()));
+		}
 	}
 
 	@SubscribeEvent
