@@ -38,7 +38,7 @@
           "action": {
             "type": "l2magic:delay",
             "child": {
-              "type": "l2magic:knock_block",
+              "type": "glimmeringtales:knock_block",
               "damagePerBlock": "2",
               "maxDamage": "30",
               "speed": "1"

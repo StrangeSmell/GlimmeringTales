@@ -32,6 +32,7 @@ public enum GTDamageStates implements DamageState {
 		consumer.accept(DamageTypeTags.IS_FREEZING);
 		consumer.accept(DamageTypeTags.IS_FIRE);
 		consumer.accept(DamageTypeTags.IS_EXPLOSION);
+		consumer.accept(Tags.DamageTypes.IS_PHYSICAL);
 	}
 
 	@Override

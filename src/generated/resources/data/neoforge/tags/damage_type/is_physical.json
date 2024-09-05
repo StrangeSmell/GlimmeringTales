@@ -1,0 +1,8 @@
+{
+  "values": [
+    "glimmeringtales:falling_block",
+    "glimmeringtales:falling_block-bypass_magic",
+    "glimmeringtales:falling_block-bypass_cooldown",
+    "glimmeringtales:falling_block-bypass_cooldown-bypass_magic"
+  ]
+}

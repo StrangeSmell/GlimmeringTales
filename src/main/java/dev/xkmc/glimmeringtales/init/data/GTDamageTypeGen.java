@@ -29,6 +29,7 @@ public class GTDamageTypeGen extends DamageTypeAndTagsGen {
 	public static final TagKey<DamageType> SPELL = TagKey.create(Registries.DAMAGE_TYPE, GlimmeringTales.loc("spells"));
 
 	public static final ResourceKey<DamageType> THUNDER = ResourceKey.create(Registries.DAMAGE_TYPE, GlimmeringTales.loc("lightning"));
+	public static final ResourceKey<DamageType> FALLING = ResourceKey.create(Registries.DAMAGE_TYPE, GlimmeringTales.loc("falling_block"));
 
 	@SafeVarargs
 	public static TagKey<DamageType>[] magic(TagKey<DamageType>... tags) {
@@ -46,6 +47,10 @@ public class GTDamageTypeGen extends DamageTypeAndTagsGen {
 		super(reg);
 		genDamage(THUNDER, () -> new DamageType("lightningBolt", 0.1F),
 				GTRegistries.THUNDER.damgeTag(), DamageTypeTags.IS_LIGHTNING, DamageTypeTags.NO_KNOCKBACK
+		);
+
+		genDamage(FALLING, () -> new DamageType("fallingBlock", 0.1F),
+				GTRegistries.EARTH.damgeTag(), DamageTypeTags.DAMAGES_HELMET, Tags.DamageTypes.IS_PHYSICAL
 		);
 
 		for (var e : NatureSpellGenRegistry.LIST) {

@@ -283,5 +283,6 @@
   "nature_spell.glimmeringtales.ocean_shelter.detail": "向前方喷射持续5秒的泡泡。对敌人：造成%s，施加%s。对友方：%s，给予%s",
 
   "patchouli.glimmeringtales.landing": "欢迎来到以自然为主题的魔法模组《微光纪事》",
-  "patchouli.glimmeringtales.title": "微光纪事指南"
+  "patchouli.glimmeringtales.title": "微光纪事指南",
+  "entity.glimmeringtales.falling_block": "坠落方块"
 }

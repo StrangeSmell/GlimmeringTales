@@ -8,10 +8,7 @@ import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.events.GTAttackListener;
 import dev.xkmc.glimmeringtales.init.data.*;
 import dev.xkmc.glimmeringtales.init.data.spell.GTSpells;
-import dev.xkmc.glimmeringtales.init.reg.GTEngine;
-import dev.xkmc.glimmeringtales.init.reg.GTItems;
-import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
-import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
+import dev.xkmc.glimmeringtales.init.reg.*;
 import dev.xkmc.l2backpack.content.common.BaseBagItemHandler;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import dev.xkmc.l2core.init.reg.simple.Reg;
@@ -58,6 +55,7 @@ public class GlimmeringTales {
 		GTItems.register();
 		GTRecipes.register();
 		GTEngine.register();
+		GTEntities.register();
 		if (ModList.get().isLoaded(PatchouliAPI.MOD_ID)) {
 			PatchouliCompat.gen();
 		}
