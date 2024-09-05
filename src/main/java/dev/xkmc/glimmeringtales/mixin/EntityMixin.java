@@ -14,14 +14,14 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(Entity.class)
 public class EntityMixin {
 
-	@WrapOperation(method = "thunderHit", at = @At(value = "INVOKE", target =
-			"Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
+	@WrapOperation(method = "thunderHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
 	public boolean glimmeringTales$thunderHit(
 			Entity e, DamageSource source, float amount, Operation<Boolean> original,
 			@Local(argsOnly = true) LightningBolt bolt
 	) {
 		if (bolt.getTags().contains(GlimmeringTales.MODID)) {
-			source = LightningInstance.source(source, bolt);
+			source = LightningInstance.source(source, bolt, e);
+			if (source == null) return false;
 		}
 		return original.call(e, source, amount);
 	}

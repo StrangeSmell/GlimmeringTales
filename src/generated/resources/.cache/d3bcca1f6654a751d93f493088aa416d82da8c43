@@ -1,4 +1,4 @@
-// 1.21.1	2024-09-05T14:48:21.957308	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
+// 1.21.1	2024-09-05T16:02:50.121405	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Patchouli Provider, Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
 f628b87d75a2e2a6c5157d17ef22b26cb8b260eb assets/glimmeringtales/blockstates/bamboo.json
 4132de47f0c0e042aadf759876c94ea0a1d95cd2 assets/glimmeringtales/blockstates/clay_carpet.json
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
@@ -10,8 +10,8 @@ ddfce448f766edb3356cc5dd2284a9a7cfc6a3f5 assets/glimmeringtales/blockstates/magm
 fdbebae44714d98419aec779d5098b1c641a6e87 assets/glimmeringtales/blockstates/ritual_matrix.json
 43659f4204dda1cd8d54c14e50db5852bc3bd9c6 assets/glimmeringtales/blockstates/stone.json
 9d9680dcac3f408484cc24fce5ff36d4e2670ce5 assets/glimmeringtales/blockstates/struck_log.json
-f3cf18da1c2cb77038aef4c48393fa822d93fd6f assets/glimmeringtales/lang/en_ud.json
-0b1ca4e069175b41d53553884bad4baac0502537 assets/glimmeringtales/lang/en_us.json
+942b8e154804b2ac239cdb4619457578c96590f3 assets/glimmeringtales/lang/en_ud.json
+d4d44b5be7aba11dd4d0eeb1ca426200b0e00959 assets/glimmeringtales/lang/en_us.json
 15f496a19c47d83933b652959371e73ad2143d9c assets/glimmeringtales/models/block/bamboo.json
 2d01c131bfac139379038cddb736636a9627c548 assets/glimmeringtales/models/block/clay_carpet.json
 a8bf80e58d57d3c05f21fcaa3f797e25109c3fd0 assets/glimmeringtales/models/block/crystal_vine_0.json

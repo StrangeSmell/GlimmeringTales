@@ -48,6 +48,7 @@
   "element.glimmeringtales.snow": "Snow",
   "element.glimmeringtales.thunder": "Thunder",
   "entity.glimmeringtales.falling_block": "Falling Block",
+  "entity.glimmeringtales.lightning_bolt": "Lightning Bolt",
   "glimmeringtales.configuration.crystalOfFlameRequirement": "Crystal of Flame: Lava consumption",
   "glimmeringtales.configuration.crystalOfFlameRequirement.tooltip": "Range: 1 ~ 1000",
   "glimmeringtales.configuration.crystalOfWinterstormRequirement": "Crystal of Winterstorm: Powder Snow consumption",
