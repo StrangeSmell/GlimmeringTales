@@ -67,7 +67,7 @@ public class GTServerEventHandler {
 						e.getGoal() instanceof MeleeAttackGoal ||
 						e.getGoal() instanceof RangedBowAttackGoal<?> ||
 						e.getGoal() instanceof RangedCrossbowAttackGoal<?>) {
-					mob.goalSelector.addGoal(e.getPriority(), new SpellCastGoal(mob, MobCastingConfig.DEF));
+					mob.goalSelector.addGoal(e.getPriority() - 1, new SpellCastGoal(mob, MobCastingConfig.DEF));
 					return;
 				}
 			}

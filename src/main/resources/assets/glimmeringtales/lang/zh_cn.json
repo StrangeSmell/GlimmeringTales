@@ -284,5 +284,6 @@
 
   "patchouli.glimmeringtales.landing": "欢迎来到以自然为主题的魔法模组《微光纪事》",
   "patchouli.glimmeringtales.title": "微光纪事指南",
-  "entity.glimmeringtales.falling_block": "坠落方块"
+  "entity.glimmeringtales.falling_block": "坠落方块",
+  "entity.glimmeringtales.lightning_bolt": "闪电"
 }

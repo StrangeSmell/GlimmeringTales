@@ -160,7 +160,12 @@ public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, Fast
 	}
 
 	@Override
-	public @Nullable EquipmentSlot getEquipmentSlot(ItemStack stack) {
-		return null;
+	public EquipmentSlot getEquipmentSlot(ItemStack stack) {
+		return EquipmentSlot.MAINHAND;
 	}
+
+	public boolean canEquip(ItemStack stack, EquipmentSlot armorType, LivingEntity entity) {
+		return armorType == EquipmentSlot.MAINHAND;
+	}
+
 }

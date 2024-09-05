@@ -25,8 +25,8 @@ public class SpellCastGoal extends StrafingRangedAttackGoal {
 	@Override
 	protected double getAttackRangeSqr(LivingEntity target) {
 		var spell = getSpell();
-		if (spell == null) return 16;
-		return spell.mob().idealRange();
+		if (spell == null) return 256;
+		return spell.mob().idealRange() * spell.mob().idealRange();
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class SpellCastGoal extends StrafingRangedAttackGoal {
 				useTick = 0;
 			}
 		}
-		int totalCost = Math.max((int) (cost / spell.regen()), (int) spell.cost().focus());
+		int totalCost = Math.max((int) (20 * cost / spell.regen()), (int) spell.cost().focus());
 		return Math.max(20, totalCost);
 	}
 

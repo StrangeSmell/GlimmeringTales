@@ -73,7 +73,7 @@ public abstract class StrafingRangedAttackGoal extends Goal {
 		} else {
 			seeTime = 0;
 		}
-		if (!(distSqr > sqr) && seeTime >= config.stopMovingSeeTime()) {
+		if (distSqr <= sqr && seeTime >= config.stopMovingSeeTime()) {
 			mob.getNavigation().stop();
 			this.strafingTime++;
 		} else {
@@ -97,7 +97,7 @@ public abstract class StrafingRangedAttackGoal extends Goal {
 			} else if (distSqr < sqr * config.startBackoffRange()) {
 				strafingBackwards = true;
 			}
-			mob.getMoveControl().strafe(strafingBackwards ? -0.5F : 0.5F, strafingClockwise ? 0.5F : -0.5F);
+			mob.getMoveControl().strafe(strafingBackwards ? -1f : 0.5F, strafingClockwise ? 0.5F : -0.5F);
 			if (mob.getControlledVehicle() instanceof Mob veh) {
 				veh.lookAt(target, 30.0F, 30.0F);
 			}
