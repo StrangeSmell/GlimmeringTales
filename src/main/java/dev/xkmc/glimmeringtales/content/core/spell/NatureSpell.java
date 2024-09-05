@@ -2,6 +2,7 @@ package dev.xkmc.glimmeringtales.content.core.spell;
 
 import com.mojang.serialization.Codec;
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
+import dev.xkmc.glimmeringtales.content.entity.hostile.MobCastingData;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
@@ -15,6 +16,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Function;
 
@@ -22,7 +24,8 @@ public record NatureSpell(
 		Holder<SpellAction> spell,
 		SpellElement elem,
 		int focus, int cost, int maxConsumeTick,
-		SpellTooltipData tooltip
+		SpellTooltipData tooltip,
+		@Nullable MobCastingData mob
 ) {
 
 	private static final int MIN_MANA_COST = 1, CAST_COOLDOWN = 10, BREAK_COOLDOWN = 20;

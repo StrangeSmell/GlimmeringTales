@@ -6,11 +6,10 @@ import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
-import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
+import dev.xkmc.glimmeringtales.content.entity.hostile.MobCastingData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTDamageTypeGen;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
-import dev.xkmc.l2core.init.reg.registrate.LegacyHolder;
 import dev.xkmc.l2core.util.MathHelper;
 import dev.xkmc.l2magic.content.engine.context.DataGenContext;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
@@ -60,6 +59,7 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 	private SpellDamageEntry damageEntry;
 	private SpellDesc desc;
 	private ItemLike icon;
+	private MobCastingData mob;
 
 	private DataGenContext cache;
 
@@ -117,7 +117,7 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 	public NatureSpellBuilder focusAndCost(int focus, int cost, int max) {
 		nature = nature(id);
 		this.natureFactory = e -> new NatureSpell(e, elem.get(), focus, cost, max,
-				desc == null ? warnEmpty() : desc.data);
+				desc == null ? warnEmpty() : desc.data, mob);
 		return this;
 	}
 
