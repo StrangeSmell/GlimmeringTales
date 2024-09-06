@@ -10,6 +10,7 @@ import dev.xkmc.l2magic.content.engine.core.EngineType;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
@@ -46,12 +47,18 @@ public record GTKnockBlock(
 		level.addFreshEntity(e);
 	}
 
-
 	public static GTFallingBlockEntity fall(Level level, BlockPos pos, BlockState state) {
 		var w = BlockStateProperties.WATERLOGGED;
-		return new GTFallingBlockEntity(level,
-				pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5,
-				state.hasProperty(w) ? state.setValue(w, false) : state);
+		state = state.hasProperty(w) ? state.setValue(w, false) : state;
+		if (state.is(Blocks.GRASS_BLOCK)) {
+			if (state.hasProperty(BlockStateProperties.SNOWY)) {
+				state = state.setValue(BlockStateProperties.SNOWY, false);
+			}
+		}
+		if (state.is(Blocks.DIRT_PATH) || state.is(Blocks.FARMLAND)) {
+			state = Blocks.DIRT.defaultBlockState();
+		}
+		return new GTFallingBlockEntity(level, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, state);
 	}
 
 }

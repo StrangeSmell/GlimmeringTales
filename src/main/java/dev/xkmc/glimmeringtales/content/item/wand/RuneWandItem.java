@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.content.item.wand;
 
 import com.tterrag.registrate.util.CreativeModeTabModifier;
+import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2backpack.content.quickswap.common.IQuickSwapToken;
@@ -11,6 +12,8 @@ import dev.xkmc.l2library.content.raytrace.FastItem;
 import dev.xkmc.l2library.content.raytrace.IGlowingTarget;
 import dev.xkmc.l2library.content.raytrace.RayTraceUtil;
 import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
+import dev.xkmc.l2menustacker.init.L2MSLangData;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -153,10 +156,16 @@ public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, Fast
 	@Override
 	public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> list, TooltipFlag flag) {
 		var level = ctx.level();
-		if (level == null) return;
-		var handle = getHandle(stack);
-		list.add(Component.translatable(handle.getDescriptionId()).append(": "));
-		handle.appendAffinityDesc(level, list);
+		if (level != null) {
+			ItemStack core = getCore(stack);
+			if (!core.isEmpty()) {
+				list.add(GTLang.TOOLTIP_SELECTED.get(core.getHoverName()).withStyle(ChatFormatting.GRAY));
+			}
+			var handle = getHandle(stack);
+			list.add(Component.translatable(handle.getDescriptionId()).append(": "));
+			handle.appendAffinityDesc(level, list);
+		}
+		list.add(L2MSLangData.QUICK_ACCESS.get().withStyle(ChatFormatting.GRAY));
 	}
 
 	@Override

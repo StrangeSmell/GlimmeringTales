@@ -61,6 +61,9 @@ public record SpellInfo(@Nullable Holder<NatureSpell> spell,
 		var id = spell.unwrapKey().orElseThrow();
 		ns.addDescription(list, ns.manaCost(1), advanced());
 		list.add(SpellTooltip.get(level, ns).format(id));
+		if (ns.mob() != null) {
+			list.add(GTLang.TOOLTIP_MOB_USE.get().withStyle(ChatFormatting.RED));
+		}
 	}
 
 }

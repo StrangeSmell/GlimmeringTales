@@ -1,8 +1,11 @@
 package dev.xkmc.glimmeringtales.content.block.misc;
 
+import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.l2library.init.FlagMarker;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -16,12 +19,15 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class StruckLogBlock extends RotatedPillarBlock {
 
@@ -71,6 +77,11 @@ public class StruckLogBlock extends RotatedPillarBlock {
 				onCaughtFire(state, level, blockpos, null, entity instanceof LivingEntity e ? e : null);
 			}
 		}
+	}
+
+	@Override
+	public void appendHoverText(ItemStack stack, Item.TooltipContext ctx, List<Component> list, TooltipFlag flag) {
+		list.add(GTLang.TOOLTIP_STRUCK.get().withStyle(ChatFormatting.GRAY));
 	}
 
 }
