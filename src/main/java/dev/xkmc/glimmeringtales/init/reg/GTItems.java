@@ -37,12 +37,16 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -52,6 +56,7 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class GTItems {
@@ -73,6 +78,8 @@ public class GTItems {
 	public static final ItemEntry<DepletedItem> DEPLETED_FLAME, DEPLETED_WINTERSTORM;
 	public static final BlockEntry<LifeCrystalCrop> CRYSTAL_VINE;
 	public static final BlockEntry<StruckLogBlock> STRUCK_LOG;
+	public static final BlockEntry<LeavesBlock> STRUCK_LEAVES;
+	public static final BlockEntry<SaplingBlock> STRUCK_SAPLING;
 	public static final ItemEntry<AmethystResonator> RESONATOR;
 
 	public static final BlockEntry<DelegateBlock> RITUAL_ALTAR, RITUAL_MATRIX;
@@ -235,6 +242,25 @@ public class GTItems {
 							new StruckLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)))
 					.blockstate((ctx, pvd) -> pvd.logBlock(ctx.get()))
 					.tag(BlockTags.LOGS_THAT_BURN).simpleItem().register();
+
+			STRUCK_LEAVES = GlimmeringTales.REGISTRATE.block("struck_leaves", p ->
+							new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)))
+					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(),
+							pvd.models().leaves(ctx.getName(), pvd.modLoc("block/" + ctx.getName()))))
+					.tag(BlockTags.LEAVES)
+					.loot((pvd, block) -> pvd.add(block, pvd.createLeavesDrops(block, Blocks.OAK_SAPLING, 1 / 20f, 1 / 16f, 1 / 12f, 1 / 10f)))
+					.simpleItem()
+					.register();
+
+			STRUCK_SAPLING = GlimmeringTales.REGISTRATE.block("struck_sapling", p -> new SaplingBlock(
+							new TreeGrower("struck_sapling", Optional.empty(), Optional.of(GTWorldGen.CF_TREE), Optional.empty()),
+							BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)))
+					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
+							.cross(ctx.getName(), pvd.modLoc("block/" + ctx.getName()))
+							.renderType("cutout")))
+					.tag(BlockTags.SAPLINGS)
+					.item().model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("block/" + ctx.getName()))).tag(ItemTags.SAPLINGS).build()
+					.register();
 
 			RESONATOR = GlimmeringTales.REGISTRATE.item("amethyst_resonator", p ->
 							new AmethystResonator(p.stacksTo(1)))

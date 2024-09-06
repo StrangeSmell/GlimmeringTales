@@ -1,4 +1,4 @@
-// 1.21.1	2024-09-05T16:35:34.016868	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/structure)]
+// 1.21.1	2024-09-06T11:13:41.707661	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/biome)]
 f628b87d75a2e2a6c5157d17ef22b26cb8b260eb assets/glimmeringtales/blockstates/bamboo.json
 4132de47f0c0e042aadf759876c94ea0a1d95cd2 assets/glimmeringtales/blockstates/clay_carpet.json
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
@@ -9,9 +9,11 @@ ddfce448f766edb3356cc5dd2284a9a7cfc6a3f5 assets/glimmeringtales/blockstates/magm
 8bdb4aaf1601a44f0f95e05ccb2f415d9b50b6c0 assets/glimmeringtales/blockstates/ritual_altar.json
 fdbebae44714d98419aec779d5098b1c641a6e87 assets/glimmeringtales/blockstates/ritual_matrix.json
 43659f4204dda1cd8d54c14e50db5852bc3bd9c6 assets/glimmeringtales/blockstates/stone.json
+829f2932a3b6a596774b14a6e51a27c45e17fc4b assets/glimmeringtales/blockstates/struck_leaves.json
 9d9680dcac3f408484cc24fce5ff36d4e2670ce5 assets/glimmeringtales/blockstates/struck_log.json
-942b8e154804b2ac239cdb4619457578c96590f3 assets/glimmeringtales/lang/en_ud.json
-d4d44b5be7aba11dd4d0eeb1ca426200b0e00959 assets/glimmeringtales/lang/en_us.json
+036df3f7ec015fa7ef10d874f61140a24008c2ae assets/glimmeringtales/blockstates/struck_sapling.json
+385c1e53a99ca4b04bd21e98469736e5285db19a assets/glimmeringtales/lang/en_ud.json
+4bfbda00e0ae94b012a9f8e659eadecd48c23fca assets/glimmeringtales/lang/en_us.json
 15f496a19c47d83933b652959371e73ad2143d9c assets/glimmeringtales/models/block/bamboo.json
 2d01c131bfac139379038cddb736636a9627c548 assets/glimmeringtales/models/block/clay_carpet.json
 a8bf80e58d57d3c05f21fcaa3f797e25109c3fd0 assets/glimmeringtales/models/block/crystal_vine_0.json
@@ -29,8 +31,10 @@ fcb7bc1fb239502ef48f4db345d50891a2941b31 assets/glimmeringtales/models/block/cry
 0293274d6e5793adde5b58c56d3cc0bcb03a8528 assets/glimmeringtales/models/block/ritual_altar.json
 69bfdf6e987b8944da071e4b6ff8a1e4f59d28ee assets/glimmeringtales/models/block/ritual_matrix.json
 bd721385e8bb8bf981c7a5e7a4d54ecf81cbcfc4 assets/glimmeringtales/models/block/stone.json
+bdb32351303b20eb61de3661c5debb1384a878b0 assets/glimmeringtales/models/block/struck_leaves.json
 75cf0316f1360ad45621cde8ca067706aee66b0f assets/glimmeringtales/models/block/struck_log.json
 8f996824827d8eccf0068c797290bf953a44c578 assets/glimmeringtales/models/block/struck_log_horizontal.json
+2cfb461ac664ff1b69bddf1d6da53c5599d32fd2 assets/glimmeringtales/models/block/struck_sapling.json
 74d44dfc6adc219f5c9a5089e21757a669898ef6 assets/glimmeringtales/models/item/amethyst.json
 223ee1360374e350861f24d63fc7cefbd1ff3bfd assets/glimmeringtales/models/item/amethyst_core.json
 c40e92c426fdb3839d2588eab6c9eaf4a27e23e9 assets/glimmeringtales/models/item/amethyst_penetration.json
@@ -140,7 +144,9 @@ d8d5034dcea72ba2b2a1de92cb4dc4c86413b8ec assets/glimmeringtales/models/item/ston
 19fd81da23893a679d9943108d24698f336450dd assets/glimmeringtales/models/item/stone_bridge.json
 3ae4a91abfeed06cb6a9f16bb65d5fe05d56feaa assets/glimmeringtales/models/item/stone_bridge_core.json
 e80490b4a9f0b5c28a4495c918332a4ec458850a assets/glimmeringtales/models/item/stone_core.json
+0abc2a88b0c6891d0f66eb4eac3dd71b7f32a494 assets/glimmeringtales/models/item/struck_leaves.json
 fde91ec4bb2afc9bdcaff4346a996d650c4e23af assets/glimmeringtales/models/item/struck_log.json
+05f95d7c36d6de6114f0258633095f43fb2e1f35 assets/glimmeringtales/models/item/struck_sapling.json
 2d6cd247c062f4a3e6a8b8734062bb67aea22093 assets/glimmeringtales/models/item/thunder.json
 e7525e634243fe31f5e85fe578caaceebc7db748 assets/glimmeringtales/models/item/thunder_core.json
 a3d92ee48854e7d2fb514622a705600c7f6c9367 assets/glimmeringtales/models/item/thunderstorm.json
@@ -491,8 +497,13 @@ fce112908980364f0e28b53e5e8f411b9286461d data/glimmeringtales/l2magic/spell_acti
 efa083ada4cd89b6750ff95ff0ecede3a59fa965 data/glimmeringtales/loot_table/blocks/crystal_vine.json
 54e06087fcf8da4353a7f57814f4ac512a4454b0 data/glimmeringtales/loot_table/blocks/ritual_altar.json
 91bbf8e0ac3f24ccb245d8ba73923a50f0f830bc data/glimmeringtales/loot_table/blocks/ritual_matrix.json
+a90e47a7d1e0410e6833d569a2f0b0e2a393ad6d data/glimmeringtales/loot_table/blocks/struck_leaves.json
 5ea5b78c89eac1d66fffffa10e371b40061141bd data/glimmeringtales/loot_table/blocks/struck_log.json
+bf7b7a179ab96cd9b5e7f47e74099326c3151302 data/glimmeringtales/loot_table/blocks/struck_sapling.json
 af921c28e8bb301e3b41628c1fb06c2469483676 data/glimmeringtales/loot_table/glimmering_fate.json
+7f734fbb2d85ee99142bcc0788a3f5317b2db3b8 data/glimmeringtales/neoforge/biome_modifier/struck_tree_common.json
+d7b34e7cf5b86fe347bfbb34a01961670d467b46 data/glimmeringtales/neoforge/biome_modifier/struck_tree_dense.json
+dc50fc815401d4efaaf311373f1dc8c32d2f2b4d data/glimmeringtales/neoforge/biome_modifier/struck_tree_sparse.json
 7d62bcbef379d27af19164e5b30791d0e8eeacdb data/glimmeringtales/patchouli_books/glimmering_fate/book.json
 d83263c3acb6da09c67982d78fc3f59c1a3a43b4 data/glimmeringtales/recipe/amethyst_resonator.json
 9b66d8552d01a0d0af01689c4778dd21a6c720aa data/glimmeringtales/recipe/book.json
@@ -581,10 +592,19 @@ c4a72b8f2af50d735e882db0871c6bc608234620 data/glimmeringtales/tags/damage_type/l
 ee403015900a767a83748e13af8b39cc9d9fb043 data/glimmeringtales/tags/item/core.json
 d8b58e10ba2bbc42f36abcc5983c44b87f4f7566 data/glimmeringtales/tags/item/crystal.json
 82e14be4b8a9a14d6c3b0c02e94b3acd19310b9f data/glimmeringtales/tags/item/unique_curios.json
+06465a8d3b70fa237d2af22b73c6da00ad35a263 data/glimmeringtales/tags/worldgen/biome/struck_tree_common.json
+6d126d042989db5b187f7c2895b52687cc058f5d data/glimmeringtales/tags/worldgen/biome/struck_tree_dense.json
+7d98ed66ddcb8205c1b176d2a9ca8d04553b83e9 data/glimmeringtales/tags/worldgen/biome/struck_tree_sparse.json
+64fcc15348dbe0e92478fcd04cd36283a148d59a data/glimmeringtales/worldgen/configured_feature/struck_tree.json
+7170c87b812acbe6b08616754d1b8e428ef5a65d data/glimmeringtales/worldgen/placed_feature/struck_tree_common.json
+1b1d7b9ec3e7365baf7d049f6191938af7ff75df data/glimmeringtales/worldgen/placed_feature/struck_tree_dense.json
+93f28a953182c8e3860d18d9951293909f2f0c8e data/glimmeringtales/worldgen/placed_feature/struck_tree_sparse.json
 e20925232ba5499f9feed27a8692891db6738aca data/l2damagetracker/tags/attribute/percentage.json
 1eed49ed129995e86bb35c19918c1cccc4cdd418 data/l2tabs/data_maps/attribute/attribute_entry.json
 ef0507da819d40fd56142e3a90c7e96c7439fe5c data/minecraft/tags/block/crops.json
+0214bc6a2ec870ecce27885d48674cfcce9b8b59 data/minecraft/tags/block/leaves.json
 01e188932772855becc360e42d9ddfad4332de28 data/minecraft/tags/block/logs_that_burn.json
+ca0486ea38b896f2786d2d4fab9ba3c54b03f6ea data/minecraft/tags/block/saplings.json
 d4cc0acf5adb2eda4b0127a6262cf0b4c1a23ea3 data/minecraft/tags/damage_type/bypasses_armor.json
 9c6f789c12ba40f833fd0c69e9fa527cad48c346 data/minecraft/tags/damage_type/bypasses_cooldown.json
 f39a28613b2f7e3d3eeaa032dfef6160b6d4492f data/minecraft/tags/damage_type/bypasses_effects.json
@@ -597,5 +617,6 @@ f39a28613b2f7e3d3eeaa032dfef6160b6d4492f data/minecraft/tags/damage_type/bypasse
 74d64b2e4e89ec9f4f00b2286a5e73b2dc7f25f4 data/minecraft/tags/damage_type/is_lightning.json
 8d5e21bcfaf17276b63ec613329ed54375a07c56 data/minecraft/tags/damage_type/is_projectile.json
 001934245e5cde3eb0cc01fc988bd71911134263 data/minecraft/tags/damage_type/no_knockback.json
+ca0486ea38b896f2786d2d4fab9ba3c54b03f6ea data/minecraft/tags/item/saplings.json
 bd711fb52f1772ca122dff5a536bcd13744ce9bb data/neoforge/tags/damage_type/is_magic.json
 98c12be8c9f6a7e4ba49c011e4ddb6d8002be644 data/neoforge/tags/damage_type/is_physical.json

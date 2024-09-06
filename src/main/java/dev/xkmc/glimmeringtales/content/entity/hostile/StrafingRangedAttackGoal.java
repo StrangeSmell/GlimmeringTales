@@ -13,8 +13,8 @@ public abstract class StrafingRangedAttackGoal extends Goal {
 
 	@Nullable
 	private LivingEntity target;
-	private long nextAttackTimestamp = 0;
-	private int seeTime;
+	protected long nextAttackTimestamp = 0;
+	protected int seeTime;
 
 	private boolean strafingClockwise;
 	private boolean strafingBackwards;

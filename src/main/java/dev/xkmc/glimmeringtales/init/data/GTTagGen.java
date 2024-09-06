@@ -9,6 +9,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.Structure;
@@ -16,8 +17,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 
 public class GTTagGen {
 
-	public static final ProviderType<RegistrateTagsProvider.Impl<Structure>> STRUCTURE =
-			L2TagGen.getProvider(Registries.STRUCTURE);
+	public static final ProviderType<RegistrateTagsProvider.Impl<Biome>> BIOME = L2TagGen.getProvider(Registries.BIOME);
 
 	public static final TagKey<Item> CRYSTAL = item("crystal");
 	public static final TagKey<Item> CORE = item("core");

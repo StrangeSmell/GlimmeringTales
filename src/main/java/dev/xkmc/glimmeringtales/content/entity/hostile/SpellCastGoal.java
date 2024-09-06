@@ -37,6 +37,12 @@ public class SpellCastGoal extends StrafingRangedAttackGoal {
 
 	@Override
 	public void stop() {
+		if (useTick > 0) {
+			var spell = getSpell();
+			if (spell != null) {
+				nextAttackTimestamp = mob.level().getGameTime() + spell.getCooldown(useTick);
+			}
+		}
 		useTick = 0;
 		if (mob.isUsingItem()) {
 			mob.stopUsingItem();
@@ -50,10 +56,10 @@ public class SpellCastGoal extends StrafingRangedAttackGoal {
 		if (spell == null) return 20;
 		var action = spell.spell().spell().value();
 		var ctx = SpellCastContext.of(mob.level(), mob, spell.wand());
-		double cost;
+		int cost;
 		if (action.castType() == SpellCastType.INSTANT) {
 			spell.holder().cast(ctx, 0, false);
-			cost = spell.cost().mana();
+			cost = 1;
 		} else {
 			if (useTick == 0) {
 				mob.startUsingItem(InteractionHand.MAIN_HAND);
@@ -67,13 +73,12 @@ public class SpellCastGoal extends StrafingRangedAttackGoal {
 					spell.holder().cast(ctx, useTick, false);
 				}
 				int maxTick = spell.spell().maxConsumeTick();
-				cost = (maxTick > 0 ? Math.min(useTick, maxTick) : useTick) * spell.cost().mana();
+				cost = useTick;
 				mob.stopUsingItem();
 				useTick = 0;
 			}
 		}
-		int totalCost = Math.max((int) (20 * cost / spell.regen()), (int) spell.cost().focus());
-		return Math.max(20, totalCost);
+		return spell.getCooldown(cost);
 	}
 
 	@Override

@@ -92,7 +92,7 @@ public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, Fast
 				}
 			}
 		}
-		return super.use(level, player, hand);
+		return InteractionResultHolder.pass(stack);
 	}
 
 	@Override

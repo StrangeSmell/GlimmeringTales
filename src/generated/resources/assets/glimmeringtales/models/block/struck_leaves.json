@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "glimmeringtales:block/struck_leaves"
+  }
+}
