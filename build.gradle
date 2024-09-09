@@ -177,6 +177,7 @@ dependencies {
     implementation jarJar(group: 'dev.xkmc', name: 'l2damagetracker', version: "[${l2damagetracker_ver},)")
 
     implementation jarJar(group: 'dev.xkmc', name: 'l2backpack', version: "[${l2backpack_ver},)")
+    implementation jarJar(group: 'dev.xkmc', name: 'l2archery', version: "[${l2archery_ver},)")
     implementation jarJar(group: 'dev.xkmc', name: 'l2complements', version: "[${l2complements_ver},)")
 
     implementation "dev.xkmc:modulargolems:${modulargolems_ver}"

@@ -3,7 +3,6 @@ package dev.xkmc.glimmeringtales.compat;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRecipes;
-import dev.xkmc.l2serial.util.Wrappers;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -12,7 +11,6 @@ import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
@@ -62,12 +60,9 @@ public class GTJeiPlugin implements IModPlugin {
 	public void registerRecipes(IRecipeRegistration registration) {
 		var level = Minecraft.getInstance().level;
 		assert level != null;
-		registration.addRecipes(STRIKE_BLOCK.getRecipeType(), level.getRecipeManager()
-				.getAllRecipesFor(GTRecipes.RT_STRIKE_BLOCK.get()).stream().map(RecipeHolder::value).toList());
-		registration.addRecipes(STRIKE_ITEM.getRecipeType(), level.getRecipeManager()
-				.getAllRecipesFor(GTRecipes.RT_STRIKE_ITEM.get()).stream().map(RecipeHolder::value).toList());
-		registration.addRecipes(RITUAL.getRecipeType(), Wrappers.cast(level.getRecipeManager()
-				.getAllRecipesFor(GTRecipes.RT_RITUAL.get()).stream().map(RecipeHolder::value).toList()));
+		registration.addRecipes(STRIKE_BLOCK.getRecipeType(), STRIKE_BLOCK.getAll(GTRecipes.RT_STRIKE_BLOCK.get()));
+		registration.addRecipes(STRIKE_ITEM.getRecipeType(), STRIKE_ITEM.getAll(GTRecipes.RT_STRIKE_ITEM.get()));
+		registration.addRecipes(RITUAL.getRecipeType(), RITUAL.getAll(GTRecipes.RT_RITUAL.get()));
 		registration.addRecipes(TRANSFORM.getRecipeType(), List.of(
 				new ItemTransformation(GTItems.DEPLETED_FLAME.asStack(), GTItems.CRYSTAL_FLAME.asStack()),
 				new ItemTransformation(GTItems.DEPLETED_WINTERSTORM.asStack(), GTItems.CRYSTAL_WINTERSTORM.asStack()),
