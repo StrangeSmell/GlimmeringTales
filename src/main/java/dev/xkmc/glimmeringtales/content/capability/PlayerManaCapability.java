@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.content.capability;
 
 import dev.xkmc.glimmeringtales.content.core.spell.SpellCost;
+import dev.xkmc.glimmeringtales.init.data.GTConfigs;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2core.capability.player.PlayerCapabilityTemplate;
 import dev.xkmc.l2serial.serialization.marker.SerialClass;
@@ -16,6 +17,9 @@ public class PlayerManaCapability extends PlayerCapabilityTemplate<PlayerManaCap
 
 	@SerialField
 	private double focus = GTRegistries.MAX_FOCUS.get().getDefaultValue();
+
+	@SerialField
+	private int focusCoolDown = 0;
 
 	@Override
 	public void onClone(Player player, boolean isWasDeath) {
@@ -40,7 +44,8 @@ public class PlayerManaCapability extends PlayerCapabilityTemplate<PlayerManaCap
 		double maxFocus = player.getAttributeValue(GTRegistries.MAX_FOCUS);
 		if (focus > maxFocus) focus = maxFocus;
 		if (!(focus >= 0)) focus = 0;
-		if (focus < maxFocus) {
+		if (focusCoolDown > 0) focusCoolDown--;
+		if (focusCoolDown == 0 && focus < maxFocus) {
 			focus = Math.min(maxFocus, focus + 1);
 			if (focus == maxFocus && player instanceof ServerPlayer sp) {
 				GTRegistries.MANA.type().network.toClient(sp);
@@ -58,6 +63,7 @@ public class PlayerManaCapability extends PlayerCapabilityTemplate<PlayerManaCap
 		}
 		this.focus -= cost.focus();
 		this.mana -= cost.mana();
+		this.focusCoolDown = GTConfigs.SERVER.focusCoolDown.get();
 		if (player instanceof ServerPlayer sp) {
 			GTRegistries.MANA.type().network.toClient(sp);
 		}

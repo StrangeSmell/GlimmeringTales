@@ -28,6 +28,7 @@ public class GTConfigs {
 		public final ModConfigSpec.IntValue crystalOfFlameRequirement;
 		public final ModConfigSpec.IntValue crystalOfWinterstormRequirement;
 		public final ModConfigSpec.IntValue wandInteractionDistance;
+		public final ModConfigSpec.IntValue focusCoolDown;
 
 		public Server(Builder builder) {
 			markL2();
@@ -41,6 +42,9 @@ public class GTConfigs {
 			crystalOfWinterstormRequirement = builder
 					.text("Crystal of Winterstorm: Powder Snow consumption")
 					.defineInRange("crystalOfWinterstormRequirement", 64, 1, 1000);
+			focusCoolDown = builder
+					.text("Cooldown on focus restoration after casting spell")
+					.defineInRange("focusCoolDown", 40, 0, 1000);
 			builder.pop();
 		}
 	}
