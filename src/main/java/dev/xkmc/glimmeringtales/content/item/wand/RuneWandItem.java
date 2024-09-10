@@ -5,6 +5,7 @@ import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2backpack.content.quickswap.common.IQuickSwapToken;
+import dev.xkmc.l2backpack.content.quickswap.common.SimpleMenuPvd;
 import dev.xkmc.l2backpack.content.quickswap.common.SingleSwapItem;
 import dev.xkmc.l2backpack.content.quickswap.common.SingleSwapToken;
 import dev.xkmc.l2backpack.content.quickswap.type.QuickSwapType;
@@ -13,8 +14,10 @@ import dev.xkmc.l2library.content.raytrace.IGlowingTarget;
 import dev.xkmc.l2library.content.raytrace.RayTraceUtil;
 import dev.xkmc.l2magic.content.engine.spell.SpellCastType;
 import dev.xkmc.l2menustacker.init.L2MSLangData;
+import dev.xkmc.l2menustacker.screen.source.PlayerSlot;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -175,6 +178,10 @@ public class RuneWandItem extends SingleSwapItem implements IGlowingTarget, Fast
 
 	public boolean canEquip(ItemStack stack, EquipmentSlot armorType, LivingEntity entity) {
 		return armorType == EquipmentSlot.MAINHAND;
+	}
+
+	public void open(ServerPlayer player, PlayerSlot<?> slot, ItemStack stack) {
+		new SimpleMenuPvd(player, slot, this, stack, WandMenu::new).open();
 	}
 
 }

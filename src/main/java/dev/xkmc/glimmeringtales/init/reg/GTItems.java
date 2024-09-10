@@ -4,6 +4,7 @@ import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import com.tterrag.registrate.util.entry.MenuEntry;
 import dev.xkmc.glimmeringtales.content.block.crop.LifeCrystalCrop;
 import dev.xkmc.glimmeringtales.content.block.misc.*;
 import dev.xkmc.glimmeringtales.content.block.ritual.*;
@@ -15,15 +16,14 @@ import dev.xkmc.glimmeringtales.content.item.materials.DepletedItem;
 import dev.xkmc.glimmeringtales.content.item.rune.BlockRuneItem;
 import dev.xkmc.glimmeringtales.content.item.rune.SpellCoreItem;
 import dev.xkmc.glimmeringtales.content.item.rune.SpellRuneItem;
-import dev.xkmc.glimmeringtales.content.item.wand.GTBEWLR;
-import dev.xkmc.glimmeringtales.content.item.wand.IWandCoreItem;
-import dev.xkmc.glimmeringtales.content.item.wand.RuneWandItem;
-import dev.xkmc.glimmeringtales.content.item.wand.WandHandleItem;
+import dev.xkmc.glimmeringtales.content.item.wand.*;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTConfigs;
 import dev.xkmc.glimmeringtales.init.data.GTDamageStates;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.data.GTTagGen;
+import dev.xkmc.l2backpack.content.common.BaseOpenableScreen;
+import dev.xkmc.l2backpack.init.L2Backpack;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
@@ -87,6 +87,7 @@ public class GTItems {
 	public static final BlockEntityEntry<NatureCoreBlockEntity> MATRIX_BE;
 
 	public static final ItemEntry<RuneWandItem> WAND;
+	public static final MenuEntry<WandMenu> WAND_MENU;
 	public static final ItemEntry<WandHandleItem> WOOD_WAND, LIFE_WAND, GOLD_WAND, OCEAN_WAND;
 
 	public static final ItemEntry<DamageTypeCurioItem> GLOVE_OF_SORCERER, GLOVE_OF_ABYSS, GLOVE_OF_OCEAN, GLOVE_OF_THUNDER;
@@ -312,6 +313,8 @@ public class GTItems {
 					.tab(TAB.key(), (m, x) -> m.get().fillCreativeTabs(x))
 					.lang(" Wand")
 					.register();
+
+			WAND_MENU = L2Backpack.REGISTRATE.menu("wand", WandMenu::fromNetwork, () -> WandScreen::new).register();
 
 			WOOD_WAND = handle("wood_wand", 0.25f, 0.75f, "Wooden");
 			LIFE_WAND = handle("life_wand", 0.25f, 0.87f, "Bamboo");

@@ -20,9 +20,10 @@ import org.joml.Matrix4f;
 public class SpellCastingOverlay implements LayeredDraw.Layer {
 
 	private static final ResourceLocation FRAME = GlimmeringTales.loc("mana_frame");
-	private static final ResourceLocation BAR = GlimmeringTales.loc("mana_bar");
-	private static final ResourceLocation RED = GlimmeringTales.loc("insufficient_bar");
-	private static final int W = 56, FW = W + 6, H = 2, FH = H + 6;
+	private static final ResourceLocation FOCUS = GlimmeringTales.loc("mana_bar");
+	private static final ResourceLocation BAR = GlimmeringTales.loc("focus_bar");
+	private static final ResourceLocation RED = GlimmeringTales.loc("insufficient");
+	private static final int W = 64, FW = 76, FH = 8;
 
 	@Override
 	public void render(GuiGraphics g, DeltaTracker delta) {
@@ -40,26 +41,26 @@ public class SpellCastingOverlay implements LayeredDraw.Layer {
 		if (wand.is(GTItems.WAND)) {
 			int w = g.guiWidth();
 			int h = g.guiHeight();
-			int x0 = w / 2, y0 = (int) (h * 0.625);
-			g.blitSprite(FRAME, x0 - FW / 2, y0 - FH / 2, FW, FH);
+			int x0 = w / 2, y0 = (int) (h * 0.625) - FH / 2;
+			g.blitSprite(FRAME, x0 - FW / 2, y0, FW, FH);
 			var core = RuneWandItem.getCore(wand);
 			var cost = SpellCost.ZERO;
 			if (core.getItem() instanceof IWandCoreItem item) {
 				cost = item.getSpellInfo(player).getCost(player, wand);
 			}
-			blitSprite(g, cost.focus() > valFocus ? RED : BAR, 0, 0, x0 - W / 2, y0 - H / 2, (float) (valFocus / maxFocus), .5f);
-			blitSprite(g, cost.mana() > valMana ? RED : BAR, 0, .5f, x0 - W / 2, y0 - H / 2 + 1, (float) (valMana / maxMana), .5f);
+			blitSprite(g, cost.focus() > valFocus ? RED : FOCUS, x0 - W / 2, y0 + 2, (float) (valFocus / maxFocus), 1);
+			blitSprite(g, cost.mana() > valMana ? RED : BAR, x0 - W / 2, y0 + 4, (float) (valMana / maxMana), 2);
 		}
 	}
 
 	private static void blitSprite(
-			GuiGraphics g, ResourceLocation id, float u, float v, int x, int y, float w, float h
+			GuiGraphics g, ResourceLocation id, int x, int y, float w, float h
 	) {
 		TextureAtlasSprite sp = Minecraft.getInstance().getGuiSprites().getSprite(id);
 		innerBlit(g, sp.atlasLocation(),
-				x, x + w * W, y, y + h * H,
-				sp.getU(u), sp.getU(u + w),
-				sp.getV(v), sp.getV(v + h)
+				x, x + w * W, y, y + h,
+				sp.getU(0), sp.getU(w),
+				sp.getV(0), sp.getV(1)
 		);
 	}
 
