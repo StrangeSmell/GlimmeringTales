@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_thunder"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:charge_burst"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:thunder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:dripstone"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:poseidite_ingot"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:poseidite_ingot"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:strong_fire_charge"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:strong_fire_charge"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:strong_fire_charge"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:strong_fire_charge"
+      }
+    }
+  ],
+  "time": 100
+}

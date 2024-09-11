@@ -22,7 +22,7 @@
   },
   "params": [],
   "renderer": {
-    "type": "glimmeringtales:cross",
+    "type": "glimmeringtales:oriented_cross",
     "texture": "glimmeringtales:textures/spell/infused_amethyst.png"
   },
   "size": "0.25",

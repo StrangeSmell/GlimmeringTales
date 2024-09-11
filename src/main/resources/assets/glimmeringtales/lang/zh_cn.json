@@ -94,6 +94,7 @@
   "item.glimmeringtales.earthquake": "符石: 破岩波",
   "item.glimmeringtales.thunderstorm": "符石: 召雷环",
   "item.glimmeringtales.ocean_shelter": "符石: 深海守护",
+  "item.glimmeringtales.charge_burst": "符石: 漫雷",
 
   "block.glimmeringtales.struck_log": "雷焰木",
   "block.glimmeringtales.struck_leaves": "雷焰树叶",
@@ -182,6 +183,7 @@
   "spell_action.glimmeringtales.earthquake": "破岩波",
   "spell_action.glimmeringtales.thunderstorm": "召雷环",
   "spell_action.glimmeringtales.ocean_shelter": "深海守护",
+  "spell_action.glimmeringtales.charge_burst": "漫雷",
 
   "glimmeringtales.configuration.title": "微光纪事 - 配置",
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.client.toml": "微光纪事 - 客户端配置",
@@ -200,6 +202,8 @@
   "glimmeringtales.configuration.crystalOfFlameRequirement.tooltip": "范围: 1 ~ 1000",
   "glimmeringtales.configuration.crystalOfWinterstormRequirement": "风雪宝石：细雪消耗",
   "glimmeringtales.configuration.crystalOfWinterstormRequirement.tooltip": "范围: 1 ~ 1000",
+  "glimmeringtales.configuration.focusCoolDown": "施法后专注回复冷却",
+  "glimmeringtales.configuration.focusCoolDown.tooltip": "Range: 0 ~ 1000",
 
   "death.attack.glimmeringtales.amethyst": "%s被紫水晶碎片刺穿",
   "death.attack.glimmeringtales.amethyst.player": "%s被%s用紫水晶碎片刺穿",
@@ -223,6 +227,8 @@
   "death.attack.glimmeringtales.earthquake.player": "%s被%s制造的地震杀死",
   "death.attack.glimmeringtales.ocean_shelter": "%s被魔法泡泡淹没",
   "death.attack.glimmeringtales.ocean_shelter.player": "%s被%s用魔法泡泡淹没",
+  "death.attack.glimmeringtales.charge_burst": "%s被电荷爆发电死了",
+  "death.attack.glimmeringtales.charge_burst.player": "%s被%s的电荷爆发电死了",
 
   "nature_spell.glimmeringtales.amethyst.brief": "[方块] 溅射紫水晶碎片",
   "nature_spell.glimmeringtales.amethyst.detail": "生成一个由紫水晶碎片组成的半球形向周围发射，造成%s并叠加%s",
@@ -288,6 +294,8 @@
   "nature_spell.glimmeringtales.stone_bridge.detail": "生成一道持续10秒的向前延伸的石桥",
   "nature_spell.glimmeringtales.ocean_shelter.brief": "[持续] 喷射泡泡，伤害敌人并治疗友方",
   "nature_spell.glimmeringtales.ocean_shelter.detail": "向前方喷射持续5秒的泡泡。对敌人：造成%s，施加%s。对友方：%s，给予%s",
+  "nature_spell.glimmeringtales.charge_burst.brief": "[范围] 生成一道闪电，并在周围产生电荷爆发",
+  "nature_spell.glimmeringtales.charge_burst.detail": "在目标位置生成一道闪电造成多段%s。然后在周围产生电荷爆发，造成%s",
 
   "patchouli.glimmeringtales.landing": "欢迎来到以自然为主题的魔法模组《微光纪事》",
   "patchouli.glimmeringtales.title": "微光纪事指南",

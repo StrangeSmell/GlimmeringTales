@@ -1,0 +1,40 @@
+{
+  "filter": "NONE",
+  "hit": [],
+  "params": [],
+  "renderer": {
+    "type": "glimmeringtales:animated_cross",
+    "max": 8,
+    "rate": 2,
+    "texture": "glimmeringtales:textures/spell/charge.png"
+  },
+  "tick": {
+    "type": "l2magic:processor",
+    "processors": [
+      {
+        "type": "l2magic:filtered",
+        "action": [
+          {
+            "type": "l2magic:damage",
+            "damage": "6",
+            "damage_type": "glimmeringtales:charge_burst",
+            "indirect": true,
+            "positioned": false
+          }
+        ],
+        "fallback": [],
+        "filter": {
+          "type": "glimmeringtales:invulnerability_frame",
+          "frame": "4"
+        }
+      }
+    ],
+    "selector": {
+      "type": "l2magic:box",
+      "center": false,
+      "size": "1",
+      "y": "1"
+    },
+    "target": "ENEMY_NO_FAMILY"
+  }
+}

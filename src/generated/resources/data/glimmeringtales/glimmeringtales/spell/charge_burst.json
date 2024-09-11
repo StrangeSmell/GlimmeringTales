@@ -1,0 +1,24 @@
+{
+  "cost": 60,
+  "elem": "glimmeringtales:thunder",
+  "focus": 40,
+  "maxConsumeTick": 0,
+  "mob": {
+    "idealRange": 16.0,
+    "maxUseTick": 40,
+    "timeFactor": 1.0
+  },
+  "spell": "glimmeringtales:charge_burst",
+  "tooltip": {
+    "list": [
+      {
+        "id": "glimmeringtales:thunder",
+        "reg": "l2magic:configured_engine"
+      },
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
+}

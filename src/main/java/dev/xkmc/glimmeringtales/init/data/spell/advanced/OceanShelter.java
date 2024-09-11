@@ -3,7 +3,7 @@ package dev.xkmc.glimmeringtales.init.data.spell.advanced;
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.engine.filter.InvulFrameFilter;
 import dev.xkmc.glimmeringtales.content.engine.processor.PassiveHealProcessor;
-import dev.xkmc.glimmeringtales.content.engine.render.AnimatedRenderData;
+import dev.xkmc.glimmeringtales.content.engine.render.InflatingRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTDamageTypeGen;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
@@ -83,7 +83,7 @@ public class OceanShelter {
 				)))
 				.size(DoubleVariable.of("0.25"))
 				.motion(new SimpleMotion(DoubleVariable.of("0.04"), DoubleVariable.ZERO))
-				.renderer(new AnimatedRenderData(TEX, 0.3, 4))
+				.renderer(new InflatingRenderData(TEX, 0.3, 4))
 				.build();
 	}
 

@@ -5,8 +5,9 @@ import dev.xkmc.glimmeringtales.content.engine.instance.*;
 import dev.xkmc.glimmeringtales.content.engine.processor.PassiveHealProcessor;
 import dev.xkmc.glimmeringtales.content.engine.processor.ProcreationProcessor;
 import dev.xkmc.glimmeringtales.content.engine.processor.StackingEffectProcessor;
-import dev.xkmc.glimmeringtales.content.engine.render.AnimatedRenderData;
-import dev.xkmc.glimmeringtales.content.engine.render.CrossRenderData;
+import dev.xkmc.glimmeringtales.content.engine.render.AnimatedCrossRenderData;
+import dev.xkmc.glimmeringtales.content.engine.render.OrientedCrossRenderData;
+import dev.xkmc.glimmeringtales.content.engine.render.InflatingRenderData;
 import dev.xkmc.glimmeringtales.content.engine.render.VerticalRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.l2core.init.reg.simple.Val;
@@ -34,8 +35,9 @@ public class GTEngine {
 	public static final Val<FilterType<InvulFrameFilter>> INVUL = REG.reg("invulnerability_frame", () -> InvulFrameFilter.CODEC);
 
 	public static final Val<ProjectileRenderType<VerticalRenderData>> PR_VERTICAL = REG.reg("vertical", () -> VerticalRenderData.CODEC);
-	public static final Val<ProjectileRenderType<CrossRenderData>> PR_CROSS = REG.reg("cross", () -> CrossRenderData.CODEC);
-	public static final Val<ProjectileRenderType<AnimatedRenderData>> PR_ANIM = REG.reg("animated", () -> AnimatedRenderData.CODEC);
+	public static final Val<ProjectileRenderType<OrientedCrossRenderData>> PR_CROSS = REG.reg("oriented_cross", () -> OrientedCrossRenderData.CODEC);
+	public static final Val<ProjectileRenderType<InflatingRenderData>> PR_BUBBLE = REG.reg("inflating", () -> InflatingRenderData.CODEC);
+	public static final Val<ProjectileRenderType<AnimatedCrossRenderData>> PR_CHARGE = REG.reg("animated_cross", () -> AnimatedCrossRenderData.CODEC);
 
 	public static void register() {
 

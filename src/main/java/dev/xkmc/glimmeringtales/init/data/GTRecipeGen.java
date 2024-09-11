@@ -473,6 +473,13 @@ public class GTRecipeGen {
 					.side(LCMats.POSEIDITE.getIngot(), 4)
 					.save(pvd);
 
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_THUNDER, GTItems.CHARGE_BURST)::unlockedBy, GTItems.CRYSTAL_THUNDER.get())
+					.side(GTItems.RUNE_THUNDER, 1)
+					.side(GTItems.RUNE_DRIPSTONE, 1)
+					.side(LCMats.POSEIDITE.getIngot(), 2)
+					.side(LCItems.STRONG_CHARGE, 4)
+					.save(pvd);
+
 		}
 
 	}

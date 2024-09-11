@@ -8,7 +8,7 @@
   },
   "params": [],
   "renderer": {
-    "type": "glimmeringtales:animated",
+    "type": "glimmeringtales:inflating",
     "initial": 0.3,
     "rate": 4.0,
     "texture": "glimmeringtales:textures/spell/bubble.png"

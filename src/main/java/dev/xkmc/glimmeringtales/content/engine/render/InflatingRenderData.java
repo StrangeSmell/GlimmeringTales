@@ -10,24 +10,24 @@ import dev.xkmc.l2magic.content.entity.renderer.ProjectileRenderType;
 import dev.xkmc.l2magic.content.entity.renderer.ProjectileRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-public record AnimatedRenderData(
+public record InflatingRenderData(
 		ResourceLocation texture, double initial, double rate
-) implements ProjectileRenderData<AnimatedRenderData> {
+) implements ProjectileRenderData<InflatingRenderData> {
 
-	public static final MapCodec<AnimatedRenderData> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
-			ResourceLocation.CODEC.fieldOf("texture").forGetter(AnimatedRenderData::texture),
-			Codec.DOUBLE.fieldOf("initial").forGetter(AnimatedRenderData::initial),
-			Codec.DOUBLE.fieldOf("rate").forGetter(AnimatedRenderData::rate)
-	).apply(i, AnimatedRenderData::new));
+	public static final MapCodec<InflatingRenderData> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
+			ResourceLocation.CODEC.fieldOf("texture").forGetter(InflatingRenderData::texture),
+			Codec.DOUBLE.fieldOf("initial").forGetter(InflatingRenderData::initial),
+			Codec.DOUBLE.fieldOf("rate").forGetter(InflatingRenderData::rate)
+	).apply(i, InflatingRenderData::new));
 
 	@Override
-	public ProjectileRenderType<AnimatedRenderData> type() {
-		return GTEngine.PR_ANIM.get();
+	public ProjectileRenderType<InflatingRenderData> type() {
+		return GTEngine.PR_BUBBLE.get();
 	}
 
 	@Override
 	public ProjectileRenderer resolve(EngineContext ctx) {
-		return new AnimatedTextureRenderer(texture, initial, rate);
+		return new InflatingTextureRenderer(texture, initial, rate);
 	}
 
 }

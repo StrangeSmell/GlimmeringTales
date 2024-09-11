@@ -70,7 +70,8 @@ public class NatureSpellGenRegistry {
 				AmethystPenetration.BUILDER,
 				Earthquake.BUILDER,
 				OceanShelter.BUILDER,
-				Thunderstorm.BUILDER
+				Thunderstorm.BUILDER,
+				ChargeBurst.BUILDER
 		));
 	}
 

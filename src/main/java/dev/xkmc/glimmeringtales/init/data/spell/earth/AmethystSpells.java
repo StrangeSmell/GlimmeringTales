@@ -4,7 +4,7 @@ import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
 import dev.xkmc.glimmeringtales.content.engine.processor.StackingEffectProcessor;
-import dev.xkmc.glimmeringtales.content.engine.render.CrossRenderData;
+import dev.xkmc.glimmeringtales.content.engine.render.OrientedCrossRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTTagGen;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
@@ -74,7 +74,7 @@ public class AmethystSpells {
 						IntVariable.of("6")
 				)).size(DoubleVariable.of("0.25"))
 				.motion(SimpleMotion.BREAKING)
-				.renderer(new CrossRenderData(TEX))
+				.renderer(new OrientedCrossRenderData(TEX))
 				.build();
 	}
 

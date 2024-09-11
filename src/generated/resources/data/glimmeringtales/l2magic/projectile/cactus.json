@@ -16,7 +16,7 @@
   },
   "params": [],
   "renderer": {
-    "type": "glimmeringtales:cross",
+    "type": "glimmeringtales:oriented_cross",
     "texture": "glimmeringtales:textures/spell/cactus.png"
   },
   "size": "0.25",
