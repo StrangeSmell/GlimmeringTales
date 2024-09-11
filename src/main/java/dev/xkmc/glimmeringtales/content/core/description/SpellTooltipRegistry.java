@@ -77,19 +77,22 @@ public class SpellTooltipRegistry {
 			var spe = e.speed().exp().getAsConstant();
 			OptionalDouble dmg = OptionalDouble.empty();
 			if (dpb.isPresent() && spe.isPresent() && max.isPresent()) {
-				double v0 = spe.getAsDouble();
-				double g = 0.04;
-				double f = 0.02;
-				double p = g / f;
-				double t = Math.log((v0 / p + 1)) / f;
-				double h = (v0 - g * t) / f;
-				dmg = OptionalDouble.of(Math.min(max.getAsDouble(), dpb.getAsDouble() * (h - 1)));
+				dmg = OptionalDouble.of(damage(dpb.getAsDouble(), spe.getAsDouble(), max.getAsDouble()));
 			}
 			MutableComponent ans = dmg.isEmpty() ? Component.empty() : GTLang.DESC_DMG.get(
 					Component.literal((int) dmg.getAsDouble() + "").withStyle(ChatFormatting.DARK_AQUA)
 			).append(GTLang.DESC_SPACE.get());
 			ans.append(GTLang.DESC_FALLING_BLOCK.get().withStyle(ChatFormatting.RED)).append(GTLang.DESC_SPACE.get());
 			return ans.append(GTLang.DESC_DAMAGE.get());
+		}
+
+		private double damage(double dpb, double spe, double max) {
+			double g = 0.04;
+			double f = 0.02;
+			double p = g / f;
+			double t = Math.log((spe / p + 1)) / f;
+			double h = (spe - g * t) / f;
+			return h < 1 ? 0 : Math.min(max, dpb * (h - 1));
 		}
 
 	}
