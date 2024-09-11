@@ -1,4 +1,4 @@
-package dev.xkmc.glimmeringtales.init.data.spell.advanced;
+package dev.xkmc.glimmeringtales.init.data.spell.thunder;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.engine.instance.LightningInstance;

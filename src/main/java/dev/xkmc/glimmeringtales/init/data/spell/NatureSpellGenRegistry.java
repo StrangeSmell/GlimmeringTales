@@ -1,17 +1,21 @@
 package dev.xkmc.glimmeringtales.init.data.spell;
 
-import dev.xkmc.glimmeringtales.init.data.spell.advanced.*;
 import dev.xkmc.glimmeringtales.init.data.spell.earth.*;
+import dev.xkmc.glimmeringtales.init.data.spell.flame.FlamePentagram;
 import dev.xkmc.glimmeringtales.init.data.spell.flame.MagmaSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.flame.NetherrackSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.flame.SoulSandSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.life.*;
 import dev.xkmc.glimmeringtales.init.data.spell.ocean.CoralReefSpell;
+import dev.xkmc.glimmeringtales.init.data.spell.ocean.OceanShelter;
 import dev.xkmc.glimmeringtales.init.data.spell.ocean.SpongeSpell;
 import dev.xkmc.glimmeringtales.init.data.spell.snow.IceSpells;
 import dev.xkmc.glimmeringtales.init.data.spell.snow.PowderSnowSpell;
 import dev.xkmc.glimmeringtales.init.data.spell.snow.SnowSpells;
+import dev.xkmc.glimmeringtales.init.data.spell.snow.SnowStorm;
+import dev.xkmc.glimmeringtales.init.data.spell.thunder.ChargeBurst;
 import dev.xkmc.glimmeringtales.init.data.spell.thunder.ThunderSpells;
+import dev.xkmc.glimmeringtales.init.data.spell.thunder.Thunderstorm;
 
 import java.util.ArrayList;
 import java.util.List;
