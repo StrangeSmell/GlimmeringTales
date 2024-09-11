@@ -11,7 +11,7 @@
         "reg": "l2magic:processor"
       },
       {
-        "id": "l2magic:effect",
+        "id": "glimmeringtales:stacking",
         "reg": "l2magic:processor"
       }
     ]

@@ -71,7 +71,7 @@ public class AmethystSpells {
 				)).hit(new StackingEffectProcessor(
 						LCEffects.BLEED,
 						IntVariable.of("100"),
-						IntVariable.of("6")
+						IntVariable.of("1")
 				)).size(DoubleVariable.of("0.25"))
 				.motion(SimpleMotion.BREAKING)
 				.renderer(new OrientedCrossRenderData(TEX))

@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
+import dev.xkmc.glimmeringtales.content.engine.filter.InvulFrameFilter;
 import dev.xkmc.glimmeringtales.content.engine.processor.StackingEffectProcessor;
 import dev.xkmc.glimmeringtales.content.engine.render.OrientedCrossRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
@@ -10,12 +11,18 @@ import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2complements.init.registrate.LCEffects;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
+import dev.xkmc.l2magic.content.engine.iterator.LoopIterator;
 import dev.xkmc.l2magic.content.engine.iterator.RingIterator;
 import dev.xkmc.l2magic.content.engine.logic.ListLogic;
+import dev.xkmc.l2magic.content.engine.logic.ProcessorEngine;
 import dev.xkmc.l2magic.content.engine.modifier.ForwardOffsetModifier;
 import dev.xkmc.l2magic.content.engine.modifier.OffsetModifier;
+import dev.xkmc.l2magic.content.engine.modifier.RandomDirModifier;
 import dev.xkmc.l2magic.content.engine.particle.DustParticleInstance;
+import dev.xkmc.l2magic.content.engine.processor.CastAtProcessor;
 import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
+import dev.xkmc.l2magic.content.engine.processor.FilteredProcessor;
+import dev.xkmc.l2magic.content.engine.selector.ApproxBallSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
 import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
@@ -64,13 +71,31 @@ public class AmethystPenetration {
 						DoubleVariable.ZERO,
 						IntVariable.of("20")
 				).move(ForwardOffsetModifier.of("-0.2")))
-				.hit(new DamageProcessor(
-						ctx.damage(), DMG, true, true
-				)).hit(new StackingEffectProcessor(
-						LCEffects.BLEED,
-						IntVariable.of("100"),
-						IntVariable.of("6")
-				)).size(DoubleVariable.of("0.25"))
+				.hit(new FilteredProcessor(new InvulFrameFilter(IntVariable.of("4")), List.of(
+						new DamageProcessor(ctx.damage(), DMG, true, true),
+						new CastAtProcessor(CastAtProcessor.PosType.CENTER, CastAtProcessor.DirType.UP,
+								new ListLogic(List.of(
+										new ProcessorEngine(SelectionType.ENEMY_NO_FAMILY,
+												new ApproxBallSelector(DoubleVariable.of("3")),
+												List.of(new StackingEffectProcessor(
+														LCEffects.BLEED,
+														IntVariable.of("100"),
+														IntVariable.of("6")
+												))),
+										new LoopIterator(
+												IntVariable.of("200"),
+												new DustParticleInstance(
+														ColorVariable.Static.of(0xCFA0F3),
+														DoubleVariable.of("0.5"),
+														DoubleVariable.of("0.2"),
+														IntVariable.of("rand(15,25)")
+												).move(
+														new RandomDirModifier(),
+														ForwardOffsetModifier.of("0.05")
+												), null
+										)
+								)))
+				), List.of())).size(DoubleVariable.of("0.25"))
 				.motion(SimpleMotion.ZERO)
 				.renderer(new OrientedCrossRenderData(TEX))
 				.build();

@@ -9,12 +9,10 @@
       "positioned": true
     },
     {
-      "type": "l2magic:effect",
-      "ambient": false,
-      "amplifier": "2",
+      "type": "glimmeringtales:stacking",
       "duration": "100",
-      "effect": "minecraft:slowness",
-      "visible": true
+      "effect": "l2complements:bleed",
+      "max": "4"
     },
     {
       "type": "l2magic:push",

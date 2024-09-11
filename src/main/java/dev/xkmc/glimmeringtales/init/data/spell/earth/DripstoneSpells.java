@@ -3,11 +3,14 @@ package dev.xkmc.glimmeringtales.init.data.spell.earth;
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
+import dev.xkmc.glimmeringtales.content.engine.processor.StackingEffectProcessor;
 import dev.xkmc.glimmeringtales.content.engine.render.VerticalRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
+import dev.xkmc.glimmeringtales.init.reg.GTEngine;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
+import dev.xkmc.l2complements.init.registrate.LCEffects;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.logic.ListLogic;
 import dev.xkmc.l2magic.content.engine.modifier.OffsetModifier;
@@ -27,6 +30,7 @@ import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import dev.xkmc.l2magic.content.entity.core.ProjectileConfig;
 import dev.xkmc.l2magic.content.entity.engine.CustomProjectileShoot;
+import dev.xkmc.l2magic.init.registrate.EngineRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
@@ -51,7 +55,7 @@ public class DripstoneSpells {
 			).lang("Stalactite Burst").desc(
 					"[Block] Shoot stalagmite spikes from ground",
 					"Shoot stalagmite spikes from ground to pierce entities, dealing %s and inflict %s",
-					SpellTooltipData.damageAndEffect()
+					SpellTooltipData.of(EngineRegistry.DAMAGE, GTEngine.EP_STACK)
 			);
 
 	public static final ResourceLocation TEX = GlimmeringTales.loc("textures/spell/pointed_dripstone_up_tip.png");
@@ -69,12 +73,10 @@ public class DripstoneSpells {
 						ctx.damage(), DMG,
 						true,
 						true
-				)).hit(new EffectProcessor(
-						MobEffects.MOVEMENT_SLOWDOWN,
+				)).hit(new StackingEffectProcessor(
+						LCEffects.BLEED,
 						IntVariable.of("100"),
-						IntVariable.of("2"),
-						false,
-						true
+						IntVariable.of("4")
 				)).hit(new PushProcessor(
 						DoubleVariable.of("1"),
 						DoubleVariable.ZERO,
