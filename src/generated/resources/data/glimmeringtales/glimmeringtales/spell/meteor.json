@@ -1,0 +1,15 @@
+{
+  "cost": 200,
+  "elem": "glimmeringtales:earth",
+  "focus": 100,
+  "maxConsumeTick": 0,
+  "spell": "glimmeringtales:meteor",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
+}

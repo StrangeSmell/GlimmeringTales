@@ -33,8 +33,7 @@ public class NetherrackSpells {
 
 	public static final NatureSpellBuilder BUILDER = GTRegistries.FLAME
 			.build(GlimmeringTales.loc("netherrack")).cost(60)
-			.damageVanilla(() -> new DamageType("inFire", 0, DamageEffects.BURNING),
-					DamageTypeTags.IS_FIRE)
+			.damageFire()
 			.block(NetherrackSpells::gen, GTItems.RUNE_NETHERRACK, RuneBlock::of,
 					(b, e) -> b.add(Blocks.NETHERRACK, BlockSpell.of(e)))
 			.lang("Fire Spark").desc(

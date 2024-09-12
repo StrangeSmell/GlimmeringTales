@@ -1,0 +1,19 @@
+{
+  "cost": 200,
+  "elem": "glimmeringtales:snow",
+  "focus": 100,
+  "maxConsumeTick": 0,
+  "spell": "glimmeringtales:icy_flash",
+  "tooltip": {
+    "list": [
+      {
+        "id": "l2magic:damage",
+        "reg": "l2magic:processor"
+      },
+      {
+        "id": "l2magic:effect",
+        "reg": "l2magic:processor"
+      }
+    ]
+  }
+}

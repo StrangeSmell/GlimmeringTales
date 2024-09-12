@@ -35,9 +35,6 @@ import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.world.damagesource.DamageEffects;
-import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 
@@ -47,7 +44,7 @@ public class FlamePentagram {
 
 	public static final NatureSpellBuilder HELL_MARK = GTRegistries.FLAME
 			.build(GlimmeringTales.loc("hell_mark")).focusAndCost(40, 160).mob(16, 1)
-			.damageVanilla(() -> new DamageType("onFire", 0, DamageEffects.BURNING), DamageTypeTags.IS_FIRE)
+			.damageFire()
 			.spell(ctx -> new SpellAction(flameBurst(ctx),
 					GTItems.HELL_MARK.asItem(), 200,
 					SpellCastType.INSTANT, SpellTriggerType.TARGET_POS
@@ -59,7 +56,7 @@ public class FlamePentagram {
 
 	public static final NatureSpellBuilder LAVA_BURST = GTRegistries.FLAME
 			.build(GlimmeringTales.loc("lava_burst")).focusAndCost(3, 10, 30)
-			.damageVanilla(() -> new DamageType("explosion", 0.1f), DamageTypeTags.IS_EXPLOSION)
+			.damageExplosion()
 			.spell(ctx -> new SpellAction(earthquake(ctx),
 					GTItems.LAVA_BURST.asItem(), 300,
 					SpellCastType.CHARGE, SpellTriggerType.HORIZONTAL_FACING

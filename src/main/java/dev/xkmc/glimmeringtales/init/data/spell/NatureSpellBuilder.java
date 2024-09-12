@@ -20,6 +20,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageEffects;
 import net.minecraft.world.damagesource.DamageType;
@@ -72,6 +73,14 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 
 	public final NatureSpellBuilder damageFreeze() {
 		return damageVanilla(() -> new DamageType("freeze", 0, DamageEffects.FREEZING), GTDamageTypeGen.freeze());
+	}
+
+	public final NatureSpellBuilder damageFire() {
+		return damageVanilla(() -> new DamageType("onFire", 0, DamageEffects.BURNING), DamageTypeTags.IS_FIRE);
+	}
+
+	public final NatureSpellBuilder damageExplosion(){
+		return damageVanilla(() -> new DamageType("explosion", 0.1f), DamageTypeTags.IS_EXPLOSION);
 	}
 
 	@SafeVarargs
