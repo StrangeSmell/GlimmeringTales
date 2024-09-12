@@ -60,41 +60,50 @@
               "child": {
                 "type": "l2magic:move",
                 "child": {
-                  "type": "l2magic:custom_particle",
-                  "collide": true,
-                  "life": "20",
-                  "motion": {
-                    "type": "l2magic:control_position",
-                    "modifiers": [
-                      {
-                        "type": "l2magic:forward",
-                        "distance": "-0.3"
-                      },
-                      {
-                        "type": "l2magic:rotate",
-                        "degree": "162.4702611704238*(log(0.3+TickCount*0.08816348773665984)+log(0.3))",
-                        "vertical": "0"
-                      },
-                      {
-                        "type": "l2magic:forward",
-                        "distance": "0.3+TickCount*0.08816348773665984"
-                      },
-                      {
-                        "type": "l2magic:normal_to_direction"
-                      },
-                      {
-                        "type": "l2magic:forward",
-                        "distance": "TickCount*0.5"
+                  "type": "l2magic:random",
+                  "child": {
+                    "type": "l2magic:custom_particle",
+                    "collide": true,
+                    "life": "20",
+                    "motion": {
+                      "type": "l2magic:control_position",
+                      "modifiers": [
+                        {
+                          "type": "l2magic:forward",
+                          "distance": "-0.3"
+                        },
+                        {
+                          "type": "l2magic:rotate",
+                          "degree": "162.4702611704238*(log(0.3+TickCount*0.08816348773665984)+log(0.3))",
+                          "vertical": "0"
+                        },
+                        {
+                          "type": "l2magic:forward",
+                          "distance": "0.3+TickCount*0.08816348773665984"
+                        },
+                        {
+                          "type": "l2magic:normal_to_direction"
+                        },
+                        {
+                          "type": "l2magic:forward",
+                          "distance": "TickCount*0.5"
+                        }
+                      ]
+                    },
+                    "renderer": {
+                      "type": "glimmeringtales:far",
+                      "hiddenRange": "r0+1",
+                      "inner": {
+                        "type": "l2magic:simple",
+                        "particle": "minecraft:snowflake",
+                        "renderType": "NORMAL"
                       }
-                    ]
+                    },
+                    "scale": "0.15",
+                    "speed": "0"
                   },
-                  "renderer": {
-                    "type": "l2magic:simple",
-                    "particle": "minecraft:snowflake",
-                    "renderType": "NORMAL"
-                  },
-                  "scale": "0.15",
-                  "speed": "0"
+                  "count": 1,
+                  "name": "r"
                 },
                 "modifiers": [
                   {

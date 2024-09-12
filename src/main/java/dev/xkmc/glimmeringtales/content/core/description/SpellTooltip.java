@@ -62,8 +62,9 @@ public class SpellTooltip {
 				if (iterated.contains(p)) return;
 				iterated.add(p);
 				var proj = p.config().value();
-				var tick = proj.tick();
-				if (tick != null) EngineHelper.analyze(tick, new AnalyticContext("", this::check), tick.getClass());
+				Optional.ofNullable(proj.tick()).ifPresent(e -> EngineHelper.analyze(e, new AnalyticContext("", this::check), e.getClass()));
+				Optional.ofNullable(proj.land()).ifPresent(e -> EngineHelper.analyze(e, new AnalyticContext("", this::check), e.getClass()));
+				Optional.ofNullable(proj.expire()).ifPresent(e -> EngineHelper.analyze(e, new AnalyticContext("", this::check), e.getClass()));
 				for (var hit : proj.hit())
 					EngineHelper.analyze(hit, new AnalyticContext("", this::check), hit.getClass());
 			}

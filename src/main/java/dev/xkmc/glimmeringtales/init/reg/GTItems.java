@@ -41,10 +41,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -106,10 +103,10 @@ public class GTItems {
 			OCEAN_SHELTER,
 			THUNDERSTORM, CHARGE_BURST;
 
-	public static final BlockEntry<DelegateBlock> CLAY_CARPET, FAKE_STONE,
-			MAGMA_STONE, MAGMA_DEEPSLATE, MAGMA_NETHERRACK;
 	public static final BlockEntry<SelfDestroyTransparent> FAKE_GLASS;
-	public static final BlockEntry<DelegateBlock> FAKE_BAMBOO;
+	public static final BlockEntry<DelegateBlock> CLAY_CARPET, FAKE_STONE, FAKE_BAMBOO,
+			MAGMA_STONE, MAGMA_DEEPSLATE, MAGMA_NETHERRACK;
+	public static final BlockEntry<Block> DUMMY_METEOR;
 
 	private static final DCReg DC = DCReg.of(GlimmeringTales.REG);
 
@@ -482,6 +479,10 @@ public class GTItems {
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(),
 							pvd.models().withExistingParent(ctx.getName(), pvd.mcLoc("block/bamboo1_age1")).renderType("cutout")))
 					.register();
+
+			DUMMY_METEOR = GlimmeringTales.REGISTRATE.block("meteor", p ->
+							new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noLootTable()))
+					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get())).register();
 
 			MAGMA_STONE = magma("stone");
 			MAGMA_DEEPSLATE = magma("deepslate");

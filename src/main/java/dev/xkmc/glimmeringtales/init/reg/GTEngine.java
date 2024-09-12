@@ -2,19 +2,18 @@ package dev.xkmc.glimmeringtales.init.reg;
 
 import dev.xkmc.glimmeringtales.content.engine.filter.InvulFrameFilter;
 import dev.xkmc.glimmeringtales.content.engine.instance.*;
+import dev.xkmc.glimmeringtales.content.engine.particle.FarParticleRenderData;
 import dev.xkmc.glimmeringtales.content.engine.processor.PassiveHealProcessor;
 import dev.xkmc.glimmeringtales.content.engine.processor.ProcreationProcessor;
 import dev.xkmc.glimmeringtales.content.engine.processor.StackingEffectProcessor;
-import dev.xkmc.glimmeringtales.content.engine.render.AnimatedCrossRenderData;
-import dev.xkmc.glimmeringtales.content.engine.render.OrientedCrossRenderData;
-import dev.xkmc.glimmeringtales.content.engine.render.InflatingRenderData;
-import dev.xkmc.glimmeringtales.content.engine.render.VerticalRenderData;
+import dev.xkmc.glimmeringtales.content.engine.render.*;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.l2core.init.reg.simple.Val;
 import dev.xkmc.l2magic.content.engine.core.EngineType;
 import dev.xkmc.l2magic.content.engine.core.FilterType;
 import dev.xkmc.l2magic.content.engine.core.ProcessorType;
 import dev.xkmc.l2magic.content.entity.renderer.ProjectileRenderType;
+import dev.xkmc.l2magic.content.particle.engine.ParticleRenderType;
 import dev.xkmc.l2magic.init.registrate.EngineReg;
 
 public class GTEngine {
@@ -38,6 +37,9 @@ public class GTEngine {
 	public static final Val<ProjectileRenderType<OrientedCrossRenderData>> PR_CROSS = REG.reg("oriented_cross", () -> OrientedCrossRenderData.CODEC);
 	public static final Val<ProjectileRenderType<InflatingRenderData>> PR_BUBBLE = REG.reg("inflating", () -> InflatingRenderData.CODEC);
 	public static final Val<ProjectileRenderType<AnimatedCrossRenderData>> PR_CHARGE = REG.reg("animated_cross", () -> AnimatedCrossRenderData.CODEC);
+	public static final Val<ProjectileRenderType<FakeBlockRenderData>> PR_BLOCK = REG.reg("block", () -> FakeBlockRenderData.CODEC);
+
+	public static final Val<ParticleRenderType<FarParticleRenderData>> PR_FAR = REG.reg("far", () -> FarParticleRenderData.CODEC);
 
 	public static void register() {
 

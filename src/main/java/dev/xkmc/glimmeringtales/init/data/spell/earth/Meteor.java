@@ -1,15 +1,17 @@
 package dev.xkmc.glimmeringtales.init.data.spell.earth;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
+import dev.xkmc.glimmeringtales.content.engine.render.FakeBlockRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
-import dev.xkmc.l2magic.content.engine.iterator.DelayedIterator;
 import dev.xkmc.l2magic.content.engine.iterator.RingRandomIterator;
 import dev.xkmc.l2magic.content.engine.iterator.SphereRandomIterator;
-import dev.xkmc.l2magic.content.engine.logic.*;
+import dev.xkmc.l2magic.content.engine.logic.ListLogic;
+import dev.xkmc.l2magic.content.engine.logic.ProcessorEngine;
+import dev.xkmc.l2magic.content.engine.logic.RandomVariableLogic;
 import dev.xkmc.l2magic.content.engine.modifier.ForwardOffsetModifier;
 import dev.xkmc.l2magic.content.engine.modifier.RandomOffsetModifier;
 import dev.xkmc.l2magic.content.engine.modifier.RotationModifier;
@@ -27,15 +29,18 @@ import dev.xkmc.l2magic.content.engine.spell.SpellTriggerType;
 import dev.xkmc.l2magic.content.engine.variable.ColorVariable;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
+import dev.xkmc.l2magic.content.entity.core.ProjectileConfig;
+import dev.xkmc.l2magic.content.entity.engine.CustomProjectileShoot;
 import net.minecraft.sounds.SoundEvents;
 
 import java.util.List;
+import java.util.Map;
 
 public class Meteor {
 
 	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH
 			.build(GlimmeringTales.loc("meteor")).focusAndCost(60, 200)
-			.damageExplosion()
+			.damageExplosion().projectile(Meteor::proj)
 			.spell(e -> new SpellAction(starfall(e), GTItems.METEOR.get(), 2010,
 					SpellCastType.INSTANT, SpellTriggerType.TARGET_POS))
 			.lang("Meteor").desc(
@@ -44,147 +49,102 @@ public class Meteor {
 					SpellTooltipData.damage()
 			);
 
-	private static ConfiguredEngine<?> starfall(NatureSpellBuilder ctx) {
+	private static ProjectileConfig proj(NatureSpellBuilder ctx) {
+		return ProjectileConfig.builder(SelectionType.ALL)
+				.land(land(ctx)).size(DoubleVariable.of("2"))
+				.renderer(new FakeBlockRenderData(GTItems.DUMMY_METEOR.getDefaultState(), DoubleVariable.of("2")))
+				.build();
+	}
+
+	private static ConfiguredEngine<?> land(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(
 				new RingRandomIterator(
-						DoubleVariable.ZERO,
-						DoubleVariable.of("1.5"),
-						DoubleVariable.ZERO,
+						DoubleVariable.of("0"),
+						DoubleVariable.of("2"),
+						DoubleVariable.of("0"),
 						DoubleVariable.of("360"),
-						IntVariable.of("100"),
-						new DustParticleInstance(
-								ColorVariable.Static.of(0x000000),
-								DoubleVariable.of("1"),
-								DoubleVariable.ZERO,
-								IntVariable.of("55")
-						),
-						null
-				),
-				new MoveEngine(
-						List.of(
-								new SetDirectionModifier(
-										DoubleVariable.ZERO,
-										DoubleVariable.of("-1"),
-										DoubleVariable.ZERO
-								),
-								new ForwardOffsetModifier(
-										DoubleVariable.of("-4")
-								)
-						),
-						new ListLogic(List.of(
-								new SphereRandomIterator(
+						IntVariable.of("200"),
+						new RandomVariableLogic("r", 2,
+								new DustParticleInstance(
+										ColorVariable.Static.of(0xFF0000),
 										DoubleVariable.of("1"),
-										IntVariable.of("1000"),
-										new MoveEngine(
-												List.of(
-														new RandomOffsetModifier(
-																RandomOffsetModifier.Type.RECT,
-																DoubleVariable.of("0.2"),
-																DoubleVariable.of("0.2"),
-																DoubleVariable.of("0.2")
-														),
-														new SetDirectionModifier(
-																DoubleVariable.ZERO,
-																DoubleVariable.of("-1"),
-																DoubleVariable.ZERO
-														)
-												),
-												new DustParticleInstance(
-														ColorVariable.Static.of(0x000000),
-														DoubleVariable.of("1"),
-														DoubleVariable.of("0.1"),
-														IntVariable.of("50")
-												)
-										),
-										null
-								),
-								new DelayedIterator(
-										IntVariable.of("40"),
-										IntVariable.of("1"),
-										new SphereRandomIterator(
-												DoubleVariable.of("1.5"),
-												IntVariable.of("50"),
-												new MoveEngine(
-														List.of(
-																new SetDirectionModifier(
-																		DoubleVariable.ZERO,
-																		DoubleVariable.of("-1"),
-																		DoubleVariable.ZERO
-																),
-																new ForwardOffsetModifier(
-																		DoubleVariable.of("t*0.1")
-																)
-														),
-														new DustParticleInstance(
-																ColorVariable.Static.of(0xFF0000),
-																DoubleVariable.of("0.5"),
-																DoubleVariable.of("-0.2"),
-																IntVariable.of("5")
-														)
-												),
-												null
-										),
-										"t"
-								)
-						))
+										DoubleVariable.of("0.2+r1"),
+										IntVariable.of("40")
+								).move(RotationModifier.of("0", "45*r0"))
+						), null
 				),
-				new DelayLogic(
-						IntVariable.of("45"),
-						new ListLogic(List.of(
-								new RingRandomIterator(
-										DoubleVariable.of("0"),
+				new ProcessorEngine(
+						SelectionType.ENEMY,
+						new ApproxCylinderSelector(
+								DoubleVariable.of("8"),
+								DoubleVariable.of("4")
+						),
+						List.of(
+								new DamageProcessor(ctx.damage(), DoubleVariable.of("20"), true, true),
+								new PropertyProcessor(
+										PropertyProcessor.Type.IGNITE,
+										IntVariable.of("200")
+								),
+								new KnockBackProcessor(
 										DoubleVariable.of("2"),
-										DoubleVariable.of("0"),
-										DoubleVariable.of("360"),
-										IntVariable.of("200"),
-										new RandomVariableLogic(
-												"r",
-												2,
-												new MoveEngine(
-														List.of(
-																new RotationModifier(
-																		DoubleVariable.ZERO,
-																		DoubleVariable.of("45*r0")
-																)
-														),
-														new DustParticleInstance(
-																ColorVariable.Static.of(0xFF0000),
-																DoubleVariable.of("1"),
-																DoubleVariable.of("0.2+r1"),
-																IntVariable.of("40")
-														)
-												)
-										),
-										null
-								),
-								new ProcessorEngine(
-										SelectionType.ENEMY,
-										new ApproxCylinderSelector(
-												DoubleVariable.of("8"),
-												DoubleVariable.of("4")
-										),
-										List.of(
-												new DamageProcessor(ctx.damage(),
-														DoubleVariable.of("20"), true, true),
-												new PropertyProcessor(
-														PropertyProcessor.Type.IGNITE,
-														IntVariable.of("200")
-												),
-												new KnockBackProcessor(
-														DoubleVariable.of("2"),
-														DoubleVariable.of("45"),
-														DoubleVariable.ZERO
-												)
-										)
-								),
-								new SoundInstance(
-										SoundEvents.GENERIC_EXPLODE.value(),
-										DoubleVariable.of("5"),
+										DoubleVariable.of("45"),
 										DoubleVariable.ZERO
 								)
-						))
+						)
+				),
+				new SoundInstance(
+						SoundEvents.GENERIC_EXPLODE.value(),
+						DoubleVariable.of("5"),
+						DoubleVariable.ZERO
 				)
 		));
+	}
+
+	private static ConfiguredEngine<?> starfall(NatureSpellBuilder ctx) {
+		var shadow = new RingRandomIterator(
+				DoubleVariable.ZERO,
+				DoubleVariable.of("1.5"),
+				DoubleVariable.ZERO,
+				DoubleVariable.of("360"),
+				IntVariable.of("100"),
+				new DustParticleInstance(
+						ColorVariable.Static.of(0x000000),
+						DoubleVariable.of("1"),
+						DoubleVariable.ZERO,
+						IntVariable.of("55")
+				), null
+		);
+		var start = new SphereRandomIterator(
+				DoubleVariable.of("1"),
+				IntVariable.of("1000"),
+				new DustParticleInstance(
+						ColorVariable.Static.of(0x000000),
+						DoubleVariable.of("1"),
+						DoubleVariable.of("0.1"),
+						IntVariable.of("50")
+				).move(new RandomOffsetModifier(
+								RandomOffsetModifier.Type.RECT,
+								DoubleVariable.of("0.2"),
+								DoubleVariable.of("0.2"),
+								DoubleVariable.of("0.2")
+						),
+						SetDirectionModifier.of("0", "-1", "0")
+				), null
+		);
+		var move = new SphereRandomIterator(
+				DoubleVariable.of("1.5"),
+				IntVariable.of("50"),
+				new DustParticleInstance(
+						ColorVariable.Static.of(0xFF0000),
+						DoubleVariable.of("0.5"),
+						DoubleVariable.of("-0.2"),
+						IntVariable.of("5")
+				), null
+		);
+
+		return new ListLogic(List.of(shadow, new CustomProjectileShoot(DoubleVariable.of("0.2"), ctx.proj,
+				IntVariable.of("200"), false, true, Map.of()
+		).move(SetDirectionModifier.of("0", "-1", "0"), ForwardOffsetModifier.of("-4"))));
 	}
 
 }

@@ -2,16 +2,25 @@
   "action": {
     "type": "l2magic:if",
     "action": {
-      "type": "l2magic:random_pos_sphere",
+      "type": "l2magic:move",
       "child": {
-        "type": "l2magic:dust_particle",
-        "color": "ff0000",
-        "life": "10",
-        "scale": "1",
-        "speed": "-.2"
+        "type": "l2magic:random_pos_sphere",
+        "child": {
+          "type": "l2magic:dust_particle",
+          "color": "ff0000",
+          "life": "10",
+          "scale": "1",
+          "speed": "-.2"
+        },
+        "count": "50",
+        "radius": "2"
       },
-      "count": "50",
-      "radius": "2"
+      "modifiers": [
+        {
+          "type": "l2magic:forward",
+          "distance": "-1"
+        }
+      ]
     },
     "fallback": {
       "type": "l2magic:iterate_delayed",

@@ -1,6 +1,7 @@
 package dev.xkmc.glimmeringtales.init.data.spell.snow;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
+import dev.xkmc.glimmeringtales.content.engine.particle.FarParticleRenderData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
@@ -169,21 +170,23 @@ public class SnowStorm {
 										DoubleVariable.of("-180"),
 										DoubleVariable.of("180"),
 										IntVariable.of("3"),
-										new CustomParticleInstance(
-												DoubleVariable.of("0"),
-												DoubleVariable.of("0.15"),
-												IntVariable.of("" + life),
-												true,
-												new MovePosMotion(List.of(
-														ForwardOffsetModifier.of("-" + ir),
-														RotationModifier.of(angle),
-														ForwardOffsetModifier.of(radius),
-														new Normal2DirModifier(),
-														ForwardOffsetModifier.of("TickCount*" + vsp)
-												)),
-												new SimpleParticleData(
-														RenderTypePreset.NORMAL,
-														ParticleTypes.SNOWFLAKE
+										new RandomVariableLogic("r", 1,
+												new CustomParticleInstance(
+														DoubleVariable.of("0"),
+														DoubleVariable.of("0.15"),
+														IntVariable.of("" + life),
+														true,
+														new MovePosMotion(List.of(
+																ForwardOffsetModifier.of("-" + ir),
+																RotationModifier.of(angle),
+																ForwardOffsetModifier.of(radius),
+																new Normal2DirModifier(),
+																ForwardOffsetModifier.of("TickCount*" + vsp)
+														)),
+														new FarParticleRenderData(new SimpleParticleData(
+																RenderTypePreset.NORMAL,
+																ParticleTypes.SNOWFLAKE
+														), DoubleVariable.of("r0+1"))
 												)
 										).move(NormalOffsetModifier.of("rand(" + (-vsp) + "," + vsp + ")")), null
 								).move(new Dir2NormalModifier())

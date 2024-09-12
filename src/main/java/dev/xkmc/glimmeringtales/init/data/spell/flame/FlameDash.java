@@ -58,7 +58,7 @@ public class FlameDash {
 								IntVariable.of("10")
 						),
 						null
-				),
+				).move(ForwardOffsetModifier.of("-1")),
 				new DelayedIterator(
 						IntVariable.of("min(2*TickUsing,80)"),
 						IntVariable.of("1"),
