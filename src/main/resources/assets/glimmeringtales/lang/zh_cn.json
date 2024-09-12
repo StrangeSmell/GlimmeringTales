@@ -95,6 +95,9 @@
   "item.glimmeringtales.thunderstorm": "符石: 召雷环",
   "item.glimmeringtales.ocean_shelter": "符石: 深海守护",
   "item.glimmeringtales.charge_burst": "符石: 漫雷",
+  "item.glimmeringtales.flame_dash": "符石: 烈焰冲刺",
+  "item.glimmeringtales.icy_flash": "符石: 冰闪",
+  "item.glimmeringtales.meteor": "符石: 陨星",
 
   "block.glimmeringtales.struck_log": "雷焰木",
   "block.glimmeringtales.struck_leaves": "雷焰树叶",
@@ -184,6 +187,9 @@
   "spell_action.glimmeringtales.thunderstorm": "召雷环",
   "spell_action.glimmeringtales.ocean_shelter": "深海守护",
   "spell_action.glimmeringtales.charge_burst": "漫雷",
+  "spell_action.glimmeringtales.flame_dash": "烈焰冲刺",
+  "spell_action.glimmeringtales.icy_flash": "冰闪",
+  "spell_action.glimmeringtales.meteor": "陨星",
 
   "glimmeringtales.configuration.title": "微光纪事 - 配置",
   "glimmeringtales.configuration.section.l2configs.glimmeringtales.client.toml": "微光纪事 - 客户端配置",
@@ -300,5 +306,13 @@
   "patchouli.glimmeringtales.landing": "欢迎来到以自然为主题的魔法模组《微光纪事》",
   "patchouli.glimmeringtales.title": "微光纪事指南",
   "entity.glimmeringtales.falling_block": "坠落方块",
-  "entity.glimmeringtales.lightning_bolt": "闪电"
+  "entity.glimmeringtales.lightning_bolt": "闪电",
+
+  "nature_spell.glimmeringtales.flame_dash.brief": "[Charge] Charge and launch yourself as a rolling flame ball",
+  "nature_spell.glimmeringtales.flame_dash.detail": "Charge, and then enter flame dashing mode for the same duration as you charged, move forward and knock off enemies, dealing %s",
+  "nature_spell.glimmeringtales.icy_flash.brief": "[Range] Teleport to target and deal damage",
+  "nature_spell.glimmeringtales.icy_flash.detail": "Teleport to target position, dealing %s to surrounding enemies, and inflict %s",
+  "nature_spell.glimmeringtales.meteor.brief": "[Ranged] Create a meteor falling at target",
+  "nature_spell.glimmeringtales.meteor.detail": "Create a meteor falling slowly, dealing %s on impact"
+
 }

@@ -1,4 +1,4 @@
-// 1.21.1	2024-09-12T19:33:55.603629	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/biome)]
+// 1.21.1	2024-09-12T19:48:17.250712	Registrate Provider for glimmeringtales [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Patchouli Provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Tags (worldgen/biome)]
 f628b87d75a2e2a6c5157d17ef22b26cb8b260eb assets/glimmeringtales/blockstates/bamboo.json
 4132de47f0c0e042aadf759876c94ea0a1d95cd2 assets/glimmeringtales/blockstates/clay_carpet.json
 dd5961b34518b83da6777b460a9272a73e5bbd2a assets/glimmeringtales/blockstates/crystal_vine.json
@@ -477,15 +477,15 @@ b771875c9773d6ba1ec5fc7e328181962b121959 data/glimmeringtales/glimmeringtales/sp
 5164ad447839e54def1fe89879047dd38090c979 data/glimmeringtales/glimmeringtales/spell/coral_reef.json
 86466e02b78a8879b2453e5b043c333434259932 data/glimmeringtales/glimmeringtales/spell/dripstone.json
 1e0e086dffdad7d2b982e5dd3307e21a3d49338c data/glimmeringtales/glimmeringtales/spell/earthquake.json
-f78f49f2889dae5f17100bc4e6ff02fac37fa4fb data/glimmeringtales/glimmeringtales/spell/flame_dash.json
+fb09ddac8c119afd7dc518e03435cc337e7a60b2 data/glimmeringtales/glimmeringtales/spell/flame_dash.json
 b0907cd913bf01615e372cc11a5615c7dac2d675 data/glimmeringtales/glimmeringtales/spell/flower.json
 45821a5ddbc0b974fe0c2e82de26f3576c3203c8 data/glimmeringtales/glimmeringtales/spell/gravel.json
 ee30cf62cf94ea6152e3aea20119c5c0a32cbafa data/glimmeringtales/glimmeringtales/spell/hell_mark.json
 09badf314ef5db5960d3dd1ab26be2fab51dc529 data/glimmeringtales/glimmeringtales/spell/ice.json
-d03bf13d5447e32b757d094d1d1988c938d875d0 data/glimmeringtales/glimmeringtales/spell/icy_flash.json
+54050bda0887b05fffdff95b80fe468959f55254 data/glimmeringtales/glimmeringtales/spell/icy_flash.json
 44e99c130cb4defe10a752895be041012b368c7b data/glimmeringtales/glimmeringtales/spell/lava_burst.json
 73fbe36d8b294247801a5c411d1286f788c7e25a data/glimmeringtales/glimmeringtales/spell/magma.json
-df095869cf4f12ca4efdefc770044883b43e869b data/glimmeringtales/glimmeringtales/spell/meteor.json
+05bd8264b7cec0b1bd90d7b8060f632bb075d2e7 data/glimmeringtales/glimmeringtales/spell/meteor.json
 4867ef5c315158ce8588efa5bb9680625df735b9 data/glimmeringtales/glimmeringtales/spell/netherrack.json
 800b065309bc34bff79cb055ac43522b98003e49 data/glimmeringtales/glimmeringtales/spell/ocean_shelter.json
 80cf1c69041f0d28523fbd970a82530c82692d16 data/glimmeringtales/glimmeringtales/spell/packed_ice.json

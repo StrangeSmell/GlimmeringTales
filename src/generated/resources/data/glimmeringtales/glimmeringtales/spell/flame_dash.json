@@ -1,7 +1,7 @@
 {
-  "cost": 200,
+  "cost": 5,
   "elem": "glimmeringtales:flame",
-  "focus": 100,
+  "focus": 2,
   "maxConsumeTick": 0,
   "spell": "glimmeringtales:flame_dash",
   "tooltip": {

@@ -1,7 +1,7 @@
 {
   "cost": 200,
   "elem": "glimmeringtales:earth",
-  "focus": 100,
+  "focus": 60,
   "maxConsumeTick": 0,
   "spell": "glimmeringtales:meteor",
   "tooltip": {

@@ -34,7 +34,7 @@ import java.util.List;
 public class Meteor {
 
 	public static final NatureSpellBuilder BUILDER = GTRegistries.EARTH
-			.build(GlimmeringTales.loc("meteor")).focusAndCost(100, 200)
+			.build(GlimmeringTales.loc("meteor")).focusAndCost(60, 200)
 			.damageExplosion()
 			.spell(e -> new SpellAction(starfall(e), GTItems.METEOR.get(), 2010,
 					SpellCastType.INSTANT, SpellTriggerType.TARGET_POS))

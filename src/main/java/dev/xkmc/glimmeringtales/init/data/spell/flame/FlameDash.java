@@ -36,7 +36,7 @@ import java.util.List;
 public class FlameDash {
 
 	public static final NatureSpellBuilder BUILDER = GTRegistries.FLAME
-			.build(GlimmeringTales.loc("flame_dash")).focusAndCost(100, 200)
+			.build(GlimmeringTales.loc("flame_dash")).focusAndCost(2, 5)
 			.damageFire()
 			.spell(e -> new SpellAction(flameCharge(e), GTItems.FLAME_DASH.get(), 2010,
 					SpellCastType.CHARGE, SpellTriggerType.FACING_FRONT))
