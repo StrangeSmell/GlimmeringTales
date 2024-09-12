@@ -40,6 +40,12 @@ public class SpellTooltipRegistry {
 			super(Component.class);
 		}
 
+		protected static MutableComponent damageStart(OptionalDouble dmg){
+			return dmg.isEmpty() ? Component.empty() : GTLang.DESC_DMG.get(
+					Component.literal((int) dmg.getAsDouble() + "").withStyle(ChatFormatting.DARK_AQUA)
+			).append(GTLang.DESC_SPACE.get());
+		}
+
 	}
 
 	static class DamageTooltip extends Tooltip<DamageProcessor> {
@@ -48,9 +54,7 @@ public class SpellTooltipRegistry {
 		public Component process(DamageProcessor e) {
 			var dmg = e.damage().exp().getAsConstant();
 			var type = e.damageType();
-			MutableComponent ans = dmg.isEmpty() ? Component.empty() : GTLang.DESC_DMG.get(
-					Component.literal((int) dmg.getAsDouble() + "").withStyle(ChatFormatting.DARK_AQUA)
-			).append(GTLang.DESC_SPACE.get());
+			MutableComponent ans = damageStart(dmg);
 			test(ans, type, DamageTypeTags.IS_FIRE, GTLang.DESC_FIRE, ChatFormatting.RED);
 			test(ans, type, DamageTypeTags.IS_EXPLOSION, GTLang.DESC_EXPLOSION, ChatFormatting.GOLD);
 			test(ans, type, DamageTypeTags.IS_FREEZING, GTLang.DESC_FREEZING, ChatFormatting.AQUA);
@@ -79,9 +83,7 @@ public class SpellTooltipRegistry {
 			if (dpb.isPresent() && spe.isPresent() && max.isPresent()) {
 				dmg = OptionalDouble.of(damage(dpb.getAsDouble(), spe.getAsDouble(), max.getAsDouble()));
 			}
-			MutableComponent ans = dmg.isEmpty() ? Component.empty() : GTLang.DESC_DMG.get(
-					Component.literal((int) dmg.getAsDouble() + "").withStyle(ChatFormatting.DARK_AQUA)
-			).append(GTLang.DESC_SPACE.get());
+			MutableComponent ans = damageStart(dmg);
 			ans.append(GTLang.DESC_FALLING_BLOCK.get().withStyle(ChatFormatting.RED)).append(GTLang.DESC_SPACE.get());
 			return ans.append(GTLang.DESC_DAMAGE.get());
 		}
@@ -102,9 +104,7 @@ public class SpellTooltipRegistry {
 		@Override
 		public Component process(LightningInstance e) {
 			var dmg = e.damage().exp().getAsConstant();
-			MutableComponent ans = dmg.isEmpty() ? Component.empty() : GTLang.DESC_DMG.get(
-					Component.literal((int) dmg.getAsDouble() + "").withStyle(ChatFormatting.DARK_AQUA)
-			).append(GTLang.DESC_SPACE.get());
+			MutableComponent ans = damageStart(dmg);
 			ans.append(GTLang.DESC_LIGHTNING.get().withStyle(ChatFormatting.YELLOW)).append(GTLang.DESC_SPACE.get());
 			return ans.append(GTLang.DESC_DAMAGE.get());
 		}

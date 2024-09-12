@@ -38,7 +38,7 @@
                 "ambient": false,
                 "amplifier": "2",
                 "duration": "100",
-                "effect": "l2complements:armor_reduce",
+                "effect": "l2complements:armor_corrosion",
                 "visible": false
               }
             ],

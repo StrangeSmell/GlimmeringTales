@@ -25,7 +25,7 @@
               "ambient": false,
               "amplifier": "0",
               "duration": "300",
-              "effect": "l2complements:frozen",
+              "effect": "l2complements:frost",
               "visible": false
             }
           ],
