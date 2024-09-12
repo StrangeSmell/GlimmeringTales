@@ -22,7 +22,6 @@ import dev.xkmc.glimmeringtales.init.data.GTConfigs;
 import dev.xkmc.glimmeringtales.init.data.GTDamageStates;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.data.GTTagGen;
-import dev.xkmc.l2backpack.content.common.BaseOpenableScreen;
 import dev.xkmc.l2backpack.init.L2Backpack;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
@@ -101,9 +100,11 @@ public class GTItems {
 			RUNE_THUNDER;
 
 	public static final VarHolder<SpellRuneItem>
-			HELL_MARK, LAVA_BURST, WINTER_STORM, SNOW_TORNADO,
-			STONE_BRIDGE, AMETHYST_PENETRATION, EARTHQUAKE,
-			OCEAN_SHELTER, THUNDERSTORM, CHARGE_BURST;
+			HELL_MARK, LAVA_BURST, FLAME_DASH,
+			WINTER_STORM, SNOW_TORNADO, ICY_FLASH,
+			STONE_BRIDGE, AMETHYST_PENETRATION, EARTHQUAKE, METEOR,
+			OCEAN_SHELTER,
+			THUNDERSTORM, CHARGE_BURST;
 
 	public static final BlockEntry<DelegateBlock> CLAY_CARPET, FAKE_STONE,
 			MAGMA_STONE, MAGMA_DEEPSLATE, MAGMA_NETHERRACK;
@@ -437,11 +438,14 @@ public class GTItems {
 
 			HELL_MARK = spell("hell_mark");
 			LAVA_BURST = spell("lava_burst");
+			FLAME_DASH = spell("flame_dash");
 			WINTER_STORM = spell("winter_storm");
 			SNOW_TORNADO = spell("snow_tornado");
+			ICY_FLASH = spell("icy_flash");
 			STONE_BRIDGE = spell("stone_bridge");
 			AMETHYST_PENETRATION = spell("amethyst_penetration");
 			EARTHQUAKE = spell("earthquake");
+			METEOR = spell("meteor");
 			OCEAN_SHELTER = spell("ocean_shelter");
 			THUNDERSTORM = spell("thunderstorm");
 			CHARGE_BURST = spell("charge_burst");

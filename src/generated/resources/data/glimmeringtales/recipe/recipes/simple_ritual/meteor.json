@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_earth"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:meteor"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:magma"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:quartz"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:blackstone_core"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:blackstone_core"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:anvil"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:anvil"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:anvil"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:anvil"
+      }
+    }
+  ],
+  "time": 100
+}

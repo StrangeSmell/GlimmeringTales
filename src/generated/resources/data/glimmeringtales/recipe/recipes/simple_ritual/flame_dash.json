@@ -1,0 +1,55 @@
+{
+  "type": "glimmeringtales:simple_ritual",
+  "core": {
+    "ingredient": {
+      "item": "glimmeringtales:crystal_of_flame"
+    },
+    "remainder": {
+      "count": 1,
+      "id": "glimmeringtales:flame_dash"
+    }
+  },
+  "list": [
+    {
+      "ingredient": {
+        "item": "glimmeringtales:netherrack"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "glimmeringtales:cactus"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:captured_wind"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "l2complements:captured_wind"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      }
+    }
+  ],
+  "time": 100
+}

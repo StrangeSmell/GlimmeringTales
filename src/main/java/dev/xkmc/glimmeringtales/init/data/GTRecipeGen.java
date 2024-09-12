@@ -427,6 +427,13 @@ public class GTRecipeGen {
 					.side(Items.BLAZE_POWDER, 4)
 					.save(pvd);
 
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_FLAME, GTItems.FLAME_DASH)::unlockedBy, GTItems.CRYSTAL_FLAME.get())
+					.side(GTItems.RUNE_NETHERRACK, 1)
+					.side(GTItems.RUNE_CACTUS, 1)
+					.side(LCItems.CAPTURED_WIND, 2)
+					.side(Items.BLAZE_POWDER, 4)
+					.save(pvd);
+
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.WINTER_STORM)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
 					.side(GTItems.RUNE_BLUE_ICE, 1)
 					.side(GTItems.RUNE_GRAVEL, 1)
@@ -439,6 +446,13 @@ public class GTRecipeGen {
 					.side(GTItems.RUNE_SAND, 1)
 					.side(LCItems.HARD_ICE, 2)
 					.side(Items.SNOW_BLOCK, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_WINTERSTORM, GTItems.ICY_FLASH)::unlockedBy, GTItems.CRYSTAL_WINTERSTORM.get())
+					.side(GTItems.RUNE_SNOW, 1)
+					.side(GTItems.RUNE_BLUE_ICE, 1)
+					.side(LCItems.HARD_ICE, 2)
+					.side(Items.ENDER_PEARL, 4)
 					.save(pvd);
 
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.STONE_BRIDGE)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
@@ -454,6 +468,13 @@ public class GTRecipeGen {
 			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.EARTHQUAKE)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
 					.side(GTItems.RUNE_STONE, 1)
 					.side(GTItems.RUNE_GRAVEL, 1)
+					.side(LCItems.BLACKSTONE_CORE, 2)
+					.side(Items.ANVIL, 4)
+					.save(pvd);
+
+			unlock(pvd, new SimpleRitualRecipeBuilder(GTItems.CRYSTAL_EARTH, GTItems.METEOR)::unlockedBy, GTItems.CRYSTAL_EARTH.get())
+					.side(GTItems.RUNE_MAGMA, 1)
+					.side(GTItems.RUNE_QUARTZ, 1)
 					.side(LCItems.BLACKSTONE_CORE, 2)
 					.side(Items.ANVIL, 4)
 					.save(pvd);
