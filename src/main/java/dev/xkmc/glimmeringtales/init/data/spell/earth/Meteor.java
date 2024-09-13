@@ -17,9 +17,11 @@ import dev.xkmc.l2magic.content.engine.modifier.RandomOffsetModifier;
 import dev.xkmc.l2magic.content.engine.modifier.RotationModifier;
 import dev.xkmc.l2magic.content.engine.modifier.SetDirectionModifier;
 import dev.xkmc.l2magic.content.engine.particle.DustParticleInstance;
+import dev.xkmc.l2magic.content.engine.processor.CastAtProcessor;
 import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.processor.KnockBackProcessor;
 import dev.xkmc.l2magic.content.engine.processor.PropertyProcessor;
+import dev.xkmc.l2magic.content.engine.selector.ApproxBallSelector;
 import dev.xkmc.l2magic.content.engine.selector.ApproxCylinderSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
 import dev.xkmc.l2magic.content.engine.sound.SoundInstance;
@@ -29,6 +31,7 @@ import dev.xkmc.l2magic.content.engine.spell.SpellTriggerType;
 import dev.xkmc.l2magic.content.engine.variable.ColorVariable;
 import dev.xkmc.l2magic.content.engine.variable.DoubleVariable;
 import dev.xkmc.l2magic.content.engine.variable.IntVariable;
+import dev.xkmc.l2magic.content.entity.core.BoundingData;
 import dev.xkmc.l2magic.content.entity.core.ProjectileConfig;
 import dev.xkmc.l2magic.content.entity.engine.CustomProjectileShoot;
 import net.minecraft.sounds.SoundEvents;
@@ -51,9 +54,24 @@ public class Meteor {
 
 	private static ProjectileConfig proj(NatureSpellBuilder ctx) {
 		return ProjectileConfig.builder(SelectionType.ALL)
-				.land(land(ctx)).size(DoubleVariable.of("2"))
+				.tick(tick())
+				.land(land(ctx)).size(new BoundingData(DoubleVariable.of("1"), true))
+				.hit(new CastAtProcessor(CastAtProcessor.PosType.ORIGINAL, CastAtProcessor.DirType.ORIGINAL, land(ctx)))
 				.renderer(new FakeBlockRenderData(GTItems.DUMMY_METEOR.getDefaultState(), DoubleVariable.of("2")))
 				.build();
+	}
+
+	private static ConfiguredEngine<?> tick() {
+		return new SphereRandomIterator(
+				DoubleVariable.of("1.5"),
+				IntVariable.of("100"),
+				new DustParticleInstance(
+						ColorVariable.Static.of(0xFF0000),
+						DoubleVariable.of("0.5"),
+						DoubleVariable.of("0.2"),
+						IntVariable.of("rand(20,30)")
+				), null
+		);
 	}
 
 	private static ConfiguredEngine<?> land(NatureSpellBuilder ctx) {
@@ -63,7 +81,7 @@ public class Meteor {
 						DoubleVariable.of("2"),
 						DoubleVariable.of("0"),
 						DoubleVariable.of("360"),
-						IntVariable.of("200"),
+						IntVariable.of("500"),
 						new RandomVariableLogic("r", 2,
 								new DustParticleInstance(
 										ColorVariable.Static.of(0xFF0000),
@@ -72,13 +90,10 @@ public class Meteor {
 										IntVariable.of("40")
 								).move(RotationModifier.of("0", "45*r0"))
 						), null
-				),
+				).move(SetDirectionModifier.of("1", "0", "0")),
 				new ProcessorEngine(
 						SelectionType.ENEMY,
-						new ApproxCylinderSelector(
-								DoubleVariable.of("8"),
-								DoubleVariable.of("4")
-						),
+						new ApproxBallSelector(DoubleVariable.of("8")),
 						List.of(
 								new DamageProcessor(ctx.damage(), DoubleVariable.of("20"), true, true),
 								new PropertyProcessor(
@@ -97,7 +112,7 @@ public class Meteor {
 						DoubleVariable.of("5"),
 						DoubleVariable.ZERO
 				)
-		));
+		)).move(ForwardOffsetModifier.of("1"));
 	}
 
 	private static ConfiguredEngine<?> starfall(NatureSpellBuilder ctx) {
@@ -114,37 +129,9 @@ public class Meteor {
 						IntVariable.of("55")
 				), null
 		);
-		var start = new SphereRandomIterator(
-				DoubleVariable.of("1"),
-				IntVariable.of("1000"),
-				new DustParticleInstance(
-						ColorVariable.Static.of(0x000000),
-						DoubleVariable.of("1"),
-						DoubleVariable.of("0.1"),
-						IntVariable.of("50")
-				).move(new RandomOffsetModifier(
-								RandomOffsetModifier.Type.RECT,
-								DoubleVariable.of("0.2"),
-								DoubleVariable.of("0.2"),
-								DoubleVariable.of("0.2")
-						),
-						SetDirectionModifier.of("0", "-1", "0")
-				), null
-		);
-		var move = new SphereRandomIterator(
-				DoubleVariable.of("1.5"),
-				IntVariable.of("50"),
-				new DustParticleInstance(
-						ColorVariable.Static.of(0xFF0000),
-						DoubleVariable.of("0.5"),
-						DoubleVariable.of("-0.2"),
-						IntVariable.of("5")
-				), null
-		);
-
-		return new ListLogic(List.of(shadow, new CustomProjectileShoot(DoubleVariable.of("0.2"), ctx.proj,
-				IntVariable.of("200"), false, true, Map.of()
-		).move(SetDirectionModifier.of("0", "-1", "0"), ForwardOffsetModifier.of("-4"))));
+		return new ListLogic(List.of(shadow, new CustomProjectileShoot(DoubleVariable.of("0.4"), ctx.proj,
+				IntVariable.of("200"), false, false, Map.of()
+		).move(SetDirectionModifier.of("0", "-1", "0"), ForwardOffsetModifier.of("-8"))));
 	}
 
 }

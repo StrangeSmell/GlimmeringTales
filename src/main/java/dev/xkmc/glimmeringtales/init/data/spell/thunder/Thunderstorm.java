@@ -64,7 +64,7 @@ public class Thunderstorm {
 						new ApproxCylinderSelector(DoubleVariable.of("6"), DoubleVariable.of("3")),
 						List.of(new CastAtProcessor(
 								CastAtProcessor.PosType.BOTTOM, CastAtProcessor.DirType.UP,
-								new LightningInstance(DoubleVariable.of("10"))
+								new LightningInstance(DoubleVariable.of("5"))
 						))
 				)));
 

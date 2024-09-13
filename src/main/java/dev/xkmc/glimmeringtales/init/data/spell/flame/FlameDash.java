@@ -3,24 +3,21 @@ package dev.xkmc.glimmeringtales.init.data.spell.flame;
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
-import dev.xkmc.glimmeringtales.init.data.spell.advanced.UnrealHelper;
 import dev.xkmc.glimmeringtales.init.reg.GTItems;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.core.ConfiguredEngine;
 import dev.xkmc.l2magic.content.engine.iterator.DelayedIterator;
+import dev.xkmc.l2magic.content.engine.iterator.RingIterator;
 import dev.xkmc.l2magic.content.engine.iterator.SphereRandomIterator;
 import dev.xkmc.l2magic.content.engine.logic.ListLogic;
 import dev.xkmc.l2magic.content.engine.logic.PredicateLogic;
 import dev.xkmc.l2magic.content.engine.logic.ProcessorEngine;
-import dev.xkmc.l2magic.content.engine.modifier.ForwardOffsetModifier;
-import dev.xkmc.l2magic.content.engine.modifier.SetDirectionModifier;
-import dev.xkmc.l2magic.content.engine.modifier.ToCurrentCasterDirModifier;
-import dev.xkmc.l2magic.content.engine.modifier.ToCurrentCasterPosModifier;
+import dev.xkmc.l2magic.content.engine.modifier.*;
 import dev.xkmc.l2magic.content.engine.particle.DustParticleInstance;
 import dev.xkmc.l2magic.content.engine.processor.DamageProcessor;
 import dev.xkmc.l2magic.content.engine.processor.KnockBackProcessor;
 import dev.xkmc.l2magic.content.engine.processor.PushProcessor;
-import dev.xkmc.l2magic.content.engine.selector.ApproxCylinderSelector;
+import dev.xkmc.l2magic.content.engine.selector.ApproxBallSelector;
 import dev.xkmc.l2magic.content.engine.selector.SelectionType;
 import dev.xkmc.l2magic.content.engine.selector.SelfSelector;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
@@ -56,7 +53,7 @@ public class FlameDash {
 								DoubleVariable.of("1"),
 								DoubleVariable.of("-.2"),
 								IntVariable.of("10")
-						),
+						).move(ForwardOffsetModifier.of("rand(0,0.5)")),
 						null
 				).move(ForwardOffsetModifier.of("-1")),
 				new DelayedIterator(
@@ -75,10 +72,7 @@ public class FlameDash {
 								),
 								new ProcessorEngine(  // Damage
 										SelectionType.ENEMY,
-										new ApproxCylinderSelector(
-												DoubleVariable.of("2"),
-												DoubleVariable.of("2")
-										),
+										new ApproxBallSelector(DoubleVariable.of("2")),
 										List.of(
 												new DamageProcessor(ctx.damage(), DoubleVariable.of("4"), true, true),
 												new KnockBackProcessor(
@@ -88,18 +82,27 @@ public class FlameDash {
 												)
 										)
 								),
-								UnrealHelper.cone(1.5, 3, 30, 30,
+								new RingIterator(
+										DoubleVariable.of("0.5"),
+										DoubleVariable.of("-180"),
+										DoubleVariable.of("180"),
+										IntVariable.of("30"),
+										false,
 										new DustParticleInstance(
 												ColorVariable.Static.of(0xFF0000),
 												DoubleVariable.of(".5"),
-												DoubleVariable.of("1"),
-												IntVariable.of("1")
-										).move(new ToCurrentCasterDirModifier())
-								).move(new ForwardOffsetModifier(DoubleVariable.of("-1")))
+												DoubleVariable.of("0.4"),
+												IntVariable.of("rand(10,20)")
+										),
+										null
+								).move(
+										ForwardOffsetModifier.of("2"),
+										new Dir2NormalModifier(),
+										RotationModifier.of("rand(0,360)")
+								)
 						)).move(
 								new ToCurrentCasterPosModifier(),
-								SetDirectionModifier.UP,
-								ForwardOffsetModifier.of("1"),
+								OffsetModifier.of("0","1","0"),
 								new ToCurrentCasterDirModifier()
 						), null
 				)

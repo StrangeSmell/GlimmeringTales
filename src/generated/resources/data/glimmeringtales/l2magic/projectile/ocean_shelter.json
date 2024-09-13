@@ -13,7 +13,10 @@
     "rate": 4.0,
     "texture": "glimmeringtales:textures/spell/bubble.png"
   },
-  "size": "0.25",
+  "size": {
+    "fullBlockCollision": false,
+    "size": "0.25"
+  },
   "tick": {
     "type": "l2magic:list",
     "children": [

@@ -16,7 +16,7 @@
         "action": [
           {
             "type": "l2magic:damage",
-            "damage": "6",
+            "damage": "4",
             "damage_type": "glimmeringtales:charge_burst",
             "indirect": true,
             "positioned": false

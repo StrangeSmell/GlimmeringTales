@@ -349,7 +349,7 @@ public class GTItems {
 					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
 					.tag(GTTagGen.curio("hands"), GTTagGen.UNIQUE)
 					.dataMap(GTRegistries.ITEM_ATTR.reg(), AttributeData.of(
-							AttributeData.add(L2DamageTracker.MAGIC_FACTOR, 0.25)
+							AttributeData.total(GTRegistries.MANA_REGEN, -0.25)
 					)).lang("Glove of Ocean")
 					.register();
 
@@ -360,7 +360,7 @@ public class GTItems {
 					.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/curio/" + ctx.getName())))
 					.tag(GTTagGen.curio("hands"), GTTagGen.UNIQUE)
 					.dataMap(GTRegistries.ITEM_ATTR.reg(), AttributeData.of(
-							AttributeData.add(L2DamageTracker.LIGHTNING_FACTOR, 0.5)
+							AttributeData.total(GTRegistries.MANA_REGEN, -0.25)
 					)).lang("Glove of Thunder")
 					.register();
 		}

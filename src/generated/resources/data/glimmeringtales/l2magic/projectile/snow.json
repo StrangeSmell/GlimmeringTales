@@ -19,7 +19,10 @@
     "type": "l2magic:simple",
     "texture": "glimmeringtales:textures/spell/snowball.png"
   },
-  "size": "0.25",
+  "size": {
+    "fullBlockCollision": false,
+    "size": "0.25"
+  },
   "tick": {
     "type": "l2magic:move",
     "child": {

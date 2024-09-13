@@ -132,9 +132,9 @@
     "glimmeringtales:glove_of_ocean": {
       "list": [
         {
-          "attribute": "l2damagetracker:magic_damage",
-          "operation": "ADD_VALUE",
-          "value": 0.25
+          "attribute": "glimmeringtales:mana_regen",
+          "operation": "ADD_MULTIPLIED_TOTAL",
+          "value": -0.25
         }
       ]
     },
@@ -150,9 +150,9 @@
     "glimmeringtales:glove_of_thunder": {
       "list": [
         {
-          "attribute": "l2damagetracker:lightning_damage",
-          "operation": "ADD_VALUE",
-          "value": 0.5
+          "attribute": "glimmeringtales:mana_regen",
+          "operation": "ADD_MULTIPLIED_TOTAL",
+          "value": -0.25
         }
       ]
     },

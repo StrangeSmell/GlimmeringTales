@@ -21,12 +21,12 @@
         "type": "l2magic:move",
         "child": {
           "type": "l2magic:custom_projectile",
-          "bypassEntity": true,
+          "bypassEntity": false,
           "bypassWall": false,
           "config": "glimmeringtales:meteor",
           "life": "200",
           "params": {},
-          "speed": "0.2"
+          "speed": "0.4"
         },
         "modifiers": [
           {
@@ -37,7 +37,7 @@
           },
           {
             "type": "l2magic:forward",
-            "distance": "-4"
+            "distance": "-8"
           }
         ]
       }

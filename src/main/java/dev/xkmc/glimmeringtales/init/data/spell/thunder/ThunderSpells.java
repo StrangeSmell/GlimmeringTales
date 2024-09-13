@@ -38,7 +38,7 @@ public class ThunderSpells {
 						DoubleVariable.of("1"),
 						DoubleVariable.of("1+rand(-0.1,0.1)+rand(-0.1,0.1)")
 				),
-				new LightningInstance(DoubleVariable.of("10"))));
+				new LightningInstance(DoubleVariable.of("5"))));
 
 	}
 

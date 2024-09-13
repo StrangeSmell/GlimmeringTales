@@ -14,7 +14,12 @@ public interface ISpellHolder {
 	default boolean execute(NatureSpell spell, SpellContext ctx, SpellCastContext user, IAffinityProvider aff, int useTick, boolean charging) {
 		double val = aff.getFinalAffinity(spell.elem(), user.user(), user.wand());
 		if (spell.consumeMana(user.user(), user.wand(), val, useTick, charging, user.simulate())) {
-			if (!user.level().isClientSide()) {
+			if (!user.level().isClientSide() && !user.simulate()) {
+				if (charging && !spell.consumeMana(user.user(), user.wand(), val, useTick, charging, true)) {
+					charging = false;
+				}
+				double power = charging ? 0 : ctx.power();
+				ctx = new SpellContext(ctx.user(), ctx.origin(), ctx.facing(), ctx.seed(), ctx.tickUsing(), power);
 				spell.spell().value().execute(ctx);
 			}
 			return true;

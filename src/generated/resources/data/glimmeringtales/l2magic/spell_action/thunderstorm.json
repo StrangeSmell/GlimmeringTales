@@ -45,7 +45,7 @@
             "type": "l2magic:cast_at",
             "child": {
               "type": "glimmeringtales:thunder",
-              "damage": "10"
+              "damage": "5"
             },
             "dir": "UP",
             "pos": "BOTTOM"

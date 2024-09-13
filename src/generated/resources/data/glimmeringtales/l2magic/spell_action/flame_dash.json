@@ -6,11 +6,20 @@
       "child": {
         "type": "l2magic:random_pos_sphere",
         "child": {
-          "type": "l2magic:dust_particle",
-          "color": "ff0000",
-          "life": "10",
-          "scale": "1",
-          "speed": "-.2"
+          "type": "l2magic:move",
+          "child": {
+            "type": "l2magic:dust_particle",
+            "color": "ff0000",
+            "life": "10",
+            "scale": "1",
+            "speed": "-.2"
+          },
+          "modifiers": [
+            {
+              "type": "l2magic:forward",
+              "distance": "rand(0,0.5)"
+            }
+          ]
         },
         "count": "50",
         "radius": "2"
@@ -63,58 +72,40 @@
                 }
               ],
               "selector": {
-                "type": "l2magic:cylinder",
-                "r": "2",
-                "y": "2"
+                "type": "l2magic:ball",
+                "r": "2"
               },
               "target": "ENEMY"
             },
             {
               "type": "l2magic:move",
               "child": {
-                "type": "l2magic:iterate",
+                "type": "l2magic:iterate_arc",
                 "child": {
-                  "type": "l2magic:move",
-                  "child": {
-                    "type": "l2magic:iterate_arc",
-                    "child": {
-                      "type": "l2magic:move",
-                      "child": {
-                        "type": "l2magic:dust_particle",
-                        "color": "ff0000",
-                        "life": "1",
-                        "scale": ".5",
-                        "speed": "1"
-                      },
-                      "modifiers": [
-                        {
-                          "type": "l2magic:align_with_caster"
-                        }
-                      ]
-                    },
-                    "count": "1.0344827586206897*(30-cone_l)",
-                    "maxAngle": "360",
-                    "maxInclusive": false,
-                    "minAngle": "0",
-                    "radius": "0.05172413793103448*(30-cone_l)"
-                  },
-                  "modifiers": [
-                    {
-                      "type": "l2magic:forward",
-                      "distance": "0.10344827586206896*cone_l"
-                    },
-                    {
-                      "type": "l2magic:direction_to_normal"
-                    }
-                  ]
+                  "type": "l2magic:dust_particle",
+                  "color": "ff0000",
+                  "life": "rand(10,20)",
+                  "scale": ".5",
+                  "speed": "0.4"
                 },
-                "index": "cone_l",
-                "step": "30"
+                "count": "30",
+                "maxAngle": "180",
+                "maxInclusive": false,
+                "minAngle": "-180",
+                "radius": "0.5"
               },
               "modifiers": [
                 {
                   "type": "l2magic:forward",
-                  "distance": "-1"
+                  "distance": "2"
+                },
+                {
+                  "type": "l2magic:direction_to_normal"
+                },
+                {
+                  "type": "l2magic:rotate",
+                  "degree": "rand(0,360)",
+                  "vertical": "0"
                 }
               ]
             }
@@ -125,14 +116,10 @@
             "type": "l2magic:move_to_caster"
           },
           {
-            "type": "l2magic:direction",
+            "type": "l2magic:offset",
             "x": "0",
             "y": "1",
             "z": "0"
-          },
-          {
-            "type": "l2magic:forward",
-            "distance": "1"
           },
           {
             "type": "l2magic:align_with_caster"

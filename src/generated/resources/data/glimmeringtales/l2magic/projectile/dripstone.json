@@ -27,7 +27,10 @@
     "type": "glimmeringtales:vertical",
     "texture": "glimmeringtales:textures/spell/pointed_dripstone_up_tip.png"
   },
-  "size": "0.25",
+  "size": {
+    "fullBlockCollision": false,
+    "size": "0.25"
+  },
   "tick": {
     "type": "l2magic:move",
     "child": {

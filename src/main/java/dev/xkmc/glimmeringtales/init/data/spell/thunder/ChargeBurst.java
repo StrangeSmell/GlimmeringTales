@@ -53,8 +53,8 @@ public class ChargeBurst {
 			);
 
 	private static final ResourceLocation TEX = GlimmeringTales.loc("textures/spell/charge.png");
-	private static final DoubleVariable STRIKE = DoubleVariable.of("10");
-	private static final DoubleVariable CHARGE = DoubleVariable.of("6");
+	private static final DoubleVariable STRIKE = DoubleVariable.of("5");
+	private static final DoubleVariable CHARGE = DoubleVariable.of("4");
 
 	private static ProjectileConfig proj(NatureSpellBuilder ctx) {
 		return ProjectileConfig.builder(SelectionType.NONE)

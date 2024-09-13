@@ -19,7 +19,10 @@
     "type": "glimmeringtales:oriented_cross",
     "texture": "glimmeringtales:textures/spell/cactus.png"
   },
-  "size": "0.25",
+  "size": {
+    "fullBlockCollision": false,
+    "size": "0.25"
+  },
   "tick": {
     "type": "l2magic:move",
     "child": {

@@ -32,7 +32,7 @@ public record FakeBlockRenderer(BlockState state, float scale) implements Projec
 		pose.pushPose();
 		BlockPos pos = BlockPos.containing(entity.getX(), entity.getBoundingBox().maxY, entity.getZ());
 		pose.scale(scale, scale, scale);
-		pose.translate(-0.5, 0.0, -0.5);
+		pose.translate(-0.5, -0.5, -0.5);
 		var model = dispatcher.getBlockModel(state);
 		int seed = entity.getId();
 		for (var rt : model.getRenderTypes(state, RandomSource.create(seed), ModelData.EMPTY))
