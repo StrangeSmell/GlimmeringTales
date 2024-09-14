@@ -1,7 +1,7 @@
 package dev.xkmc.glimmeringtales.content.research.core;
 
 import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
-import dev.xkmc.glimmeringtales.content.research.logic.HexHandler;
+import dev.xkmc.glimmeringtales.content.research.logic.*;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import net.minecraft.network.chat.FormattedText;
 import net.minecraft.resources.ResourceLocation;
@@ -39,7 +39,7 @@ public class SpellResearch {
 		}
 	}
 
-	public void updateBestSolution(HexHandler hex, ResearchData.HexData data, int cost) {
+	public void updateBestSolution(HexHandler hex, HexOrder data, int cost) {
 		this.data.update(hex, data, cost);
 	}
 
@@ -63,12 +63,12 @@ public class SpellResearch {
 		return true;
 	}
 
-	public ResearchData.HexData getMiscData() {
-		return data.shape().copy();
+	public HexOrder getMiscData() {
+		return data.order().copy();
 	}
 
 	public boolean matchList(List<SpellElement> elem) {
-		return elem.equals(data.shape().list());
+		return elem.equals(data.order().list());
 	}
 
 	public HexGraph getGraph() {

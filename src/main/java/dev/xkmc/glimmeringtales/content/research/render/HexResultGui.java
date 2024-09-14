@@ -4,7 +4,7 @@ import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
 import dev.xkmc.glimmeringtales.content.research.core.HexGraph;
-import dev.xkmc.glimmeringtales.content.research.core.ResearchData;
+import dev.xkmc.glimmeringtales.content.research.core.HexOrder;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -28,7 +28,7 @@ public class HexResultGui {
 	private boolean isDragging = false;
 
 	int cost = 0;
-	final ResearchData.HexData data;
+	final HexOrder data;
 	final WindowBox box = new WindowBox();
 
 	public HexResultGui(MagicHexScreen screen) {
@@ -97,7 +97,7 @@ public class HexResultGui {
 
 	@Nullable
 	SpellElement getElem(int i) {
-		return graph.getElem(data.order()[i]);
+		return data.getElem(graph, i);
 	}
 
 	private double getX(int i) {

@@ -2,9 +2,7 @@ package dev.xkmc.glimmeringtales.content.research.render;
 
 import dev.xkmc.glimmeringtales.content.research.core.ResearchState;
 import dev.xkmc.glimmeringtales.content.research.core.SpellResearch;
-import dev.xkmc.glimmeringtales.content.research.logic.Frac;
 import dev.xkmc.glimmeringtales.content.research.logic.HexCell;
-import dev.xkmc.glimmeringtales.content.research.logic.HexDirection;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
@@ -151,7 +149,7 @@ public class MagicHexScreen extends Screen {
 
 	void forceSave(boolean pass) {
 		save = HexStatus.Save.YES;
-		product.updateBestSolution(graph.graph, result.data, pass ? result.cost : -1);
+		product.updateBestSolution(graph.handler, result.data, pass ? result.cost : -1);
 		product.save();
 	}
 
@@ -161,62 +159,18 @@ public class MagicHexScreen extends Screen {
 			compile = HexStatus.Compile.ERROR;
 		if (graph.flow != null) {
 			compile = HexStatus.Compile.FAILED;
-			boolean wrong = false;
-			HexCell cell = new HexCell(graph.graph, 0, 0);
-			for (int i = 0; i < 6; i++) {
-				graph.wrong_flow[i] = false;
-				cell.toCorner(HexDirection.values()[i]);
-				if (cell.exists() == (result.getElem(i) == null)) {
-					graph.wrong_flow[i] = true;
-					wrong = true;
-				}
-			}
-			if (wrong)
-				return false;
-			boolean[][] map = product.getGraph().graph();
-			for (int i = 0; i < 6; i++) {
-				Frac[] arr = graph.flow.matrix[i];
-				int i0 = result.data.order()[i];
-				boolean[] bar = map[i0];
-				int rec = 0;
-				for (int j = 0; j < 6; j++)
-					if (bar[result.data.order()[j]])
-						rec++;
-				graph.ignore[i] = rec == 0;
-				if (rec == 0) {
-					continue;
-				}
-				Frac b = new Frac(1, rec);
-				for (int j = 0; j < 6; j++) {
-					Frac f = arr[j];
-					if (!bar[result.data.order()[j]]) {
-						if (f != null) {
-							wrong |= graph.wrong_flow[i] = true;
-							break;
-						}
-						continue;
-					}
-					if (f == null) {
-						wrong |= graph.wrong_flow[i] = true;
-						break;
-					}
-					if (!f.equals(b)) {
-						wrong |= graph.wrong_flow[i] = true;
-					}
-				}
-			}
-			if (!wrong)
-				compile = HexStatus.Compile.COMPLETE;
-			return !wrong;
+			var ans = graph.check(result.data, product.getGraph());
+			if (ans) compile = HexStatus.Compile.COMPLETE;
+			return ans;
 		}
 		return false;
 	}
 
 	private void getCost() {
 		result.cost = 0;
-		HexCell cell = new HexCell(graph.graph, 0, 0);
-		for (cell.row = 0; cell.row < graph.graph.getRowCount(); cell.row++)
-			for (cell.cell = 0; cell.cell < graph.graph.getCellCount(cell.row); cell.cell++) {
+		HexCell cell = new HexCell(graph.handler, 0, 0);
+		for (cell.row = 0; cell.row < graph.handler.getRowCount(); cell.row++)
+			for (cell.cell = 0; cell.cell < graph.handler.getCellCount(cell.row); cell.cell++) {
 				if (cell.exists())
 					result.cost++;
 			}

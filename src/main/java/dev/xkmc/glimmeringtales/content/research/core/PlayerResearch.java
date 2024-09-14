@@ -1,15 +1,24 @@
 package dev.xkmc.glimmeringtales.content.research.core;
 
 import dev.xkmc.glimmeringtales.content.capability.PlayerResearchCapability;
+import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class PlayerResearch {
+
+	public static PlayerResearch of(Player player) {
+		return new PlayerResearch(player, GTRegistries.RESEARCH.type().getOrCreate(player));
+	}
 
 	private final Player player;
 	private final PlayerResearchCapability data;
@@ -28,6 +37,13 @@ public class PlayerResearch {
 
 	@Nullable
 	public SpellResearch get(ResourceLocation id) {
+		ResearchData dat = data.get(id);
+		if (dat == null) dat = ResearchData.create();
+		return get(id, dat);
+	}
+
+	@Nullable
+	public SpellResearch get(ResourceLocation id, ResearchData dat) {
 		var reg = player.level().registryAccess().registryOrThrow(GTRegistries.SPELL);
 		if (validSpells == null) {
 			validSpells = reg.holders()
@@ -43,17 +59,28 @@ public class PlayerResearch {
 		if (spell == null) return null;
 		var graph = spell.graph();
 		if (graph == null) return null;
-		ResearchData dat = data.get(id);
-		if (dat==null)dat = ResearchData.create();
 		SpellResearch ans = new SpellResearch(this, id, dat, HexGraph.create(id, graph.map(), graph.flows()));
 		cache.put(id, ans);
 		return ans;
 	}
 
 	protected void save(ResourceLocation id, ResearchData dat) {
-		data.put(id, dat);
-		if (!player.level().isClientSide()){
-			data.sync();
+		if (player instanceof ServerPlayer sp) {
+			var research = get(id);
+			if (research != null) {
+				var handler = research.getSolution();
+				var flow = handler.getMatrix(true);
+				var order = dat.order();
+				var graph = research.getGraph();
+				if (order.check(handler, flow, graph, new boolean[6], new boolean[6])) {
+					data.put(id, dat);
+				}
+
+			}
+			data.sync(sp);
+		} else {
+			data.put(id, dat);
+			GlimmeringTales.HANDLER.toServer(new GraphToServerPacket(id, dat));
 		}
 	}
 

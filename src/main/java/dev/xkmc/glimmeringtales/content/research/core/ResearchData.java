@@ -1,28 +1,24 @@
 package dev.xkmc.glimmeringtales.content.research.core;
 
-import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
-import dev.xkmc.glimmeringtales.content.research.logic.HexHandler;
-import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
-
-import java.util.ArrayList;
+import dev.xkmc.glimmeringtales.content.research.logic.*;
 
 public final class ResearchData {
 
 	public static ResearchData create() {
-		return new ResearchData(new HexHandler(3).write(), HexData.create(), SpellResearch.UNLOCKED);
+		return new ResearchData(new HexHandler(3).write(), HexOrder.create(), SpellResearch.UNLOCKED);
 	}
 
 	private HexHandler.Data hex;
-	private HexData shape;
+	private HexOrder order;
 	private int cost;
 
 	public ResearchData(
 			HexHandler.Data hex,
-			HexData shape,
+			HexOrder order,
 			int cost
 	) {
 		this.hex = hex;
-		this.shape = shape;
+		this.order = order;
 		this.cost = cost;
 	}
 
@@ -38,33 +34,14 @@ public final class ResearchData {
 		return new HexHandler(hex);
 	}
 
-	public HexData shape() {
-		return shape;
+	public HexOrder order() {
+		return order;
 	}
 
-	public void update(HexHandler handler, HexData data, int cost) {
+	public void update(HexHandler handler, HexOrder order, int cost) {
 		this.hex = handler.write();
-		this.shape = data;
+		this.order = order;
 		this.cost = cost;
-	}
-
-	public record HexData(int[] order, ArrayList<SpellElement> list) {
-
-		public static HexData create() {
-			ArrayList<SpellElement> list = new ArrayList<>();
-			for (var e : GTRegistries.ELEMENT.reg()) {
-				list.add(e);
-			}
-			int[] order = new int[6];
-			for (int i = 0; i < 6; i++)
-				order[i] = i;
-			return new HexData(order, list);
-		}
-
-		public HexData copy() {
-			return new HexData(order.clone(), new ArrayList<>(list()));
-		}
-
 	}
 
 }

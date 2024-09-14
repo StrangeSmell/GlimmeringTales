@@ -2,6 +2,8 @@ package dev.xkmc.glimmeringtales.content.research.render;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
+import dev.xkmc.glimmeringtales.content.research.core.HexGraph;
+import dev.xkmc.glimmeringtales.content.research.core.HexOrder;
 import dev.xkmc.glimmeringtales.content.research.logic.*;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import net.minecraft.client.Minecraft;
@@ -43,7 +45,7 @@ public class HexGraphGui {
 	private final MagicHexScreen screen;
 	private final Map<SpellElement, Integer> ELEM_2_ID = new HashMap<>();
 
-	HexHandler graph;
+	HexHandler handler;
 	FlowChart flow = null;
 	boolean[] wrong_flow = new boolean[6];
 	boolean[] ignore = new boolean[6];
@@ -58,7 +60,7 @@ public class HexGraphGui {
 
 	public HexGraphGui(MagicHexScreen screen) {
 		this.screen = screen;
-		graph = screen.product.getSolution();
+		handler = screen.product.getSolution();
 		GTRegistries.ELEMENT.get().forEach((a) -> ELEM_2_ID.put(a, ELEM_2_ID.size()));
 	}
 
@@ -69,7 +71,7 @@ public class HexGraphGui {
 		RenderSystem.defaultBlendFunc();
 		g.pose().pushPose();
 		g.pose().translate(x0 + scrollX, y0 + scrollY, 0);
-		LocateResult hover = graph.getElementOnHex((mx - x0 - scrollX) / magn, (my - y0 - scrollY) / magn);
+		LocateResult hover = handler.getElementOnHex((mx - x0 - scrollX) / magn, (my - y0 - scrollY) / magn);
 		renderBG(g, hover);
 		double ratio, width, length;
 		ratio = 1 / 4d;
@@ -90,16 +92,16 @@ public class HexGraphGui {
 	public void renderHover(GuiGraphics g, double mx, double my) {
 		double x0 = box.x + box.w / 2d;
 		double y0 = box.y + box.h / 2d;
-		LocateResult hover = graph.getElementOnHex((mx - x0 - scrollX) / magn, (my - y0 - scrollY) / magn);
+		LocateResult hover = handler.getElementOnHex((mx - x0 - scrollX) / magn, (my - y0 - scrollY) / magn);
 		renderTooltip(g, (int) mx, (int) my, hover);
 	}
 
 	public void setRadius(int radius) {
-		graph = new HexHandler(radius);
+		handler = new HexHandler(radius);
 	}
 
 	public int getRadius() {
-		return graph.radius;
+		return handler.radius;
 	}
 
 	public void scroll(double dx, double dy) {
@@ -111,7 +113,7 @@ public class HexGraphGui {
 		double x0 = box.x + box.w / 2d;
 		double y0 = box.y + box.h / 2d;
 		if (button == 0) {
-			LocateResult hover = graph.getElementOnHex((mx - x0 - scrollX) / magn, (my - y0 - scrollY) / magn);
+			LocateResult hover = handler.getElementOnHex((mx - x0 - scrollX) / magn, (my - y0 - scrollY) / magn);
 			if (click(hover)) {
 				flow = null;
 				error = null;
@@ -128,11 +130,11 @@ public class HexGraphGui {
 			return false;
 		if (hover.getType() == LocateResult.ResultType.ARROW) {
 			ArrowResult res = (ArrowResult) hover;
-			new HexCell(graph, res.row, res.cell).toggle(res.dir);
+			new HexCell(handler, res.row, res.cell).toggle(res.dir);
 			return true;
 		} else if (hover.getType() == LocateResult.ResultType.CELL) {
 			CellResult res = (CellResult) hover;
-			HexCell cell = new HexCell(graph, res.getRow(), res.getCell());
+			HexCell cell = new HexCell(handler, res.getRow(), res.getCell());
 			if (flow == null) {
 				for (HexDirection dire : HexDirection.values()) {
 					if (cell.canWalk(dire) && cell.isConnected(dire))
@@ -165,13 +167,13 @@ public class HexGraphGui {
 			compile();
 			screen.updated();
 			return true;
-		} else if (ch == '=' && graph.radius < 7) {
-			setRadius(graph.radius + 1);
+		} else if (ch == '=' && handler.radius < 7) {
+			setRadius(handler.radius + 1);
 			flow = null;
 			error = null;
 			screen.updated();
-		} else if (ch == '-' && graph.radius > 2) {
-			setRadius(graph.radius - 1);
+		} else if (ch == '-' && handler.radius > 2) {
+			setRadius(handler.radius - 1);
 			flow = null;
 			error = null;
 			screen.updated();
@@ -189,7 +191,7 @@ public class HexGraphGui {
 		flow = null;
 		error = null;
 		try {
-			flow = graph.getMatrix(true);
+			flow = handler.getMatrix(true);
 		} catch (HexCalcException e) {
 			flow = null;
 			error = e;
@@ -200,13 +202,17 @@ public class HexGraphGui {
 		}
 	}
 
+	boolean check(HexOrder order, HexGraph graph) {
+		return order.check(handler, flow, graph, wrong_flow, ignore);
+	}
+
 	// --- render code ---
 
 	private void renderBG(GuiGraphics g, @Nullable LocateResult hover) {
 		HexRenderUtil.hex_start(g);
-		HexCell cell = new HexCell(graph, 0, 0);
-		for (cell.row = 0; cell.row < graph.getRowCount(); cell.row++)
-			for (cell.cell = 0; cell.cell < graph.getCellCount(cell.row); cell.cell++) {
+		HexCell cell = new HexCell(handler, 0, 0);
+		for (cell.row = 0; cell.row < handler.getRowCount(); cell.row++)
+			for (cell.cell = 0; cell.cell < handler.getCellCount(cell.row); cell.cell++) {
 				double x = cell.getX() * magn;
 				double y = cell.getY() * magn;
 				double r = MARGIN * RADIUS * magn;
@@ -218,10 +224,10 @@ public class HexGraphGui {
 	}
 
 	private void renderPath(GuiGraphics g, double width, double length, boolean render_off) {
-		HexCell cell = new HexCell(graph, 0, 0);
+		HexCell cell = new HexCell(handler, 0, 0);
 		HexRenderUtil.path_start(g, width, length, HexHandler.WIDTH * magn, 0);
-		for (cell.row = 0; cell.row < graph.getRowCount(); cell.row++) {
-			for (cell.cell = 0; cell.cell < graph.getCellCount(cell.row); cell.cell++) {
+		for (cell.row = 0; cell.row < handler.getRowCount(); cell.row++) {
+			for (cell.cell = 0; cell.cell < handler.getCellCount(cell.row); cell.cell++) {
 				double x = cell.getX() * magn;
 				double y = cell.getY() * magn;
 				int col;
@@ -237,8 +243,8 @@ public class HexGraphGui {
 		}
 		HexRenderUtil.common_end();
 		HexRenderUtil.hex_start(g);
-		for (cell.row = 0; cell.row < graph.getRowCount(); cell.row++) {
-			for (cell.cell = 0; cell.cell < graph.getCellCount(cell.row); cell.cell++) {
+		for (cell.row = 0; cell.row < handler.getRowCount(); cell.row++) {
+			for (cell.cell = 0; cell.cell < handler.getCellCount(cell.row); cell.cell++) {
 				double x = cell.getX() * magn;
 				double y = cell.getY() * magn;
 				int col = cell.exists() ? COL_ENABLED : COL_DISABLED;
@@ -260,12 +266,12 @@ public class HexGraphGui {
 				col_masks[ELEM_2_ID.get(elem)] = elem.getColor();
 			}
 		}
-		HexCell cell = new HexCell(graph, 0, 0);
-		double[][] vals = new double[graph.getRowCount()][];
-		int[][] node_masks = new int[graph.getRowCount()][];
-		for (cell.row = 0; cell.row < graph.getRowCount(); cell.row++) {
-			vals[cell.row] = new double[graph.getCellCount(cell.row)];
-			node_masks[cell.row] = new int[graph.getCellCount(cell.row)];
+		HexCell cell = new HexCell(handler, 0, 0);
+		double[][] vals = new double[handler.getRowCount()][];
+		int[][] node_masks = new int[handler.getRowCount()][];
+		for (cell.row = 0; cell.row < handler.getRowCount(); cell.row++) {
+			vals[cell.row] = new double[handler.getCellCount(cell.row)];
+			node_masks[cell.row] = new int[handler.getCellCount(cell.row)];
 		}
 		HexRenderUtil.path_start(g, width, length, HexHandler.WIDTH * magn, tick + partial);
 		renderFlowBase(masks, col_masks, vals, node_masks);
@@ -275,7 +281,7 @@ public class HexGraphGui {
 	}
 
 	private void renderFlowBase(int[] masks, int[] col_masks, double[][] vals, int[][] node_masks) {
-		HexCell cell = new HexCell(graph, 0, 0);
+		HexCell cell = new HexCell(handler, 0, 0);
 		int[] cols = new int[6];
 		for (FlowChart.Flow f : flow.flows) {
 			cell.row = f.arrow.row;
@@ -338,7 +344,7 @@ public class HexGraphGui {
 		if (elem == null || selected != null && selected != sel)
 			return;
 		int offset = ELEM_2_ID.get(elem);
-		HexCell cell = new HexCell(graph, 0, 0);
+		HexCell cell = new HexCell(handler, 0, 0);
 		HexRenderUtil.flow_setup(g, elem.getColor(), width, length, tick + partial, offset, HexHandler.WIDTH * magn, selected != null);
 		for (FlowChart.Flow f : flow.flows) {
 			int mask = 0;
@@ -367,10 +373,10 @@ public class HexGraphGui {
 	}
 
 	private void renderFlowNode(GuiGraphics g, double[][] vals, int[][] masks, int[] col_masks, double width) {
-		HexCell cell = new HexCell(graph, 0, 0);
+		HexCell cell = new HexCell(handler, 0, 0);
 		HexRenderUtil.hex_start(g);
-		for (cell.row = 0; cell.row < graph.getRowCount(); cell.row++)
-			for (cell.cell = 0; cell.cell < graph.getCellCount(cell.row); cell.cell++) {
+		for (cell.row = 0; cell.row < handler.getRowCount(); cell.row++)
+			for (cell.cell = 0; cell.cell < handler.getCellCount(cell.row); cell.cell++) {
 				double x = cell.getX() * magn;
 				double y = cell.getY() * magn;
 				double val = vals[cell.row][cell.cell];
@@ -410,7 +416,7 @@ public class HexGraphGui {
 
 	private void renderError(GuiGraphics g, double width, double length) {
 		if (error != null) {
-			HexCell cell = new HexCell(graph, 0, 0);
+			HexCell cell = new HexCell(handler, 0, 0);
 			HexRenderUtil.path_start(g, width, length, HexHandler.WIDTH * magn, 0);
 			for (HexCalcException.Side side : error.error) {
 				cell.row = side.row;
@@ -440,7 +446,7 @@ public class HexGraphGui {
 	}
 
 	private void renderIcons(GuiGraphics g) {
-		HexCell cell = new HexCell(graph, 0, 0);
+		HexCell cell = new HexCell(handler, 0, 0);
 		for (int i = 0; i < 6; i++) {
 			SpellElement elem = screen.result.getElem(i);
 			if (elem == null)

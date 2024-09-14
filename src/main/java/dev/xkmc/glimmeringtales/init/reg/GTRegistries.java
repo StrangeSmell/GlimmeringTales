@@ -3,6 +3,7 @@ package dev.xkmc.glimmeringtales.init.reg;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.glimmeringtales.content.capability.PlayerManaCapability;
+import dev.xkmc.glimmeringtales.content.capability.PlayerResearchCapability;
 import dev.xkmc.glimmeringtales.content.core.spell.*;
 import dev.xkmc.glimmeringtales.content.item.curio.AttributeData;
 import dev.xkmc.glimmeringtales.content.item.wand.RuneSwapType;
@@ -60,9 +61,11 @@ public class GTRegistries {
 	public static final ElemEntry OCEAN = reg("ocean", ChatFormatting.DARK_AQUA);
 	public static final ElemEntry THUNDER = reg("thunder", ChatFormatting.YELLOW);
 
-	public static final AttReg ATT = AttReg.of(GlimmeringTales.REG);
+	private static final AttReg ATT = AttReg.of(GlimmeringTales.REG);
 	public static final AttVal.PlayerVal<PlayerManaCapability> MANA = ATT.player("mana",
 			PlayerManaCapability.class, PlayerManaCapability::new, PlayerCapabilityNetworkHandler::new);
+	public static final AttVal.PlayerVal<PlayerResearchCapability> RESEARCH = ATT.player("research",
+			PlayerResearchCapability.class, PlayerResearchCapability::new, PlayerCapabilityNetworkHandler::new);
 
 	public static final MatcherSwapType SWAP = new RuneSwapType();
 
