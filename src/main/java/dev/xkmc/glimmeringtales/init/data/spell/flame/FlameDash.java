@@ -102,7 +102,7 @@ public class FlameDash {
 								)
 						)).move(
 								new ToCurrentCasterPosModifier(),
-								OffsetModifier.of("0","1","0"),
+								OffsetModifier.of("0", "1", "0"),
 								new ToCurrentCasterDirModifier()
 						), null
 				)

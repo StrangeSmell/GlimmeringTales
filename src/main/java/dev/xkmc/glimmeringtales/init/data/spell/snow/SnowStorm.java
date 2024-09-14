@@ -50,7 +50,7 @@ public class SnowStorm {
 					"[Continuous] Create a circle of storm",
 					"Continuous Attack: Create a circle of storm, dealing %s, inflict %s, and push enemies away",
 					SpellTooltipData.damageAndEffect()
-			);
+			).graph("SF->LE", "LE->OT", "OT->SF");
 
 	public static final NatureSpellBuilder SNOW_TORNADO = GTRegistries.SNOW
 			.build(GlimmeringTales.loc("snow_tornado")).focusAndCost(2, 5).mob(6, 1).damageFreeze()
@@ -61,7 +61,7 @@ public class SnowStorm {
 					"[Continuous] Create a circle of storm",
 					"Continuous Attack: Create snow tornado in front of you, dealing %s and inflict %s",
 					SpellTooltipData.damageAndEffect()
-			);
+			).graph("S->OT", "OT->LEF", "LEF->S");
 
 	private static final DoubleVariable WS_DMG = DoubleVariable.of("4");
 	private static final DoubleVariable ST_DMG = DoubleVariable.of("4");

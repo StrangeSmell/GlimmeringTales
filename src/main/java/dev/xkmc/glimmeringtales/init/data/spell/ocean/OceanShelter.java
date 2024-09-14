@@ -53,7 +53,7 @@ public class OceanShelter {
 					"[Continuous] Shoot bubbles that hurt enemies and heal allies",
 					"Continuously shoot bubbles forward lasting 5 seconds. To enemies, deals %s and inflicts %s. To allies, %s and gives %s",
 					SpellTooltipData.of(EngineRegistry.DAMAGE, EngineRegistry.EFFECT, GTEngine.HEAL, EngineRegistry.EFFECT)
-			);
+			).graph("OS<->LET");
 
 	private static final DoubleVariable DMG = DoubleVariable.of("4");
 	private static final ResourceLocation TEX = GlimmeringTales.loc("textures/spell/bubble.png");

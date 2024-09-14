@@ -6,7 +6,9 @@ import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.core.spell.BlockSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
 import dev.xkmc.glimmeringtales.content.core.spell.RuneBlock;
+import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
 import dev.xkmc.glimmeringtales.content.entity.hostile.MobCastingData;
+import dev.xkmc.glimmeringtales.content.research.core.HexGraphData;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.glimmeringtales.init.data.GTDamageTypeGen;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
@@ -31,6 +33,7 @@ import net.neoforged.neoforge.common.data.DataMapProvider;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
@@ -61,6 +64,7 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 	private SpellDesc desc;
 	private ItemLike icon;
 	private MobCastingData mob;
+	private Supplier<HexGraphData> graph;
 
 	private DataGenContext cache;
 
@@ -79,7 +83,7 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 		return damageVanilla(() -> new DamageType("onFire", 0, DamageEffects.BURNING), DamageTypeTags.IS_FIRE);
 	}
 
-	public final NatureSpellBuilder damageExplosion(){
+	public final NatureSpellBuilder damageExplosion() {
 		return damageVanilla(() -> new DamageType("explosion", 0.1f), DamageTypeTags.IS_EXPLOSION);
 	}
 
@@ -126,7 +130,7 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 	public NatureSpellBuilder focusAndCost(int focus, int cost, int max) {
 		nature = nature(id);
 		this.natureFactory = e -> new NatureSpell(e, elem.get(), focus, cost, max,
-				desc == null ? warnEmpty() : desc.data, mob);
+				desc == null ? warnEmpty() : desc.data, mob, graph == null ? null : graph.get());
 		return this;
 	}
 
@@ -153,6 +157,35 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 		return this;
 	}
 
+	/**
+	 * L - life, E - earth, F - flame, S - snow, O - ocean, T - thunder
+	 */
+	public NatureSpellBuilder graph(String... strs) {
+		this.graph = () -> {
+			LinkedHashMap<String, SpellElement> map = new LinkedHashMap<>();
+			for (var s : strs) {
+				for (int i = 0; i < s.length(); i++) {
+					char ch = s.charAt(i);
+					switch (ch) {
+						case 'L' -> map.put("L", GTRegistries.LIFE.get());
+						case 'E' -> map.put("E", GTRegistries.EARTH.get());
+						case 'F' -> map.put("F", GTRegistries.FLAME.get());
+						case 'S' -> map.put("S", GTRegistries.SNOW.get());
+						case 'O' -> map.put("O", GTRegistries.OCEAN.get());
+						case 'T' -> map.put("T", GTRegistries.THUNDER.get());
+						case '<', '>', '-', '|' -> {
+						}
+						default -> throw new IllegalArgumentException(
+								"Char %c is illegal in flow %s for spell %s".formatted(ch, s, id)
+						);
+					}
+				}
+			}
+			return new HexGraphData(map, new ArrayList<>(List.of(strs)));
+		};
+		return this;
+	}
+
 	public NatureSpellBuilder lang(String name) {
 		return lang(e -> name);
 	}
@@ -167,9 +200,13 @@ public class NatureSpellBuilder extends NatureSpellEntry {
 		return this;
 	}
 
+	// fetch
+
 	public Holder<DamageType> damage() {
 		return cache.damage(damage);
 	}
+
+	// registration
 
 	@Override
 	public void regNature(BootstrapContext<NatureSpell> ctx) {

@@ -1,0 +1,26 @@
+package dev.xkmc.glimmeringtales.content.research.render;
+
+import dev.xkmc.l2itemselector.overlay.OverlayUtil;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+
+import java.util.List;
+
+public class AbstractHexGui {
+
+	public static void drawIcon(GuiGraphics g, ResourceLocation id, double x, double y, float scale) {
+		g.pose().pushPose();
+		g.pose().translate(x, y, 0);
+		g.pose().scale(scale / 16, scale / 16, 0);
+		g.blitSprite(id, 0, 0, 16, 16);
+		g.pose().popPose();
+	}
+
+	public static void drawHover(GuiGraphics g, List<Component> list, int mx, int my) {
+		new OverlayUtil(g, mx, my, -1).renderLongText(Minecraft.getInstance().font, list);
+	}
+
+
+}

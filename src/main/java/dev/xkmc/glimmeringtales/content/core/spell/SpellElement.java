@@ -1,9 +1,7 @@
 package dev.xkmc.glimmeringtales.content.core.spell;
 
-import dev.xkmc.glimmeringtales.init.data.spell.NatureSpellBuilder;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2core.init.reg.registrate.NamedEntry;
-import dev.xkmc.l2core.util.DataGenOnly;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -41,4 +39,7 @@ public class SpellElement extends NamedEntry<SpellElement> {
 		return ans == null ? -1 : ans;
 	}
 
+	public ResourceLocation getIcon() {
+		return getRegistryName().withPrefix("elements/");
+	}
 }

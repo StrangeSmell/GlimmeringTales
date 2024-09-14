@@ -39,7 +39,7 @@ public class Thunderstorm {
 					"[Ranged] Create a thunderstorm striking entities",
 					"Create a lightning strike on all entities in target area, inflicting %s multiple times",
 					SpellTooltipData.of(GTEngine.THUNDER)
-			);
+			).graph("LEFSOT|");
 
 	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(

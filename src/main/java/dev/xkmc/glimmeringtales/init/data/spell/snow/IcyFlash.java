@@ -42,7 +42,7 @@ public class IcyFlash {
 					"[Range] Teleport to target and deal damage",
 					"Teleport to target position, dealing %s to surrounding enemies, and inflict %s",
 					SpellTooltipData.damageAndEffect()
-			);
+			).graph("LEO<->FST");
 
 	private static ConfiguredEngine<?> icyFlash(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(

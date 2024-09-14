@@ -1,9 +1,16 @@
 package dev.xkmc.glimmeringtales.init.data;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
+import dev.xkmc.glimmeringtales.content.research.core.ResearchState;
+import dev.xkmc.glimmeringtales.content.research.logic.HexDirection;
+import dev.xkmc.glimmeringtales.content.research.render.HexStatus;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 public enum GTLang {
 	TOOLTIP_FILL("tooltip.fill_crystal", "Progress: %s / %s", 2),
@@ -46,6 +53,8 @@ public enum GTLang {
 	JEI_STRIKE_BLOCK("jei.strike_block", "Lightning Strikes Block", 0),
 	JEI_TRANSFORM("jei.transform", "Item Special Transformation", 0),
 	JEI_RITUAL("jei.ritual", "Ritual", 0),
+
+	HEX_COST("hex.cost", "Cost: %s", 1),
 	;
 
 	final String id, def;
@@ -65,9 +74,47 @@ public enum GTLang {
 		}
 	}
 
+	public interface EnumLang {
+
+		String name();
+
+		String defText();
+
+		default String descId() {
+			return GlimmeringTales.MODID + "." + MAP.get(getClass()).id + "." + name().toLowerCase(Locale.ROOT);
+		}
+
+		default MutableComponent getDesc() {
+			return Component.translatable(descId());
+		}
+
+	}
+
+	private static final Map<Class<?>, EnumLangData<?>> MAP = new HashMap<>();
+
+	private record EnumLangData<T extends Enum<T> & EnumLang>(T[] vals, String id) {
+
+	}
+
+	private static <T extends Enum<T> & EnumLang> void put(Class<T> cls, T[] vals, String id) {
+		MAP.put(cls, new EnumLangData<>(vals, id));
+	}
+
+	static {
+		put(HexDirection.class, HexDirection.values(), "hex_direction");
+		put(HexStatus.Compile.class, HexStatus.Compile.values(), "compile_status");
+		put(HexStatus.Save.class, HexStatus.Save.values(), "save_status");
+		put(ResearchState.class, ResearchState.values(), "research_status");
+	}
+
 	public static void addTranslations(RegistrateLangProvider pvd) {
 		for (var e : values()) {
 			pvd.add(e.id, e.def);
+		}
+		for (var ent : MAP.entrySet()) {
+			for (var e : ent.getValue().vals) {
+				pvd.add(e.descId(), e.defText());
+			}
 		}
 	}
 

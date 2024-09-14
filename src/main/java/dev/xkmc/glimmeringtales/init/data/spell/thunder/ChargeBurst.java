@@ -50,7 +50,7 @@ public class ChargeBurst {
 					"[Ranged] Create a lightning strike and charge spikes around it",
 					"Create a lightning strike on target position, inflicting %s multiple times, then create charge spikes on the ground around it, inflicting %s",
 					SpellTooltipData.of(GTEngine.THUNDER, EngineRegistry.DAMAGE)
-			);
+			).graph("EOFST|");
 
 	private static final ResourceLocation TEX = GlimmeringTales.loc("textures/spell/charge.png");
 	private static final DoubleVariable STRIKE = DoubleVariable.of("5");

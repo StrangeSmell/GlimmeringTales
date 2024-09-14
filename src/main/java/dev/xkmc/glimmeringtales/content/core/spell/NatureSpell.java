@@ -3,6 +3,7 @@ package dev.xkmc.glimmeringtales.content.core.spell;
 import com.mojang.serialization.Codec;
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipData;
 import dev.xkmc.glimmeringtales.content.entity.hostile.MobCastingData;
+import dev.xkmc.glimmeringtales.content.research.core.HexGraphData;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
@@ -25,8 +26,9 @@ public record NatureSpell(
 		SpellElement elem,
 		int focus, int cost, int maxConsumeTick,
 		SpellTooltipData tooltip,
-		@Nullable MobCastingData mob
-) {
+		@Nullable MobCastingData mob,
+		@Nullable HexGraphData graph
+		) {
 
 	private static final int MIN_MANA_COST = 1, CAST_COOLDOWN = 10, BREAK_COOLDOWN = 20;
 	private static final double MIN_AFFINITY = 0.2;
