@@ -1,9 +1,10 @@
 package dev.xkmc.glimmeringtales.content.research.core;
 
 import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
-import dev.xkmc.glimmeringtales.content.research.logic.*;
+import dev.xkmc.glimmeringtales.content.research.logic.HexHandler;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
-import net.minecraft.network.chat.FormattedText;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.ArrayList;
@@ -79,11 +80,12 @@ public class SpellResearch {
 		player.save(id, data);
 	}
 
-	public List<FormattedText> getFullDesc() {
-		List<FormattedText> list = new ArrayList<>();
-		list.add(getState().getDesc());
+	public List<Component> getFullDesc() {
+		List<Component> list = new ArrayList<>();
+		list.add(GTLang.HEX_STATUS.get(getState().getDesc()).withStyle(ChatFormatting.GRAY));
 		if (usable()) {
-			list.add(GTLang.HEX_COST.get(getCost()));
+			var cost = Component.literal("" + getCost()).withStyle(ChatFormatting.AQUA);
+			list.add(GTLang.HEX_COST.get(cost).withStyle(ChatFormatting.GRAY));
 		}
 		return list;
 	}

@@ -17,9 +17,8 @@ public class PlayerResearchCapability extends PlayerCapabilityTemplate<PlayerRes
 	@SerialField
 	private final LinkedHashMap<ResourceLocation, ResearchData> research = new LinkedHashMap<>();
 
-	@Nullable
-	public ResearchData put(ResourceLocation id, ResearchData dat) {
-		return research.put(id,dat);
+	public void put(ResourceLocation id, ResearchData dat) {
+		research.put(id, dat);
 	}
 
 	@Nullable

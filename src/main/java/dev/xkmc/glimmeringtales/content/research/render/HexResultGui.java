@@ -1,7 +1,5 @@
 package dev.xkmc.glimmeringtales.content.research.render;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import com.mojang.blaze3d.systems.RenderSystem;
 import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
 import dev.xkmc.glimmeringtales.content.research.core.HexGraph;
 import dev.xkmc.glimmeringtales.content.research.core.HexOrder;
@@ -15,7 +13,7 @@ import javax.annotation.Nullable;
 public class HexResultGui {
 
 	private static final int FLOW_COUNT = 5, PERIOD = 60;
-	private static final float RADIUS = 30, SCALE_NODE = 1f, SCALE_FLOW = 0.5f;
+	private static final float RADIUS = 30, SCALE_NODE = 1f, SCALE_FLOW = 0.2f;
 
 	private final Minecraft minecraft = Minecraft.getInstance();
 	private final MagicHexScreen screen;
@@ -51,7 +49,6 @@ public class HexResultGui {
 			HexRenderUtil.renderHex(g, xi, yi, 10, color);
 		}
 
-		RenderSystem.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 		for (int i = 0; i < 6; i++) {
 			SpellElement elem = getElem(i);
 			if (elem == null)
@@ -71,7 +68,6 @@ public class HexResultGui {
 				}
 			}
 		}
-		RenderSystem.disableBlend();
 
 		for (int i = 0; i < 6; i++) {
 			SpellElement elem = getElem(i);
@@ -81,18 +77,11 @@ public class HexResultGui {
 			double yi = getY(i);
 			AbstractHexGui.drawIcon(g, elem.getIcon(), xi, yi, SCALE_NODE);
 		}
-
-		for (int i = 0; i < data.list().size(); i++) {
-			SpellElement elem = data.list().get(i);
-			double xi = box.x + box.w / 2d - 27 + i * 18;
-			double yi = box.y + box.w + 18;
-			AbstractHexGui.drawIcon(g, elem.getIcon(), xi, yi, SCALE_NODE);
-		}
 		int hi = box.y + box.w + 36;
 		Font font = minecraft.font;
-		g.drawString(font, screen.save.getDesc(), box.x + 9, hi, screen.save.getColor());
-		g.drawString(font, screen.compile.getDesc(), box.x + 9, hi + 9, screen.compile.getColor());
-		g.drawString(font, GTLang.HEX_COST.get(cost), box.x + 9, hi + 18, 0xFF000000);
+		g.drawString(font, screen.save.getDesc(), box.x + 9, hi, screen.save.getColor(), false);
+		g.drawString(font, screen.compile.getDesc(), box.x + 9, hi + 9, screen.compile.getColor(), false);
+		g.drawString(font, GTLang.HEX_COST.get(cost), box.x + 9, hi + 18, 0xFF000000, false);
 	}
 
 	@Nullable

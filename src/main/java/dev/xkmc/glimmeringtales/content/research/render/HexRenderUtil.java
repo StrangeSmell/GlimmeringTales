@@ -29,7 +29,8 @@ public class HexRenderUtil {
 	static boolean focus = false;
 
 	static void common_end() {
-		BufferUploader.drawWithShader(builder.buildOrThrow());
+		var ans = builder.build();
+		if (ans != null) BufferUploader.drawWithShader(ans);
 		ca = 1;
 		op = null;
 	}

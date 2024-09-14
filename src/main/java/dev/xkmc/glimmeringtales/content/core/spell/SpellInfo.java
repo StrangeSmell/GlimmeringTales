@@ -1,7 +1,9 @@
 package dev.xkmc.glimmeringtales.content.core.spell;
 
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltip;
+import dev.xkmc.glimmeringtales.content.research.core.PlayerResearch;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
+import dev.xkmc.l2core.util.Proxy;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
@@ -64,6 +66,13 @@ public record SpellInfo(@Nullable Holder<NatureSpell> spell,
 		if (ns.mob() != null) {
 			list.add(GTLang.TOOLTIP_MOB_USE.get().withStyle(ChatFormatting.RED));
 		}
+		if (ns.graph() == null) return;
+
+		var pl = Proxy.getPlayer();
+		if (pl == null) return;
+		var research = PlayerResearch.of(pl).get(id.location());
+		if (research == null) return;
+		list.addAll(research.getFullDesc());
 	}
 
 }

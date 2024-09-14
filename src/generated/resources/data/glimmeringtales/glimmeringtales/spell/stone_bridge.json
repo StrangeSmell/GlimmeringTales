@@ -2,6 +2,16 @@
   "cost": 40,
   "elem": "glimmeringtales:earth",
   "focus": 20,
+  "graph": {
+    "flows": [
+      "LEF|"
+    ],
+    "map": {
+      "E": "glimmeringtales:earth",
+      "F": "glimmeringtales:flame",
+      "L": "glimmeringtales:life"
+    }
+  },
   "maxConsumeTick": 0,
   "spell": "glimmeringtales:stone_bridge",
   "tooltip": {

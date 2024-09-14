@@ -90,6 +90,7 @@
   "glimmeringtales.desc.projectile": "Projectile",
   "glimmeringtales.desc.space": " ",
   "glimmeringtales.hex.cost": "Cost: %s",
+  "glimmeringtales.hex.status": "Research status: %s",
   "glimmeringtales.hex_direction.left": "To Left",
   "glimmeringtales.hex_direction.lower_left": "To Lower Left",
   "glimmeringtales.hex_direction.lower_right": "To Lower Right",

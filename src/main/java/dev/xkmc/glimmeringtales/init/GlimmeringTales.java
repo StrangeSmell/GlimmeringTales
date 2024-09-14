@@ -5,7 +5,10 @@ import dev.xkmc.glimmeringtales.compat.PatchouliCompat;
 import dev.xkmc.glimmeringtales.content.block.altar.BaseRitualBlockEntity;
 import dev.xkmc.glimmeringtales.content.core.description.SpellTooltipRegistry;
 import dev.xkmc.glimmeringtales.content.core.spell.NatureSpell;
+import dev.xkmc.glimmeringtales.content.research.core.GraphToServerPacket;
+import dev.xkmc.glimmeringtales.content.research.core.OpenGraphPacket;
 import dev.xkmc.glimmeringtales.events.GTAttackListener;
+import dev.xkmc.glimmeringtales.events.GTClickHandler;
 import dev.xkmc.glimmeringtales.init.data.*;
 import dev.xkmc.glimmeringtales.init.data.spell.GTSpells;
 import dev.xkmc.glimmeringtales.init.reg.*;
@@ -17,6 +20,7 @@ import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2magic.content.engine.core.ProcessorType;
 import dev.xkmc.l2magic.content.engine.spell.SpellAction;
 import dev.xkmc.l2magic.init.registrate.EngineRegistry;
+import dev.xkmc.l2serial.network.PacketHandler;
 import dev.xkmc.l2serial.serialization.custom_handler.Handlers;
 import dev.xkmc.l2serial.util.Wrappers;
 import net.minecraft.resources.ResourceLocation;
@@ -42,7 +46,9 @@ public class GlimmeringTales {
 
 	public static final String MODID = "glimmeringtales";
 	public static final PacketHandlerWithConfig HANDLER = new PacketHandlerWithConfig(
-			MODID, 1
+			MODID, 1,
+			e -> e.create(GraphToServerPacket.class, PacketHandler.NetDir.PLAY_TO_SERVER),
+			e -> e.create(OpenGraphPacket.class, PacketHandler.NetDir.PLAY_TO_CLIENT)
 	);
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final Reg REG = new Reg(MODID);
@@ -59,6 +65,7 @@ public class GlimmeringTales {
 			PatchouliCompat.gen();
 		}
 		DMG_GEN = new GTDamageTypeGen(REGISTRATE);
+		new GTClickHandler(loc("hex"));
 	}
 
 	private static void initHandlers() {

@@ -35,7 +35,7 @@ public class StoneBridge {
 					"[Forward] Create a temporary stone bridge",
 					"Create a stone bridge extending forward lasting for 10 seconds",
 					SpellTooltipData.of()
-			);
+			).graph("LEF|");
 
 	private static ConfiguredEngine<?> gen(NatureSpellBuilder ctx) {
 		return new LoopIterator(

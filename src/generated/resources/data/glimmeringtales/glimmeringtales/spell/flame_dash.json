@@ -2,6 +2,22 @@
   "cost": 5,
   "elem": "glimmeringtales:flame",
   "focus": 2,
+  "graph": {
+    "flows": [
+      "F->OT",
+      "OT->S",
+      "S->LE",
+      "LE->F"
+    ],
+    "map": {
+      "E": "glimmeringtales:earth",
+      "F": "glimmeringtales:flame",
+      "L": "glimmeringtales:life",
+      "O": "glimmeringtales:ocean",
+      "S": "glimmeringtales:snow",
+      "T": "glimmeringtales:thunder"
+    }
+  },
   "maxConsumeTick": 0,
   "spell": "glimmeringtales:flame_dash",
   "tooltip": {

@@ -113,6 +113,7 @@
   "block.glimmeringtales.magma_block_for_deepslate": "岩浆块",
   "block.glimmeringtales.magma_block_for_netherrack": "岩浆块",
   "block.glimmeringtales.magma_block_for_stone": "岩浆块",
+  "block.glimmeringtales.meteor": "陨星",
 
   "glimmeringtales.tooltip.consume_block": "右键[%s]吸收精华",
   "glimmeringtales.tooltip.fill_crystal": "进度: %s / %s",
@@ -152,6 +153,25 @@
   "glimmeringtales.jei.strike_item": "雷击物品",
   "glimmeringtales.jei.transform": "物品特殊转化",
   "glimmeringtales.jei.ritual": "仪式",
+
+  "glimmeringtales.compile_status.complete": "魔力开始流动",
+  "glimmeringtales.compile_status.editing":"法阵绘制中",
+  "glimmeringtales.compile_status.error": "魔力堵塞",
+  "glimmeringtales.compile_status.failed":  "魔力流动不均",
+  "glimmeringtales.hex.cost": "复杂度:%s",
+  "glimmeringtales.hex.status": "研究进度: %s",
+
+  "glimmeringtales.hex_direction.left": "从右到左:",
+  "glimmeringtales.hex_direction.lower_left": "从右上到左下:",
+  "glimmeringtales.hex_direction.lower_right": "从左上到右下:",
+  "glimmeringtales.hex_direction.right": "从左到右:",
+  "glimmeringtales.hex_direction.upper_left": "从右下到左上:",
+  "glimmeringtales.hex_direction.upper_right": "从左下到右上:",
+  "glimmeringtales.research_status.completed": "可使用",
+  "glimmeringtales.research_status.locked": "未解锁",
+  "glimmeringtales.research_status.unlocked": "已解锁",
+  "glimmeringtales.save_status.no": "未保存",
+  "glimmeringtales.save_status.yes": "已保存",
 
   "spell_action.glimmeringtales.bamboo": "竹栅",
   "spell_action.glimmeringtales.cactus": "棘风",

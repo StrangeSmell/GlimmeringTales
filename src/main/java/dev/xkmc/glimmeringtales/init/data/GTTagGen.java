@@ -5,6 +5,7 @@ import com.tterrag.registrate.providers.RegistrateItemTagsProvider;
 import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import dev.xkmc.glimmeringtales.init.GlimmeringTales;
 import dev.xkmc.l2core.init.L2TagGen;
+import dev.xkmc.l2menustacker.init.L2MSTagGen;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -12,7 +13,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.structure.Structure;
 import top.theillusivec4.curios.api.CuriosApi;
 
 public class GTTagGen {
@@ -20,6 +20,8 @@ public class GTTagGen {
 	public static final ProviderType<RegistrateTagsProvider.Impl<Biome>> BIOME = L2TagGen.getProvider(Registries.BIOME);
 
 	public static final TagKey<Item> CRYSTAL = item("crystal");
+	public static final TagKey<Item> RUNE = item("rune");
+	public static final TagKey<Item> SPELL = item("spell");
 	public static final TagKey<Item> CORE = item("core");
 	public static final TagKey<Item> UNIQUE = item("unique_curios");
 
@@ -32,7 +34,8 @@ public class GTTagGen {
 	public static final TagKey<Block> FAKE_MAGMA = block("fake_magma");
 
 	public static void genItemTag(RegistrateItemTagsProvider pvd) {
-		pvd.addTag(CORE).addTag(CRYSTAL);
+		pvd.addTag(CORE).addTags(CRYSTAL, RUNE, SPELL);
+		pvd.addTag(L2MSTagGen.QUICK_ACCESS).addTags(RUNE, SPELL);
 	}
 
 	public static void genBlockTag(RegistrateTagsProvider.IntrinsicImpl<Block> pvd) {

@@ -13,8 +13,8 @@ public class AbstractHexGui {
 	public static void drawIcon(GuiGraphics g, ResourceLocation id, double x, double y, float scale) {
 		g.pose().pushPose();
 		g.pose().translate(x, y, 0);
-		g.pose().scale(scale / 16, scale / 16, 0);
-		g.blitSprite(id, 0, 0, 16, 16);
+		g.pose().scale(scale, scale, 0);
+		g.blitSprite(id, -8, -8, 16, 16);
 		g.pose().popPose();
 	}
 

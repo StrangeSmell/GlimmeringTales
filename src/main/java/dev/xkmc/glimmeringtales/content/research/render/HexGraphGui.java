@@ -1,6 +1,5 @@
 package dev.xkmc.glimmeringtales.content.research.render;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
 import dev.xkmc.glimmeringtales.content.research.core.HexGraph;
 import dev.xkmc.glimmeringtales.content.research.core.HexOrder;
@@ -67,8 +66,6 @@ public class HexGraphGui {
 	public void render(GuiGraphics g, double mx, double my, float partial) {
 		double x0 = box.x + box.w / 2d;
 		double y0 = box.y + box.h / 2d;
-		RenderSystem.enableBlend();
-		RenderSystem.defaultBlendFunc();
 		g.pose().pushPose();
 		g.pose().translate(x0 + scrollX, y0 + scrollY, 0);
 		LocateResult hover = handler.getElementOnHex((mx - x0 - scrollX) / magn, (my - y0 - scrollY) / magn);
@@ -86,7 +83,6 @@ public class HexGraphGui {
 		renderError(g, width, length);
 		renderIcons(g);
 		g.pose().popPose();
-		RenderSystem.disableBlend();
 	}
 
 	public void renderHover(GuiGraphics g, double mx, double my) {

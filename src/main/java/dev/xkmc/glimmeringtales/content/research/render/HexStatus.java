@@ -1,7 +1,11 @@
 package dev.xkmc.glimmeringtales.content.research.render;
 
+import dev.xkmc.glimmeringtales.content.research.core.PlayerResearch;
 import dev.xkmc.glimmeringtales.init.data.GTLang;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 
 import java.util.Locale;
 
@@ -46,6 +50,13 @@ public class HexStatus {
 		public String defText() {
 			return name().toLowerCase(Locale.ROOT);
 		}
+	}
+
+	public static void openEditor(Player player, ResourceLocation id) {
+		var data = PlayerResearch.of(player);
+		var research = data.get(id);
+		if (research == null) return;
+		Minecraft.getInstance().setScreen(new MagicHexScreen(research));
 	}
 
 }

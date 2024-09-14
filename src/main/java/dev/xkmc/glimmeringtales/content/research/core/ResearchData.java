@@ -1,16 +1,26 @@
 package dev.xkmc.glimmeringtales.content.research.core;
 
-import dev.xkmc.glimmeringtales.content.research.logic.*;
+import dev.xkmc.glimmeringtales.content.research.logic.HexHandler;
+import dev.xkmc.l2serial.serialization.marker.SerialClass;
+import dev.xkmc.l2serial.serialization.marker.SerialField;
 
+@SerialClass
 public final class ResearchData {
 
 	public static ResearchData create() {
 		return new ResearchData(new HexHandler(3).write(), HexOrder.create(), SpellResearch.UNLOCKED);
 	}
 
+	@SerialField
 	private HexHandler.Data hex;
+	@SerialField
 	private HexOrder order;
+	@SerialField
 	private int cost;
+
+	@Deprecated
+	public ResearchData() {
+	}
 
 	public ResearchData(
 			HexHandler.Data hex,

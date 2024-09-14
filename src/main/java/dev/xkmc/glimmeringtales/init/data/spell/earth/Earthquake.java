@@ -41,7 +41,7 @@ public class Earthquake {
 					"[Surrounding] Shake the ground and throw blocks into air",
 					"Create earthquake dealing dealing %s, then throw blocks around you into the air that deals %s on fall",
 					SpellTooltipData.damageAndFalling()
-			);
+			).graph("L->E", "E->F", "F->S", "S->O", "O->T", "T->L");
 
 	private static final DoubleVariable DMG = DoubleVariable.of("2");
 	private static final DoubleVariable INIT = DoubleVariable.of("10");

@@ -375,7 +375,7 @@ public class GTItems {
 
 			RUNES = VarItemInit.setup(GlimmeringTales.REGISTRATE, GlimmeringTales.loc("block_runes"),
 					e -> new BlockRuneItem(new Item.Properties().fireResistant()),
-					(rl, b) -> b.tag(GTTagGen.CORE).model((ctx, pvd) -> {
+					(rl, b) -> b.tag(GTTagGen.RUNE).model((ctx, pvd) -> {
 						pvd.generated(ctx, pvd.modLoc("item/rune/" + ctx.getName()));
 						pvd.getBuilder(ctx.getName() + "_core").parent(
 										new ModelFile.UncheckedModelFile(pvd.modLoc("custom/rune_core")))
@@ -386,7 +386,7 @@ public class GTItems {
 
 			SPELLS = VarItemInit.setup(GlimmeringTales.REGISTRATE, GlimmeringTales.loc("spell_runes"),
 					e -> new SpellRuneItem(new Item.Properties().fireResistant(), e),
-					(rl, b) -> b.tag(GTTagGen.CORE)
+					(rl, b) -> b.tag(GTTagGen.SPELL)
 							.lang("Rune: " + RegistrateLangProvider.toEnglishName(rl.getPath()))
 							.model((ctx, pvd) -> {
 								pvd.generated(ctx, pvd.modLoc("item/spell/" + ctx.getName()));
