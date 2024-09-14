@@ -50,7 +50,7 @@ public class SandSpells {
 					"[Block] Create sandstorm trapping enemies",
 					"Create a sand tornado, trapping enemies touched, dealing %s, and inflict %s",
 					SpellTooltipData.damageAndEffect()
-			);
+			).graph("E->SF");
 
 	private static final DoubleVariable DMG = DoubleVariable.of("4");
 

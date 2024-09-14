@@ -2,22 +2,23 @@ package dev.xkmc.glimmeringtales.content.research.core;
 
 import dev.xkmc.glimmeringtales.content.core.spell.SpellElement;
 import dev.xkmc.glimmeringtales.content.research.logic.*;
-import dev.xkmc.glimmeringtales.init.reg.GTRegistries;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 
 public record HexOrder(int[] order, ArrayList<SpellElement> list) {
 
-	public static HexOrder create() {
-		ArrayList<SpellElement> list = new ArrayList<>();
-		for (var e : GTRegistries.ELEMENT.reg()) {
-			list.add(e);
-		}
-		int[] order = new int[6];
-		for (int i = 0; i < 6; i++)
-			order[i] = i;
-		return new HexOrder(order, list);
+	public static final int[][] DEF = {
+			{0, 1, 2, 3, 4, 5},
+			{0, 2, 4, 1, 3, 5},
+			{0, 3, 1, 4, 2, 5},
+			{0, 1, 4, 2, 3, 5},
+			{0, 1, 2, 3, 4, 5},
+			{0, 1, 2, 3, 4, 5},
+	};
+
+	public static HexOrder create(int n) {
+		return new HexOrder(DEF[n - 1].clone(), new ArrayList<>());
 	}
 
 	public HexOrder copy() {

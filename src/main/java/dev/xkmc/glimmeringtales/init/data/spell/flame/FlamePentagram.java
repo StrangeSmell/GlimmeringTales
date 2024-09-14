@@ -52,7 +52,7 @@ public class FlamePentagram {
 					"[Ranged] Form a flame circle",
 					"Create a pentagram on target position and inflict %s to enemies within",
 					SpellTooltipData.damage()
-			);
+			).graph("E->SF", "L->OT", "SO->E", "FT->L");
 
 	public static final NatureSpellBuilder LAVA_BURST = GTRegistries.FLAME
 			.build(GlimmeringTales.loc("lava_burst")).focusAndCost(3, 10, 30)
@@ -64,7 +64,7 @@ public class FlamePentagram {
 					"[Charge] Cause several bursts in the front",
 					"Charge attack: create up to 3 arcs of pentagram marks in front of you and inflict %s to enemies within.",
 					SpellTooltipData.damage()
-			);
+			).graph("E<->SF", "SF<->OT", "OT<->L");
 
 	private static final DoubleVariable HM_DMG = DoubleVariable.of("8");
 	private static final DoubleVariable LB_DMG = DoubleVariable.of("10");

@@ -38,12 +38,11 @@ public class PlayerResearch {
 	@Nullable
 	public SpellResearch get(ResourceLocation id) {
 		ResearchData dat = data.get(id);
-		if (dat == null) dat = ResearchData.create();
 		return get(id, dat);
 	}
 
 	@Nullable
-	public SpellResearch get(ResourceLocation id, ResearchData dat) {
+	public SpellResearch get(ResourceLocation id, @Nullable ResearchData dat) {
 		var reg = player.level().registryAccess().registryOrThrow(GTRegistries.SPELL);
 		if (validSpells == null) {
 			validSpells = reg.holders()
@@ -59,7 +58,9 @@ public class PlayerResearch {
 		if (spell == null) return null;
 		var graph = spell.graph();
 		if (graph == null) return null;
-		SpellResearch ans = new SpellResearch(this, id, dat, HexGraph.create(id, graph.map(), graph.flows()));
+		if (dat == null) dat = ResearchData.create(graph.map().size());
+		var map = HexGraph.create(id, graph.map(), graph.flows());
+		SpellResearch ans = new SpellResearch(this, id, dat, map);
 		cache.put(id, ans);
 		return ans;
 	}

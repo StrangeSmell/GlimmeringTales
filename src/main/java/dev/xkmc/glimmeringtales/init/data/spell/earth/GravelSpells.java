@@ -52,7 +52,7 @@ public class GravelSpells {
 					"[Block] Create flint storm",
 					"Create a flint storm, dealing %s, and inflict %s",
 					SpellTooltipData.damageAndEffect()
-			);
+			).graph("E->S", "S->F", "F->E");
 
 	private static final DoubleVariable DMG = DoubleVariable.of("4");
 

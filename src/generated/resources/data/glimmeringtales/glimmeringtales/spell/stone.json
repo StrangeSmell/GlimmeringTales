@@ -2,6 +2,15 @@
   "cost": 20,
   "elem": "glimmeringtales:earth",
   "focus": 10,
+  "graph": {
+    "flows": [
+      "E->F"
+    ],
+    "map": {
+      "E": "glimmeringtales:earth",
+      "F": "glimmeringtales:flame"
+    }
+  },
   "maxConsumeTick": 0,
   "spell": "glimmeringtales:stone",
   "tooltip": {

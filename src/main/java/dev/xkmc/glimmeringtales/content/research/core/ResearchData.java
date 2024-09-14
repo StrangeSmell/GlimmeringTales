@@ -7,8 +7,8 @@ import dev.xkmc.l2serial.serialization.marker.SerialField;
 @SerialClass
 public final class ResearchData {
 
-	public static ResearchData create() {
-		return new ResearchData(new HexHandler(3).write(), HexOrder.create(), SpellResearch.UNLOCKED);
+	public static ResearchData create(int n) {
+		return new ResearchData(new HexHandler(3).write(), HexOrder.create(n), SpellResearch.UNLOCKED);
 	}
 
 	@SerialField

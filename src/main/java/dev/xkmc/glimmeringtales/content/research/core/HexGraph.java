@@ -12,7 +12,7 @@ public record HexGraph(SpellElement[] elements, boolean[][] graph) {
 
 	@Nullable
 	public SpellElement getElem(int index) {
-		return elements[index];
+		return index >= elements.length ? null : elements[index];
 	}
 
 	public boolean connected(int src, int dst) {
