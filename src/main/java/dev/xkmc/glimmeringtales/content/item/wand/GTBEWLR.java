@@ -14,6 +14,7 @@ import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
+import org.apache.commons.lang3.function.Consumers;
 import org.joml.Quaternionf;
 
 import java.util.function.Consumer;
@@ -52,20 +53,20 @@ public class GTBEWLR extends BlockEntityWithoutLevelRenderer {
 		var handle = RuneWandItem.getHandle(stack);
 		if (type == ItemDisplayContext.GUI) {
 			render(stack, type, false, pose, bufferSource, light, overlay,
-					manager.getModel(handle.icon()), GTBEWLR::wandHandle);
+					manager.getModel(handle.icon()), Consumers.nop());
 			return;
 		}
 		render(stack, type, false, pose, bufferSource, light, overlay,
 				manager.getModel(handle.model()), GTBEWLR::wandHandle);
-		var sel = RuneWandItem.getCore(stack).getItem();
-		if (sel instanceof IWandCoreItem core) {
-			render(stack, type, false, pose, bufferSource, light, overlay,
+		var sel = RuneWandItem.getCore(stack);
+		if (sel.getItem() instanceof IWandCoreItem core) {
+			render(sel, type, false, pose, bufferSource, light, overlay,
 					manager.getModel(core.model()), p -> wandCore(handle, p));
 		}
 	}
 
 	private static void wandHandle(PoseStack pose) {
-
+		pose.rotateAround(Axis.YP.rotationDegrees(90), 0.5f, 0.5f, 0.5f);
 	}
 
 	private static void wandCore(WandHandleItem item, PoseStack pose) {
@@ -89,6 +90,7 @@ public class GTBEWLR extends BlockEntityWithoutLevelRenderer {
 			boolean flag1 = true;
 			for (var model : baked.getRenderPasses(stack, flag1)) {
 				for (var rendertype : model.getRenderTypes(stack, flag1)) {
+					// rendertype = RenderType.END_GATEWAY;
 					VertexConsumer vertexconsumer;
 					vertexconsumer = ItemRenderer.getFoilBufferDirect(buffer, rendertype, true, stack.hasFoil());
 					ir.renderModelLists(model, stack, light, overlay, pose, vertexconsumer);
