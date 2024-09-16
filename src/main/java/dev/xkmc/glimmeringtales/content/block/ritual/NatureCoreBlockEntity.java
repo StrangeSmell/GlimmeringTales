@@ -84,7 +84,8 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 			update = true;
 		}
 		remainTime--;
-		if(remainTime %5==0) {
+
+		if(remainTime %5==totalTime%5) {
 			level.playSound(null,this.getBlockPos(), SoundEvents.RESPAWN_ANCHOR_AMBIENT, SoundSource.BLOCKS,1,1);
 		}
 		if (remainTime <= 0) {
