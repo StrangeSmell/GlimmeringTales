@@ -83,10 +83,11 @@ public class NatureCoreBlockEntity extends CoreRitualBlockEntity {
 			recipe = opt.get().value();
 			update = true;
 		}
-		remainTime--;
-		if(remainTime %5==totalTime%5) {
+		if(remainTime %20==totalTime%20) {
 			level.playSound(null,this.getBlockPos(), SoundEvents.RESPAWN_ANCHOR_AMBIENT, SoundSource.BLOCKS,1,1);
 		}
+		remainTime--;
+
 		if (remainTime <= 0) {
 			recipe.assemble(new RitualInput(this, getLinked()), level.registryAccess());
 			laps();
