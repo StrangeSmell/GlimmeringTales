@@ -71,10 +71,14 @@ public class FlamePentagram {
 
 	private static ConfiguredEngine<?> flameBurst(NatureSpellBuilder ctx) {
 		return new ListLogic(List.of(
-				new SoundInstance(
-						SoundEvents.FIRECHARGE_USE,
-						DoubleVariable.of("1"),
-						DoubleVariable.of("rand(-0.1,0.1)+rand(-0.1,0.1)")
+				new DelayedIterator(
+						IntVariable.of("10"),
+						IntVariable.of("5"),
+						new SoundInstance(
+								SoundEvents.FIRECHARGE_USE,
+								DoubleVariable.of("1"),
+								DoubleVariable.of("rand(-0.1,0.1)+rand(-0.1,0.1)")
+						),null
 				),
 				star(4, 0.3).move(
 						new SetDirectionModifier(
@@ -93,6 +97,7 @@ public class FlamePentagram {
 												DoubleVariable.of("6")
 										), List.of(
 										new DamageProcessor(ctx.damage(), HM_DMG, true, false),
+
 										new PushProcessor(
 												DoubleVariable.of("0.1"),
 												DoubleVariable.ZERO,
