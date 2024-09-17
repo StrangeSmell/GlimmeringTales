@@ -134,6 +134,14 @@ public class GravelSpells {
 						),
 
 						null),
+				new DelayedIterator(IntVariable.of("30"), IntVariable.of("1"),
+						new SoundInstance(
+								SoundEvents.GRAVEL_BREAK,
+								DoubleVariable.of("1"),
+								DoubleVariable.of("0.8+rand(-0.5,0.2)+rand(-0.5,0.2)")
+						),
+
+						null),
 
 				new DelayedIterator(IntVariable.of("18"), IntVariable.of("2"), damage, null),
 				new DelayedIterator(IntVariable.of("22"), IntVariable.of("2"), tick, null)
